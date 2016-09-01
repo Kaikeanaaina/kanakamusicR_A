@@ -1,7 +1,7 @@
 const React = require('react')
 const LandingHeader = require('./LandingHeader')
 const LandingFooter = require('./LandingFooter')
-const Artists = require('./Artist')
+const Artists = require('./Artists')
 
 const Landing = () => (
   <div className=''>

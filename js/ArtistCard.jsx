@@ -1,6 +1,6 @@
 const React = require('react')
 
-const ShowCard = (props) => (
+const ArtistCard = (props) => (
   <div className=''>
     <h4 className=''>{props.name}</h4>
   </div>
@@ -8,8 +8,8 @@ const ShowCard = (props) => (
 
 const { string } = React.PropTypes
 
-ShowCard.propTypes = {
+ArtistCard.propTypes = {
   name: string.isRequired
 }
 
-module.exports = ShowCard
+module.exports = ArtistCard
