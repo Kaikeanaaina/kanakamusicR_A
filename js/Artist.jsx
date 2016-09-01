@@ -1,12 +1,15 @@
 const React = require('react')
 const ShowCard = require('./ShowCard')
 const data = require('../public/data')
+const { Link } = require('react-router')
 
 const Artist = () => (
-  <div className='container'>
-    <div className='shows'>
+  <div>
+    <div>
       {data.artists.map((artist) => (
-        <ShowCard {...artist} />
+        <Link to={`/artist/${artist.name}`}>
+          <ShowCard {...artist} />
+        </Link>
       ))}
     </div>
   </div>

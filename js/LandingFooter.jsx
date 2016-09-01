@@ -1,7 +1,7 @@
 const React = require('react')
 
 const LandingFooter = () => (
-  <div id='footer'>
+  <div id='footer' className='LandingFooter'>
     <h5> this is the footer</h5>
     <p> social medias</p>
     <p> email list</p>

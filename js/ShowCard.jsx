@@ -1,10 +1,8 @@
 const React = require('react')
 
 const ShowCard = (props) => (
-  <div className='show-card'>
-    <div className='show-card-text'>
-      <h3 className='show-card-title'>{props.name}</h3>
-    </div>
+  <div className=''>
+    <h4 className=''>{props.name}</h4>
   </div>
 )
 
