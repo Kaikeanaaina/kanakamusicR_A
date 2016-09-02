@@ -4,7 +4,8 @@
   "description": "KanakaMusic Website",
   "main": "index.js",
   "scripts": {
-    "test": "standard",
+    "test": "mocha --require test/helpers/setup.js",
+    "lint": "standard",
     "build": "webpack",
     "watch": "webpack --watch"
   },

@@ -14,8 +14,8 @@ const Artists = React.createClass({
   render () {
     return (
       <div>
-        <h2>{this.state.searchTerm}</h2>
-        <input value={this.state.searchTerm} type='text' placeholder='Search' onChange={this.handleSearchTermEvent}></input>
+        <h2 className='brand'>Aloha</h2>
+        <input value={this.state.searchTerm} type='text' placeholder='Search' onChange={this.handleSearchTermEvent} />
 
         <div>
           {data.artists
