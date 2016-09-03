@@ -1,15 +1,13 @@
 const React = require('react')
 
-const ShowArtistContent = (props) => (
-  <div>
-    <h4>{props.title}</h4>
-  </div>
-)
-
-const { string } = React.PropTypes
-
-ShowArtistContent.propTypes = {
-  title: string.isRequired
+class ShowArtistContent extends React.Component {
+  render () {
+    return (
+      <div className='container'>
+        <h1>lololhi</h1>
+      </div>
+    )
+  }
 }
 
 module.exports = ShowArtistContent

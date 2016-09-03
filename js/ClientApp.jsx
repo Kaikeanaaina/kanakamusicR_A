@@ -9,7 +9,7 @@ const App = () => (
   <Router history={hashHistory}>
     <Route path='/' component={Landing} />
     <Route path='/artists' component={Artists} />
-    <Route path={'/artist/Ekolu'} component={ArtistContent} />
+    <Route path='/artists/:id' component={ArtistContent} />
   </Router>
 )
 

@@ -21,7 +21,7 @@ const Artists = React.createClass({
           {data.artists
             .filter((artist) => `${artist.name}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
             .map((artist) => (
-              <Link to={`/artist/${artist.name}`}>
+              <Link to={`/artists/${artist.name}`}>
                 <h4 className=''>{artist.name}</h4>
               </Link>
           ))}
