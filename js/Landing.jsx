@@ -1,20 +1,22 @@
 const React = require('react')
-const LandingHeader = require('./LandingHeader')
-const LandingFooter = require('./LandingFooter')
-const Artists = require('./Artists')
+const { Link } = require('react-router')
+const Header = require('./HeaderNavbar')
+const Footer = require('./Footer')
+const MyTitle = require('./MyTitle')
+const SongList = require('./SongList')
 
-const Landing = () => (
-  <div className=''>
-    <div className='home-info'>
+class MyFirstComponent extends React.Component {
+  render () {
+    return (
+      <div>
+        <Header className='header' />
+        <MyTitle title='Aloha this is kainoa' />
+        <SongList />
+        <Link to='/OtherRoute'>click to english</Link>
+        <Footer />
+      </div>
+    )
+  }
+}
 
-      <LandingHeader />
-
-      <Artists />
-
-      <LandingFooter />
-
-    </div>
-  </div>
-)
-
-module.exports = Landing
+module.exports = MyFirstComponent

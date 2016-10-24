@@ -2,13 +2,13 @@
 
 const { expect } = require('chai')
 const React = require('react')
-const Artists = require('../js/Artists')
+const OtherRoute = require('../js/OtherRoute')
+const MyTitle = require('../js/MyTitle')
 const { shallow } = require('enzyme')
 
-describe('<Artists /> ', () => {
-  it('should render the branch', () => {
-    const wrapper = shallow(<Artists />)
-    console.log(wrapper.debug())
-    expect(wrapper.contains(<h2 className='brand'>Aloha</h2>)).to.be.true
+describe('<OtherRoute />', () => {
+  it('should render the brand', () => {
+    const wrapper = shallow(<OtherRoute />)
+    expect(wrapper.contains(<MyTitle title='Hello this is the english version' />)).to.be.true
   })
 })
