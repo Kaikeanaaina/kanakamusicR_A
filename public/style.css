@@ -17,6 +17,7 @@ html {
 
 .Footer {
   background-color: rgba(7, 220, 220, 220);
+  position:static;
 }
 
 #AddNewSong {
