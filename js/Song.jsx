@@ -16,6 +16,9 @@ class Song extends React.Component {
         song: res.data
       })
     })
+    .catch((error) => {
+      console.error('axios error', error)
+    })
   }
   render () {
     return (
