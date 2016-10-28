@@ -30,6 +30,9 @@ app.all('/*', function (req, res, next) {
 })
 
 app.use('/songs', require('./routes/song.js'))
+app.use('/artists', require('./routes/artist.js'))
+app.use('/albums', require('./routes/album.js'))
+app.use('/recordLabels', require('./routes/recordLabel.js'))
 
 app.use((req, res) => {
   match({ routes: Routes(), location: req.url }, (error, redirectLocation, renderProps) => {
