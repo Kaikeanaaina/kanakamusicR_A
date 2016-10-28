@@ -164,7 +164,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     }
-  })
+  }, {
+    classMethods: {
+      associate : function(models) {
+        Song.belongsTo(models.Artist);
+        Song.belongsTo(models.Album);
+      }
+    }
+  });
 
   return Song
 }
