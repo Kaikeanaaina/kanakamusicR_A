@@ -3,8 +3,9 @@ const { Link } = require('react-router')
 
 const HeaderNavbar = () => (
   <div id='header-bar' className='HeaderNavbar'>
-    <h3>KanakaMusic</h3>
+    <Link to='/'>KanakaMusic</Link>
     <h4>This is the header</h4>
+    <Link to='/addNewSong'> +Song </Link>
     <p>Search</p>
     <form>
       <input type='text' />
