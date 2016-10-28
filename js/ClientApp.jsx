@@ -14,6 +14,7 @@ const Connect = require('./Connect')
 const Settings = require('./Settings')
 const Gigs = require('./Gigs')
 const Song = require('./Song')
+const AddNewSong = require('./AddNewSong')
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
@@ -27,6 +28,7 @@ const myRoutes = () => (
     <Route path='/Settings' component={Settings} />
     <Route path='/Gigs' component={Gigs} />
     <Route path='/song/:id' component={Song} />
+    <Route path='/addNewSong' component={AddNewSong} />
   </Route>
 )
 
