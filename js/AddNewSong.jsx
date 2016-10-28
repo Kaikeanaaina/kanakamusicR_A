@@ -1,10 +1,15 @@
 const React = require('react')
 const axios = require('axios')
+const { Link } = require('react-router')
 
 class AddNewSong extends React.Component {
   constructor (props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
+    this.artistChange = this.artistChange.bind(this)
+    this.state = ({
+      linkToNewArtist: false
+    })
   }
   onSubmit (e) {
     e.preventDefault()
@@ -148,26 +153,50 @@ class AddNewSong extends React.Component {
       object.line30 = null
     }
 
-    console.log('object', object)
-
     axios.post('http://localhost:5050/songs', object)
     .then((res) => {
       console.log('made it back to the client side')
     })
   }
-
+  artistChange (event) {
+    event.preventDefault()
+    if (event.target.value === 'giveAddNewArtistLink') {
+      this.setState({
+        linkToNewArtist: true
+      })
+    } else {
+      this.setState({
+        linkToNewArtist: false
+      })
+    }
+  }
   render () {
+    let AddNewArtistLink = null
+    if (this.state.linkToNewArtist) {
+      AddNewArtistLink = <div><br></br><Link to='/addNewArtist'>Add New Artist</Link><br></br></div>
+    }
     return (
       <div id='AddNewSong'>
         <h3>AddNewSong</h3>
         <form onSubmit={this.onSubmit}>
           <input type='text' ref='title' placeholder='title' />
           <br></br>
-          <select type='text' ref='artist' placeholder='artist' ></select>
+          <select type='text' ref='artist' onChange={this.artistChange} >
+            <option> artist here </option>
+            <option value='giveAddNewArtistLink' >AddNewArtist</option>
+          </select>
+          {AddNewArtistLink}
           <br></br>
-          <select type='text' ref='album' placeholder='album' ></select>
+          <select type='text' ref='album' placeholder='album' >
+            <option value='giveAddNewAlbumLink'>album here</option>
+          </select>
           <br></br>
-          <select type='text' ref='type' placeholder='type' ></select>
+          <select type='text' ref='type' placeholder='type' >
+            <option value='volvo'>Volvo</option>
+            <option value='saab'>Saab</option>
+            <option value='mercedes'>Mercedes</option>
+            <option value='audi'>Audi</option>
+          </select>
           <br></br>
           <textarea type='text' ref='description' placeholder='description' />
           <br></br>
