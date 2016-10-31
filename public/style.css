@@ -24,6 +24,14 @@ html {
   margin-top: 800px;
 }
 
+#AddNewArtist {
+  margin-top: 300px;
+}
+
+#AddNewAlbum {
+  margin-top: 300px;
+}
+
 /*////////////////////////////////////////////*/
 
 .app-container {
