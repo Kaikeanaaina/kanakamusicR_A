@@ -7,8 +7,20 @@ class AddNewSong extends React.Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.artistChange = this.artistChange.bind(this)
+    this.albumChange = this.albumChange.bind(this)
     this.state = ({
-      linkToNewArtist: false
+      linkToNewArtist: false,
+      linkToNewAlbum: false,
+      artists: [],
+      albums: []
+    })
+  }
+  componentDidMount () {
+    axios.get('http://localhost:5050/artists')
+    .then((res) => {
+      this.setState({
+        artists: res.data
+      })
     })
   }
   onSubmit (e) {
@@ -52,7 +64,9 @@ class AddNewSong extends React.Component {
       line27: this.refs.line27.value,
       line28: this.refs.line28.value,
       line29: this.refs.line29.value,
-      line30: this.refs.line30.value
+      line30: this.refs.line30.value,
+      ArtistId: this.refs.artist.value,
+      AlbumId: this.refs.album.value
     }
 
     if (!this.refs.title.value || !this.refs.artist.value || !this.refs.album.value || !this.refs.type.value) {
@@ -155,7 +169,7 @@ class AddNewSong extends React.Component {
 
     axios.post('http://localhost:5050/songs', object)
     .then((res) => {
-      console.log('made it back to the client side')
+      window.location.href = '/#/'
     })
   }
   artistChange (event) {
@@ -164,9 +178,30 @@ class AddNewSong extends React.Component {
       this.setState({
         linkToNewArtist: true
       })
+    } else if (event.target.value === 'artistHere') {
+      return
     } else {
       this.setState({
         linkToNewArtist: false
+      })
+      // populate the albums depending on the artist
+      axios.get(`http://localhost:5050/albums/ofArtist/${event.target.value}`)
+      .then((res) => {
+        this.setState({
+          albums: res.data
+        })
+      })
+    }
+  }
+  albumChange (event) {
+    event.preventDefault()
+    if (event.target.value === 'giveAddNewAlbumLink') {
+      this.setState({
+        linkToNewAlbum: true
+      })
+    } else {
+      this.setState({
+        linkToNewAlbum: false
       })
     }
   }
@@ -175,6 +210,10 @@ class AddNewSong extends React.Component {
     if (this.state.linkToNewArtist) {
       AddNewArtistLink = <div><br></br><Link to='/addNewArtist'>Add New Artist</Link><br></br></div>
     }
+    let AddNewAlbumLink = null
+    if (this.state.linkToNewAlbum) {
+      AddNewAlbumLink = <div><br></br><Link to='/addNewAlbum'>Add New Album</Link><br></br></div>
+    }
     return (
       <div id='AddNewSong'>
         <h3>AddNewSong</h3>
@@ -182,20 +221,27 @@ class AddNewSong extends React.Component {
           <input type='text' ref='title' placeholder='title' />
           <br></br>
           <select type='text' ref='artist' onChange={this.artistChange} >
-            <option> artist here </option>
+            <option value='artistHere'> artist here </option>
             <option value='giveAddNewArtistLink' >AddNewArtist</option>
+            {this.state.artists.map((artist, index) => (
+              <option key={index} value={artist.id} > {artist.name} </option>
+            ))}
           </select>
           {AddNewArtistLink}
           <br></br>
-          <select type='text' ref='album' placeholder='album' >
-            <option value='giveAddNewAlbumLink'>album here</option>
+          <select type='text' ref='album' placeholder='album' onChange={this.albumChange}>
+            <option value='albumHere'>album here</option>
+            <option value='giveAddNewAlbumLink'>AddNewAlbum</option>
+              {this.state.albums.map((album, index) => (
+                <option key={index} value={album.id} > {album.title} </option>
+              ))}
           </select>
+          {AddNewAlbumLink}
           <br></br>
           <select type='text' ref='type' placeholder='type' >
-            <option value='volvo'>Volvo</option>
-            <option value='saab'>Saab</option>
-            <option value='mercedes'>Mercedes</option>
-            <option value='audi'>Audi</option>
+            <option value=''> type </option>
+            <option value='hawaiian'>Hawaiian</option>
+            <option value='contemporary'>contemporary</option>
           </select>
           <br></br>
           <textarea type='text' ref='description' placeholder='description' />
