@@ -2,6 +2,13 @@ const React = require('react')
 const axios = require('axios')
 const { Link } = require('react-router')
 
+const style = {
+  songLink: {
+    textDecoration: 'none',
+    color: 'blue'
+  }
+}
+
 class SongList extends React.Component {
   constructor (props) {
     super(props)
@@ -21,8 +28,9 @@ class SongList extends React.Component {
   render () {
     return (<div>
     {this.state.songs.map((song, index) => (
-      <Link key={index} to={`/song/${song.id}`}>
+      <Link key={index} to={`/song/${song.id}`} style={style.songLink}>
           {song.title}
+        <br></br>
       </Link>
     ))}
     </div>)
