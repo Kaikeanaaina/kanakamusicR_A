@@ -174,6 +174,10 @@ class AddNewSong extends React.Component {
   }
   artistChange (event) {
     event.preventDefault()
+
+    this.refs.album.value = 'album here'
+    this.state.linkToNewAlbum = false
+
     if (event.target.value === 'giveAddNewArtistLink') {
       this.setState({
         linkToNewArtist: true
@@ -230,7 +234,7 @@ class AddNewSong extends React.Component {
           {AddNewArtistLink}
           <br></br>
           <select type='text' ref='album' placeholder='album' onChange={this.albumChange}>
-            <option value='albumHere'>album here</option>
+            <option >album here</option>
             <option value='giveAddNewAlbumLink'>AddNewAlbum</option>
               {this.state.albums.map((album, index) => (
                 <option key={index} value={album.id} > {album.title} </option>
