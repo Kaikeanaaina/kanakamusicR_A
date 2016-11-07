@@ -14,6 +14,7 @@ const Connect = require('./Connect')
 const Settings = require('./Settings')
 const Gigs = require('./Gigs')
 const Song = require('./Song')
+const Chords = require('./Chords')
 const AddNewSong = require('./AddNewSong')
 const AddNewArtist = require('./AddNewArtist')
 const AddNewRecordLabel = require('./AddNewRecordLabel')
@@ -31,6 +32,7 @@ const myRoutes = () => (
     <Route path='/Settings' component={Settings} />
     <Route path='/Gigs' component={Gigs} />
     <Route path='/song/:id' component={Song} />
+    <Route path='/Chords' component={Chords} />
     <Route path='/addNewSong' component={AddNewSong} />
     <Route path='/addNewArtist' component={AddNewArtist} />
     <Route path='/addNewRecordLabel' component={AddNewRecordLabel} />
