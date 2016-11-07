@@ -6,7 +6,8 @@ const styles = {
   fontSize: '24px',
   padding: '5px',
   margin: '5px',
-  width: '80%'
+  width: '80%',
+  borderRadius: '5px'
 }
 
 class AddNewSong extends React.Component {
@@ -35,15 +36,15 @@ class AddNewSong extends React.Component {
     this.handleLine18 = this.handleLine18.bind(this)
     this.handleLine19 = this.handleLine19.bind(this)
     this.handleLine20 = this.handleLine20.bind(this)
-    this.handleLine21 = this.handleLine20.bind(this)
-    this.handleLine22 = this.handleLine20.bind(this)
-    this.handleLine23 = this.handleLine20.bind(this)
-    this.handleLine24 = this.handleLine20.bind(this)
-    this.handleLine25 = this.handleLine20.bind(this)
-    this.handleLine26 = this.handleLine20.bind(this)
-    this.handleLine27 = this.handleLine20.bind(this)
-    this.handleLine28 = this.handleLine20.bind(this)
-    this.handleLine29 = this.handleLine20.bind(this)
+    this.handleLine21 = this.handleLine21.bind(this)
+    this.handleLine22 = this.handleLine22.bind(this)
+    this.handleLine23 = this.handleLine23.bind(this)
+    this.handleLine24 = this.handleLine24.bind(this)
+    this.handleLine25 = this.handleLine25.bind(this)
+    this.handleLine26 = this.handleLine26.bind(this)
+    this.handleLine27 = this.handleLine27.bind(this)
+    this.handleLine28 = this.handleLine28.bind(this)
+    this.handleLine29 = this.handleLine29.bind(this)
 
     this.state = ({
       linkToNewArtist: false,
@@ -92,10 +93,7 @@ class AddNewSong extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    // if (!this.refs.line1.value) {
-    //   return alert('fill in all areas')
-    // }
-    var object = {
+    let object = {
       title: this.refs.title.value,
       artist: this.refs.artist.value,
       album: this.refs.album.value,
@@ -136,6 +134,7 @@ class AddNewSong extends React.Component {
     }
 
     if (!this.refs.title.value || !this.refs.artist.value || !this.refs.album.value || !this.refs.type.value) {
+      // throw error message here
       return console.log('fill in the necessary blanks')
     }
 
@@ -277,320 +276,204 @@ class AddNewSong extends React.Component {
   }
   handleLine1 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line2: true
-      })
-    } else {
-      this.setState({
-        line2: false
       })
     }
   }
   handleLine2 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line3: true
-      })
-    } else {
-      this.setState({
-        line3: false
       })
     }
   }
   handleLine3 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line4: true
-      })
-    } else {
-      this.setState({
-        line4: false
       })
     }
   }
   handleLine4 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line5: true
-      })
-    } else {
-      this.setState({
-        line5: false
       })
     }
   }
   handleLine5 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line6: true
-      })
-    } else {
-      this.setState({
-        line6: false
       })
     }
   }
   handleLine6 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line7: true
-      })
-    } else {
-      this.setState({
-        line7: false
       })
     }
   }
   handleLine7 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line8: true
-      })
-    } else {
-      this.setState({
-        line8: false
       })
     }
   }
   handleLine8 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line9: true
-      })
-    } else {
-      this.setState({
-        line9: false
       })
     }
   }
   handleLine9 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line10: true
-      })
-    } else {
-      this.setState({
-        line10: false
       })
     }
   }
   handleLine10 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line11: true
-      })
-    } else {
-      this.setState({
-        line11: false
       })
     }
   }
   handleLine11 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line12: true
-      })
-    } else {
-      this.setState({
-        line12: false
       })
     }
   }
   handleLine12 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line13: true
-      })
-    } else {
-      this.setState({
-        line13: false
       })
     }
   }
   handleLine13 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line14: true
-      })
-    } else {
-      this.setState({
-        line14: false
       })
     }
   }
   handleLine14 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line15: true
-      })
-    } else {
-      this.setState({
-        line15: false
       })
     }
   }
   handleLine15 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line16: true
-      })
-    } else {
-      this.setState({
-        line16: false
       })
     }
   }
   handleLine16 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line17: true
-      })
-    } else {
-      this.setState({
-        line17: false
       })
     }
   }
   handleLine17 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line18: true
-      })
-    } else {
-      this.setState({
-        line18: false
       })
     }
   }
   handleLine18 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line19: true
-      })
-    } else {
-      this.setState({
-        line19: false
       })
     }
   }
   handleLine19 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line20: true
-      })
-    } else {
-      this.setState({
-        line20: false
       })
     }
   }
   handleLine20 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line21: true
-      })
-    } else {
-      this.setState({
-        line21: false
       })
     }
   }
   handleLine21 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line22: true
-      })
-    } else {
-      this.setState({
-        line22: false
       })
     }
   }
   handleLine22 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line23: true
-      })
-    } else {
-      this.setState({
-        line23: false
       })
     }
   }
   handleLine23 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line24: true
-      })
-    } else {
-      this.setState({
-        line24: false
       })
     }
   }
   handleLine24 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line25: true
-      })
-    } else {
-      this.setState({
-        line25: false
       })
     }
   }
   handleLine25 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line26: true
-      })
-    } else {
-      this.setState({
-        line26: false
       })
     }
   }
   handleLine26 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line27: true
-      })
-    } else {
-      this.setState({
-        line27: false
       })
     }
   }
   handleLine27 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line28: true
-      })
-    } else {
-      this.setState({
-        line28: false
       })
     }
   }
   handleLine28 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line29: true
-      })
-    } else {
-      this.setState({
-        line29: false
       })
     }
   }
   handleLine29 (e) {
     if (e.target.value) {
-      this.setState({
+      return this.setState({
         line30: true
-      })
-    } else {
-      this.setState({
-        line30: false
       })
     }
   }
@@ -722,7 +605,7 @@ class AddNewSong extends React.Component {
     }
     return (
       <div id='AddNewSong'>
-        <h3>AddNewSong</h3>
+        <h2>AddNewSong</h2>
         <form onSubmit={this.onSubmit}>
           <input type='text' ref='title' style={styles} placeholder='title' />
           <br></br>
