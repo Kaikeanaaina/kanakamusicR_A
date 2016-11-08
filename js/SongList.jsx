@@ -3,9 +3,26 @@ const axios = require('axios')
 const { Link } = require('react-router')
 
 const style = {
+  songListContainer: {
+    alignItems: 'center',
+    backgroundColor: 'black',
+    padding: '10px',
+    margin: '10px'
+  },
+  songLinkContainer: {
+    alignItems: 'center',
+    padding: '10px',
+    margin: '10px',
+    backgroundColor: 'pink'
+  },
   songLink: {
+    fontSize: '24px',
     textDecoration: 'none',
-    color: 'blue'
+    color: 'blue',
+    borderBottom: 'black solid 1px',
+    backgroundColor: 'lightgrey',
+    margin: '10px',
+    borderRadius: '10px'
   }
 }
 
@@ -26,12 +43,16 @@ class SongList extends React.Component {
     })
   }
   render () {
-    return (<div>
-    {this.state.songs.map((song, index) => (
-      <Link key={index} to={`/song/${song.id}`} style={style.songLink}>
-          {song.title}
-        <br></br>
-      </Link>
+    return (<div style={style.songListContainer}>
+    {this.state.songs.map((song, i) => (
+      <div style={style.songLinkContainer}>
+        <Link key={i} to={`/song/${song.id}`}>
+          <div style={style.songLink}>
+            {song.title}
+          </div>
+          <br></br>
+        </Link>
+      </div>
     ))}
     </div>)
   }
