@@ -64,6 +64,7 @@
     "nyc": "6.0.0",
     "react-addons-test-utils": "0.14.7",
     "sinon": "^1.17.3",
+    "supertest": "^2.0.1",
     "webpack": "1.13.2"
   },
   "directories": {
