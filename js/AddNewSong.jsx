@@ -93,143 +93,199 @@ class AddNewSong extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    let object = {
-      title: this.refs.title.value,
-      artist: this.refs.artist.value,
-      album: this.refs.album.value,
-      type: this.refs.type.value,
-      description: this.refs.description.value,
-      line1: this.refs.line1.value,
-      line2: this.refs.line2.value,
-      line3: this.refs.line3.value,
-      line4: this.refs.line4.value,
-      line5: this.refs.line5.value,
-      line6: this.refs.line6.value,
-      line7: this.refs.line7.value,
-      line8: this.refs.line8.value,
-      line9: this.refs.line9.value,
-      line10: this.refs.line10.value,
-      line11: this.refs.line11.value,
-      line12: this.refs.line12.value,
-      line13: this.refs.line13.value,
-      line14: this.refs.line14.value,
-      line15: this.refs.line15.value,
-      line16: this.refs.line16.value,
-      line17: this.refs.line17.value,
-      line18: this.refs.line18.value,
-      line19: this.refs.line19.value,
-      line20: this.refs.line20.value,
-      line21: this.refs.line21.value,
-      line22: this.refs.line22.value,
-      line23: this.refs.line23.value,
-      line24: this.refs.line24.value,
-      line25: this.refs.line25.value,
-      line26: this.refs.line26.value,
-      line27: this.refs.line27.value,
-      line28: this.refs.line28.value,
-      line29: this.refs.line29.value,
-      line30: this.refs.line30.value,
-      ArtistId: this.refs.artist.value,
-      AlbumId: this.refs.album.value
-    }
+    console.log(this.refs)
 
-    if (!this.refs.title.value || !this.refs.artist.value || !this.refs.album.value || !this.refs.type.value) {
+    if (!this.refs.title.value || !this.refs.artist.value || !this.refs.album.value || !this.refs.type.value || this.refs.description.valua === 'type') {
       // throw error message here
       return console.log('fill in the necessary blanks')
     }
 
-    if (!this.refs.line1.value) {
+    let object = {
+      title: this.refs.title.value,
+      type: this.refs.type.value,
+      description: this.refs.description.value,
+      ArtistId: this.refs.artist.value,
+      AlbumId: this.refs.album.value
+    }
+
+    if (!this.refs.line1 || !this.refs.line1.value) {
       object.line1 = null
+    } else {
+      object.line1 = this.refs.line1.value
     }
-    if (!this.refs.line2.value) {
+
+    if (!this.refs.line2 || !this.refs.line2.value) {
       object.line2 = null
+    } else {
+      object.line2 = this.refs.line2.value
     }
-    if (!this.refs.line3.value) {
+
+    if (!this.refs.line3 || !this.refs.line3.value) {
       object.line3 = null
+    } else {
+      object.line3 = this.refs.line3.value
     }
-    if (!this.refs.line3.value) {
-      object.line3 = null
-    }
-    if (!this.refs.line4.value) {
+
+    if (!this.refs.line4 || !this.refs.line4.value) {
       object.line4 = null
+    } else {
+      object.line4 = this.refs.line4.value
     }
-    if (!this.refs.line5.value) {
+
+    if (!this.refs.line5 || !this.refs.line5.value) {
       object.line5 = null
+    } else {
+      object.line5 = this.refs.line5.value
     }
-    if (!this.refs.line6.value) {
+
+    if (!this.refs.line6 || !this.refs.line6.value) {
       object.line6 = null
+    } else {
+      object.line6 = this.refs.line6.value
     }
-    if (!this.refs.line7.value) {
+
+    if (!this.refs.line7 || !this.refs.line7.value) {
       object.line7 = null
+    } else {
+      object.line7 = this.refs.line7.value
     }
-    if (!this.refs.line8.value) {
+
+    if (!this.refs.line8 || !this.refs.line8.value) {
       object.line8 = null
+    } else {
+      object.line8 = this.refs.line8.value
     }
-    if (!this.refs.line9.value) {
+
+    if (!this.refs.line9 || !this.refs.line9.value) {
       object.line9 = null
+    } else {
+      object.line9 = this.refs.line9.value
     }
-    if (!this.refs.line10.value) {
+
+    if (!this.refs.line10 || !this.refs.line10.value) {
       object.line10 = null
+    } else {
+      object.line10 = this.refs.line10.value
     }
-    if (!this.refs.line11.value) {
+
+    if (!this.refs.line11 || !this.refs.line11.value) {
       object.line11 = null
+    } else {
+      object.line11 = this.refs.line11.value
     }
-    if (!this.refs.line12.value) {
+
+    if (!this.refs.line12 || !this.refs.line12.value) {
       object.line12 = null
+    } else {
+      object.line12 = this.refs.line12.value
     }
-    if (!this.refs.line13.value) {
+
+    if (!this.refs.line13 || !this.refs.line13.value) {
       object.line13 = null
+    } else {
+      object.line13 = this.refs.line13.value
     }
-    if (!this.refs.line14.value) {
+
+    if (!this.refs.line14 || !this.refs.line14.value) {
       object.line14 = null
+    } else {
+      object.line14 = this.refs.line14.value
     }
-    if (!this.refs.line15.value) {
+
+    if (!this.refs.line15 || !this.refs.line15.value) {
       object.line15 = null
+    } else {
+      object.line15 = this.refs.line15.value
     }
-    if (!this.refs.line16.value) {
+
+    if (!this.refs.line16 || !this.refs.line16.value) {
       object.line16 = null
+    } else {
+      object.line16 = this.refs.line16.value
     }
-    if (!this.refs.line17.value) {
+
+    if (!this.refs.line17 || !this.refs.line17.value) {
       object.line17 = null
+    } else {
+      object.line17 = this.refs.line17.value
     }
-    if (!this.refs.line18.value) {
+
+    if (!this.refs.line18 || !this.refs.line18.value) {
       object.line18 = null
+    } else {
+      object.line18 = this.refs.line18.value
     }
-    if (!this.refs.line19.value) {
+
+    if (!this.refs.line19 || !this.refs.line19.value) {
       object.line19 = null
+    } else {
+      object.line19 = this.refs.line19.value
     }
-    if (!this.refs.line20.value) {
+
+    if (!this.refs.line20 || !this.refs.line20.value) {
       object.line20 = null
+    } else {
+      object.line20 = this.refs.line20.value
     }
-    if (!this.refs.line21.value) {
+
+    if (!this.refs.line21 || !this.refs.line21.value) {
       object.line21 = null
+    } else {
+      object.line21 = this.refs.line21.value
     }
-    if (!this.refs.line22.value) {
+
+    if (!this.refs.line22 || !this.refs.line22.value) {
       object.line22 = null
+    } else {
+      object.line22 = this.refs.line22.value
     }
-    if (!this.refs.line23.value) {
+
+    if (!this.refs.line23 || !this.refs.line23.value) {
       object.line23 = null
+    } else {
+      object.line23 = this.refs.line23.value
     }
-    if (!this.refs.line24.value) {
+
+    if (!this.refs.line24 || !this.refs.line24.value) {
       object.line24 = null
+    } else {
+      object.line24 = this.refs.line24.value
     }
-    if (!this.refs.line25.value) {
+
+    if (!this.refs.line25 || !this.refs.line25.value) {
       object.line25 = null
+    } else {
+      object.line25 = this.refs.line25.value
     }
-    if (!this.refs.line26.value) {
+
+    if (!this.refs.line26 || !this.refs.line26.value) {
       object.line26 = null
+    } else {
+      object.line26 = this.refs.line26.value
     }
-    if (!this.refs.line27.value) {
+
+    if (!this.refs.line27 || !this.refs.line27.value) {
       object.line27 = null
+    } else {
+      object.line27 = this.refs.line27.value
     }
-    if (!this.refs.line28.value) {
+
+    if (!this.refs.line28 || !this.refs.line28.value) {
       object.line28 = null
+    } else {
+      object.line28 = this.refs.line28.value
     }
-    if (!this.refs.line29.value) {
+
+    if (!this.refs.line29 || !this.refs.line29.value) {
       object.line29 = null
+    } else {
+      object.line29 = this.refs.line29.value
     }
-    if (!this.refs.line30.value) {
+
+    if (!this.refs.line30 || !this.refs.line30.value) {
       object.line30 = null
+    } else {
+      object.line30 = this.refs.line30.value
     }
 
     axios.post('http://localhost:5050/songs', object)
