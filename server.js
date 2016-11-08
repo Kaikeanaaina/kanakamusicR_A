@@ -55,6 +55,6 @@ app.use((req, res) => {
 
 var server = app.listen(port, function () {
   db.sequelize.sync()
-  console.log('server listening on port ' + server.address())
+  console.log('server listening on port ' + server.address().port)
 })
 
