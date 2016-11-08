@@ -9,10 +9,6 @@ const { Link } = require('react-router')
 
 describe('<HeaderNavBar />', () => {
 
-  it('should be true', () => {
-    expect(2+2).to.equal(4)
-  })
-
   it('should have Links', () => {
     const wrapper = mount(<HeaderNavBar />)
     expect(wrapper.find(Link)).to.have.length(6)

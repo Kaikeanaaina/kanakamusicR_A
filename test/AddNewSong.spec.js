@@ -29,6 +29,11 @@ describe('AddNewSong Initial State', () => {
     expect(wrapper.state().artists).to.be.empty
   })
 
+  it('artists should be an array type', () => {
+    const wrapper = mount(<AddNewSong />)
+    expect(wrapper.state().artists).to.be.an('array')
+  })
+
   it('should have an intial albums state', () => {
     const wrapper = mount(<AddNewSong />)
     expect(wrapper.state().albums).to.be.defined
@@ -37,6 +42,11 @@ describe('AddNewSong Initial State', () => {
   it('albums state initially should be false', () => {
     const wrapper = mount(<AddNewSong />)
     expect(wrapper.state().albums).to.be.empty
+  })
+
+  it('albums should be an array type', () => {
+    const wrapper = mount(<AddNewSong />)
+    expect(wrapper.state().albums).to.be.an('array')
   })
 
   it('should have an intial line2 state', () => {
@@ -330,8 +340,277 @@ describe('AddNewSong Initial State', () => {
   })
 })
 
-describe('calls componentDidMount', () => {
-  sinon.spy(AddNewSong.prototype, 'componentDidMount')
-  const wrapper = mount(<AddNewSong />)
-  expect(AddNewSong.prototype.componentDidMount.calledOnce).to.equal(true)
+
+describe('componentDidMount', () => {
+
+  it('should be called once', () => {
+    sinon.spy(AddNewSong.prototype, 'componentDidMount')
+    const wrapper = mount(<AddNewSong />)
+    expect(AddNewSong.prototype.componentDidMount.calledOnce).to.equal(true)
+  })
+
+  xit('should be make an axios request', () => {
+
+  })
+
+  xit('should make an ajax call', () => {
+
+  })
+
+  xit('should populate the artists state', () => {
+
+  })
+
+})
+
+describe('artistChange method', () => {
+  it('should handle event', () => {
+    sinon.spy(AddNewSong.prototype, 'artistChange')
+    const wrapper = mount(<AddNewSong />)
+    expect(AddNewSong.prototype.artistChange).to.be.defined
+  })
+})
+
+describe('albumChange method', () => {
+  it('should handle event', () => {
+    sinon.spy(AddNewSong.prototype, 'albumChange')
+    const wrapper = mount(<AddNewSong />)
+    expect(AddNewSong.prototype.albumChange).to.be.defined
+  })
+})
+
+describe('handline', ()=> {
+
+  describe('handleLine1 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine1')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine1).to.be.defined
+    })
+  })
+
+  describe('handleLine2 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine2')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine2).to.be.defined
+    })
+  })
+
+  describe('handleLine3 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine3')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine3).to.be.defined
+    })
+  })
+
+  describe('handleLine4 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine4')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine4).to.be.defined
+    })
+  })
+
+  describe('handleLine5 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine5')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine5).to.be.defined
+    })
+  })
+
+  describe('handleLine6 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine6')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine6).to.be.defined
+    })
+  })
+
+  describe('handleLine7 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine7')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine7).to.be.defined
+    })
+  })
+
+  describe('handleLine8 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine8')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine8).to.be.defined
+    })
+  })
+
+  describe('handleLine9 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine9')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine9).to.be.defined
+    })
+  })
+
+  describe('handleLine10 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine10')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine10).to.be.defined
+    })
+  })
+
+  describe('handleLine11 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine11')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine11).to.be.defined
+    })
+  })
+
+  describe('handleLine12 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine12')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine12).to.be.defined
+    })
+  })
+
+  describe('handleLine13 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine13')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine13).to.be.defined
+    })
+  })
+
+  describe('handleLine14 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine14')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine14).to.be.defined
+    })
+  })
+
+  describe('handleLine15 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine15')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine15).to.be.defined
+    })
+  })
+
+  describe('handleLine16 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine16')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine16).to.be.defined
+    })
+  })
+
+  describe('handleLine17 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine17')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine17).to.be.defined
+    })
+  })
+
+  describe('handleLine18 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine18')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine18).to.be.defined
+    })
+  })
+
+  describe('handleLine19 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine19')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine19).to.be.defined
+    })
+  })
+
+  describe('handleLine20 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine20')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine20).to.be.defined
+    })
+  })
+
+  describe('handleLine21 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine21')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine21).to.be.defined
+    })
+  })
+
+  describe('handleLine22 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine22')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine22).to.be.defined
+    })
+  })
+
+  describe('handleLine23 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine23')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine23).to.be.defined
+    })
+  })
+
+  describe('handleLine24 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine24')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine24).to.be.defined
+    })
+  })
+
+  describe('handleLine25 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine25')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine25).to.be.defined
+    })
+  })
+
+  describe('handleLine26 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine26')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine26).to.be.defined
+    })
+  })
+
+  describe('handleLine27 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine27')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine27).to.be.defined
+    })
+  })
+
+  describe('handleLine28 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine28')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine28).to.be.defined
+    })
+  })
+
+  describe('handleLine29 method', () => {
+    it('should handle event', () => {
+      sinon.spy(AddNewSong.prototype, 'handleLine29')
+      const wrapper = mount(<AddNewSong />)
+      expect(AddNewSong.prototype.handleLine29).to.be.defined
+    })
+  })
+
 })
