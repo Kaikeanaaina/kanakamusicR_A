@@ -13,10 +13,12 @@ router.get('/', function (req, res) {
   .then(function (songs) {
     return res.json(songs)
   })
+  .catch((err) => {
+    res.json({ error: err})
+  })
 }),
 
 router.post('/', function (req, res) {
-  console.log('made it backend', req.body)
   var urltitle = (encodeURI(req.body.title)).toString()
   Song.create({
     title: req.body.title,
