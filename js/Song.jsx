@@ -1,6 +1,15 @@
 const React = require('react')
 const axios = require('axios')
 
+const style = {
+  details: {
+    backgroundColor: 'pink'
+  },
+  lyrics: {
+    backgroundColor: 'lightblue'
+  }
+}
+
 class Song extends React.Component {
   constructor (props) {
     super(props)
@@ -12,10 +21,26 @@ class Song extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get(`http://localhost:5050/songs/${this.props.params.id}`)
+    let domain = 'http://localhost:5050/'
+
+    axios.get(`${domain}songs/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         song: res.data
+      })
+
+      axios.get(`${domain}artists/${this.state.song.ArtistId}`)
+      .then((res) => {
+        this.setState({
+          Artist: res.data
+        })
+      })
+
+      axios.get(`${domain}albums/${this.state.song.AlbumId}`)
+      .then((res) => {
+        this.setState({
+          Album: res.data
+        })
       })
     })
     .catch((error) => {
@@ -28,12 +53,12 @@ class Song extends React.Component {
         <div>
           <h1>{this.state.song.title}</h1>
         </div>
-        <div>
-          <h4>{this.state.Artist}</h4>
-          <h4>{this.state.Album}</h4>
+        <div style={style.details}>
+          <h4>{this.state.Artist.name}</h4>
+          <h4>{this.state.Album.title}</h4>
           <h4>{this.state.song.description}</h4>
         </div>
-        <div>
+        <div style={style.lyrics}>
           <h3>{this.state.song.line1}</h3>
           <h3>{this.state.song.line2}</h3>
           <h3>{this.state.song.line3}</h3>
