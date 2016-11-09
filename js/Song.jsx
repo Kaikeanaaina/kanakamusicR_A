@@ -7,6 +7,9 @@ const style = {
   },
   lyrics: {
     backgroundColor: 'lightblue'
+  },
+  description: {
+    backgroundColor: 'lightgreen'
   }
 }
 
@@ -64,7 +67,6 @@ class Song extends React.Component {
           <h4>{this.state.Artist.name}</h4>
           <h4>{this.state.Album.title}</h4>
           <h4>{this.state.RecordLabel.name}</h4>
-          <h4>{this.state.song.description}</h4>
         </div>
         <div style={style.lyrics}>
           <h3>{this.state.song.line1}</h3>
@@ -98,6 +100,9 @@ class Song extends React.Component {
           <h3>{this.state.song.line28}</h3>
           <h3>{this.state.song.line29}</h3>
           <h3>{this.state.song.line30}</h3>
+        </div>
+        <div style={style.description}>
+          <h4>{this.state.song.description}</h4>
         </div>
       </div>
     )
