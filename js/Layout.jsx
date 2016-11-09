@@ -2,8 +2,14 @@ const React = require('react')
 const HeaderNavbar = require('./HeaderNavbar')
 const Footer = require('./Footer')
 
+const style = {
+  appContainer: {
+    margin: '10px'
+  }
+}
+
 const Layout = (props) => (
-  <div className='app-container'>
+  <div className='app-container' style={style.appContainer} >
     <section>
       <HeaderNavbar />
       <br></br>
