@@ -39,4 +39,15 @@ router.get('/ofArtist/:id', function(req, res) {
   });
 });
 
+router.get('/:id', function (req, res) {
+  Album.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function (album) {
+    return res.json(album)
+  })
+})
+
 module.exports = router;
