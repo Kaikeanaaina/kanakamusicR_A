@@ -32,5 +32,16 @@ router.post('/',function(req, res){
   });
 });
 
+router.get('/:id', function (req, res) {
+  Artist.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function (artist) {
+    return res.json(artist)
+  })
+})
 
-module.exports = router
+
+module.exports = router;
