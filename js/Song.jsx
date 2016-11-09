@@ -17,7 +17,8 @@ class Song extends React.Component {
     this.state = {
       song: {},
       Artist: [],
-      Album: []
+      Album: [],
+      RecordLabel: {}
     }
   }
   componentDidMount () {
@@ -41,6 +42,12 @@ class Song extends React.Component {
         this.setState({
           Album: res.data
         })
+          axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
+          .then((res) => {
+            this.setState({
+              RecordLabel: res.data
+            })
+          })
       })
     })
     .catch((error) => {
@@ -56,6 +63,7 @@ class Song extends React.Component {
         <div style={style.details}>
           <h4>{this.state.Artist.name}</h4>
           <h4>{this.state.Album.title}</h4>
+          <h4>{this.state.RecordLabel.name}</h4>
           <h4>{this.state.song.description}</h4>
         </div>
         <div style={style.lyrics}>
