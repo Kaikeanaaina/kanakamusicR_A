@@ -24,5 +24,17 @@ router.post('/',function(req, res){
   });
 });
 
+router.get('/:id', function (req, res) {
+  RecordLabel.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function (recordLabel) {
+    return res.json(recordLabel)
+  })
+})
+
+
 
 module.exports = router
