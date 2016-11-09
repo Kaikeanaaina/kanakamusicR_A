@@ -53,25 +53,25 @@ class AddNewArtist extends React.Component {
         <h3>AddNewArtist</h3>
         <form onSubmit={this.onSubmit}>
           <input type='text' ref='name' placeholder='artist name' />
-          <br></br>
+          <br />
           <select ref='type' >
             <option value=''> type </option>
             <option value='hawaii' > Hawaii </option>
             <option value='contemporary'> Contemporary </option>
           </select>
-          <br></br>
+          <br />
           <textarea type='text' ref='description' placeholder='description' />
-          <br></br>
+          <br />
           <input type='text' ref='facebook' placeholder='facebook' />
-          <br></br>
+          <br />
           <input type='text' ref='instagram' placeholder='instagram' />
-          <br></br>
+          <br />
           <input type='text' ref='twitter' placeholder='twitter' />
-          <br></br>
+          <br />
           <input type='text' ref='bookingEmail' placeholder='bookingEmail' />
-          <br></br>
+          <br />
           <input type='text' ref='bookingPhoneNumber' placeholder='bookingPhoneNumber' />
-          <br></br>
+          <br />
           <button type='submit'> Add Artist </button>
         </form>
       </div>

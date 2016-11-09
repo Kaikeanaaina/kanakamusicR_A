@@ -29,9 +29,9 @@ class AddNewRecordLabel extends React.Component {
         <h3>add new record label</h3>
         <form onSubmit={this.onSubmit}>
           <label>
-            <input type='text' ref='name' placeholder='name'/>
+            <input type='text' ref='name' placeholder='name' />
           </label>
-          <br></br>
+          <br />
           <button type='submit'> Add Record Label </button>
         </form>
       </div>

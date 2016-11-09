@@ -8,7 +8,6 @@ const sinon = require('sinon')
 const AddNewSong = require('../js/AddNewSong')
 
 describe('AddNewSong Initial State', () => {
-
   it('should have an intial linkToNewArtist state', () => {
     const wrapper = mount(<AddNewSong />)
     expect(wrapper.state().linkToNewArtist).to.be.defined
@@ -340,9 +339,7 @@ describe('AddNewSong Initial State', () => {
   })
 })
 
-
 describe('componentDidMount', () => {
-
   it('should be called once', () => {
     sinon.spy(AddNewSong.prototype, 'componentDidMount')
     const wrapper = mount(<AddNewSong />)
@@ -360,7 +357,6 @@ describe('componentDidMount', () => {
   xit('should populate the artists state', () => {
 
   })
-
 })
 
 describe('artistChange method', () => {
@@ -379,8 +375,7 @@ describe('albumChange method', () => {
   })
 })
 
-describe('handline', ()=> {
-
+describe('handline', () => {
   describe('handleLine1 method', () => {
     it('should handle event', () => {
       sinon.spy(AddNewSong.prototype, 'handleLine1')
@@ -612,5 +607,4 @@ describe('handline', ()=> {
       expect(AddNewSong.prototype.handleLine29).to.be.defined
     })
   })
-
 })

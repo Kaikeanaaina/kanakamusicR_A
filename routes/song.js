@@ -66,9 +66,9 @@ router.post('/', function (req, res) {
     visibility: false
   })
     .then(function (data) {
-      return res.json(data);
-    });
-});
+      return res.json(data)
+    })
+})
 
 router.get('/:id', function (req, res) {
   Song.findOne({

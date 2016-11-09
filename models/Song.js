@@ -166,12 +166,12 @@ module.exports = function (sequelize, DataTypes) {
     }
   }, {
     classMethods: {
-      associate : function(models) {
-        Song.belongsTo(models.Artist);
-        Song.belongsTo(models.Album);
+      associate: function (models) {
+        Song.belongsTo(models.Artist)
+        Song.belongsTo(models.Album)
       }
     }
-  });
+  })
 
   return Song
 }

@@ -36,7 +36,7 @@ const HeaderNavbar = () => (
       <div><Link to='/Connect' style={style.headerLinks} > Connect </Link></div>
       <div><Link to='/Chords' style={style.headerLinks} >Chords</Link></div>
       <form >
-        <input type='text' placeholder='Search'/>
+        <input type='text' placeholder='Search' />
       </form>
       <div><Link to='/Settings' style={style.headerLinks} > Settings </Link></div>
     </div>

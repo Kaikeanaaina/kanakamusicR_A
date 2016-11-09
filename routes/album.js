@@ -1,21 +1,21 @@
 'use strict'
 
-const express = require('express');
-const router = express.Router();
-const bodyParser = require('body-parser');
-const db = require('./../models');
-const Album = db.Album;
+const express = require('express')
+const router = express.Router()
+const bodyParser = require('body-parser')
+const db = require('./../models')
+const Album = db.Album
 
-router.use(bodyParser.json({ extended: false }));
+router.use(bodyParser.json({ extended: false }))
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   Album.findAll()
-    .then (function(albums){
-      return res.json(albums);
-    });
-});
+    .then(function (albums) {
+      return res.json(albums)
+    })
+})
 
-router.post('/', function(req, res) {
+router.post('/', function (req, res) {
   Album.create({
     title: req.body.title,
     description: req.body.description,
@@ -23,21 +23,21 @@ router.post('/', function(req, res) {
     RecordLabelId: req.body.RecordLabelId,
     visibility: false
   })
-  .then(function(albums){
+  .then(function (albums) {
     return res.json(albums)
   })
 })
 
-router.get('/ofArtist/:id', function(req, res) {
+router.get('/ofArtist/:id', function (req, res) {
   Album.findAll({
     where: {
       ArtistId: encodeURI(req.params.id)
     }
   })
-  .then(function(albums){
-    return res.json(albums);
-  });
-});
+  .then(function (albums) {
+    return res.json(albums)
+  })
+})
 
 router.get('/:id', function (req, res) {
   Album.findOne({
@@ -50,4 +50,4 @@ router.get('/:id', function (req, res) {
   })
 })
 
-module.exports = router;
+module.exports = router

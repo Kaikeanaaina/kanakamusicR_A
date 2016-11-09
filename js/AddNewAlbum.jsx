@@ -82,18 +82,18 @@ class AddNewAlbum extends React.Component {
   render () {
     let AddNewArtistLink = null
     if (this.state.linkToNewArtist) {
-      AddNewArtistLink = <div><br></br><Link to='/AddNewArtist'>Add New Artist</Link><br></br></div>
+      AddNewArtistLink = <div><br /><Link to='/AddNewArtist'>Add New Artist</Link><br /></div>
     }
     let AddNewRecordLabelLink = null
     if (this.state.linkToNewRecordLabel) {
-      AddNewRecordLabelLink = <div><br></br><Link to='/AddNewRecordLabel'>Add New Record Label</Link><br></br></div>
+      AddNewRecordLabelLink = <div><br /><Link to='/AddNewRecordLabel'>Add New Record Label</Link><br /></div>
     }
     return (
       <div id='AddNewAlbum'>
         <h3>Add New Album</h3>
         <form onSubmit={this.onSubmit}>
-          <input type='text' ref='title' placeholder='title'/>
-          <br></br>
+          <input type='text' ref='title' placeholder='title' />
+          <br />
           <select onChange={this.artistChange} ref='artist'>
             <option value='' >artist here</option>
             <option value='giveAddNewArtistLink'>AddNewArtist</option>
@@ -102,7 +102,7 @@ class AddNewAlbum extends React.Component {
             ))}
           </select>
           {AddNewArtistLink}
-          <br></br>
+          <br />
           <select onChange={this.recordLabelChange} ref='recordLabel'>
             <option value='' >record label here</option>
             <option value='giveAddNewRecordLabelLink'>AddNewRecordLabel</option>
@@ -111,9 +111,9 @@ class AddNewAlbum extends React.Component {
             ))}
           </select>
           {AddNewRecordLabelLink}
-          <br></br>
-          <textarea type='text' ref='description' placeholder='description'/>
-          <br></br>
+          <br />
+          <textarea type='text' ref='description' placeholder='description' />
+          <br />
           <button type='submit'>Add Album</button>
         </form>
 

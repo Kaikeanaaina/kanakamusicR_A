@@ -45,7 +45,7 @@ class Song extends React.Component {
         this.setState({
           Album: res.data
         })
-          axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
+        axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
           .then((res) => {
             this.setState({
               RecordLabel: res.data

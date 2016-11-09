@@ -7,10 +7,8 @@ const { mount, shallow } = require('enzyme')
 const Layout = require('../js/Layout')
 
 describe('<Layout />', () => {
-
   it('should have props for children', () => {
     const wrapper = shallow(<Layout />)
     expect(wrapper.props().children).to.be.defined
   })
-
 })

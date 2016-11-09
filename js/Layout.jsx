@@ -12,14 +12,14 @@ const Layout = (props) => (
   <div className='app-container' style={style.appContainer} >
     <section>
       <HeaderNavbar />
-      <br></br>
+      <br />
     </section>
     <section>
       {props.children}
-      <br></br>
+      <br />
     </section>
     <section>
-      <Footer className='footer'/>
+      <Footer className='footer' />
     </section>
   </div>
 )
