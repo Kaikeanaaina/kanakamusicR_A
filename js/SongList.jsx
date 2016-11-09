@@ -4,25 +4,18 @@ const { Link } = require('react-router')
 
 const style = {
   songListContainer: {
-    alignItems: 'center',
-    backgroundColor: 'black',
-    padding: '10px',
-    margin: '10px'
+
   },
   songLinkContainer: {
-    alignItems: 'center',
-    padding: '10px',
-    margin: '10px',
-    backgroundColor: 'pink'
+
   },
   songLink: {
-    fontSize: '24px',
     textDecoration: 'none',
-    color: 'blue',
+    fontSize: '24px'
+  },
+  SongText: {
     borderBottom: 'black solid 1px',
-    backgroundColor: 'lightgrey',
-    margin: '10px',
-    borderRadius: '10px'
+    color: 'grey'
   }
 }
 
@@ -45,9 +38,9 @@ class SongList extends React.Component {
   render () {
     return (<div style={style.songListContainer}>
     {this.state.songs.map((song, i) => (
-      <div style={style.songLinkContainer}>
-        <Link key={i} to={`/song/${song.id}`}>
-          <div style={style.songLink}>
+      <div style={style.songLinkContainer} key={i} >
+        <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+          <div key={i} style={style.SongText}>
             {song.title}
           </div>
           <br></br>
