@@ -41,6 +41,9 @@ const myRoutes = () => (
 )
 
 class App extends React.Component {
+  componentDidMount () {
+    console.log('call all information', window.location.href)
+  }
   render () {
     return (
       <Provider store={store}>
