@@ -38,7 +38,7 @@ class ArtistList extends React.Component {
     return (<div style={style.artistListContainer}>
     {this.state.artists.map((artist, i) => (
       <div style={style.artistLinkContainer} key={i} >
-        <Link key={i} to={`/artists/${artist.id}`} style={style.artistLink} >
+        <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
           <div key={i} style={style.ArtistText} >
             {artist.name}
           </div>
