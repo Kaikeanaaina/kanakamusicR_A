@@ -1,15 +1,19 @@
 const React = require('react')
 const axios = require('axios')
+const { Link } = require('react-router')
 
 const style = {
   details: {
-    backgroundColor: 'pink'
+    backgroundColor: 'pink',
+    fontSize: '24px'
   },
   lyrics: {
-    backgroundColor: 'lightblue'
+    backgroundColor: 'lightblue',
+    fontSize: '24px'
   },
   description: {
-    backgroundColor: 'lightgreen'
+    backgroundColor: 'lightgreen',
+    fontSize: '24px'
   }
 }
 
@@ -62,6 +66,11 @@ class Song extends React.Component {
       <div>
         <div>
           <h1>{this.state.song.title}</h1>
+        </div>
+        <div>
+          <button>
+            <Link to={`/song/edit/${this.state.song.id}`}> Edit Song </Link>
+          </button>
         </div>
         <div style={style.details}>
           <h4>{this.state.Artist.name}</h4>
