@@ -23,11 +23,22 @@ class EditSong extends React.Component {
       song: {},
       Artist: {},
       Album: {},
-      RecordLabel: {}
+      RecordLabel: {},
+      artists: [],
+      albums: []
     }
+    this.onSubmit = this.onSubmit.bind(this)
+    this.artistChange = this.artistChange.bind(this)
   }
   componentDidMount () {
     let domain = 'http://localhost:5050/'
+
+    axios.get('http://localhost:5050/artists')
+    .then((res) => {
+      this.setState({
+        artists: res.data
+      })
+    })
 
     axios.get(`${domain}songs/${this.props.params.id}`)
     .then((res) => {
@@ -59,228 +70,462 @@ class EditSong extends React.Component {
       console.error('axios error', error)
     })
   }
+  onSubmit (e) {
+    e.preventDefault()
+
+    let object = {
+      title: this.refs.title.value,
+      type: this.refs.type.value,
+      description: this.refs.description.value,
+      ArtistId: this.refs.artist.value,
+      AlbumId: this.refs.album.value
+    }
+
+    if (!this.refs.line1 || !this.refs.line1.value) {
+      object.line1 = null
+    } else {
+      object.line1 = this.refs.line1.value
+    }
+
+    if (!this.refs.line2 || !this.refs.line2.value) {
+      object.line2 = null
+    } else {
+      object.line2 = this.refs.line2.value
+    }
+
+    if (!this.refs.line3 || !this.refs.line3.value) {
+      object.line3 = null
+    } else {
+      object.line3 = this.refs.line3.value
+    }
+
+    if (!this.refs.line4 || !this.refs.line4.value) {
+      object.line4 = null
+    } else {
+      object.line4 = this.refs.line4.value
+    }
+
+    if (!this.refs.line5 || !this.refs.line5.value) {
+      object.line5 = null
+    } else {
+      object.line5 = this.refs.line5.value
+    }
+
+    if (!this.refs.line6 || !this.refs.line6.value) {
+      object.line6 = null
+    } else {
+      object.line6 = this.refs.line6.value
+    }
+
+    if (!this.refs.line7 || !this.refs.line7.value) {
+      object.line7 = null
+    } else {
+      object.line7 = this.refs.line7.value
+    }
+
+    if (!this.refs.line8 || !this.refs.line8.value) {
+      object.line8 = null
+    } else {
+      object.line8 = this.refs.line8.value
+    }
+
+    if (!this.refs.line9 || !this.refs.line9.value) {
+      object.line9 = null
+    } else {
+      object.line9 = this.refs.line9.value
+    }
+
+    if (!this.refs.line10 || !this.refs.line10.value) {
+      object.line10 = null
+    } else {
+      object.line10 = this.refs.line10.value
+    }
+
+    if (!this.refs.line11 || !this.refs.line11.value) {
+      object.line11 = null
+    } else {
+      object.line11 = this.refs.line11.value
+    }
+
+    if (!this.refs.line12 || !this.refs.line12.value) {
+      object.line12 = null
+    } else {
+      object.line12 = this.refs.line12.value
+    }
+
+    if (!this.refs.line13 || !this.refs.line13.value) {
+      object.line13 = null
+    } else {
+      object.line13 = this.refs.line13.value
+    }
+
+    if (!this.refs.line14 || !this.refs.line14.value) {
+      object.line14 = null
+    } else {
+      object.line14 = this.refs.line14.value
+    }
+
+    if (!this.refs.line15 || !this.refs.line15.value) {
+      object.line15 = null
+    } else {
+      object.line15 = this.refs.line15.value
+    }
+
+    if (!this.refs.line16 || !this.refs.line16.value) {
+      object.line16 = null
+    } else {
+      object.line16 = this.refs.line16.value
+    }
+
+    if (!this.refs.line17 || !this.refs.line17.value) {
+      object.line17 = null
+    } else {
+      object.line17 = this.refs.line17.value
+    }
+
+    if (!this.refs.line18 || !this.refs.line18.value) {
+      object.line18 = null
+    } else {
+      object.line18 = this.refs.line18.value
+    }
+
+    if (!this.refs.line19 || !this.refs.line19.value) {
+      object.line19 = null
+    } else {
+      object.line19 = this.refs.line19.value
+    }
+
+    if (!this.refs.line20 || !this.refs.line20.value) {
+      object.line20 = null
+    } else {
+      object.line20 = this.refs.line20.value
+    }
+
+    if (!this.refs.line21 || !this.refs.line21.value) {
+      object.line21 = null
+    } else {
+      object.line21 = this.refs.line21.value
+    }
+
+    if (!this.refs.line22 || !this.refs.line22.value) {
+      object.line22 = null
+    } else {
+      object.line22 = this.refs.line22.value
+    }
+
+    if (!this.refs.line23 || !this.refs.line23.value) {
+      object.line23 = null
+    } else {
+      object.line23 = this.refs.line23.value
+    }
+
+    if (!this.refs.line24 || !this.refs.line24.value) {
+      object.line24 = null
+    } else {
+      object.line24 = this.refs.line24.value
+    }
+
+    if (!this.refs.line25 || !this.refs.line25.value) {
+      object.line25 = null
+    } else {
+      object.line25 = this.refs.line25.value
+    }
+
+    if (!this.refs.line26 || !this.refs.line26.value) {
+      object.line26 = null
+    } else {
+      object.line26 = this.refs.line26.value
+    }
+
+    if (!this.refs.line27 || !this.refs.line27.value) {
+      object.line27 = null
+    } else {
+      object.line27 = this.refs.line27.value
+    }
+
+    if (!this.refs.line28 || !this.refs.line28.value) {
+      object.line28 = null
+    } else {
+      object.line28 = this.refs.line28.value
+    }
+
+    if (!this.refs.line29 || !this.refs.line29.value) {
+      object.line29 = null
+    } else {
+      object.line29 = this.refs.line29.value
+    }
+
+    if (!this.refs.line30 || !this.refs.line30.value) {
+      object.line30 = null
+    } else {
+      object.line30 = this.refs.line30.value
+    }
+
+    console.log(object)
+    // axios.post('http://localhost:5050/songs', object)
+    // .then((res) => {
+    //   window.location.href = '/#/'
+    // })
+  }
+  artistChange (event) {
+    event.preventDefault()
+
+    this.refs.album.value = 'album here'
+
+    if (event.target.value === 'giveAddNewArtistLink') {
+      // populate the albums depending on the artist
+      axios.get(`http://localhost:5050/albums/ofArtist/${event.target.value}`)
+      .then((res) => {
+        this.setState({
+          albums: res.data
+        })
+      })
+    }
+  }
   render () {
     return (
       <div>
         <div>
           <h1>Edit Song Page</h1>
         </div>
-        <div style={style.details}>
-          <div>
+        <form onSubmit={this.onSubmit} >
+          <div style={style.details}>
+            <div>
+              <label>
+                <span> Title </span>
+                <input ref='title' placeholder={this.state.song.title} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Artist </span>
+                <select type='text' ref='artist' onChange={this.artistChange} >
+                  <option value='artistHere' > artist here </option>
+                  {this.state.artists.map((artist, index) => (
+                    <option key={index} value={artist.id} > {artist.name} </option>
+                  ))}
+                </select>
+                <span> Current: {this.state.Artist.name} </span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Album </span>
+                <input placeholder={this.state.Album.title} />
+                <span> Current: {this.state.Album.title} </span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Record Label </span>
+                <input placeholder={this.state.RecordLabel.name} />
+                <span> Current: {this.state.RecordLabel.name} </span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Type </span>
+                <select type='text' ref='type' placeholder='type' >
+                  <option value=''> type </option>
+                  <option value='hawaiian'>Hawaiian</option>
+                  <option value='contemporary'>contemporary</option>
+                </select>
+                <span> Current: {this.state.song.type} </span>
+              </label>
+            </div>
+            <br></br>
+          </div>
+          <div style={style.lyrics}>
+            <div>
+              <label>
+                <span> Line 1 </span>
+                <input ref='line1' placeholder={this.state.song.line1} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 2 </span>
+                <input ref='line2' placeholder={this.state.song.line2} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 3 </span>
+                <input ref='line3' placeholder={this.state.song.line3} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 4 </span>
+                <input ref='line4' placeholder={this.state.song.line4} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 5 </span>
+                <input ref='line5' placeholder={this.state.song.line5} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 6 </span>
+                <input ref='line6' placeholder={this.state.song.line6} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 7 </span>
+                <input ref='line7' placeholder={this.state.song.line7} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 8 </span>
+                <input ref='line8' placeholder={this.state.song.line8} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 9 </span>
+                <input ref='line9' placeholder={this.state.song.line9} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 10 </span>
+                <input ref='line10' placeholder={this.state.song.line10} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 11 </span>
+                <input ref='line11' placeholder={this.state.song.line11} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 12 </span>
+                <input ref='line12' placeholder={this.state.song.line12} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 13 </span>
+                <input ref='line13' placeholder={this.state.song.line13} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 14 </span>
+                <input ref='line14' placeholder={this.state.song.line14} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 15 </span>
+                <input ref='line15' placeholder={this.state.song.line15} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 16 </span>
+                <input ref='line16' placeholder={this.state.song.line16} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 17 </span>
+                <input ref='line17' placeholder={this.state.song.line17} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 18 </span>
+                <input ref='line18' placeholder={this.state.song.line18} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 19 </span>
+                <input ref='line19' placeholder={this.state.song.line19} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 20 </span>
+                <input ref='line20' placeholder={this.state.song.line20} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 21 </span>
+                <input ref='line21' placeholder={this.state.song.line21} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 22 </span>
+                <input ref='line22' placeholder={this.state.song.line22} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 23 </span>
+                <input ref='line23' placeholder={this.state.song.line23} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 24 </span>
+                <input ref='line24' placeholder={this.state.song.line24} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 25 </span>
+                <input ref='line25' placeholder={this.state.song.line25} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 26 </span>
+                <input ref='line26' placeholder={this.state.song.line26} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 27 </span>
+                <input ref='line27' placeholder={this.state.song.line27} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 28 </span>
+                <input ref='line28' placeholder={this.state.song.line28} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 29 </span>
+                <input ref='line29' placeholder={this.state.song.line29} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Line 30 </span>
+                <input ref='line30' placeholder={this.state.song.line30} />
+              </label>
+            </div>
+          </div>
+          <br></br>
+          <div style={style.description}>
             <label>
-              <span> Title </span>
-              <input placeholder={this.state.song.title} />
+              <span>Description </span>
+              <input ref='description' placeholder={this.state.song.description} />
             </label>
           </div>
-          <div>
-            <label>
-              <span> Artist </span>
-              <input placeholder={this.state.Artist.name} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Album </span>
-              <input placeholder={this.state.Album.title} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Record Label </span>
-              <input placeholder={this.state.RecordLabel.name} />
-            </label>
-          </div>
-        </div>
-        <br></br>
-        <div style={style.lyrics}>
-          <div>
-            <label>
-              <span> Line 1 </span>
-              <input placeholder={this.state.song.line1} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 2 </span>
-              <input placeholder={this.state.song.line2} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 3 </span>
-              <input placeholder={this.state.song.line3} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 4 </span>
-              <input placeholder={this.state.song.line4} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 5 </span>
-              <input placeholder={this.state.song.line5} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 6 </span>
-              <input placeholder={this.state.song.line6} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 7 </span>
-              <input placeholder={this.state.song.line7} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 8 </span>
-              <input placeholder={this.state.song.line8} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 9 </span>
-              <input placeholder={this.state.song.line9} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 10 </span>
-              <input placeholder={this.state.song.line10} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 11 </span>
-              <input placeholder={this.state.song.line11} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 12 </span>
-              <input placeholder={this.state.song.line12} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 13 </span>
-              <input placeholder={this.state.song.line13} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 14 </span>
-              <input placeholder={this.state.song.line14} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 15 </span>
-              <input placeholder={this.state.song.line15} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 16 </span>
-              <input placeholder={this.state.song.line16} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 17 </span>
-              <input placeholder={this.state.song.line17} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 18 </span>
-              <input placeholder={this.state.song.line18} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 19 </span>
-              <input placeholder={this.state.song.line19} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 20 </span>
-              <input placeholder={this.state.song.line20} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 21 </span>
-              <input placeholder={this.state.song.line21} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 22 </span>
-              <input placeholder={this.state.song.line22} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 23 </span>
-              <input placeholder={this.state.song.line23} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 24 </span>
-              <input placeholder={this.state.song.line24} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 25 </span>
-              <input placeholder={this.state.song.line25} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 26 </span>
-              <input placeholder={this.state.song.line26} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 27 </span>
-              <input placeholder={this.state.song.line27} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 28 </span>
-              <input placeholder={this.state.song.line28} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 29 </span>
-              <input placeholder={this.state.song.line29} />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span> Line 30 </span>
-              <input placeholder={this.state.song.line30} />
-            </label>
-          </div>
-        </div>
-        <br></br>
-        <div style={style.description}>
-          <label>
-            <span>Description </span>
-            <input placeholder={this.state.song.description} />
-          </label>
-        </div>
+          <button type='submit' > Edit Song</button>
+        </form>
       </div>
     )
   }
