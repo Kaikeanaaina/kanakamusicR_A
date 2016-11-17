@@ -27,6 +27,7 @@ class Song extends React.Component {
       Album: [],
       RecordLabel: {}
     }
+    this.DeleteSong = this.DeleteSong.bind(this)
   }
   componentDidMount () {
     let domain = 'http://localhost:5050/'
@@ -61,6 +62,16 @@ class Song extends React.Component {
       console.error('axios error', error)
     })
   }
+  DeleteSong (e) {
+    e.preventDefault()
+
+    let domain = 'http://localhost:5050/'
+
+    axios.delete(`${domain}songs/${this.state.song.id}`)
+    .then((res) => {
+      window.location.href = '/#/'
+    })
+  }
   render () {
     return (
       <div>
@@ -71,6 +82,7 @@ class Song extends React.Component {
           <button>
             <Link to={`/song/edit/${this.state.song.id}`}> Edit Song </Link>
           </button>
+          <button onClick={this.DeleteSong}>Delete Song</button>
         </div>
         <div style={style.details}>
           <h4>{this.state.Artist.name}</h4>
