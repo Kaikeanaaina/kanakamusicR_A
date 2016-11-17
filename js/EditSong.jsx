@@ -73,206 +73,281 @@ class EditSong extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    let object = {
-      title: this.refs.title.value,
-      type: this.refs.type.value,
-      description: this.refs.description.value,
-      ArtistId: this.refs.artist.value,
-      AlbumId: this.refs.album.value
+    let object = {}
+
+    if (this.refs.title.value) {
+      object.title = this.refs.title.value
+    } else {
+      object.title = this.state.song.title
     }
 
-    if (!this.refs.line1 || !this.refs.line1.value) {
+    if (this.refs.artist.value !== 'artistHere') {
+      object.ArtistId = this.refs.artist.value
+    } else {
+      object.ArtistId = this.state.song.ArtistId
+    }
+
+    if (this.refs.album.value !== 'album here') {
+      object.AlbumId = this.refs.album.value
+    } else {
+      object.AlbumId = this.state.song.AlbumId
+    }
+
+    if (this.refs.type.value !== 'type') {
+      object.type = this.refs.type.value
+    } else {
+      object.type = this.state.song.type
+    }
+
+    if (this.refs.visibility.value !== 'visibility') {
+      object.visibility = this.refs.visibility.value
+    } else {
+      object.visibility = this.state.song.visibility
+    }
+
+    if (!this.refs.line1.value) {
+      object.line1 = this.state.song.line1
+    } else if (this.refs.line1.value === ' ') {
       object.line1 = null
     } else {
       object.line1 = this.refs.line1.value
     }
 
-    if (!this.refs.line2 || !this.refs.line2.value) {
+    if (!this.refs.line2.value) {
+      object.line2 = this.state.song.line2
+    } else if (this.refs.line2.value === ' ') {
       object.line2 = null
     } else {
       object.line2 = this.refs.line2.value
     }
 
-    if (!this.refs.line3 || !this.refs.line3.value) {
+    if (!this.refs.line3.value) {
+      object.line3 = this.state.song.line3
+    } else if (this.refs.line3.value === ' ') {
       object.line3 = null
     } else {
       object.line3 = this.refs.line3.value
     }
 
-    if (!this.refs.line4 || !this.refs.line4.value) {
+    if (!this.refs.line4.value) {
+      object.line4 = this.state.song.line4
+    } else if (this.refs.line4.value === ' ') {
       object.line4 = null
     } else {
       object.line4 = this.refs.line4.value
     }
 
-    if (!this.refs.line5 || !this.refs.line5.value) {
+    if (!this.refs.line5.value) {
+      object.line5 = this.state.song.line5
+    } else if (this.refs.line5.value === ' ') {
       object.line5 = null
     } else {
       object.line5 = this.refs.line5.value
     }
 
-    if (!this.refs.line6 || !this.refs.line6.value) {
+    if (!this.refs.line6.value) {
+      object.line6 = this.state.song.line6
+    } else if (this.refs.line6.value === ' ') {
       object.line6 = null
     } else {
       object.line6 = this.refs.line6.value
     }
 
-    if (!this.refs.line7 || !this.refs.line7.value) {
+    if (!this.refs.line7.value) {
+      object.line7 = this.state.song.line7
+    } else if (this.refs.line7.value === ' ') {
       object.line7 = null
     } else {
       object.line7 = this.refs.line7.value
     }
 
-    if (!this.refs.line8 || !this.refs.line8.value) {
+    if (!this.refs.line8.value) {
+      object.line8 = this.state.song.line8
+    } else if (this.refs.line8.value === ' ') {
       object.line8 = null
     } else {
       object.line8 = this.refs.line8.value
     }
 
-    if (!this.refs.line9 || !this.refs.line9.value) {
+    if (!this.refs.line9.value) {
+      object.line9 = this.state.song.line9
+    } else if (this.refs.line9.value === ' ') {
       object.line9 = null
     } else {
       object.line9 = this.refs.line9.value
     }
 
-    if (!this.refs.line10 || !this.refs.line10.value) {
+    if (!this.refs.line10.value) {
+      object.line10 = this.state.song.line10
+    } else if (this.refs.line10.value === ' ') {
       object.line10 = null
     } else {
       object.line10 = this.refs.line10.value
     }
 
-    if (!this.refs.line11 || !this.refs.line11.value) {
+    if (!this.refs.line11.value) {
+      object.line11 = this.state.song.line11
+    } else if (this.refs.line11.value === ' ') {
       object.line11 = null
     } else {
       object.line11 = this.refs.line11.value
     }
 
-    if (!this.refs.line12 || !this.refs.line12.value) {
+    if (!this.refs.line12.value) {
+      object.line12 = this.state.song.line12
+    } else if (this.refs.line12.value === ' ') {
       object.line12 = null
     } else {
       object.line12 = this.refs.line12.value
     }
 
-    if (!this.refs.line13 || !this.refs.line13.value) {
+    if (!this.refs.line13.value) {
+      object.line13 = this.state.song.line13
+    } else if (this.refs.line13.value === ' ') {
       object.line13 = null
     } else {
       object.line13 = this.refs.line13.value
     }
 
-    if (!this.refs.line14 || !this.refs.line14.value) {
+    if (!this.refs.line14.value) {
+      object.line14 = this.state.song.line14
+    } else if (this.refs.line14.value === ' ') {
       object.line14 = null
     } else {
       object.line14 = this.refs.line14.value
     }
 
-    if (!this.refs.line15 || !this.refs.line15.value) {
+    if (!this.refs.line15.value) {
+      object.line15 = this.state.song.line15
+    } else if (this.refs.line15.value === ' ') {
       object.line15 = null
     } else {
       object.line15 = this.refs.line15.value
     }
 
-    if (!this.refs.line16 || !this.refs.line16.value) {
+    if (!this.refs.line16.value) {
+      object.line16 = this.state.song.line16
+    } else if (this.refs.line16.value === ' ') {
       object.line16 = null
     } else {
       object.line16 = this.refs.line16.value
     }
 
-    if (!this.refs.line17 || !this.refs.line17.value) {
+    if (!this.refs.line17.value) {
+      object.line17 = this.state.song.line17
+    } else if (this.refs.line17.value === ' ') {
       object.line17 = null
     } else {
       object.line17 = this.refs.line17.value
     }
 
-    if (!this.refs.line18 || !this.refs.line18.value) {
+    if (!this.refs.line18.value) {
+      object.line18 = this.state.song.line18
+    } else if (this.refs.line18.value === ' ') {
       object.line18 = null
     } else {
       object.line18 = this.refs.line18.value
     }
 
-    if (!this.refs.line19 || !this.refs.line19.value) {
+    if (!this.refs.line19.value) {
+      object.line19 = this.state.song.line19
+    } else if (this.refs.line19.value === ' ') {
       object.line19 = null
     } else {
       object.line19 = this.refs.line19.value
     }
 
-    if (!this.refs.line20 || !this.refs.line20.value) {
+    if (!this.refs.line20.value) {
+      object.line20 = this.state.song.line20
+    } else if (this.refs.line20.value === ' ') {
       object.line20 = null
     } else {
       object.line20 = this.refs.line20.value
     }
 
-    if (!this.refs.line21 || !this.refs.line21.value) {
+    if (!this.refs.line21.value) {
+      object.line21 = this.state.song.line21
+    } else if (this.refs.line21.value === ' ') {
       object.line21 = null
     } else {
       object.line21 = this.refs.line21.value
     }
 
-    if (!this.refs.line22 || !this.refs.line22.value) {
+    if (!this.refs.line22.value) {
+      object.line22 = this.state.song.line22
+    } else if (this.refs.line22.value === ' ') {
       object.line22 = null
     } else {
       object.line22 = this.refs.line22.value
     }
 
-    if (!this.refs.line23 || !this.refs.line23.value) {
+    if (!this.refs.line23.value) {
+      object.line23 = this.state.song.line23
+    } else if (this.refs.line23.value === ' ') {
       object.line23 = null
     } else {
       object.line23 = this.refs.line23.value
     }
 
-    if (!this.refs.line24 || !this.refs.line24.value) {
+    if (!this.refs.line24.value) {
+      object.line24 = this.state.song.line24
+    } else if (this.refs.line24.value === ' ') {
       object.line24 = null
     } else {
       object.line24 = this.refs.line24.value
     }
 
-    if (!this.refs.line25 || !this.refs.line25.value) {
+    if (!this.refs.line25.value) {
+      object.line25 = this.state.song.line25
+    } else if (this.refs.line25.value === ' ') {
       object.line25 = null
     } else {
       object.line25 = this.refs.line25.value
     }
 
-    if (!this.refs.line26 || !this.refs.line26.value) {
+    if (!this.refs.line26.value) {
+      object.line26 = this.state.song.line26
+    } else if (this.refs.line26.value === ' ') {
       object.line26 = null
     } else {
       object.line26 = this.refs.line26.value
     }
 
-    if (!this.refs.line27 || !this.refs.line27.value) {
+    if (!this.refs.line27.value) {
+      object.line27 = this.state.song.line27
+    } else if (this.refs.line27.value === ' ') {
       object.line27 = null
     } else {
       object.line27 = this.refs.line27.value
     }
 
-    if (!this.refs.line28 || !this.refs.line28.value) {
-      object.line28 = null
-    } else {
-      object.line28 = this.refs.line28.value
-    }
-
-    if (!this.refs.line29 || !this.refs.line29.value) {
+    if (!this.refs.line29.value) {
+      object.line29 = this.state.song.line29
+    } else if (this.refs.line29.value === ' ') {
       object.line29 = null
     } else {
       object.line29 = this.refs.line29.value
     }
 
-    if (!this.refs.line30 || !this.refs.line30.value) {
+    if (!this.refs.line30.value) {
+      object.line30 = this.state.song.line30
+    } else if (this.refs.line30.value === ' ') {
       object.line30 = null
     } else {
       object.line30 = this.refs.line30.value
     }
 
-    console.log(object)
-    // axios.post('http://localhost:5050/songs', object)
-    // .then((res) => {
-    //   window.location.href = '/#/'
-    // })
+    axios.put(`http://localhost:5050/songs/${this.state.song.id}`, object)
+    .then((res) => {
+      window.location.href = `/#/song/${this.state.song.id}`
+    })
   }
   artistChange (event) {
     event.preventDefault()
 
     this.refs.album.value = 'album here'
 
-    if (event.target.value === 'giveAddNewArtistLink') {
+    if (event.target.value !== 'artist here') {
       // populate the albums depending on the artist
       axios.get(`http://localhost:5050/albums/ofArtist/${event.target.value}`)
       .then((res) => {
@@ -282,7 +357,19 @@ class EditSong extends React.Component {
       })
     }
   }
+  albumChange (event) {
+    event.preventDefault()
+    this.setState({
+      linkToNewAlbum: false
+    })
+  }
   render () {
+    let visibleProperty
+    if (this.state.song.visibility) {
+      visibleProperty = (<div>visibility: true</div>)
+    } else {
+      visibleProperty = (<div>visibility: false</div>)
+    }
     return (
       <div>
         <div>
@@ -311,31 +398,41 @@ class EditSong extends React.Component {
             <div>
               <label>
                 <span> Album </span>
-                <input placeholder={this.state.Album.title} />
+                <select type='text' ref='album' placeholder='album' onChange={this.albumChange}>
+                  <option >album here</option>
+                    {this.state.albums.map((album, index) => (
+                      <option key={index} value={album.id} > {album.title} </option>
+                    ))}
+                </select>
                 <span> Current: {this.state.Album.title} </span>
-              </label>
-            </div>
-            <div>
-              <label>
-                <span> Record Label </span>
-                <input placeholder={this.state.RecordLabel.name} />
-                <span> Current: {this.state.RecordLabel.name} </span>
               </label>
             </div>
             <div>
               <label>
                 <span> Type </span>
                 <select type='text' ref='type' placeholder='type' >
-                  <option value=''> type </option>
+                  <option> type </option>
                   <option value='hawaiian'>Hawaiian</option>
                   <option value='contemporary'>contemporary</option>
                 </select>
                 <span> Current: {this.state.song.type} </span>
               </label>
             </div>
+            <div>
+              <label>
+                <span> Visibility </span>
+                <select type='text' ref='visibility' placeholder='visibility' >
+                  <option> visibility </option>
+                  <option value='false' >false</option>
+                  <option value='true' >true</option>
+                </select>
+                {visibleProperty}
+              </label>
+            </div>
             <br></br>
           </div>
           <div style={style.lyrics}>
+            <p>to change lyric line to null, just enter a space</p>
             <div>
               <label>
                 <span> Line 1 </span>
@@ -521,7 +618,7 @@ class EditSong extends React.Component {
           <div style={style.description}>
             <label>
               <span>Description </span>
-              <input ref='description' placeholder={this.state.song.description} />
+              <textarea ref='description' placeholder={this.state.song.description} />
             </label>
           </div>
           <button type='submit' > Edit Song</button>
