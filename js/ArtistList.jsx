@@ -35,18 +35,20 @@ class ArtistList extends React.Component {
     })
   }
   render () {
-    return (<div style={style.artistListContainer}>
-    {this.state.artists.map((artist, i) => (
-      <div style={style.artistLinkContainer} key={i} >
-        <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
-          <div key={i} style={style.ArtistText} >
-            {artist.name}
+    return (
+      <div style={style.artistListContainer}>
+        {this.state.artists.map((artist, i) => (
+          <div style={style.artistLinkContainer} key={i} >
+            <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+              <div key={i} style={style.ArtistText} >
+                {artist.name}
+              </div>
+              <br />
+            </Link>
           </div>
-          <br />
-        </Link>
+        ))}
       </div>
-    ))}
-    </div>)
+    )
   }
 }
 
