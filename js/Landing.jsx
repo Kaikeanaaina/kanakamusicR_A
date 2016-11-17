@@ -6,36 +6,64 @@ class MyFirstComponent extends React.Component {
   constructor () {
     super()
     this.state = {
-      SongList: true
+      SongList: true,
+      ArtistList: false,
+      AlbumList: false
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.ShowSongList = this.ShowSongList.bind(this)
+    this.ShowArtistList = this.ShowArtistList.bind(this)
+    this.ShowAlbumList = this.ShowAlbumList.bind(this)
   }
-  handleClick (e) {
+  ShowSongList (e) {
     this.setState({
-      SongList: !this.state.SongList
+      SongList: true,
+      ArtistList: false,
+      AlbumList: false
+    })
+  }
+  ShowArtistList (e) {
+    this.setState({
+      SongList: false,
+      ArtistList: true,
+      AlbumList: false
+    })
+  }
+  ShowAlbumList (e) {
+    this.setState({
+      SongList: false,
+      ArtistList: false,
+      AlbumList: true
     })
   }
   render () {
     let SongListing = null
     let ArtistListing = null
-    let ButtonSwitch = null
+    let AlbumListing = null
+
     if (this.state.SongList) {
       SongListing = <div><SongList /></div>
       ArtistListing = null
-    } else {
+      AlbumListing = null
+    } else if (this.state.ArtistList) {
       ArtistListing = <div><ArtistList /></div>
       SongListing = null
-    }
-    if (this.state.SongList) {
-      ButtonSwitch = <div className='buttons'><button onClick={this.handleClick} > Switch to Artists </button></div>
+      AlbumListing = null
     } else {
-      ButtonSwitch = <div className='buttons'><button onClick={this.handleClick} > Switch to Songs </button></div>
+      AlbumListing = <div>this is the album list</div>
+      SongListing = null
+      ArtistListing = null
     }
+
     return (
       <div>
-        {ButtonSwitch}
+        <div className='buttons'>
+          <button onClick={this.ShowSongList} > Song is true </button>
+          <button onClick={this.ShowArtistList} > Artist is true </button>
+          <button onClick={this.ShowAlbumList} > Album is true </button>
+        </div>
         {SongListing}
         {ArtistListing}
+        {AlbumListing}
       </div>
     )
   }
