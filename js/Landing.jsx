@@ -1,6 +1,7 @@
 const React = require('react')
 const SongList = require('./SongList')
 const ArtistList = require('./ArtistList')
+const AlbumList = require('./AlbumList')
 
 class MyFirstComponent extends React.Component {
   constructor () {
@@ -49,7 +50,7 @@ class MyFirstComponent extends React.Component {
       SongListing = null
       AlbumListing = null
     } else {
-      AlbumListing = <div>this is the album list</div>
+      AlbumListing = <div><AlbumList /></div>
       SongListing = null
       ArtistListing = null
     }
