@@ -70,6 +70,17 @@ router.post('/', function (req, res) {
     })
 })
 
+router.get('/ofAlbum/:id', function(req, res) {
+  Song.findAll({
+    where: {
+      AlbumId: encodeURI(req.params.id)
+    }
+  })
+  .then(function(songs){
+    return res.json(songs);
+  });
+});
+
 router.get('/:id', function (req, res) {
   Song.findOne({
     where: {
