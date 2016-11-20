@@ -27,12 +27,21 @@ class AlbumList extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get('http://localhost:5050/albums')
-    .then((res) => {
-      this.setState({
-        albums: res.data
+    if (this.props.ArtistId) {
+      axios.get(`http://localhost:5050/albums/ByArtistId/${this.props.ArtistId}`)
+      .then((res) => {
+        this.setState({
+          albums: res.data
+        })
       })
-    })
+    } else {
+      axios.get('http://localhost:5050/albums')
+      .then((res) => {
+        this.setState({
+          albums: res.data
+        })
+      })
+    }
   }
   render () {
     return (
@@ -50,6 +59,10 @@ class AlbumList extends React.Component {
       </div>
     )
   }
+}
+
+AlbumList.propTypes = {
+  ArtistId: React.PropTypes.number
 }
 
 module.exports = AlbumList
