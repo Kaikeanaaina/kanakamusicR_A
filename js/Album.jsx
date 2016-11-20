@@ -34,7 +34,6 @@ class Album extends React.Component {
       album: {},
       songs: []
     }
-    this.DeleteAlbum = this.DeleteAlbum.bind(this)
   }
   componentDidMount () {
     let domain = 'http://localhost:5050/'
@@ -52,10 +51,6 @@ class Album extends React.Component {
       })
     })
   }
-  DeleteAlbum (e) {
-    e.preventDefault()
-    console.log('delete album')
-  }
   render () {
     return (
       <div>
@@ -67,7 +62,6 @@ class Album extends React.Component {
           <button>
             <Link to={`/album/edit/${this.state.album.id}`}> Edit Album </Link>
           </button>
-          <button onClick={this.DeleteAlbum}>Delete Album</button>
         </div>
         <div style={style.description}>
           <p>{this.state.album.description}</p>
