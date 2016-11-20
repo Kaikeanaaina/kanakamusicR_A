@@ -28,12 +28,23 @@ class SongList extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get('http://localhost:5050/songs')
-    .then((res) => {
-      this.setState({
-        songs: res.data
+    if (this.props.ArtistId) {
+      axios.get(`http://localhost:5050/songs/ByArtistId/${this.props.ArtistId}`)
+      .then((res) => {
+        this.setState({
+          albums: res.data
+        })
       })
-    })
+      console.log('got artist id')
+    } else {
+      axios.get('http://localhost:5050/songs')
+      .then((res) => {
+        this.setState({
+          songs: res.data
+        })
+      })
+      console.log('dont have id')
+    }
   }
   render () {
     return (<div style={style.songListContainer}>
@@ -52,7 +63,8 @@ class SongList extends React.Component {
 }
 
 SongList.propTypes = {
-  songs: React.PropTypes.arrayOf(React.PropTypes.object)
+  songs: React.PropTypes.arrayOf(React.PropTypes.object),
+  ArtistId: React.PropTypes.number
 }
 
 module.exports = SongList
