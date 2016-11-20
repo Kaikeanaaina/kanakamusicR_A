@@ -29,6 +29,7 @@ class EditSong extends React.Component {
     }
     this.onSubmit = this.onSubmit.bind(this)
     this.artistChange = this.artistChange.bind(this)
+    this.DeleteSong = this.DeleteSong.bind(this)
   }
   componentDidMount () {
     let domain = 'http://localhost:5050/'
@@ -68,6 +69,16 @@ class EditSong extends React.Component {
     })
     .catch((error) => {
       console.error('axios error', error)
+    })
+  }
+  DeleteSong (e) {
+    e.preventDefault()
+
+    let domain = 'http://localhost:5050/'
+
+    axios.delete(`${domain}songs/${this.state.song.id}`)
+    .then((res) => {
+      window.location.href = '/#/'
     })
   }
   onSubmit (e) {
@@ -335,6 +346,12 @@ class EditSong extends React.Component {
       object.line30 = null
     } else {
       object.line30 = this.refs.line30.value
+    }
+
+    if (this.refs.description.value) {
+      object.description = this.refs.description.value
+    } else {
+      object.description = this.state.song.description
     }
 
     axios.put(`http://localhost:5050/songs/${this.state.song.id}`, object)
@@ -623,6 +640,9 @@ class EditSong extends React.Component {
           </div>
           <button type='submit' > Edit Song</button>
         </form>
+        <div>
+          <button onClick={this.DeleteSong}>Delete Song</button>
+        </div>
       </div>
     )
   }
