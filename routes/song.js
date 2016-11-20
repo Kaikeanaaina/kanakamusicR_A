@@ -11,12 +11,45 @@ router.use(bodyParser.json({ extended: false }))
 router.get('/', function (req, res) {
   Song.findAll()
   .then(function (songs) {
-    return res.json(songs)
+    return res.json(songs);
   })
   .catch((err) => {
-    res.json({ error: err})
+    res.json({ error: err});
+  });
+});
+
+router.get('/ofAlbum/:id', function(req, res) {
+  Song.findAll({
+    where: {
+      AlbumId: encodeURI(req.params.id)
+    }
   })
-}),
+  .then(function(songs){
+    return res.json(songs);
+  });
+});
+
+router.get('/ByArtistId/:id', function(req, res) {
+  Song.findAll({
+    where: {
+      ArtistId: encodeURI(req.params.id)
+    }
+  })
+  .then(function(songs){
+    return res.json(songs);
+  });
+});
+
+router.get('/:id', function (req, res) {
+  Song.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function (song) {
+    return res.json(song)
+  })
+})
 
 router.post('/', function (req, res) {
   var urltitle = (encodeURI(req.body.title)).toString()
@@ -70,27 +103,20 @@ router.post('/', function (req, res) {
     })
 })
 
-router.get('/ofAlbum/:id', function(req, res) {
-  Song.findAll({
-    where: {
-      AlbumId: encodeURI(req.params.id)
+router.put('/ByAlbumId/:id', function(req, res){
+  Song.update(
+  {
+    updatedAt : 'now()',
+    visibility : req.body.visibility
+  }, {
+    where : {
+      AlbumId : req.body.id
     }
   })
-  .then(function(songs){
-    return res.json(songs);
+  .then(function(song){
+    return res.json(song);
   });
 });
-
-router.get('/:id', function (req, res) {
-  Song.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(function (song) {
-    return res.json(song)
-  })
-})
 
 router.put('/:id', function(req, res){
   Song.update(
@@ -140,6 +166,17 @@ router.put('/:id', function(req, res){
   })
   .then(function(song){
     return res.json(song);
+  });
+});
+
+router.delete('/ByAlbumId/:id', function(req, res){
+  Song.destroy({
+    where: {
+      AlbumId : req.body.id
+    }
+  })
+  .then(function(data){
+    return res.json(data);
   });
 });
 
