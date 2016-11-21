@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    visibility: {
+    visibilityByArtist: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     }
