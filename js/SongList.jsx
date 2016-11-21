@@ -32,10 +32,16 @@ class SongList extends React.Component {
       axios.get(`http://localhost:5050/songs/ByArtistId/${this.props.ArtistId}`)
       .then((res) => {
         this.setState({
-          albums: res.data
+          songs: res.data
         })
       })
-      console.log('got artist id')
+    } else if (this.props.AlbumId) {
+      axios.get(`http://localhost:5050/songs/ByAlbumId/${this.props.AlbumId}`)
+      .then((res) => {
+        this.setState({
+          songs: res.data
+        })
+      })
     } else {
       axios.get('http://localhost:5050/songs')
       .then((res) => {
@@ -43,7 +49,6 @@ class SongList extends React.Component {
           songs: res.data
         })
       })
-      console.log('dont have id')
     }
   }
   render () {
@@ -64,7 +69,8 @@ class SongList extends React.Component {
 
 SongList.propTypes = {
   songs: React.PropTypes.arrayOf(React.PropTypes.object),
-  ArtistId: React.PropTypes.number
+  ArtistId: React.PropTypes.number,
+  AlbumId: React.PropTypes.number
 }
 
 module.exports = SongList
