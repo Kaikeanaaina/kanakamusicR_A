@@ -429,7 +429,7 @@ class EditSong extends React.Component {
                 <span> Type </span>
                 <select type='text' ref='type' placeholder='type' >
                   <option> type </option>
-                  <option value='hawaiian'>Hawaiian</option>
+                  <option value='hawaii'>Hawaii</option>
                   <option value='contemporary'>contemporary</option>
                 </select>
                 <span> Current: {this.state.song.type} </span>
