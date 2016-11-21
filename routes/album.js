@@ -54,7 +54,8 @@ router.post('/', function (req, res) {
     description: req.body.description,
     ArtistId: req.body.ArtistId,
     RecordLabelId: req.body.RecordLabelId,
-    visibility: false
+    visibilityByAlbum: false,
+    visibilityByArtist: false
   })
   .then(function (albums) {
     return res.json(albums)
@@ -65,7 +66,7 @@ router.put('/ByArtistId/:id', function(req, res){
   Album.update(
   {
     updatedAt : 'now()',
-    visibility : req.body.visibility
+    visibilityByArtist : req.body.visibilityByArtist
   }, {
     where : {
       ArtistId : req.body.id
@@ -83,7 +84,7 @@ router.put('/:id', function(req, res){
     title : req.body.title,
     description : req.body.description,
     RecordLabelId : req.body.RecordLabelId,
-    visibility : req.body.visibility
+    visibilityByAlbum : req.body.visibilityByAlbum
   }, {
     where : {
       id : req.params.id
