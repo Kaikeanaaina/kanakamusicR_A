@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
   });
 });
 
-router.get('/ofAlbum/:id', function(req, res) {
+router.get('/ByAlbumId/:id', function(req, res) {
   Song.findAll({
     where: {
       AlbumId: encodeURI(req.params.id)
