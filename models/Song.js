@@ -136,7 +136,15 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    visibility: {
+    visibilityBySong: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    visibilityByAlbum: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    visibilityByArtist: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
