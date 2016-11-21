@@ -1,6 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const { Link } = require('react-router')
+const SongList = require('./SongList')
 
 const style = {
   details: {
@@ -31,8 +32,9 @@ class Album extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      album: {},
-      songs: []
+      Album: {},
+      songs: [],
+      showSongList: false
     }
   }
   componentDidMount () {
@@ -41,41 +43,37 @@ class Album extends React.Component {
     axios.get(`${domain}albums/${this.props.params.id}`)
     .then((res) => {
       this.setState({
-        album: res.data
+        Album: res.data
       })
-      axios.get(`${domain}songs/ofAlbum/${this.state.album.id}`)
+      axios.get(`${domain}songs/ByAlbumId/${this.state.Album.id}`)
       .then((res) => {
         this.setState({
-          songs: res.data
+          songs: res.data,
+          showSongList: true
         })
       })
     })
   }
   render () {
+    let SongListing
+    if (this.state.showSongList) {
+      SongListing = <SongList AlbumId={this.state.Album.id} />
+    }
     return (
       <div>
         <div>
           <h1>Album Page</h1>
-          <h1>{this.state.album.title}</h1>
+          <h1>{this.state.Album.title}</h1>
         </div>
         <div>
           <button>
-            <Link to={`/album/edit/${this.state.album.id}`}> Edit Album </Link>
+            <Link to={`/album/edit/${this.state.Album.id}`}> Edit Album </Link>
           </button>
         </div>
         <div style={style.description}>
-          <p>{this.state.album.description}</p>
+          <p>{this.state.Album.description}</p>
         </div>
-        {this.state.songs.map((song, i) => (
-          <div style={style.songLinkContainer} key={i} >
-            <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-              <div key={i} style={style.SongText}>
-                {song.title}
-              </div>
-              <br />
-            </Link>
-          </div>
-        ))}
+        {SongListing}
       </div>
     )
   }
