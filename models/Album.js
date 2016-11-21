@@ -8,7 +8,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    visibility: {
+    visibilityByAlbum: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    visibilityByArtist: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     }
