@@ -25,7 +25,7 @@ router.post('/', function (req, res) {
     bookingPhoneNumber: req.body.bookingPhoneNumber,
     bookingEmail: req.body.bookingEmail,
     description: req.body.description,
-    visibility: false
+    visibilityByArtist: false
   })
   .then(function (artist) {
     return res.json(artist)
@@ -42,5 +42,28 @@ router.get('/:id', function (req, res) {
     return res.json(artist)
   })
 })
+
+router.put('/:id', function(req, res){
+  Artist.update(
+  {
+    updatedAt : 'now()',
+    name : req.body.name,
+    type: req.body.type,
+    facebook: req.body.facebook,
+    instagram: req.body.instagram,
+    twitter: req.body.twitter,
+    bookingPhoneNumber: req.body.bookingPhoneNumber,
+    bookingEmail: req.body.bookingEmail,
+    description : req.body.description,
+    visibilityByArtist : req.body.visibilityByArtist
+  }, {
+    where : {
+      id : req.params.id
+    }
+  })
+  .then(function(artist){
+    return res.json(artist);
+  });
+});
 
 module.exports = router
