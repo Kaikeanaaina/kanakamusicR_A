@@ -96,18 +96,35 @@ router.post('/', function (req, res) {
     memberTotalViews: 0,
     memberWeeklyViews: 0,
     memberMonthlyViews: 0,
-    visibility: false
+    visibilityBySong: false,
+    visibilityByAlbum: false,
+    visibilityByArtist: false
   })
     .then(function (data) {
       return res.json(data)
     })
 })
 
+router.put('/ByArtistId/:id', function(req, res){
+  Song.update(
+  {
+    updatedAt : 'now()',
+    visibilityByArtist : req.body.visibilityByArtist
+  }, {
+    where : {
+      ArtistId : req.body.id
+    }
+  })
+  .then(function(song){
+    return res.json(song);
+  });
+});
+
 router.put('/ByAlbumId/:id', function(req, res){
   Song.update(
   {
     updatedAt : 'now()',
-    visibility : req.body.visibility
+    visibilityByAlbum : req.body.visibilityByAlbum
   }, {
     where : {
       AlbumId : req.body.id
@@ -157,7 +174,7 @@ router.put('/:id', function(req, res){
     line30 : req.body.line30,
     description : req.body.description,
     type : req.body.type,
-    visibility : req.body.visibility,
+    visibilityBySong : req.body.visibilityBySong,
     urlTitle : encodeURI(req.body.title)
   }, {
     where : {
