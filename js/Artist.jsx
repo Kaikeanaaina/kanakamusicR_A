@@ -2,6 +2,7 @@ const React = require('react')
 const axios = require('axios')
 const AlbumList = require('./AlbumList')
 const SongList = require('./SongList')
+const { Link } = require('react-router')
 
 const style = {
   socialMedia: {
@@ -26,7 +27,6 @@ class Artist extends React.Component {
       showAlbumList: false,
       showSongList: false
     }
-    this.EditArtist = this.EditArtist.bind(this)
   }
   componentDidMount () {
     let domain = 'http://localhost:5050/'
@@ -55,10 +55,6 @@ class Artist extends React.Component {
       })
     })
   }
-  EditArtist (e) {
-    e.preventDefault()
-    console.log('edit artist')
-  }
   render () {
     let AlbumListing
     if (this.state.showAlbumList) {
@@ -74,7 +70,9 @@ class Artist extends React.Component {
           <h1>{this.state.Artist.name}</h1>
         </div>
         <div>
-          <button onClick={this.EditArtist}> Edit Artist </button>
+          <button>
+            <Link to={`/artist/edit/${this.state.Artist.id}`}> Edit Artist </Link>
+          </button>
         </div>
         <div style={style.description}>
           <h3>{this.state.Artist.description}</h3>
