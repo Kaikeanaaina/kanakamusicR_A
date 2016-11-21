@@ -1,5 +1,6 @@
 const React = require('react')
 const axios = require('axios')
+const AlbumList = require('./AlbumList')
 
 const style = {
   socialMedia: {
@@ -48,6 +49,18 @@ class EditArtist extends React.Component {
       object.description = this.state.Artist.description
     }
 
+    if (this.refs.visibility.value !== 'visibility') {
+      object.visibility = this.refs.visibility.value
+    } else {
+      object.visibility = this.state.Artist.visibility
+    }
+
+    if (this.refs.type.value !== 'type') {
+      object.type = this.refs.type.value
+    } else {
+      object.type = this.state.Artist.type
+    }
+
     if (this.refs.bookingEmail.value) {
       object.bookingEmail = this.refs.bookingEmail.value
     } else {
@@ -84,7 +97,7 @@ class EditArtist extends React.Component {
       .then((res) => {
         axios.put(`http://localhost:5050/songs/ByArtistId/${this.state.Artist.id}`, object)
         .then((res) => {
-          window.location.href = `/#/album/${this.state.Album.id}`
+          window.location.href = `/#/artist/${this.state.Artist.id}`
         })
       })
     })
@@ -121,12 +134,23 @@ class EditArtist extends React.Component {
             <div>
               <label>
                 <span> Visibility </span>
-                <select type='text' ref='visibility' placeholder='visibility' >
+                <select type='text' ref='visibility' >
                   <option> visibility </option>
                   <option value='false' >false</option>
                   <option value='true' >true</option>
                 </select>
-                {visibleProperty}
+                <span> {visibleProperty} </span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> Type </span>
+                <select type='text' ref='type' >
+                  <option> type </option>
+                  <option value='hawaii' >Hawaii</option>
+                  <option value='contemporary' >contemporary</option>
+                </select>
+                <span> Current: {this.state.Artist.type} </span>
               </label>
             </div>
           </div>
@@ -171,6 +195,9 @@ class EditArtist extends React.Component {
             <button type='submit'> Edit Album </button>
           </div>
         </form>
+        <div>
+          <AlbumList ArtistId={this.state.Artist.id} />
+        </div>
       </div>
     )
   }
