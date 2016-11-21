@@ -310,7 +310,7 @@ class AddNewSong extends React.Component {
         linkToNewArtist: false
       })
       // populate the albums depending on the artist
-      axios.get(`http://localhost:5050/albums/ofArtist/${event.target.value}`)
+      axios.get(`http://localhost:5050/albums/ByArtistId/${event.target.value}`)
       .then((res) => {
         this.setState({
           albums: res.data
