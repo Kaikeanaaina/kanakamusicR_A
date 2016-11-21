@@ -26,6 +26,17 @@ router.get('/ByArtistId/:id', function (req, res) {
   })
 })
 
+router.get('/ByRecordLabelId/:id', function (req, res) {
+  Album.findAll({
+    where: {
+      RecordLabelId: encodeURI(req.params.id)
+    }
+  })
+  .then(function (albums) {
+    return res.json(albums)
+  })
+})
+
 router.get('/:id', function (req, res) {
   Album.findOne({
     where: {
