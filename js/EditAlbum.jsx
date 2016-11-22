@@ -95,9 +95,9 @@ class EditAlbum extends React.Component {
 
     let domain = 'http://localhost:5050/'
 
-    axios.delete(`${domain}albums/${this.state.Album.id}`)
+    axios.delete(`${domain}albums/${this.state.Album.id}`, this.state.Album.id)
     .then((res) => {
-      axios.delete(`${domain}songs/ByAlbumId/${this.state.Album.id}`)
+      axios.delete(`${domain}songs/ByAlbumId/${this.state.Album.id}`, this.state.Album.id)
       .then((res) => {
         window.location.href = '/#/'
       })
