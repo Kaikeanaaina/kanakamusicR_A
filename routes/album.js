@@ -83,6 +83,7 @@ router.put('/:id', function(req, res){
     updatedAt : 'now()',
     title : req.body.title,
     description : req.body.description,
+    ArtistId: req.body.ArtistId,
     RecordLabelId : req.body.RecordLabelId,
     visibilityByAlbum : req.body.visibilityByAlbum
   }, {
