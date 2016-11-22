@@ -116,14 +116,14 @@ class EditAlbum extends React.Component {
       object.title = this.state.Album.title
     }
 
-    if (this.refs.artist.value !== 'artistHere') {
+    if (this.refs.artist.value !== 'artist here') {
       object.ArtistId = this.refs.artist.value
     } else {
-      object.ArtistId = this.state.Song.ArtistId
+      object.ArtistId = this.state.Album.ArtistId
     }
 
     if (this.refs.recordLabel.value !== 'record label here') {
-      object.RecordlLabelId = this.refs.RecordLabelId.value
+      object.RecordlLabelId = this.refs.recordLabel.value
     } else {
       object.RecordLabelId = this.state.Album.RecordLabelId
     }
@@ -141,6 +141,8 @@ class EditAlbum extends React.Component {
     } else {
       object.description = this.state.Album.description
     }
+
+    object.visibilityByArtist = this.state.Album.visibilityByArtist
 
     axios.put(`http://localhost:5050/albums/${this.state.Album.id}`, object)
     .then((res) => {
@@ -188,7 +190,7 @@ class EditAlbum extends React.Component {
             <label>
               <span>Artist:</span>
               <select onChange={this.artistChange} ref='artist'>
-                <option value='' >artist here</option>
+                <option >artist here</option>
                 <option value='giveAddNewArtistLink'>AddNewArtist</option>
                 {this.state.artists.map((artist, index) => (
                   <option key={index} value={artist.id} > {artist.name} </option>
@@ -201,7 +203,7 @@ class EditAlbum extends React.Component {
             <label>
               <span>Record Label </span>
               <select onChange={this.recordLabelChange} ref='recordLabel'>
-                <option value='' >record label here</option>
+                <option >record label here</option>
                 <option value='giveAddNewRecordLabelLink'>AddNewRecordLabel</option>
                 {this.state.recordLabels.map((recordlabel, index) => (
                   <option key={index} value={recordlabel.id} > {recordlabel.name} </option>
@@ -214,7 +216,7 @@ class EditAlbum extends React.Component {
             <label>
               <span> Visibility </span>
               <select type='text' ref='visibilityByAlbum' placeholder='visibility' >
-                <option> visibility </option>
+                <option > visibility </option>
                 <option value='false' >false</option>
                 <option value='true' >true</option>
               </select>
