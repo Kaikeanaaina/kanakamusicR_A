@@ -59,7 +59,6 @@ class SongList extends React.Component {
           <div key={i} style={style.SongText}>
             {song.title}
           </div>
-          <br />
         </Link>
       </div>
     ))}
