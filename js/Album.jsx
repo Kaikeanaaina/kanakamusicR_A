@@ -33,6 +33,8 @@ class Album extends React.Component {
     super(props)
     this.state = {
       Album: {},
+      Artist: {},
+      RecordLabel: {},
       songs: [],
       showSongList: false
     }
@@ -52,6 +54,18 @@ class Album extends React.Component {
           showSongList: true
         })
       })
+      axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
+      .then((res) => {
+        this.setState({
+          RecordLabel: res.data
+        })
+      })
+      axios.get(`${domain}artists/${this.state.Album.ArtistId}`)
+      .then((res) => {
+        this.setState({
+          Artist: res.data
+        })
+      })
     })
   }
   render () {
@@ -64,6 +78,8 @@ class Album extends React.Component {
         <div>
           <h1>Album Page</h1>
           <h1>{this.state.Album.title}</h1>
+          <p>{this.state.Artist.name}</p>
+          <p>{this.state.RecordLabel.name}</p>
         </div>
         <div>
           <button>
