@@ -83,7 +83,6 @@ class EditSong extends React.Component {
   }
   onSubmit (e) {
     e.preventDefault()
-    console.log(this.refs)
 
     let object = {
       id: this.state.Song.id
@@ -117,18 +116,6 @@ class EditSong extends React.Component {
       object.visibilityBySong = this.refs.visibilityBySong.value
     } else {
       object.visibilityBySong = this.state.Song.visibilityBySong
-    }
-
-    if (this.refs.visibilityByAlbum.value !== 'visibility') {
-      object.visibilityByAlbum = this.refs.visibilityByAlbum.value
-    } else {
-      object.visibilityByAlbum = this.state.Song.visibilityByAlbum
-    }
-
-    if (this.refs.visibilityByArtist.value !== 'visibility') {
-      object.visibilityByArtist = this.refs.visibilityByArtist.value
-    } else {
-      object.visibilityByArtist = this.state.Song.visibilityByArtist
     }
 
     if (!this.refs.line1.value) {
@@ -363,11 +350,14 @@ class EditSong extends React.Component {
       object.line30 = this.refs.line30.value
     }
 
-    if (this.refs.description.value) {
-      object.description = this.refs.description.value
-    } else {
+    if (!this.refs.description.value) {
       object.description = this.state.Song.description
+    } else {
+      object.description = this.refs.description.value
     }
+
+    object.visibilityByAlbum = this.state.Song.visibilityByAlbum
+    object.visibilityByArtist = this.state.Song.visibilityByArtist
 
     axios.put(`http://localhost:5050/songs/${this.state.Song.id}`, object)
     .then((res) => {
