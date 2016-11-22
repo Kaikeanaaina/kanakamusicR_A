@@ -20,7 +20,7 @@ class EditSong extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      song: {},
+      Song: {},
       Artist: {},
       Album: {},
       RecordLabel: {},
@@ -44,17 +44,17 @@ class EditSong extends React.Component {
     axios.get(`${domain}songs/${this.props.params.id}`)
     .then((res) => {
       this.setState({
-        song: res.data
+        Song: res.data
       })
 
-      axios.get(`${domain}artists/${this.state.song.ArtistId}`)
+      axios.get(`${domain}artists/${this.state.Song.ArtistId}`)
       .then((res) => {
         this.setState({
           Artist: res.data
         })
       })
 
-      axios.get(`${domain}albums/${this.state.song.AlbumId}`)
+      axios.get(`${domain}albums/${this.state.Song.AlbumId}`)
       .then((res) => {
         this.setState({
           Album: res.data
@@ -76,48 +76,63 @@ class EditSong extends React.Component {
 
     let domain = 'http://localhost:5050/'
 
-    axios.delete(`${domain}songs/${this.state.song.id}`)
+    axios.delete(`${domain}songs/${this.state.Song.id}`)
     .then((res) => {
       window.location.href = '/#/'
     })
   }
   onSubmit (e) {
     e.preventDefault()
+    console.log(this.refs)
 
-    let object = {}
+    let object = {
+      id: this.state.Song.id
+    }
 
     if (this.refs.title.value) {
       object.title = this.refs.title.value
     } else {
-      object.title = this.state.song.title
+      object.title = this.state.Song.title
     }
 
     if (this.refs.artist.value !== 'artistHere') {
       object.ArtistId = this.refs.artist.value
     } else {
-      object.ArtistId = this.state.song.ArtistId
+      object.ArtistId = this.state.Song.ArtistId
     }
 
     if (this.refs.album.value !== 'album here') {
       object.AlbumId = this.refs.album.value
     } else {
-      object.AlbumId = this.state.song.AlbumId
+      object.AlbumId = this.state.Song.AlbumId
     }
 
     if (this.refs.type.value !== 'type') {
       object.type = this.refs.type.value
     } else {
-      object.type = this.state.song.type
+      object.type = this.state.Song.type
     }
 
-    if (this.refs.visibility.value !== 'visibility') {
-      object.visibility = this.refs.visibility.value
+    if (this.refs.visibilityBySong.value !== 'visibility') {
+      object.visibilityBySong = this.refs.visibilityBySong.value
     } else {
-      object.visibility = this.state.song.visibility
+      object.visibilityBySong = this.state.Song.visibilityBySong
+    }
+
+    if (this.refs.visibilityByAlbum.value !== 'visibility') {
+      object.visibilityByAlbum = this.refs.visibilityByAlbum.value
+    } else {
+      object.visibilityByAlbum = this.state.Song.visibilityByAlbum
+    }
+
+    if (this.refs.visibilityByArtist.value !== 'visibility') {
+      object.visibilityByArtist = this.refs.visibilityByArtist.value
+    } else {
+      object.visibilityByArtist = this.state.Song.visibilityByArtist
     }
 
     if (!this.refs.line1.value) {
-      object.line1 = this.state.song.line1
+      object.line1 = this.state.Song.line1
     } else if (this.refs.line1.value === ' ') {
       object.line1 = null
     } else {
@@ -125,7 +140,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line2.value) {
-      object.line2 = this.state.song.line2
+      object.line2 = this.state.Song.line2
     } else if (this.refs.line2.value === ' ') {
       object.line2 = null
     } else {
@@ -133,7 +148,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line3.value) {
-      object.line3 = this.state.song.line3
+      object.line3 = this.state.Song.line3
     } else if (this.refs.line3.value === ' ') {
       object.line3 = null
     } else {
@@ -141,7 +156,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line4.value) {
-      object.line4 = this.state.song.line4
+      object.line4 = this.state.Song.line4
     } else if (this.refs.line4.value === ' ') {
       object.line4 = null
     } else {
@@ -149,7 +164,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line5.value) {
-      object.line5 = this.state.song.line5
+      object.line5 = this.state.Song.line5
     } else if (this.refs.line5.value === ' ') {
       object.line5 = null
     } else {
@@ -157,7 +172,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line6.value) {
-      object.line6 = this.state.song.line6
+      object.line6 = this.state.Song.line6
     } else if (this.refs.line6.value === ' ') {
       object.line6 = null
     } else {
@@ -165,7 +180,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line7.value) {
-      object.line7 = this.state.song.line7
+      object.line7 = this.state.Song.line7
     } else if (this.refs.line7.value === ' ') {
       object.line7 = null
     } else {
@@ -173,7 +188,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line8.value) {
-      object.line8 = this.state.song.line8
+      object.line8 = this.state.Song.line8
     } else if (this.refs.line8.value === ' ') {
       object.line8 = null
     } else {
@@ -181,7 +196,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line9.value) {
-      object.line9 = this.state.song.line9
+      object.line9 = this.state.Song.line9
     } else if (this.refs.line9.value === ' ') {
       object.line9 = null
     } else {
@@ -189,7 +204,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line10.value) {
-      object.line10 = this.state.song.line10
+      object.line10 = this.state.Song.line10
     } else if (this.refs.line10.value === ' ') {
       object.line10 = null
     } else {
@@ -197,7 +212,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line11.value) {
-      object.line11 = this.state.song.line11
+      object.line11 = this.state.Song.line11
     } else if (this.refs.line11.value === ' ') {
       object.line11 = null
     } else {
@@ -205,7 +220,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line12.value) {
-      object.line12 = this.state.song.line12
+      object.line12 = this.state.Song.line12
     } else if (this.refs.line12.value === ' ') {
       object.line12 = null
     } else {
@@ -213,7 +228,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line13.value) {
-      object.line13 = this.state.song.line13
+      object.line13 = this.state.Song.line13
     } else if (this.refs.line13.value === ' ') {
       object.line13 = null
     } else {
@@ -221,7 +236,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line14.value) {
-      object.line14 = this.state.song.line14
+      object.line14 = this.state.Song.line14
     } else if (this.refs.line14.value === ' ') {
       object.line14 = null
     } else {
@@ -229,7 +244,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line15.value) {
-      object.line15 = this.state.song.line15
+      object.line15 = this.state.Song.line15
     } else if (this.refs.line15.value === ' ') {
       object.line15 = null
     } else {
@@ -237,7 +252,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line16.value) {
-      object.line16 = this.state.song.line16
+      object.line16 = this.state.Song.line16
     } else if (this.refs.line16.value === ' ') {
       object.line16 = null
     } else {
@@ -245,7 +260,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line17.value) {
-      object.line17 = this.state.song.line17
+      object.line17 = this.state.Song.line17
     } else if (this.refs.line17.value === ' ') {
       object.line17 = null
     } else {
@@ -253,7 +268,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line18.value) {
-      object.line18 = this.state.song.line18
+      object.line18 = this.state.Song.line18
     } else if (this.refs.line18.value === ' ') {
       object.line18 = null
     } else {
@@ -261,7 +276,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line19.value) {
-      object.line19 = this.state.song.line19
+      object.line19 = this.state.Song.line19
     } else if (this.refs.line19.value === ' ') {
       object.line19 = null
     } else {
@@ -269,7 +284,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line20.value) {
-      object.line20 = this.state.song.line20
+      object.line20 = this.state.Song.line20
     } else if (this.refs.line20.value === ' ') {
       object.line20 = null
     } else {
@@ -277,7 +292,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line21.value) {
-      object.line21 = this.state.song.line21
+      object.line21 = this.state.Song.line21
     } else if (this.refs.line21.value === ' ') {
       object.line21 = null
     } else {
@@ -285,7 +300,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line22.value) {
-      object.line22 = this.state.song.line22
+      object.line22 = this.state.Song.line22
     } else if (this.refs.line22.value === ' ') {
       object.line22 = null
     } else {
@@ -293,7 +308,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line23.value) {
-      object.line23 = this.state.song.line23
+      object.line23 = this.state.Song.line23
     } else if (this.refs.line23.value === ' ') {
       object.line23 = null
     } else {
@@ -301,7 +316,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line24.value) {
-      object.line24 = this.state.song.line24
+      object.line24 = this.state.Song.line24
     } else if (this.refs.line24.value === ' ') {
       object.line24 = null
     } else {
@@ -309,7 +324,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line25.value) {
-      object.line25 = this.state.song.line25
+      object.line25 = this.state.Song.line25
     } else if (this.refs.line25.value === ' ') {
       object.line25 = null
     } else {
@@ -317,7 +332,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line26.value) {
-      object.line26 = this.state.song.line26
+      object.line26 = this.state.Song.line26
     } else if (this.refs.line26.value === ' ') {
       object.line26 = null
     } else {
@@ -325,7 +340,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line27.value) {
-      object.line27 = this.state.song.line27
+      object.line27 = this.state.Song.line27
     } else if (this.refs.line27.value === ' ') {
       object.line27 = null
     } else {
@@ -333,7 +348,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line29.value) {
-      object.line29 = this.state.song.line29
+      object.line29 = this.state.Song.line29
     } else if (this.refs.line29.value === ' ') {
       object.line29 = null
     } else {
@@ -341,7 +356,7 @@ class EditSong extends React.Component {
     }
 
     if (!this.refs.line30.value) {
-      object.line30 = this.state.song.line30
+      object.line30 = this.state.Song.line30
     } else if (this.refs.line30.value === ' ') {
       object.line30 = null
     } else {
@@ -351,12 +366,12 @@ class EditSong extends React.Component {
     if (this.refs.description.value) {
       object.description = this.refs.description.value
     } else {
-      object.description = this.state.song.description
+      object.description = this.state.Song.description
     }
 
-    axios.put(`http://localhost:5050/songs/${this.state.song.id}`, object)
+    axios.put(`http://localhost:5050/songs/${this.state.Song.id}`, object)
     .then((res) => {
-      window.location.href = `/#/song/${this.state.song.id}`
+      window.location.href = `/#/song/${this.state.Song.id}`
     })
   }
   artistChange (event) {
@@ -381,12 +396,27 @@ class EditSong extends React.Component {
     })
   }
   render () {
-    let visibleProperty
-    if (this.state.song.visibility) {
-      visibleProperty = (<div>visibility: true</div>)
+    let visibleBySongProperty
+    if (this.state.Song.visibilityBySong) {
+      visibleBySongProperty = (<div>visibilityBySong: true</div>)
     } else {
-      visibleProperty = (<div>visibility: false</div>)
+      visibleBySongProperty = (<div>visibilityBySong: false</div>)
     }
+
+    let visibleByAlbumProperty
+    if (this.state.Album.visibilityByAlbum) {
+      visibleByAlbumProperty = (<div>visibilityByAlbum: true</div>)
+    } else {
+      visibleByAlbumProperty = (<div>visibilityByAlbum: false</div>)
+    }
+
+    let visibleByArtistProperty
+    if (this.state.Artist.visibilityByArtist) {
+      visibleByArtistProperty = (<div>visibilityByArtist: true</div>)
+    } else {
+      visibleByArtistProperty = (<div>visibilityByArtist: false</div>)
+    }
+
     return (
       <div>
         <div>
@@ -397,7 +427,7 @@ class EditSong extends React.Component {
             <div>
               <label>
                 <span> Title </span>
-                <input ref='title' placeholder={this.state.song.title} />
+                <input ref='title' placeholder={this.state.Song.title} />
               </label>
             </div>
             <div>
@@ -432,19 +462,24 @@ class EditSong extends React.Component {
                   <option value='hawaii'>Hawaii</option>
                   <option value='contemporary'>contemporary</option>
                 </select>
-                <span> Current: {this.state.song.type} </span>
+                <span> Current: {this.state.Song.type} </span>
               </label>
             </div>
             <div>
               <label>
-                <span> Visibility </span>
-                <select type='text' ref='visibility' placeholder='visibility' >
+                <span> VisibilityBySong </span>
+                <select type='text' ref='visibilityBySong' placeholder='visibility' >
                   <option> visibility </option>
                   <option value='false' >false</option>
                   <option value='true' >true</option>
                 </select>
-                {visibleProperty}
+                {visibleBySongProperty}
               </label>
+            </div>
+            <br></br>
+            <div>
+              {visibleByAlbumProperty}
+              {visibleByArtistProperty}
             </div>
             <br></br>
           </div>
@@ -453,181 +488,181 @@ class EditSong extends React.Component {
             <div>
               <label>
                 <span> Line 1 </span>
-                <input ref='line1' placeholder={this.state.song.line1} />
+                <input ref='line1' placeholder={this.state.Song.line1} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 2 </span>
-                <input ref='line2' placeholder={this.state.song.line2} />
+                <input ref='line2' placeholder={this.state.Song.line2} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 3 </span>
-                <input ref='line3' placeholder={this.state.song.line3} />
+                <input ref='line3' placeholder={this.state.Song.line3} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 4 </span>
-                <input ref='line4' placeholder={this.state.song.line4} />
+                <input ref='line4' placeholder={this.state.Song.line4} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 5 </span>
-                <input ref='line5' placeholder={this.state.song.line5} />
+                <input ref='line5' placeholder={this.state.Song.line5} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 6 </span>
-                <input ref='line6' placeholder={this.state.song.line6} />
+                <input ref='line6' placeholder={this.state.Song.line6} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 7 </span>
-                <input ref='line7' placeholder={this.state.song.line7} />
+                <input ref='line7' placeholder={this.state.Song.line7} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 8 </span>
-                <input ref='line8' placeholder={this.state.song.line8} />
+                <input ref='line8' placeholder={this.state.Song.line8} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 9 </span>
-                <input ref='line9' placeholder={this.state.song.line9} />
+                <input ref='line9' placeholder={this.state.Song.line9} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 10 </span>
-                <input ref='line10' placeholder={this.state.song.line10} />
+                <input ref='line10' placeholder={this.state.Song.line10} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 11 </span>
-                <input ref='line11' placeholder={this.state.song.line11} />
+                <input ref='line11' placeholder={this.state.Song.line11} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 12 </span>
-                <input ref='line12' placeholder={this.state.song.line12} />
+                <input ref='line12' placeholder={this.state.Song.line12} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 13 </span>
-                <input ref='line13' placeholder={this.state.song.line13} />
+                <input ref='line13' placeholder={this.state.Song.line13} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 14 </span>
-                <input ref='line14' placeholder={this.state.song.line14} />
+                <input ref='line14' placeholder={this.state.Song.line14} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 15 </span>
-                <input ref='line15' placeholder={this.state.song.line15} />
+                <input ref='line15' placeholder={this.state.Song.line15} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 16 </span>
-                <input ref='line16' placeholder={this.state.song.line16} />
+                <input ref='line16' placeholder={this.state.Song.line16} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 17 </span>
-                <input ref='line17' placeholder={this.state.song.line17} />
+                <input ref='line17' placeholder={this.state.Song.line17} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 18 </span>
-                <input ref='line18' placeholder={this.state.song.line18} />
+                <input ref='line18' placeholder={this.state.Song.line18} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 19 </span>
-                <input ref='line19' placeholder={this.state.song.line19} />
+                <input ref='line19' placeholder={this.state.Song.line19} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 20 </span>
-                <input ref='line20' placeholder={this.state.song.line20} />
+                <input ref='line20' placeholder={this.state.Song.line20} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 21 </span>
-                <input ref='line21' placeholder={this.state.song.line21} />
+                <input ref='line21' placeholder={this.state.Song.line21} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 22 </span>
-                <input ref='line22' placeholder={this.state.song.line22} />
+                <input ref='line22' placeholder={this.state.Song.line22} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 23 </span>
-                <input ref='line23' placeholder={this.state.song.line23} />
+                <input ref='line23' placeholder={this.state.Song.line23} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 24 </span>
-                <input ref='line24' placeholder={this.state.song.line24} />
+                <input ref='line24' placeholder={this.state.Song.line24} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 25 </span>
-                <input ref='line25' placeholder={this.state.song.line25} />
+                <input ref='line25' placeholder={this.state.Song.line25} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 26 </span>
-                <input ref='line26' placeholder={this.state.song.line26} />
+                <input ref='line26' placeholder={this.state.Song.line26} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 27 </span>
-                <input ref='line27' placeholder={this.state.song.line27} />
+                <input ref='line27' placeholder={this.state.Song.line27} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 28 </span>
-                <input ref='line28' placeholder={this.state.song.line28} />
+                <input ref='line28' placeholder={this.state.Song.line28} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 29 </span>
-                <input ref='line29' placeholder={this.state.song.line29} />
+                <input ref='line29' placeholder={this.state.Song.line29} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 30 </span>
-                <input ref='line30' placeholder={this.state.song.line30} />
+                <input ref='line30' placeholder={this.state.Song.line30} />
               </label>
             </div>
           </div>
@@ -635,7 +670,7 @@ class EditSong extends React.Component {
           <div style={style.description}>
             <label>
               <span>Description </span>
-              <textarea ref='description' placeholder={this.state.song.description} />
+              <textarea ref='description' placeholder={this.state.Song.description} />
             </label>
           </div>
           <button type='submit' > Edit Song</button>
