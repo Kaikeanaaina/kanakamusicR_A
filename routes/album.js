@@ -96,6 +96,17 @@ router.put('/:id', function(req, res){
   });
 });
 
+router.delete('/ByArtistId/:id', function(req, res){
+  Album.destroy({
+    where: {
+      ArtistId : req.params.id
+    }
+  })
+  .then(function(data){
+    return res.json(data);
+  })
+})
+
 router.delete('/:id', function(req, res){
   Album.destroy({
     where: {
