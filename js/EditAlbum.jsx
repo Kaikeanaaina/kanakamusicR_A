@@ -1,5 +1,7 @@
 const React = require('react')
 const axios = require('axios')
+const SongList = require('./SongList')
+const { Link } = require('react-router')
 
 
 const style = {
@@ -18,11 +20,17 @@ class EditAlbum extends React.Component {
     super(props)
     this.state = {
       Album: {},
+      Artist: {},
+      RecordLabel: {},
       recordLabels: [],
-      artists: []
+      artists: [],
+      linkToNewArtist: false,
+      linkToNewRecordLabel: false
     }
     this.onSubmit = this.onSubmit.bind(this)
     this.DeleteAlbum = this.DeleteAlbum.bind(this)
+    this.recordLabelChange = this.recordLabelChange.bind(this)
+    this.artistChange = this.artistChange.bind(this)
   }
   componentDidMount () {
     let domain = 'http://localhost:5050/'
@@ -31,6 +39,18 @@ class EditAlbum extends React.Component {
     .then((res) => {
       this.setState({
         Album: res.data
+      })
+      axios.get(`${domain}artists/${this.state.Album.ArtistId}`)
+      .then((res) => {
+        this.setState({
+          Artist: res.data
+        })
+      })
+      axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
+      .then((res) => {
+        this.setState({
+          RecordLabel: res.data
+        })
       })
     })
     axios.get(`${domain}artists`)
@@ -45,6 +65,30 @@ class EditAlbum extends React.Component {
         recordLabels: res.data
       })
     })
+  }
+  recordLabelChange (e) {
+    e.preventDefault()
+    if (e.target.value === 'giveAddNewRecordLabelLink') {
+      this.setState({
+        linkToNewRecordLabel: true
+      })
+    } else {
+      this.setState({
+        linkToNewRecordLabel: false
+      })
+    }
+  }
+  artistChange (e) {
+    e.preventDefault()
+    if (e.target.value === 'giveAddNewArtistLink') {
+      this.setState({
+        linkToNewArtist: true
+      })
+    } else {
+      this.setState({
+        linkToNewArtist: false
+      })
+    }
   }
   DeleteAlbum (e) {
     e.preventDefault()
@@ -62,7 +106,9 @@ class EditAlbum extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    let object = {}
+    let object = {
+      id: this.state.Album.id
+    }
 
     if (this.refs.title.value) {
       object.title = this.refs.title.value
@@ -70,10 +116,22 @@ class EditAlbum extends React.Component {
       object.title = this.state.Album.title
     }
 
-    if (this.refs.visibility.value !== 'visibility') {
-      object.visibility = this.refs.visibility.value
+    if (this.refs.artist.value !== 'artistHere') {
+      object.ArtistId = this.refs.artist.value
     } else {
-      object.visibility = this.state.Album.visibility
+      object.ArtistId = this.state.Song.ArtistId
+    }
+
+    if (this.refs.recordLabel.value !== 'record label here') {
+      object.RecordlLabelId = this.refs.RecordLabelId.value
+    } else {
+      object.RecordLabelId = this.state.Album.RecordLabelId
+    }
+
+    if (this.refs.visibilityByAlbum.value !== 'visibility') {
+      object.visibilityByAlbum = this.refs.visibilityByAlbum.value
+    } else {
+      object.visibilityByAlbum = this.state.Album.visibilityByAlbum
     }
 
     if (this.refs.description.value) {
@@ -93,11 +151,25 @@ class EditAlbum extends React.Component {
     })
   }
   render () {
-    let visibleProperty
-    if (this.state.Album.visibility) {
-      visibleProperty = (<div>visibility: true</div>)
+    let visibleByAlbumProperty
+    if (this.state.Album.visibilityByAlbum) {
+      visibleByAlbumProperty = (<div>visibilityByAlbum: true</div>)
     } else {
-      visibleProperty = (<div>visibility: false</div>)
+      visibleByAlbumProperty = (<div>visibilityByAlbum: false</div>)
+    }
+    let visibleByArtistProperty
+    if (this.state.Album.visibilityByArtist) {
+      visibleByArtistProperty = (<div>visibilityByArtist: true</div>)
+    } else {
+      visibleByArtistProperty = (<div>visibilityByArtist: false</div>)
+    }
+    let AddNewArtistLink = null
+    if (this.state.linkToNewArtist) {
+      AddNewArtistLink = <div><br /><Link to='/AddNewArtist'>Add New Artist</Link><br /></div>
+    }
+    let AddNewRecordLabelLink = null
+    if (this.state.linkToNewRecordLabel) {
+      AddNewRecordLabelLink = <div><br /><Link to='/AddNewRecordLabel'>Add New Record Label</Link><br /></div>
     }
     return (
       <div>
@@ -114,14 +186,43 @@ class EditAlbum extends React.Component {
           <br></br>
           <div style={style.details}>
             <label>
+              <span>Artist:</span>
+              <select onChange={this.artistChange} ref='artist'>
+                <option value='' >artist here</option>
+                <option value='giveAddNewArtistLink'>AddNewArtist</option>
+                {this.state.artists.map((artist, index) => (
+                  <option key={index} value={artist.id} > {artist.name} </option>
+                ))}
+              </select>
+              <span> Current: {this.state.Artist.name} </span>
+              {AddNewArtistLink}
+            </label>
+            <br />
+            <label>
+              <span>Record Label </span>
+              <select onChange={this.recordLabelChange} ref='recordLabel'>
+                <option value='' >record label here</option>
+                <option value='giveAddNewRecordLabelLink'>AddNewRecordLabel</option>
+                {this.state.recordLabels.map((recordlabel, index) => (
+                  <option key={index} value={recordlabel.id} > {recordlabel.name} </option>
+                ))}
+              </select>
+              <span> Current: {this.state.RecordLabel.name} </span>
+              {AddNewRecordLabelLink}
+            </label>
+            <br />
+            <label>
               <span> Visibility </span>
-              <select type='text' ref='visibility' placeholder='visibility' >
+              <select type='text' ref='visibilityByAlbum' placeholder='visibility' >
                 <option> visibility </option>
                 <option value='false' >false</option>
                 <option value='true' >true</option>
               </select>
-              {visibleProperty}
+              {visibleByAlbumProperty}
             </label>
+            <div>
+              {visibleByArtistProperty}
+            </div>
           </div>
           <br></br>
           <div style={style.description}>
@@ -132,6 +233,8 @@ class EditAlbum extends React.Component {
           </div>
           <button type='submit'> Edit Album </button>
         </form>
+
+        <SongList AlbumId={this.state.Album.id} />
         <div>
           <button onClick={this.DeleteAlbum}>Delete Album</button>
         </div>
