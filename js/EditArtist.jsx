@@ -1,6 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const AlbumList = require('./AlbumList')
+const SongList = require('./SongList')
 
 const style = {
   socialMedia: {
@@ -21,6 +22,7 @@ class EditArtist extends React.Component {
       Artist: {}
     }
     this.onSubmit = this.onSubmit.bind(this)
+    this.DeleteArtist = this.DeleteArtist.bind(this)
   }
   componentDidMount () {
     let domain = 'http://localhost:5050/'
@@ -101,6 +103,23 @@ class EditArtist extends React.Component {
         .then((res) => {
           window.location.href = `/#/artist/${this.state.Artist.id}`
         })
+      })
+    })
+  }
+  DeleteArtist (e) {
+    e.preventDefault()
+
+    console.log(this.refs)
+    console.log(this.state.Artist)
+
+    let domain = 'http://localhost:5050/'
+
+    axios.delete(`${domain}artists/${this.state.Artist.id}`)
+    .then((res) => {
+      axios.delete(`${domain}albums/ByArtistId/${this.state.Artist.id}`)
+      axios.delete(`${domain}songs/ByArtistId/${this.state.Artist.id}`)
+      .then((res) => {
+        window.location.href = '/#/'
       })
     })
   }
@@ -199,6 +218,12 @@ class EditArtist extends React.Component {
         </form>
         <div>
           <AlbumList ArtistId={this.state.Artist.id} />
+        </div>
+        <div>
+          <SongList ArtistId={this.state.Artist.id} />
+        </div>
+        <div>
+          <button onClick={this.DeleteArtist} > Delete Artist </button>
         </div>
       </div>
     )
