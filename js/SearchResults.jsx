@@ -17,6 +17,20 @@ const style = {
     borderBottom: 'black solid 1px',
     color: 'grey'
   },
+  artistListContainer: {
+
+  },
+  artistLinkContainer: {
+
+  },
+  artistLink: {
+    textDecoration: 'none',
+    fontSize: '24px'
+  },
+  ArtistText: {
+    borderBottom: 'black solid 1px',
+    color: 'grey'
+  },
   albumListContainer: {
 
   },
@@ -76,6 +90,20 @@ class SearchResults extends React.Component {
                 <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
                   <div key={i} style={style.SongText}>
                     {song.title}
+                  </div>
+                  <br />
+                </Link>
+              </div>
+          ))}
+        </div>
+        <div>
+          {this.state.artists
+            .filter((artist) => `${artist.name} ${artist.description}`.toUpperCase().indexOf(this.props.searchInput.toUpperCase()) >= 0)
+            .map((artist, i) => (
+              <div style={style.artistLinkContainer} key={i} >
+                <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+                  <div key={i} style={style.ArtistText} >
+                    {artist.name}
                   </div>
                   <br />
                 </Link>
