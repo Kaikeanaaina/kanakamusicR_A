@@ -31,7 +31,7 @@ const HeaderNavbar = () => (
       <Link to='/' id='KanakaMusic-Header' style={style.KanakaMusicHeader}>KanakaMusic</Link>
     </div>
     <div style={style.headerChildren}>
-      <div><Link to='/addNewSong' style={style.headerLinks} > +Song </Link></div>
+      <div><Link to='/addNewContent' style={style.headerLinks} > +Content </Link></div>
       <div><Link to='/Gigs' style={style.headerLinks} > Gigs </Link></div>
       <div><Link to='/Connect' style={style.headerLinks} > Connect </Link></div>
       <div><Link to='/Chords' style={style.headerLinks} >Chords</Link></div>
