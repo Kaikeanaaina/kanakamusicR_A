@@ -35,7 +35,9 @@ class EditArtist extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    let object = {}
+    let object = {
+      id: this.state.Artist.id
+    }
 
     if (this.refs.name.value) {
       object.name = this.refs.name.value
@@ -49,10 +51,10 @@ class EditArtist extends React.Component {
       object.description = this.state.Artist.description
     }
 
-    if (this.refs.visibility.value !== 'visibility') {
-      object.visibility = this.refs.visibility.value
+    if (this.refs.visibilityByArtist.value !== 'visibility') {
+      object.visibilityByArtist = this.refs.visibilityByArtist.value
     } else {
-      object.visibility = this.state.Artist.visibility
+      object.visibilityByArtist = this.state.Artist.visibilityByArtist
     }
 
     if (this.refs.type.value !== 'type') {
@@ -104,7 +106,7 @@ class EditArtist extends React.Component {
   }
   render () {
     let visibleProperty
-    if (this.state.Artist.visibility) {
+    if (this.state.Artist.visibilityByArtist) {
       visibleProperty = (<div>visibility: true</div>)
     } else {
       visibleProperty = (<div>visibility: false</div>)
@@ -134,7 +136,7 @@ class EditArtist extends React.Component {
             <div>
               <label>
                 <span> Visibility </span>
-                <select type='text' ref='visibility' >
+                <select type='text' ref='visibilityByArtist' >
                   <option> visibility </option>
                   <option value='false' >false</option>
                   <option value='true' >true</option>
@@ -192,7 +194,7 @@ class EditArtist extends React.Component {
           </div>
           <br></br>
           <div>
-            <button type='submit'> Edit Album </button>
+            <button type='submit'> Edit Artist </button>
           </div>
         </form>
         <div>
