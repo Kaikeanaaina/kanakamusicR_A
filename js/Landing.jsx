@@ -9,62 +9,82 @@ class MyFirstComponent extends React.Component {
     this.state = {
       SongList: true,
       ArtistList: false,
-      AlbumList: false
+      AlbumList: false,
+      SearchResult: false,
+      searchInput: ''
     }
     this.ShowSongList = this.ShowSongList.bind(this)
     this.ShowArtistList = this.ShowArtistList.bind(this)
     this.ShowAlbumList = this.ShowAlbumList.bind(this)
+    this.searchInputEvent = this.searchInputEvent.bind(this)
   }
   ShowSongList (e) {
     this.setState({
       SongList: true,
       ArtistList: false,
-      AlbumList: false
+      AlbumList: false,
+      SearchResult: false
     })
   }
   ShowArtistList (e) {
     this.setState({
       SongList: false,
       ArtistList: true,
-      AlbumList: false
+      AlbumList: false,
+      SearchResult: false
     })
   }
   ShowAlbumList (e) {
     this.setState({
       SongList: false,
       ArtistList: false,
-      AlbumList: true
+      AlbumList: true,
+      SearchResult: false
     })
   }
+  searchInputEvent (e) {
+    this.setState({
+      searchInput: e.target.value
+    })
+
+    if (!e.target.value) {
+      this.setState({
+        SongList: true,
+        SearchResult: false
+      })
+    } else {
+      this.setState({
+        SongList: false,
+        SearchResult: true
+      })
+    }
+  }
   render () {
-    let SongListing = null
-    let ArtistListing = null
-    let AlbumListing = null
+    let Listing = null
+    let ResultListing = null
 
     if (this.state.SongList) {
-      SongListing = <div><SongList /></div>
-      ArtistListing = null
-      AlbumListing = null
+      Listing = <div><SongList /></div>
     } else if (this.state.ArtistList) {
-      ArtistListing = <div><ArtistList /></div>
-      SongListing = null
-      AlbumListing = null
+      Listing = <div><ArtistList /></div>
     } else {
-      AlbumListing = <div><AlbumList /></div>
-      SongListing = null
-      ArtistListing = null
+      Listing = <div><AlbumList /></div>
+    }
+
+    if (this.state.SearchResult) {
+      ResultListing = (<div>hi</div>)
+    } else {
+      ResultListing = (<div><div className='buttons'><button onClick={this.ShowSongList} > Song is true </button><button onClick={this.ShowArtistList} > Artist is true </button><button onClick={this.ShowAlbumList} > Album is true </button></div>{Listing}</div>)
     }
 
     return (
       <div>
-        <div className='buttons'>
-          <button onClick={this.ShowSongList} > Song is true </button>
-          <button onClick={this.ShowArtistList} > Artist is true </button>
-          <button onClick={this.ShowAlbumList} > Album is true </button>
+        <div>
+          <form >
+            <input onChange={this.searchInputEvent} type='text' ref='search' placeholder='Search' />
+          </form>
         </div>
-        {SongListing}
-        {ArtistListing}
-        {AlbumListing}
+        {ResultListing}
       </div>
     )
   }
