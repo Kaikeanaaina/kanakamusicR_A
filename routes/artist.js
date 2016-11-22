@@ -66,4 +66,15 @@ router.put('/:id', function(req, res){
   });
 });
 
+router.delete('/:id', function(req, res){
+  Artist.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(data){
+    return res.json(data);
+  });
+});
+
 module.exports = router
