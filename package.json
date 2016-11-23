@@ -27,6 +27,7 @@
     "pg-promise": "^5.3.4",
     "react": "0.14.7",
     "react-dom": "0.14.7",
+    "react-modal": "^1.5.2",
     "react-redux": "4.4.0",
     "react-router": "2.0.0",
     "redux": "3.3.1",
@@ -62,7 +63,6 @@
     "livereload": "^0.6.0",
     "mocha": "2.4.5",
     "nyc": "6.0.0",
-    "react-addons-test-utils": "0.14.7",
     "sinon": "^1.17.3",
     "supertest": "^2.0.1",
     "webpack": "1.13.2"
