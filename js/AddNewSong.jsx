@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const { Link } = require('react-router')
+const PreviewModal = require('./PreviewModal')
 
 const styles = {
   fontSize: '24px',
@@ -15,7 +15,6 @@ class AddNewSong extends React.Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.artistChange = this.artistChange.bind(this)
-    this.albumChange = this.albumChange.bind(this)
     this.handleLine1 = this.handleLine1.bind(this)
     this.handleLine2 = this.handleLine2.bind(this)
     this.handleLine3 = this.handleLine3.bind(this)
@@ -45,10 +44,11 @@ class AddNewSong extends React.Component {
     this.handleLine27 = this.handleLine27.bind(this)
     this.handleLine28 = this.handleLine28.bind(this)
     this.handleLine29 = this.handleLine29.bind(this)
+    this.openModal = this.openModal.bind(this)
+    this.afterOpenModal = this.afterOpenModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
 
     this.state = ({
-      linkToNewArtist: false,
-      linkToNewAlbum: false,
       artists: [],
       albums: [],
       line2: false,
@@ -79,7 +79,8 @@ class AddNewSong extends React.Component {
       line27: false,
       line28: false,
       line29: false,
-      line30: false
+      line30: false,
+      modalIsOpen: false
     })
   }
   componentDidMount () {
@@ -92,8 +93,6 @@ class AddNewSong extends React.Component {
   }
   onSubmit (e) {
     e.preventDefault()
-
-    console.log(this.refs)
 
     if (!this.refs.title.value || !this.refs.artist.value || !this.refs.album.value || !this.refs.type.value || this.refs.description.valua === 'type') {
       // throw error message here
@@ -288,45 +287,36 @@ class AddNewSong extends React.Component {
       object.line30 = this.refs.line30.value
     }
 
-    axios.post('http://localhost:5050/songs', object)
-    .then((res) => {
-      window.location.href = '/#/'
-    })
+    console.log('pop up')
+    // axios.post('http://localhost:5050/songs', object)
+    // .then((res) => {
+    //   window.location.href = '/#/'
+    // })
+  }
+  openModal () {
+    this.setState({modalIsOpen: true})
+  }
+  afterOpenModal () {
+    // references are now sync'd and can be accessed.
+    this.refs.subtitle.style.color = '#f00'
+  }
+  closeModal () {
+    this.setState({modalIsOpen: false})
   }
   artistChange (event) {
     event.preventDefault()
 
     this.refs.album.value = 'album here'
-    this.state.linkToNewAlbum = false
 
-    if (event.target.value === 'giveAddNewArtistLink') {
-      this.setState({
-        linkToNewArtist: true
-      })
-    } else if (event.target.value === 'artistHere') {
+    if (event.target.value === 'artistHere') {
       return
     } else {
-      this.setState({
-        linkToNewArtist: false
-      })
       // populate the albums depending on the artist
       axios.get(`http://localhost:5050/albums/ByArtistId/${event.target.value}`)
       .then((res) => {
         this.setState({
           albums: res.data
         })
-      })
-    }
-  }
-  albumChange (event) {
-    event.preventDefault()
-    if (event.target.value === 'giveAddNewAlbumLink') {
-      this.setState({
-        linkToNewAlbum: true
-      })
-    } else {
-      this.setState({
-        linkToNewAlbum: false
       })
     }
   }
@@ -535,14 +525,6 @@ class AddNewSong extends React.Component {
   }
 
   render () {
-    let AddNewArtistLink = null
-    if (this.state.linkToNewArtist) {
-      AddNewArtistLink = <div><br /><Link to='/addNewArtist'>Add New Artist</Link><br /></div>
-    }
-    let AddNewAlbumLink = null
-    if (this.state.linkToNewAlbum) {
-      AddNewAlbumLink = <div><br /><Link to='/addNewAlbum'>Add New Album</Link><br /></div>
-    }
     let line2 = null
     if (this.state.line2) {
       line2 = <div id='addSongLine2' ><input type='text' onChange={this.handleLine2} ref='line2' placeholder='line2' style={styles} /><br /></div>
@@ -667,21 +649,17 @@ class AddNewSong extends React.Component {
           <br />
           <select type='text' ref='artist' style={styles} onChange={this.artistChange} >
             <option value='artistHere' > artist here </option>
-            <option value='giveAddNewArtistLink' >AddNewArtist</option>
             {this.state.artists.map((artist, index) => (
               <option key={index} value={artist.id} > {artist.name} </option>
             ))}
           </select>
-          {AddNewArtistLink}
           <br />
-          <select type='text' ref='album' style={styles} placeholder='album' onChange={this.albumChange}>
+          <select type='text' ref='album' style={styles} placeholder='album' >
             <option >album here</option>
-            <option value='giveAddNewAlbumLink'>AddNewAlbum</option>
               {this.state.albums.map((album, index) => (
                 <option key={index} value={album.id} > {album.title} </option>
               ))}
           </select>
-          {AddNewAlbumLink}
           <br />
           <select type='text' ref='type' placeholder='type' style={styles} >
             <option value=''> type </option>
@@ -725,6 +703,8 @@ class AddNewSong extends React.Component {
 
           <button type='submit' style={styles} > Add Song </button>
         </form>
+        <button onClick={this.openModal}>Open Modal</button>
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal}/>
       </div>
     )
   }
