@@ -1,6 +1,7 @@
 const React = require('react')
-// const axios = require('axios')
+const axios = require('axios')
 const PreviewModal = require('./PreviewModal')
+const SuccessEntryModal = require('./SuccessEntryModal')
 
 class AddNewRecordLabel extends React.Component {
   constructor (props) {
@@ -8,12 +9,14 @@ class AddNewRecordLabel extends React.Component {
     this.state = ({
       artists: [],
       object: {},
-      modalIsOpen: false
+      modalIsOpen: false,
+      successModalIsOpen: false
     })
     this.onSubmit = this.onSubmit.bind(this)
     this.openModal = this.openModal.bind(this)
     this.afterOpenModal = this.afterOpenModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.returnToHome = this.returnToHome.bind(this)
   }
   openModal () {
     if (!this.refs.name.value) {
@@ -38,17 +41,27 @@ class AddNewRecordLabel extends React.Component {
   }
   closeModal () {
     this.setState({
-      modalIsOpen: false
+      modalIsOpen: false,
+      successModalIsOpen: false
     })
+  }
+  returnToHome () {
+    this.setState({
+      successModalIsOpen: false
+    })
+    window.location.href = '/#/'
   }
   onSubmit (e) {
     e.preventDefault()
-    console.log('submit record label')
 
-    // axios.post('http://localhost:5050/recordLabels', object)
-    // .then((res) => {
-    //   window.location.href = '/#/AddNewArtist'
-    // })
+    axios.post('http://localhost:5050/recordLabels', this.state.object)
+    .then((res) => {
+      // should catch error here
+      return this.setState({
+        modalIsOpen: false,
+        successModalIsOpen: true
+      })
+    })
   }
   render () {
     return (
@@ -62,6 +75,7 @@ class AddNewRecordLabel extends React.Component {
         </form>
         <button onClick={this.openModal} > Add Record Label </button>
         <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addRecordLabel' object={this.state.object} onSubmit={this.onSubmit} />
+        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
       </div>
     )
   }
