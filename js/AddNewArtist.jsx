@@ -1,10 +1,26 @@
 const React = require('react')
 const axios = require('axios')
+const PreviewModal = require('./PreviewModal')
 
 class AddNewArtist extends React.Component {
   constructor (props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    this.state = {
+      modalIsOpen: false
+    }
+  }
+  openModal () {
+    this.setState({
+      modalIsOpen: true
+    })
+  }
+  closeModal () {
+    this.setState({
+      modalIsOpen: false
+    })
   }
   onSubmit (e) {
     e.preventDefault()
@@ -72,8 +88,9 @@ class AddNewArtist extends React.Component {
           <br />
           <input type='text' ref='bookingPhoneNumber' placeholder='bookingPhoneNumber' />
           <br />
-          <button type='submit'> Add Artist </button>
         </form>
+        <button onClick={this.openModal} > Add Artist </button>
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addArtist' />
       </div>
     )
   }
