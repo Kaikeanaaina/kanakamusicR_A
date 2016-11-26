@@ -24,10 +24,6 @@ class PreviewModal extends React.Component {
     // references are now sync'd and can be accessed.
     this.refs.subtitle.style.color = '#f00'
   }
-  componentDidMount () {
-    console.log(this.props.object
-    )
-  }
   render () {
     if (this.props.type === 'addSong') {
       return (
@@ -40,7 +36,6 @@ class PreviewModal extends React.Component {
 
             <h2 ref='subtitle'>Add A Song</h2>
             <button onClick={this.props.closeModal}>close</button>
-            <div>confirm song</div>
           </Modal>
         </div>
       )
@@ -55,7 +50,6 @@ class PreviewModal extends React.Component {
 
             <h2 ref='subtitle'>Add Album</h2>
             <button onClick={this.props.closeModal}>close</button>
-            <div>confirm album</div>
           </Modal>
         </div>
       )
@@ -68,9 +62,12 @@ class PreviewModal extends React.Component {
             onRequestClose={this.closeModal}
             style={customStyles} >
 
-            <h2 ref='subtitle'>Add Artist</h2>
-            <button onClick={this.props.closeModal}>close</button>
-            <div>confirm artist</div>
+            <h4 ref='subtitle'>Confirm New Artist</h4>
+            <label>
+              <h2>name: {this.props.object.name}</h2>
+            </label>
+            <button onClick={this.props.closeModal}>cancel</button>
+            <button onClick={this.props.onSubmit}>submit</button>
           </Modal>
         </div>
       )
@@ -83,11 +80,12 @@ class PreviewModal extends React.Component {
             onRequestClose={this.closeModal}
             style={customStyles} >
 
-            <h2 ref='subtitle'>Confirm New RecordLabel</h2>
-            <h4>{this.props.object.name}</h4>
+            <h4 ref='subtitle'>Confirm New RecordLabel</h4>
+            <label>
+              <h2>name: {this.props.object.name}</h2>
+            </label>
             <button onClick={this.props.closeModal}>cancel</button>
             <button onClick={this.props.onSubmit}>submit</button>
-            <div>confirm RecordLabel</div>
           </Modal>
         </div>
       )
