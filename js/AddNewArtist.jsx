@@ -1,6 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('./PreviewModal')
+const SuccessEntryModal = require('./SuccessEntryModal')
 
 class AddNewArtist extends React.Component {
   constructor (props) {
@@ -8,61 +9,80 @@ class AddNewArtist extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.returnToHome = this.returnToHome.bind(this)
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      successModalIsOpen: false,
+      object: {}
     }
   }
   openModal () {
+    if (!this.refs.name.value || !this.refs.type.value) {
+      return console.log('fill in the name input')
+    }
+    let object = {
+      name: this.refs.name.value,
+      type: this.refs.type.value,
+      description: this.refs.description.value,
+      facebook: this.refs.facebook.value,
+      instagram: this.refs.instagram.value,
+      twitter: this.refs.twitter.value,
+      bookingEmail: this.refs.bookingEmail.value,
+      bookingPhoneNumber: this.refs.bookingPhoneNumber.value
+    }
+
+    if (!this.refs.description.value) {
+      object.description = null
+    }
+    if (!this.refs.facebook.value) {
+      object.facebook = null
+    }
+    if (!this.refs.instagram.value) {
+      object.instagram = null
+    }
+    if (!this.refs.twitter.value) {
+      object.twitter = null
+    }
+    if (!this.refs.bookingEmail.value) {
+      object.bookingEmail = null
+    }
+    if (!this.refs.bookingPhoneNumber.value) {
+      object.bookingPhoneNumber = null
+    }
+
+    this.setState({
+      object: object
+    })
+
     this.setState({
       modalIsOpen: true
     })
   }
   closeModal () {
     this.setState({
-      modalIsOpen: false
+      modalIsOpen: false,
+      successModalIsOpen: false
     })
+  }
+  returnToHome () {
+    this.setState({
+      successModalIsOpen: false
+    })
+    window.location.href = '/#/'
   }
   onSubmit (e) {
     e.preventDefault()
-    if (!this.refs.name.value || !this.refs.type.value) {
-      console.log('fill in name or type')
-      return
-    } else {
-      let object = {
-        name: this.refs.name.value,
-        type: this.refs.type.value,
-        description: this.refs.description.value,
-        facebook: this.refs.facebook.value,
-        instagram: this.refs.instagram.value,
-        twitter: this.refs.twitter.value,
-        bookingEmail: this.refs.bookingEmail.value,
-        bookingPhoneNumber: this.refs.bookingPhoneNumber.value
-      }
-      if (!this.refs.description.value) {
-        object.description = null
-      }
-      if (!this.refs.facebook.value) {
-        object.facebook = null
-      }
-      if (!this.refs.instagram.value) {
-        object.instagram = null
-      }
-      if (!this.refs.twitter.value) {
-        object.twitter = null
-      }
-      if (!this.refs.bookingEmail.value) {
-        object.bookingEmail = null
-      }
-      if (!this.refs.bookingPhoneNumber.value) {
-        object.bookingPhoneNumber = null
-      }
 
-      axios.post('http://localhost:5050/artists', object)
-      .then((res) => {
-        window.location.href = '/#/AddNewSong'
+    axios.post('http://localhost:5050/artists', this.state.object)
+    .then((res) => {
+    // should catch error here
+      return this.setState({
+        modalIsOpen: false,
+        successModalIsOpen: true
       })
-    }
+    })
   }
+
   render () {
     return (
       <div id='AddNewArtist'>
@@ -90,7 +110,8 @@ class AddNewArtist extends React.Component {
           <br />
         </form>
         <button onClick={this.openModal} > Add Artist </button>
-        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addArtist' />
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addArtist' object={this.state.object} onSubmit={this.onSubmit} />
+        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
       </div>
     )
   }

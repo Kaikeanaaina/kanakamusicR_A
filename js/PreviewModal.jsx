@@ -85,7 +85,8 @@ class PreviewModal extends React.Component {
 
             <h2 ref='subtitle'>Confirm New RecordLabel</h2>
             <h4>{this.props.object.name}</h4>
-            <button onClick={this.props.closeModal}>close</button>
+            <button onClick={this.props.closeModal}>cancel</button>
+            <button onClick={this.props.onSubmit}>submit</button>
             <div>confirm RecordLabel</div>
           </Modal>
         </div>
@@ -98,7 +99,8 @@ PreviewModal.propTypes = {
   modalIsOpen: React.PropTypes.bool,
   closeModal: React.PropTypes.func,
   type: React.PropTypes.string,
-  object: React.PropTypes.object
+  object: React.PropTypes.object,
+  onSubmit: React.PropTypes.func
 }
 
 module.exports = PreviewModal
