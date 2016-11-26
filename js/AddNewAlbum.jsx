@@ -1,5 +1,6 @@
 const React = require('react')
 const axios = require('axios')
+const PreviewModal = require('./PreviewModal')
 
 class AddNewAlbum extends React.Component {
   constructor (props) {
@@ -8,8 +9,21 @@ class AddNewAlbum extends React.Component {
     this.state = {
       recordLabels: [],
       type: '',
-      artists: []
+      artists: [],
+      modalIsOpen: false
     }
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+  }
+  openModal () {
+    this.setState({
+      modalIsOpen: true
+    })
+  }
+  closeModal () {
+    this.setState({
+      modalIsOpen: false
+    })
   }
   componentDidMount () {
     axios.get('http://localhost:5050/recordLabels')
@@ -75,9 +89,9 @@ class AddNewAlbum extends React.Component {
           <br />
           <textarea type='text' ref='description' placeholder='description' />
           <br />
-          <button type='submit'>Add Album</button>
         </form>
-
+        <button onClick={this.openModal}>Add Album</button>
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addAlbum' />
       </div>
     )
   }
