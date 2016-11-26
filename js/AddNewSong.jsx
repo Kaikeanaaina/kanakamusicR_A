@@ -704,7 +704,7 @@ class AddNewSong extends React.Component {
           <button type='submit' style={styles} > Add Song </button>
         </form>
         <button onClick={this.openModal}>Open Modal</button>
-        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal}/>
+        <PreviewModal type='addSong' modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal}/>
       </div>
     )
   }
