@@ -1,7 +1,7 @@
 const React = require('react')
 const axios = require('axios')
-const AlbumList = require('./AlbumList')
-const SongList = require('./SongList')
+const AlbumList = require('../Album/AlbumList')
+const SongList = require('../Song/SongList')
 
 const style = {
   socialMedia: {

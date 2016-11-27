@@ -5,7 +5,6 @@ const { Router, Route, IndexRoute, hashHistory } = require('react-router')
 
 const Layout = require('./Layout')
 const Landing = require('./Landing')
-const OtherRoute = require('./OtherRoute')
 const TermsOfService = require('./TermsOfService')
 const PrivacyPolicy = require('./PrivacyPolicy')
 const ContactInformation = require('./ContactInformation')
@@ -13,19 +12,18 @@ const About = require('./About')
 const Connect = require('./Connect')
 const Settings = require('./Settings')
 const Gigs = require('./Gigs')
-const Song = require('./Song')
-const Artist = require('./Artist')
+const Song = require('./MainContent/Song/Song')
+const Artist = require('./MainContent/Artist/Artist')
 const Chords = require('./Chords')
-const Album = require('./Album')
-const AddNewContent = require('./AddNewContent')
-const EditSong = require('./EditSong')
-const EditAlbum = require('./EditAlbum')
-const EditArtist = require('./EditArtist')
+const Album = require('./MainContent/Album/Album')
+const AddNewContent = require('./MainContent/AddNewContent')
+const EditSong = require('./MainContent/Song/EditSong')
+const EditAlbum = require('./MainContent/Album/EditAlbum')
+const EditArtist = require('./MainContent/Artist/EditArtist')
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
     <IndexRoute component={Landing} />
-    <Route path='/OtherRoute' component={OtherRoute} />
     <Route path='/TermsOfService' component={TermsOfService} />
     <Route path='/PrivacyPolicy' component={PrivacyPolicy} />
     <Route path='/ContactInformation' component={ContactInformation} />

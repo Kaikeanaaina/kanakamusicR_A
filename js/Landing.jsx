@@ -1,6 +1,6 @@
 const React = require('react')
-const SearchResults = require('./SearchResults')
-const ContentLists = require('./ContentLists')
+const SearchResults = require('./MainContent/SearchResults')
+const ContentLists = require('./MainContent/ContentLists')
 
 class MyFirstComponent extends React.Component {
   constructor () {

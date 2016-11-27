@@ -1,7 +1,7 @@
 const React = require('react')
-const SongList = require('./SongList')
-const ArtistList = require('./ArtistList')
-const AlbumList = require('./AlbumList')
+const SongList = require('./Song/SongList')
+const ArtistList = require('./Artist/ArtistList')
+const AlbumList = require('./Album/AlbumList')
 
 class ContentLists extends React.Component {
   constructor () {

@@ -1,7 +1,7 @@
 const React = require('react')
 const axios = require('axios')
-const PreviewModal = require('./PreviewModal')
-const SuccessEntryModal = require('./SuccessEntryModal')
+const PreviewModal = require('../Modal/PreviewModal')
+const SuccessEntryModal = require('../Modal/SuccessEntryModal')
 
 const styles = {
   fontSize: '24px',

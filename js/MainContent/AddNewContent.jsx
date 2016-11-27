@@ -1,8 +1,8 @@
 const React = require('react')
-const AddNewSong = require('./AddNewSong')
-const AddNewArtist = require('./AddNewArtist')
-const AddNewAlbum = require('./AddNewAlbum')
-const AddNewRecordLabel = require('./AddNewRecordLabel')
+const AddNewSong = require('./Song/AddNewSong')
+const AddNewArtist = require('./Artist/AddNewArtist')
+const AddNewAlbum = require('./Album/AddNewAlbum')
+const AddNewRecordLabel = require('./RecordLabel/AddNewRecordLabel')
 
 class AddNewContent extends React.Component {
   constructor (props) {

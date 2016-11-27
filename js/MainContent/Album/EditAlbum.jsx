@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const SongList = require('./SongList')
+const SongList = require('../Song/SongList')
 const { Link } = require('react-router')
 
 
