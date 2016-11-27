@@ -83,46 +83,61 @@ class SearchResults extends React.Component {
           All Search Results
         </h1>
         <div>
-          {this.state.songs
-            .filter((song) => `${song.title} ${song.description}`.toUpperCase().indexOf(this.props.searchInput.toUpperCase()) >= 0)
-            .map((song, i) => (
-              <div style={style.songLinkContainer} key={i} >
-                <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                  <div key={i} style={style.SongText}>
-                    {song.title}
-                  </div>
-                  <br />
-                </Link>
-              </div>
-          ))}
+          <div>
+            <h3>Songs</h3>
+          </div>
+          <div>
+            {this.state.songs
+              .filter((song) => `${song.title} ${song.description}`.toUpperCase().indexOf(this.props.searchInput.toUpperCase()) >= 0)
+              .map((song, i) => (
+                <div style={style.songLinkContainer} key={i} >
+                  <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+                    <div key={i} style={style.SongText}>
+                      {song.title}
+                    </div>
+                    <br />
+                  </Link>
+                </div>
+            ))}
+          </div>
         </div>
         <div>
-          {this.state.artists
-            .filter((artist) => `${artist.name} ${artist.description}`.toUpperCase().indexOf(this.props.searchInput.toUpperCase()) >= 0)
-            .map((artist, i) => (
-              <div style={style.artistLinkContainer} key={i} >
-                <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
-                  <div key={i} style={style.ArtistText} >
-                    {artist.name}
-                  </div>
-                  <br />
-                </Link>
-              </div>
-          ))}
+          <div>
+            <h3>Artists</h3>
+          </div>
+          <div>
+            {this.state.artists
+              .filter((artist) => `${artist.name} ${artist.description}`.toUpperCase().indexOf(this.props.searchInput.toUpperCase()) >= 0)
+              .map((artist, i) => (
+                <div style={style.artistLinkContainer} key={i} >
+                  <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+                    <div key={i} style={style.ArtistText} >
+                      {artist.name}
+                    </div>
+                    <br />
+                  </Link>
+                </div>
+            ))}
+          </div>
         </div>
         <div>
-          {this.state.albums
-            .filter((album) => `${album.title} ${album.description}`.toUpperCase().indexOf(this.props.searchInput.toUpperCase()) >= 0)
-            .map((album, i) => (
-              <div style={style.albumLinkContainer} key={i} >
-                <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
-                  <div key={i} style={style.AlbumText} >
-                    {album.title}
-                  </div>
-                  <br />
-                </Link>
-              </div>
-          ))}
+          <div>
+            <h3>Albums</h3>
+          </div>
+          <div>
+            {this.state.albums
+              .filter((album) => `${album.title} ${album.description}`.toUpperCase().indexOf(this.props.searchInput.toUpperCase()) >= 0)
+              .map((album, i) => (
+                <div style={style.albumLinkContainer} key={i} >
+                  <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
+                    <div key={i} style={style.AlbumText} >
+                      {album.title}
+                    </div>
+                    <br />
+                  </Link>
+                </div>
+            ))}
+          </div>
         </div>
       </div>
     )
