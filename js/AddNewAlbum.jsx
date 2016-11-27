@@ -3,6 +3,14 @@ const axios = require('axios')
 const PreviewModal = require('./PreviewModal')
 const SuccessEntryModal = require('./SuccessEntryModal')
 
+const styles = {
+  fontSize: '24px',
+  padding: '5px',
+  margin: '5px',
+  width: '80%',
+  borderRadius: '5px'
+}
+
 class AddNewAlbum extends React.Component {
   constructor (props) {
     super(props)
@@ -91,23 +99,23 @@ class AddNewAlbum extends React.Component {
       <div id='AddNewAlbum'>
         <h3>Add New Album</h3>
         <form onSubmit={this.onSubmit}>
-          <input type='text' ref='title' placeholder='title' />
+          <input type='text' ref='title' placeholder='title' style={styles} />
           <br />
-          <select ref='artist'>
+          <select ref='artist' style={styles} >
             <option value='' >artist here</option>
             {this.state.artists.map((artist, index) => (
               <option key={index} value={artist.id} > {artist.name} </option>
             ))}
           </select>
           <br />
-          <select ref='recordLabel'>
+          <select ref='recordLabel' style={styles} >
             <option value='' >record label here</option>
             {this.state.recordLabels.map((recordlabel, index) => (
               <option key={index} value={recordlabel.id} > {recordlabel.name} </option>
             ))}
           </select>
           <br />
-          <textarea type='text' ref='description' placeholder='description' />
+          <textarea type='text' ref='description' placeholder='description' style={styles} />
           <br />
         </form>
         <button onClick={this.openModal}>Add Album</button>

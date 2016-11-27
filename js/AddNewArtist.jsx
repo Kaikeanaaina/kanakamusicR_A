@@ -3,6 +3,14 @@ const axios = require('axios')
 const PreviewModal = require('./PreviewModal')
 const SuccessEntryModal = require('./SuccessEntryModal')
 
+const styles = {
+  fontSize: '24px',
+  padding: '5px',
+  margin: '5px',
+  width: '80%',
+  borderRadius: '5px'
+}
+
 class AddNewArtist extends React.Component {
   constructor (props) {
     super(props)
@@ -88,25 +96,25 @@ class AddNewArtist extends React.Component {
       <div id='AddNewArtist'>
         <h3>AddNewArtist</h3>
         <form onSubmit={this.onSubmit}>
-          <input type='text' ref='name' placeholder='artist name' />
+          <input type='text' ref='name' style={styles} placeholder='artist name' />
           <br />
-          <select ref='type' >
+          <select ref='type' style={styles} >
             <option value=''> type </option>
             <option value='hawaii' > Hawaii </option>
             <option value='contemporary'> Contemporary </option>
           </select>
           <br />
-          <textarea type='text' ref='description' placeholder='description' />
+          <textarea type='text' ref='description' placeholder='description' style={styles} />
           <br />
-          <input type='text' ref='facebook' placeholder='facebook' />
+          <input type='text' ref='facebook' placeholder='facebook' style={styles} />
           <br />
-          <input type='text' ref='instagram' placeholder='instagram' />
+          <input type='text' ref='instagram' placeholder='instagram' style={styles} />
           <br />
-          <input type='text' ref='twitter' placeholder='twitter' />
+          <input type='text' ref='twitter' placeholder='twitter' style={styles} />
           <br />
-          <input type='text' ref='bookingEmail' placeholder='bookingEmail' />
+          <input type='text' ref='bookingEmail' placeholder='bookingEmail' style={styles} />
           <br />
-          <input type='text' ref='bookingPhoneNumber' placeholder='bookingPhoneNumber' />
+          <input type='text' ref='bookingPhoneNumber' placeholder='bookingPhoneNumber' style={styles} />
           <br />
         </form>
         <button onClick={this.openModal} > Add Artist </button>

@@ -3,6 +3,14 @@ const axios = require('axios')
 const PreviewModal = require('./PreviewModal')
 const SuccessEntryModal = require('./SuccessEntryModal')
 
+const styles = {
+  fontSize: '24px',
+  padding: '5px',
+  margin: '5px',
+  width: '80%',
+  borderRadius: '5px'
+}
+
 class AddNewRecordLabel extends React.Component {
   constructor (props) {
     super(props)
@@ -69,7 +77,7 @@ class AddNewRecordLabel extends React.Component {
         <h3>add new record label</h3>
         <form onSubmit={this.openModal}>
           <label>
-            <input type='text' ref='name' placeholder='name' />
+            <input type='text' ref='name' placeholder='name' style={styles} />
           </label>
           <br />
         </form>
