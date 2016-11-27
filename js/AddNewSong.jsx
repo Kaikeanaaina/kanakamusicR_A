@@ -1,6 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('./PreviewModal')
+const SuccessEntryModal = require('./SuccessEntryModal')
 
 const styles = {
   fontSize: '24px',
@@ -47,6 +48,7 @@ class AddNewSong extends React.Component {
     this.openModal = this.openModal.bind(this)
     this.afterOpenModal = this.afterOpenModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.returnToHome = this.returnToHome.bind(this)
 
     this.state = ({
       artists: [],
@@ -80,20 +82,34 @@ class AddNewSong extends React.Component {
       line28: false,
       line29: false,
       line30: false,
-      modalIsOpen: false
+      modalIsOpen: false,
+      successModalIsOpen: false,
+      object: {}
     })
   }
   componentDidMount () {
     axios.get('http://localhost:5050/artists')
     .then((res) => {
       this.setState({
-        artists: res.data
+        artists: res.data,
+        modalIsOpen: false,
+        successModalIsOpen: false
       })
     })
   }
   onSubmit (e) {
     e.preventDefault()
 
+    axios.post('http://localhost:5050/songs', this.state.object)
+    .then((res) => {
+    // should catch error here
+      this.setState({
+        modalIsOpen: false,
+        successModalIsOpen: true
+      })
+    })
+  }
+  openModal () {
     if (!this.refs.title.value || !this.refs.artist.value || !this.refs.album.value || !this.refs.type.value || this.refs.description.valua === 'type') {
       // throw error message here
       return console.log('fill in the necessary blanks')
@@ -287,21 +303,29 @@ class AddNewSong extends React.Component {
       object.line30 = this.refs.line30.value
     }
 
-    console.log('pop up')
-    // axios.post('http://localhost:5050/songs', object)
-    // .then((res) => {
-    //   window.location.href = '/#/'
-    // })
-  }
-  openModal () {
-    this.setState({modalIsOpen: true})
+    this.setState({
+      object: object
+    })
+
+    this.setState({
+      modalIsOpen: true
+    })
   }
   afterOpenModal () {
     // references are now sync'd and can be accessed.
     this.refs.subtitle.style.color = '#f00'
   }
   closeModal () {
-    this.setState({modalIsOpen: false})
+    this.setState({
+      modalIsOpen: false,
+      successModalIsOpen: false
+    })
+  }
+  returnToHome () {
+    this.setState({
+      successModalIsOpen: false
+    })
+    window.location.href = '/#/'
   }
   artistChange (event) {
     event.preventDefault()
@@ -700,11 +724,10 @@ class AddNewSong extends React.Component {
           {line28}
           {line29}
           {line30}
-
-          <button type='submit' style={styles} > Add Song </button>
         </form>
-        <button onClick={this.openModal}>Open Modal</button>
-        <PreviewModal type='addSong' modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal}/>
+        <button onClick={this.openModal}> Add Song </button>
+        <PreviewModal type='addSong' modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} object={this.state.object} onSubmit={this.onSubmit} />
+        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
       </div>
     )
   }
