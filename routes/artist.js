@@ -13,6 +13,9 @@ router.get('/', function (req, res) {
     .then(function (artists) {
       return res.json(artists)
     })
+    .catch(function (err) {
+      return res.json({ error: err});
+    });
 })
 
 router.post('/', function (req, res) {
@@ -30,6 +33,9 @@ router.post('/', function (req, res) {
   .then(function (artist) {
     return res.json(artist)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.get('/:id', function (req, res) {
@@ -41,6 +47,9 @@ router.get('/:id', function (req, res) {
   .then(function (artist) {
     return res.json(artist)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.put('/:id', function(req, res){
@@ -63,6 +72,9 @@ router.put('/:id', function(req, res){
   })
   .then(function(artist){
     return res.json(artist);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -74,6 +86,9 @@ router.delete('/:id', function(req, res){
   })
   .then(function(data){
     return res.json(data);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 

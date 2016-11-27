@@ -43,6 +43,9 @@ class Song extends React.Component {
           Artist: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
 
       axios.get(`${domain}albums/${this.state.song.AlbumId}`)
       .then((res) => {
@@ -55,6 +58,12 @@ class Song extends React.Component {
               RecordLabel: res.data
             })
           })
+          .catch((error) => {
+            console.log('axios error', error)
+          })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
       })
     })
     .catch((error) => {

@@ -40,6 +40,9 @@ class EditSong extends React.Component {
         artists: res.data
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
 
     axios.get(`${domain}songs/${this.props.params.id}`)
     .then((res) => {
@@ -53,6 +56,9 @@ class EditSong extends React.Component {
           Artist: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
 
       axios.get(`${domain}albums/${this.state.Song.AlbumId}`)
       .then((res) => {
@@ -65,6 +71,12 @@ class EditSong extends React.Component {
               RecordLabel: res.data
             })
           })
+          .catch((error) => {
+            console.log('axios error', error)
+          })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
       })
     })
     .catch((error) => {
@@ -79,6 +91,9 @@ class EditSong extends React.Component {
     axios.delete(`${domain}songs/${this.state.Song.id}`)
     .then((res) => {
       window.location.href = '/#/'
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   onSubmit (e) {
@@ -363,6 +378,9 @@ class EditSong extends React.Component {
     .then((res) => {
       window.location.href = `/#/song/${this.state.Song.id}`
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
   artistChange (event) {
     event.preventDefault()
@@ -376,6 +394,9 @@ class EditSong extends React.Component {
         this.setState({
           albums: res.data
         })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
       })
     }
   }

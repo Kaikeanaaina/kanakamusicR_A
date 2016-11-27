@@ -33,6 +33,9 @@ class ArtistList extends React.Component {
         artists: res.data
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
   render () {
     return (

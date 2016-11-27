@@ -75,11 +75,17 @@ class AddNewAlbum extends React.Component {
         recordLabels: res.data
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
     axios.get('http://localhost:5050/artists')
     .then((res) => {
       this.setState({
         artists: res.data
       })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   onSubmit (e) {
@@ -92,6 +98,9 @@ class AddNewAlbum extends React.Component {
         modalIsOpen: false,
         successModalIsOpen: true
       })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   render () {

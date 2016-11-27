@@ -47,6 +47,7 @@ class Album extends React.Component {
       this.setState({
         Album: res.data
       })
+
       axios.get(`${domain}songs/ByAlbumId/${this.state.Album.id}`)
       .then((res) => {
         this.setState({
@@ -54,18 +55,32 @@ class Album extends React.Component {
           showSongList: true
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+
       axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
       .then((res) => {
         this.setState({
           RecordLabel: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+
       axios.get(`${domain}artists/${this.state.Album.ArtistId}`)
       .then((res) => {
         this.setState({
           Artist: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   render () {

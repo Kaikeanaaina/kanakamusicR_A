@@ -13,6 +13,9 @@ router.get('/', function (req, res) {
   .then(function (recordLabels) {
     return res.json(recordLabels)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.post('/', function (req, res) {
@@ -22,6 +25,9 @@ router.post('/', function (req, res) {
   .then(function (recordLabel) {
     return res.json(recordLabel)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.get('/:id', function (req, res) {
@@ -33,6 +39,9 @@ router.get('/:id', function (req, res) {
   .then(function (recordLabel) {
     return res.json(recordLabel)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 module.exports = router

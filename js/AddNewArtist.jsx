@@ -89,6 +89,9 @@ class AddNewArtist extends React.Component {
         successModalIsOpen: true
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
 
   render () {

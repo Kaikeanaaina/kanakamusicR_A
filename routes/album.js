@@ -13,6 +13,9 @@ router.get('/', function (req, res) {
     .then(function (albums) {
       return res.json(albums)
     })
+    .catch(function (err) {
+      return res.json({ error: err});
+    });
 })
 
 router.get('/ByArtistId/:id', function (req, res) {
@@ -24,6 +27,9 @@ router.get('/ByArtistId/:id', function (req, res) {
   .then(function (albums) {
     return res.json(albums)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.get('/ByRecordLabelId/:id', function (req, res) {
@@ -35,6 +41,9 @@ router.get('/ByRecordLabelId/:id', function (req, res) {
   .then(function (albums) {
     return res.json(albums)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.get('/:id', function (req, res) {
@@ -46,6 +55,9 @@ router.get('/:id', function (req, res) {
   .then(function (album) {
     return res.json(album)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.post('/', function (req, res) {
@@ -60,6 +72,9 @@ router.post('/', function (req, res) {
   .then(function (albums) {
     return res.json(albums)
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.put('/ByArtistId/:id', function(req, res){
@@ -74,6 +89,9 @@ router.put('/ByArtistId/:id', function(req, res){
   })
   .then(function(album){
     return res.json(album);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -93,6 +111,9 @@ router.put('/:id', function(req, res){
   })
   .then(function(album){
     return res.json(album);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -105,6 +126,9 @@ router.delete('/ByArtistId/:id', function(req, res){
   .then(function(data){
     return res.json(data);
   })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
 })
 
 router.delete('/:id', function(req, res){
@@ -115,6 +139,9 @@ router.delete('/:id', function(req, res){
   })
   .then(function(data){
     return res.json(data);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 

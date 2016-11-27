@@ -35,6 +35,9 @@ class SongList extends React.Component {
           songs: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
     } else if (this.props.AlbumId) {
       axios.get(`http://localhost:5050/songs/ByAlbumId/${this.props.AlbumId}`)
       .then((res) => {
@@ -42,12 +45,18 @@ class SongList extends React.Component {
           songs: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
     } else {
       axios.get('http://localhost:5050/songs')
       .then((res) => {
         this.setState({
           songs: res.data
         })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
       })
     }
   }

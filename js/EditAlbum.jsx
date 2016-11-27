@@ -40,30 +40,49 @@ class EditAlbum extends React.Component {
       this.setState({
         Album: res.data
       })
+
       axios.get(`${domain}artists/${this.state.Album.ArtistId}`)
       .then((res) => {
         this.setState({
           Artist: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+
       axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
       .then((res) => {
         this.setState({
           RecordLabel: res.data
         })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
+
     axios.get(`${domain}artists`)
     .then((res) => {
       this.setState({
         artists: res.data
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
+
     axios.get(`${domain}recordLabels`)
     .then((res) => {
       this.setState({
         recordLabels: res.data
       })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   recordLabelChange (e) {
@@ -101,6 +120,12 @@ class EditAlbum extends React.Component {
       .then((res) => {
         window.location.href = '/#/'
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   onSubmit (e) {
@@ -150,6 +175,12 @@ class EditAlbum extends React.Component {
       .then((res) => {
         window.location.href = `/#/album/${this.state.Album.id}`
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   render () {

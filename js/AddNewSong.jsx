@@ -96,6 +96,9 @@ class AddNewSong extends React.Component {
         successModalIsOpen: false
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
   onSubmit (e) {
     e.preventDefault()
@@ -107,6 +110,9 @@ class AddNewSong extends React.Component {
         modalIsOpen: false,
         successModalIsOpen: true
       })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   openModal () {
@@ -341,6 +347,9 @@ class AddNewSong extends React.Component {
         this.setState({
           albums: res.data
         })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
       })
     }
   }

@@ -33,6 +33,9 @@ class EditArtist extends React.Component {
         Artist: res.data
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
   onSubmit (e) {
     e.preventDefault()
@@ -103,14 +106,20 @@ class EditArtist extends React.Component {
         .then((res) => {
           window.location.href = `/#/artist/${this.state.Artist.id}`
         })
+        .catch((error) => {
+          console.log('axios error', error)
+        })
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   DeleteArtist (e) {
     e.preventDefault()
-
-    console.log(this.refs)
-    console.log(this.state.Artist)
 
     let domain = 'http://localhost:5050/'
 
@@ -121,6 +130,12 @@ class EditArtist extends React.Component {
       .then((res) => {
         window.location.href = '/#/'
       })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   render () {

@@ -6,15 +6,15 @@ const bodyParser = require('body-parser')
 const db = require('./../models')
 const Song = db.Song
 
-router.use(bodyParser.json({ extended: false }))
+router.use(bodyParser.json({ extended: false }));
 
 router.get('/', function (req, res) {
   Song.findAll()
   .then(function (songs) {
     return res.json(songs);
   })
-  .catch((err) => {
-    res.json({ error: err});
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -26,6 +26,9 @@ router.get('/ByAlbumId/:id', function(req, res) {
   })
   .then(function(songs){
     return res.json(songs);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -37,6 +40,9 @@ router.get('/ByArtistId/:id', function(req, res) {
   })
   .then(function(songs){
     return res.json(songs);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -47,12 +53,15 @@ router.get('/:id', function (req, res) {
     }
   })
   .then(function (song) {
-    return res.json(song)
+    return res.json(song);
   })
-})
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
+});
 
 router.post('/', function (req, res) {
-  var urltitle = (encodeURI(req.body.title)).toString()
+  var urltitle = (encodeURI(req.body.title)).toString();
   Song.create({
     title: req.body.title,
     line1: req.body.line1,
@@ -100,10 +109,13 @@ router.post('/', function (req, res) {
     visibilityByAlbum: false,
     visibilityByArtist: false
   })
-    .then(function (data) {
-      return res.json(data)
-    })
-})
+  .then(function (data) {
+    return res.json(data);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
+  });
+});
 
 router.put('/ByArtistId/:id', function(req, res){
   Song.update(
@@ -117,6 +129,9 @@ router.put('/ByArtistId/:id', function(req, res){
   })
   .then(function(song){
     return res.json(song);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -132,6 +147,9 @@ router.put('/ByAlbumId/:id', function(req, res){
   })
   .then(function(song){
     return res.json(song);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -183,6 +201,9 @@ router.put('/:id', function(req, res){
   })
   .then(function(song){
     return res.json(song);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -194,6 +215,9 @@ router.delete('/ByAlbumId/:id', function(req, res){
   })
   .then(function(data){
     return res.json(data);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -205,6 +229,9 @@ router.delete('/ByArtistId/:id', function(req, res){
   })
   .then(function(data){
     return res.json(data);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 
@@ -216,6 +243,9 @@ router.delete('/:id', function(req, res){
   })
   .then(function(data){
     return res.json(data);
+  })
+  .catch(function (err) {
+    return res.json({ error: err});
   });
 });
 

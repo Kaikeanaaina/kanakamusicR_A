@@ -39,12 +39,18 @@ class Artist extends React.Component {
         showSongList: true
       })
     })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
 
     axios.get(`${domain}albums/ByArtistId/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         albums: res.data
       })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
 
     axios.get(`${domain}songs/ByArtistId/${this.props.params.id}`)
@@ -53,6 +59,9 @@ class Artist extends React.Component {
         songs: res.data
 
       })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
     })
   }
   render () {
