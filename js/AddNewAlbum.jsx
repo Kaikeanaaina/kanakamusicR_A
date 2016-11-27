@@ -1,6 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('./PreviewModal')
+const SuccessEntryModal = require('./SuccessEntryModal')
 
 class AddNewAlbum extends React.Component {
   constructor (props) {
@@ -10,37 +11,16 @@ class AddNewAlbum extends React.Component {
       recordLabels: [],
       type: '',
       artists: [],
-      modalIsOpen: false
+      modalIsOpen: false,
+      successModalIsOpen: false,
+      object: {}
     }
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.returnToHome = this.returnToHome.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
   openModal () {
-    this.setState({
-      modalIsOpen: true
-    })
-  }
-  closeModal () {
-    this.setState({
-      modalIsOpen: false
-    })
-  }
-  componentDidMount () {
-    axios.get('http://localhost:5050/recordLabels')
-    .then((res) => {
-      this.setState({
-        recordLabels: res.data
-      })
-    })
-    axios.get('http://localhost:5050/artists')
-    .then((res) => {
-      this.setState({
-        artists: res.data
-      })
-    })
-  }
-  onSubmit (e) {
-    e.preventDefault()
     if (!this.refs.title.value) {
       return console.log('fill in the title')
     }
@@ -59,9 +39,51 @@ class AddNewAlbum extends React.Component {
     if (!this.refs.description.value) {
       object.description = null
     }
-    axios.post('http://localhost:5050/albums', object)
+
+    this.setState({
+      object: object
+    })
+
+    this.setState({
+      modalIsOpen: true
+    })
+  }
+  closeModal () {
+    this.setState({
+      modalIsOpen: false,
+      successModalIsOpen: false
+    })
+  }
+  returnToHome () {
+    this.setState({
+      successModalIsOpen: false
+    })
+    window.location.href = '/#/'
+  }
+  componentDidMount () {
+    axios.get('http://localhost:5050/recordLabels')
     .then((res) => {
-      window.location.href = '/#/AddNewSong'
+      this.setState({
+        recordLabels: res.data
+      })
+    })
+    axios.get('http://localhost:5050/artists')
+    .then((res) => {
+      this.setState({
+        artists: res.data
+      })
+    })
+  }
+  onSubmit (e) {
+    e.preventDefault()
+
+    axios.post('http://localhost:5050/albums', this.state.object)
+    .then((res) => {
+      // should catch error here
+      return this.setState({
+        modalIsOpen: false,
+        successModalIsOpen: true
+      })
     })
   }
   render () {
@@ -73,7 +95,6 @@ class AddNewAlbum extends React.Component {
           <br />
           <select ref='artist'>
             <option value='' >artist here</option>
-            <option value='giveAddNewArtistLink'>AddNewArtist</option>
             {this.state.artists.map((artist, index) => (
               <option key={index} value={artist.id} > {artist.name} </option>
             ))}
@@ -81,7 +102,6 @@ class AddNewAlbum extends React.Component {
           <br />
           <select ref='recordLabel'>
             <option value='' >record label here</option>
-            <option value='giveAddNewRecordLabelLink'>AddNewRecordLabel</option>
             {this.state.recordLabels.map((recordlabel, index) => (
               <option key={index} value={recordlabel.id} > {recordlabel.name} </option>
             ))}
@@ -91,7 +111,8 @@ class AddNewAlbum extends React.Component {
           <br />
         </form>
         <button onClick={this.openModal}>Add Album</button>
-        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addAlbum' />
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addAlbum' object={this.state.object} onSubmit={this.onSubmit} />
+        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
       </div>
     )
   }
