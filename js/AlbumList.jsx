@@ -53,6 +53,9 @@ class AlbumList extends React.Component {
   render () {
     return (
       <div style={style.albumListContainer}>
+        <div>
+          <h2>Albums</h2>
+        </div>
         {this.state.albums.map((album, i) => (
           <div style={style.albumLinkContainer} key={i} >
             <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >

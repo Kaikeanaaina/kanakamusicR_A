@@ -53,16 +53,19 @@ class SongList extends React.Component {
   }
   render () {
     return (<div style={style.songListContainer}>
-    {this.state.songs.map((song, i) => (
-      <div style={style.songLinkContainer} key={i} >
-        <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-          <div key={i} style={style.SongText}>
-            {song.title}
-          </div>
-          <br />
-        </Link>
+      <div>
+        <h2>Songs</h2>
       </div>
-    ))}
+      {this.state.songs.map((song, i) => (
+        <div style={style.songLinkContainer} key={i} >
+          <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+            <div key={i} style={style.SongText}>
+              {song.title}
+            </div>
+            <br />
+          </Link>
+        </div>
+      ))}
     </div>)
   }
 }
