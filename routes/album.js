@@ -14,8 +14,8 @@ router.get('/', function (req, res) {
       return res.json(albums)
     })
     .catch(function (err) {
-      return res.json({ error: err});
-    });
+      return res.json({ error: err})
+    })
 })
 
 router.get('/ByArtistId/:id', function (req, res) {
@@ -28,8 +28,8 @@ router.get('/ByArtistId/:id', function (req, res) {
     return res.json(albums)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
 router.get('/ByRecordLabelId/:id', function (req, res) {
@@ -42,8 +42,8 @@ router.get('/ByRecordLabelId/:id', function (req, res) {
     return res.json(albums)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
 router.get('/:id', function (req, res) {
@@ -56,8 +56,8 @@ router.get('/:id', function (req, res) {
     return res.json(album)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
 router.post('/', function (req, res) {
@@ -73,76 +73,76 @@ router.post('/', function (req, res) {
     return res.json(albums)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
-router.put('/ByArtistId/:id', function(req, res){
+router.put('/ByArtistId/:id', function (req, res) {
   Album.update(
-  {
-    updatedAt : 'now()',
-    visibilityByArtist : req.body.visibilityByArtist
-  }, {
-    where : {
-      ArtistId : req.body.id
-    }
-  })
-  .then(function(album){
-    return res.json(album);
+    {
+      updatedAt: 'now()',
+      visibilityByArtist: req.body.visibilityByArtist
+    }, {
+      where: {
+        ArtistId: req.body.id
+      }
+    })
+  .then(function (album) {
+    return res.json(album)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
-});
-
-router.put('/:id', function(req, res){
-  Album.update(
-  {
-    updatedAt : 'now()',
-    title : req.body.title,
-    description : req.body.description,
-    ArtistId: req.body.ArtistId,
-    RecordLabelId : req.body.RecordLabelId,
-    visibilityByAlbum : req.body.visibilityByAlbum
-  }, {
-    where : {
-      id : req.params.id
-    }
+    return res.json({ error: err})
   })
-  .then(function(album){
-    return res.json(album);
+})
+
+router.put('/:id', function (req, res) {
+  Album.update(
+    {
+      updatedAt: 'now()',
+      title: req.body.title,
+      description: req.body.description,
+      ArtistId: req.body.ArtistId,
+      RecordLabelId: req.body.RecordLabelId,
+      visibilityByAlbum: req.body.visibilityByAlbum
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+  .then(function (album) {
+    return res.json(album)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
-});
+    return res.json({ error: err})
+  })
+})
 
-router.delete('/ByArtistId/:id', function(req, res){
+router.delete('/ByArtistId/:id', function (req, res) {
   Album.destroy({
     where: {
-      ArtistId : req.params.id
+      ArtistId: req.params.id
     }
   })
-  .then(function(data){
-    return res.json(data);
+  .then(function (data) {
+    return res.json(data)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
-router.delete('/:id', function(req, res){
+router.delete('/:id', function (req, res) {
   Album.destroy({
     where: {
       id: req.params.id
     }
   })
-  .then(function(data){
-    return res.json(data);
+  .then(function (data) {
+    return res.json(data)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
-});
+    return res.json({ error: err})
+  })
+})
 
 module.exports = router

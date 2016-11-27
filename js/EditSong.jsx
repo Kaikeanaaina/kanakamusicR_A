@@ -487,12 +487,12 @@ class EditSong extends React.Component {
                 {visibleBySongProperty}
               </label>
             </div>
-            <br></br>
+            <br />
             <div>
               {visibleByAlbumProperty}
               {visibleByArtistProperty}
             </div>
-            <br></br>
+            <br />
           </div>
           <div style={style.lyrics}>
             <p>to change lyric line to null, just enter a space</p>
@@ -677,7 +677,7 @@ class EditSong extends React.Component {
               </label>
             </div>
           </div>
-          <br></br>
+          <br />
           <div style={style.description}>
             <label>
               <span>Description </span>

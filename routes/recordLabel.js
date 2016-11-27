@@ -14,8 +14,8 @@ router.get('/', function (req, res) {
     return res.json(recordLabels)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
 router.post('/', function (req, res) {
@@ -26,8 +26,8 @@ router.post('/', function (req, res) {
     return res.json(recordLabel)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
 router.get('/:id', function (req, res) {
@@ -40,8 +40,8 @@ router.get('/:id', function (req, res) {
     return res.json(recordLabel)
   })
   .catch(function (err) {
-    return res.json({ error: err});
-  });
+    return res.json({ error: err})
+  })
 })
 
 module.exports = router

@@ -159,7 +159,7 @@ class EditArtist extends React.Component {
               <input ref='name' placeholder={this.state.Artist.name} />
             </label>
           </div>
-          <br></br>
+          <br />
           <div style={style.description}>
             <div>
               <label>
@@ -190,7 +190,7 @@ class EditArtist extends React.Component {
               </label>
             </div>
           </div>
-          <br></br>
+          <br />
           <div style={style.booking}>
             <div>
               <label>
@@ -205,7 +205,7 @@ class EditArtist extends React.Component {
               </label>
             </div>
           </div>
-          <br></br>
+          <br />
           <div style={style.socialMedia}>
             <div>
               <label>
@@ -226,7 +226,7 @@ class EditArtist extends React.Component {
               </label>
             </div>
           </div>
-          <br></br>
+          <br />
           <div>
             <button type='submit'> Edit Artist </button>
           </div>

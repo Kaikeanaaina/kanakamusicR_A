@@ -216,7 +216,7 @@ class EditAlbum extends React.Component {
               <input ref='title' placeholder={this.state.Album.title} />
             </label>
           </div>
-          <br></br>
+          <br />
           <div style={style.details}>
             <label>
               <span>Artist:</span>
@@ -257,7 +257,7 @@ class EditAlbum extends React.Component {
               {visibleByArtistProperty}
             </div>
           </div>
-          <br></br>
+          <br />
           <div style={style.description}>
             <label>
               <span> Description </span>
