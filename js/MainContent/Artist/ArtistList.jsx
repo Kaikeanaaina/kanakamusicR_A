@@ -1,6 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const { Link } = require('react-router')
+const { domain } = require('../Domain')
 
 const style = {
   artistListContainer: {
@@ -27,7 +28,7 @@ class ArtistList extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get('http://localhost:5050/artists')
+    axios.get(`${domain}/artists`)
     .then((res) => {
       this.setState({
         artists: res.data

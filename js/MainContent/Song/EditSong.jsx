@@ -1,5 +1,6 @@
 const React = require('react')
 const axios = require('axios')
+const { domain } = require('../Domain')
 
 const style = {
   details: {
@@ -32,9 +33,7 @@ class EditSong extends React.Component {
     this.DeleteSong = this.DeleteSong.bind(this)
   }
   componentDidMount () {
-    let domain = 'http://localhost:5050/'
-
-    axios.get('http://localhost:5050/artists')
+    axios.get(`${domain}/artists`)
     .then((res) => {
       this.setState({
         artists: res.data
@@ -44,13 +43,13 @@ class EditSong extends React.Component {
       console.log('axios error', error)
     })
 
-    axios.get(`${domain}songs/${this.props.params.id}`)
+    axios.get(`${domain}/songs/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         Song: res.data
       })
 
-      axios.get(`${domain}artists/${this.state.Song.ArtistId}`)
+      axios.get(`${domain}/artists/${this.state.Song.ArtistId}`)
       .then((res) => {
         this.setState({
           Artist: res.data
@@ -60,12 +59,12 @@ class EditSong extends React.Component {
         console.log('axios error', error)
       })
 
-      axios.get(`${domain}albums/${this.state.Song.AlbumId}`)
+      axios.get(`${domain}/albums/${this.state.Song.AlbumId}`)
       .then((res) => {
         this.setState({
           Album: res.data
         })
-        axios.get(`${domain}recordLabels/${this.state.Album.RecordLabelId}`)
+        axios.get(`${domain}/recordLabels/${this.state.Album.RecordLabelId}`)
           .then((res) => {
             this.setState({
               RecordLabel: res.data
@@ -86,9 +85,7 @@ class EditSong extends React.Component {
   DeleteSong (e) {
     e.preventDefault()
 
-    let domain = 'http://localhost:5050/'
-
-    axios.delete(`${domain}songs/${this.state.Song.id}`)
+    axios.delete(`${domain}/songs/${this.state.Song.id}`)
     .then((res) => {
       window.location.href = '/#/'
     })
@@ -374,7 +371,7 @@ class EditSong extends React.Component {
     object.visibilityByAlbum = this.state.Song.visibilityByAlbum
     object.visibilityByArtist = this.state.Song.visibilityByArtist
 
-    axios.put(`http://localhost:5050/songs/${this.state.Song.id}`, object)
+    axios.put(`${domain}/songs/${this.state.Song.id}`, object)
     .then((res) => {
       window.location.href = `/#/song/${this.state.Song.id}`
     })
@@ -389,7 +386,7 @@ class EditSong extends React.Component {
 
     if (event.target.value !== 'artist here') {
       // populate the albums depending on the artist
-      axios.get(`http://localhost:5050/albums/ofArtist/${event.target.value}`)
+      axios.get(`${domain}/albums/ofArtist/${event.target.value}`)
       .then((res) => {
         this.setState({
           albums: res.data

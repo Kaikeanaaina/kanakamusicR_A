@@ -2,6 +2,7 @@ const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('../Modal/PreviewModal')
 const SuccessEntryModal = require('../Modal/SuccessEntryModal')
+const { domain } = require('../Domain')
 
 const styles = {
   fontSize: '24px',
@@ -69,7 +70,7 @@ class AddNewAlbum extends React.Component {
     window.location.href = '/#/'
   }
   componentDidMount () {
-    axios.get('http://localhost:5050/recordLabels')
+    axios.get(`${domain}/recordLabels`)
     .then((res) => {
       this.setState({
         recordLabels: res.data
@@ -78,7 +79,7 @@ class AddNewAlbum extends React.Component {
     .catch((error) => {
       console.log('axios error', error)
     })
-    axios.get('http://localhost:5050/artists')
+    axios.get(`${domain}/artists`)
     .then((res) => {
       this.setState({
         artists: res.data
@@ -91,7 +92,7 @@ class AddNewAlbum extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    axios.post('http://localhost:5050/albums', this.state.object)
+    axios.post(`${domain}/albums`, this.state.object)
     .then((res) => {
       // should catch error here
       return this.setState({

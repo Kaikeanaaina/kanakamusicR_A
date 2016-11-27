@@ -1,6 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const { Link } = require('react-router')
+const { domain } = require('../Domain')
 
 const style = {
   albumListContainer: {
@@ -28,7 +29,7 @@ class AlbumList extends React.Component {
   }
   componentDidMount () {
     if (this.props.ArtistId) {
-      axios.get(`http://localhost:5050/albums/ByArtistId/${this.props.ArtistId}`)
+      axios.get(`${domain}/albums/ByArtistId/${this.props.ArtistId}`)
       .then((res) => {
         this.setState({
           albums: res.data
@@ -38,7 +39,7 @@ class AlbumList extends React.Component {
         console.log('axios error', error)
       })
     } else if (this.props.RecordLabelId) {
-      axios.get(`http://localhost:5050/albums/ByRecordLabelId/${this.props.ArtistId}`)
+      axios.get(`${domain}/albums/ByRecordLabelId/${this.props.ArtistId}`)
       .then((res) => {
         this.setState({
           albums: res.data
@@ -48,7 +49,7 @@ class AlbumList extends React.Component {
         console.log('axios error', error)
       })
     } else {
-      axios.get('http://localhost:5050/albums')
+      axios.get(`${domain}/albums`)
       .then((res) => {
         this.setState({
           albums: res.data

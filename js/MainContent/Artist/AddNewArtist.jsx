@@ -2,6 +2,7 @@ const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('../Modal/PreviewModal')
 const SuccessEntryModal = require('../Modal/SuccessEntryModal')
+const { domain } = require('../Domain')
 
 const styles = {
   fontSize: '24px',
@@ -81,7 +82,7 @@ class AddNewArtist extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    axios.post('http://localhost:5050/artists', this.state.object)
+    axios.post(`${domain}/artists`, this.state.object)
     .then((res) => {
     // should catch error here
       return this.setState({

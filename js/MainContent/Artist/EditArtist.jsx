@@ -2,6 +2,7 @@ const React = require('react')
 const axios = require('axios')
 const AlbumList = require('../Album/AlbumList')
 const SongList = require('../Song/SongList')
+const { domain } = require('../Domain')
 
 const style = {
   socialMedia: {
@@ -25,9 +26,7 @@ class EditArtist extends React.Component {
     this.DeleteArtist = this.DeleteArtist.bind(this)
   }
   componentDidMount () {
-    let domain = 'http://localhost:5050/'
-
-    axios.get(`${domain}artists/${this.props.params.id}`)
+    axios.get(`${domain}/artists/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         Artist: res.data
@@ -98,11 +97,11 @@ class EditArtist extends React.Component {
       object.instagram = this.state.Artist.instagram
     }
 
-    axios.put(`http://localhost:5050/artists/${this.state.Artist.id}`, object)
+    axios.put(`${domain}/artists/${this.state.Artist.id}`, object)
     .then((res) => {
-      axios.put(`http://localhost:5050/albums/ByArtistId/${this.state.Artist.id}`, object)
+      axios.put(`${domain}/albums/ByArtistId/${this.state.Artist.id}`, object)
       .then((res) => {
-        axios.put(`http://localhost:5050/songs/ByArtistId/${this.state.Artist.id}`, object)
+        axios.put(`${domain}/songs/ByArtistId/${this.state.Artist.id}`, object)
         .then((res) => {
           window.location.href = `/#/artist/${this.state.Artist.id}`
         })
@@ -121,12 +120,10 @@ class EditArtist extends React.Component {
   DeleteArtist (e) {
     e.preventDefault()
 
-    let domain = 'http://localhost:5050/'
-
-    axios.delete(`${domain}artists/${this.state.Artist.id}`)
+    axios.delete(`${domain}/artists/${this.state.Artist.id}`)
     .then((res) => {
-      axios.delete(`${domain}albums/ByArtistId/${this.state.Artist.id}`)
-      axios.delete(`${domain}songs/ByArtistId/${this.state.Artist.id}`)
+      axios.delete(`${domain}/albums/ByArtistId/${this.state.Artist.id}`)
+      axios.delete(`${domain}/songs/ByArtistId/${this.state.Artist.id}`)
       .then((res) => {
         window.location.href = '/#/'
       })

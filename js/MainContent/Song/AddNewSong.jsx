@@ -2,6 +2,7 @@ const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('../Modal/PreviewModal')
 const SuccessEntryModal = require('../Modal/SuccessEntryModal')
+const { domain } = require('../Domain')
 
 const styles = {
   fontSize: '24px',
@@ -88,7 +89,7 @@ class AddNewSong extends React.Component {
     })
   }
   componentDidMount () {
-    axios.get('http://localhost:5050/artists')
+    axios.get(`${domain}/artists`)
     .then((res) => {
       this.setState({
         artists: res.data,
@@ -103,7 +104,7 @@ class AddNewSong extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    axios.post('http://localhost:5050/songs', this.state.object)
+    axios.post(`${domain}/songs`, this.state.object)
     .then((res) => {
     // should catch error here
       this.setState({
@@ -342,7 +343,7 @@ class AddNewSong extends React.Component {
       return
     } else {
       // populate the albums depending on the artist
-      axios.get(`http://localhost:5050/albums/ByArtistId/${event.target.value}`)
+      axios.get(`${domain}/albums/ByArtistId/${event.target.value}`)
       .then((res) => {
         this.setState({
           albums: res.data
