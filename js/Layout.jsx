@@ -14,7 +14,7 @@ const Layout = (props) => (
       <HeaderNavbar />
       <br />
     </section>
-    <section>
+    <section style={{ maxWidth: 500 }} >
       {props.children}
       <br />
     </section>
