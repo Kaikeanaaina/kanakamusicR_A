@@ -29,6 +29,9 @@ class SongList extends React.Component {
     }
   }
   componentDidMount () {
+    var songHui = document.getElementById('songHui')
+    console.log(songHui)
+
     if (this.props.ArtistId) {
       axios.get(`${domain}/songs/ByArtistId/${this.props.ArtistId}`)
       .then((res) => {
@@ -62,20 +65,30 @@ class SongList extends React.Component {
     }
   }
   render () {
-    return (<div style={style.songListContainer}>
+    let column1 = null
+    let column2 = null
+    let column3 = null
+    let column4 = null
+    return (<div id='songHui' style={style.songListContainer}>
       <div>
         <h2>Songs</h2>
       </div>
-      {this.state.songs.map((song, i) => (
-        <div style={style.songLinkContainer} key={i} >
-          <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-            <div key={i} style={style.SongText}>
-              {song.title}
-            </div>
-            <br />
-          </Link>
-        </div>
-      ))}
+      <div>{column1}</div>
+      <div>{column2}</div>
+      <div>{column3}</div>
+      <div>{column4}</div>
+      <div>
+        {this.state.songs.map((song, i) => (
+          <div style={style.songLinkContainer} key={i} >
+            <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+              <div key={i} style={style.SongText}>
+                {song.title}
+              </div>
+              <br />
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>)
   }
 }
