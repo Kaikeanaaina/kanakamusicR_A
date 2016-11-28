@@ -4,7 +4,10 @@ const Footer = require('./Footer')
 
 const style = {
   appContainer: {
-    margin: '10px'
+    margin: '10px',
+    maxWidth: '1100px',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
 }
 
