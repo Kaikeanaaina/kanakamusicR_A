@@ -8,8 +8,14 @@ const style = {
   songListContainer: {
 
   },
-  songLinkContainer: {
-
+  songListDivContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around'
+  },
+  songListDiv: {
+    width: '24%'
   },
   songLink: {
     textDecoration: 'none',
@@ -166,13 +172,12 @@ class SongList extends React.Component {
         <h2>Songs</h2>
       </div>
 
-      <MediaQuery query='(min-width: 1000px)'>
-        <div>You are a desktop or laptop</div>
-        <div>
+      <MediaQuery query='(min-width: 1000px)' style={style.songListDivContainer} >
+        <div style={style.songListDiv}>
           {this.state.songs4DivArray1.map((song, i) => (
-            <div style={style.songLinkContainer} key={i} >
+            <div style={{backgroundColor: 'red'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={{backgroundColor: 'red'}}>
+                <div key={i} style={style.SongText}>
                   {song.title}
                 </div>
                 <br />
@@ -180,11 +185,11 @@ class SongList extends React.Component {
             </div>
           ))}
         </div>
-        <div>
+        <div style={style.songListDiv}>
           {this.state.songs4DivArray2.map((song, i) => (
-            <div style={style.songLinkContainer} key={i} >
+            <div style={{backgroundColor: 'blue'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={{backgroundColor: 'blue'}}>
+                <div key={i} style={style.SongText}>
                   {song.title}
                 </div>
                 <br />
@@ -192,11 +197,11 @@ class SongList extends React.Component {
             </div>
           ))}
         </div>
-        <div>
+        <div style={style.songListDiv}>
           {this.state.songs4DivArray3.map((song, i) => (
-            <div style={style.songLinkContainer} key={i} >
+            <div style={{backgroundColor: 'green'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={{backgroundColor: 'green'}}>
+                <div key={i} style={style.SongText}>
                   {song.title}
                 </div>
                 <br />
@@ -204,11 +209,11 @@ class SongList extends React.Component {
             </div>
           ))}
         </div>
-        <div>
+        <div style={style.songListDiv}>
           {this.state.songs4DivArray4.map((song, i) => (
-            <div style={style.songLinkContainer} key={i} >
+            <div style={{backgroundColor: 'yellow'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={{backgroundColor: 'yellow'}}>
+                <div key={i} style={style.SongText}>
                   {song.title}
                 </div>
                 <br />
