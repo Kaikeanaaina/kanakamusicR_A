@@ -9,7 +9,9 @@ const Song = db.Song
 router.use(bodyParser.json({ extended: false }))
 
 router.get('/', function (req, res) {
-  Song.findAll()
+  Song.findAll({
+    order: 'title'
+  })
   .then(function (songs) {
     return res.json(songs)
   })

@@ -9,7 +9,9 @@ const RecordLabel = db.RecordLabel
 router.use(bodyParser.json({ extended: false }))
 
 router.get('/', function (req, res) {
-  RecordLabel.findAll()
+  RecordLabel.findAll({
+    order: name
+  })
   .then(function (recordLabels) {
     return res.json(recordLabels)
   })

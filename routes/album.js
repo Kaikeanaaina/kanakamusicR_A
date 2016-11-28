@@ -9,13 +9,15 @@ const Album = db.Album
 router.use(bodyParser.json({ extended: false }))
 
 router.get('/', function (req, res) {
-  Album.findAll()
-    .then(function (albums) {
-      return res.json(albums)
-    })
-    .catch(function (err) {
-      return res.json({ error: err})
-    })
+  Album.findAll({
+    order: 'title'
+  })
+  .then(function (albums) {
+    return res.json(albums)
+  })
+  .catch(function (err) {
+    return res.json({ error: err})
+  })
 })
 
 router.get('/ByArtistId/:id', function (req, res) {

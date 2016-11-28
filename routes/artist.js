@@ -9,13 +9,15 @@ const Artist = db.Artist
 router.use(bodyParser.json({ extended: false }))
 
 router.get('/', function (req, res) {
-  Artist.findAll()
-    .then(function (artists) {
-      return res.json(artists)
-    })
-    .catch(function (err) {
-      return res.json({ error: err})
-    })
+  Artist.findAll({
+    order: 'name'
+  })
+  .then(function (artists) {
+    return res.json(artists)
+  })
+  .catch(function (err) {
+    return res.json({ error: err})
+  })
 })
 
 router.post('/', function (req, res) {
