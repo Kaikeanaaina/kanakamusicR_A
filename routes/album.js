@@ -36,6 +36,7 @@ router.get('/ByArtistId/:id', function (req, res) {
 
 router.get('/ByRecordLabelId/:id', function (req, res) {
   Album.findAll({
+    order: 'title',
     where: {
       RecordLabelId: encodeURI(req.params.id)
     }
