@@ -1,38 +1,18 @@
 const React = require('react')
 const axios = require('axios')
-const { Link } = require('react-router')
 const { domain } = require('../Domain')
 const MediaQuery = require('react-responsive')
+const Div4OfSongs = require('./Div4OfSongs')
+const Div3OfSongs = require('./Div3OfSongs')
+const Div2OfSongs = require('./Div2OfSongs')
+const Div1OfSongs = require('./Div1OfSongs')
 
 const style = {
-  songListContainer: {
-
-  },
   songListDivContainer: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'nowrap',
     justifyContent: 'space-around'
-  },
-  songList1DivContainer: {
-
-  },
-  songList4Div: {
-    width: '24%'
-  },
-  songList3Div: {
-    width: '32%'
-  },
-  songList2Div: {
-    width: '49%'
-  },
-  songLink: {
-    textDecoration: 'none',
-    fontSize: '24px'
-  },
-  SongText: {
-    borderBottom: 'black solid 1px',
-    color: 'grey'
   }
 }
 
@@ -260,132 +240,16 @@ class SongList extends React.Component {
       </div>
 
       <MediaQuery minWidth={1024} style={style.songListDivContainer} >
-        <div style={style.songList4Div}>
-          {this.state.songs4DivArray1.map((song, i) => (
-            <div style={{backgroundColor: 'red'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
-        <div style={style.songList4Div}>
-          {this.state.songs4DivArray2.map((song, i) => (
-            <div style={{backgroundColor: 'blue'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
-        <div style={style.songList4Div}>
-          {this.state.songs4DivArray3.map((song, i) => (
-            <div style={{backgroundColor: 'green'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
-        <div style={style.songList4Div}>
-          {this.state.songs4DivArray4.map((song, i) => (
-            <div style={{backgroundColor: 'yellow'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
+        <Div4OfSongs state={this.state} />
       </MediaQuery>
       <MediaQuery minWidth={768} maxWidth={1024} style={style.songListDivContainer} >
-        <div style={style.songList3Div}>
-          {this.state.songs3DivArray1.map((song, i) => (
-            <div style={{backgroundColor: 'red'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
-        <div style={style.songList3Div}>
-          {this.state.songs3DivArray2.map((song, i) => (
-            <div style={{backgroundColor: 'blue'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
-        <div style={style.songList3Div}>
-          {this.state.songs3DivArray3.map((song, i) => (
-            <div style={{backgroundColor: 'green'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
+        <Div3OfSongs state={this.state} />
       </MediaQuery>
       <MediaQuery minWidth={425} maxWidth={768} style={style.songListDivContainer} >
-        <div style={style.songList2Div}>
-          {this.state.songs2DivArray1.map((song, i) => (
-            <div style={{backgroundColor: 'red'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
-        <div style={style.songList2Div}>
-          {this.state.songs2DivArray2.map((song, i) => (
-            <div style={{backgroundColor: 'blue'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
+        <Div2OfSongs state={this.state} />
       </MediaQuery>
-      <MediaQuery maxWidth={425} style={style.songList1DivContainer} >
-        <div>
-          {this.state.songs.map((song, i) => (
-            <div style={{backgroundColor: 'blue'}} key={i} >
-              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-                <div key={i} style={style.SongText}>
-                  {song.title}
-                </div>
-                <br />
-              </Link>
-            </div>
-          ))}
-        </div>
+      <MediaQuery maxWidth={425} >
+        <Div1OfSongs state={this.state} />
       </MediaQuery>
     </div>)
   }

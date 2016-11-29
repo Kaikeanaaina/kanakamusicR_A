@@ -11,8 +11,8 @@ const style = {
     flexWrap: 'nowrap',
     justifyContent: 'space-around'
   },
-  songList4Div: {
-    width: '24%'
+  songList2Div: {
+    width: '49%'
   },
   songLink: {
     textDecoration: 'none',
@@ -24,10 +24,10 @@ const style = {
   }
 }
 
-const Div4OfSongs = (props) => (
+const Div2OfSongs = (props) => (
   <div style={style.songListDivContainer}>
-    <div style={style.songList4Div}>
-      {props.state.songs4DivArray1.map((song, i) => (
+    <div style={style.songList2Div}>
+      {props.state.songs2DivArray1.map((song, i) => (
         <div style={{backgroundColor: 'red'}} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.SongText}>
@@ -38,33 +38,9 @@ const Div4OfSongs = (props) => (
         </div>
       ))}
     </div>
-    <div style={style.songList4Div}>
-      {props.state.songs4DivArray2.map((song, i) => (
+    <div style={style.songList2Div}>
+      {props.state.songs2DivArray2.map((song, i) => (
         <div style={{backgroundColor: 'blue'}} key={i} >
-          <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-            <div key={i} style={style.SongText}>
-              {song.title}
-            </div>
-            <br />
-          </Link>
-        </div>
-      ))}
-    </div>
-    <div style={style.songList4Div}>
-      {props.state.songs4DivArray3.map((song, i) => (
-        <div style={{backgroundColor: 'green'}} key={i} >
-          <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-            <div key={i} style={style.SongText}>
-              {song.title}
-            </div>
-            <br />
-          </Link>
-        </div>
-      ))}
-    </div>
-    <div style={style.songList4Div}>
-      {props.state.songs4DivArray4.map((song, i) => (
-        <div style={{backgroundColor: 'yellow'}} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.SongText}>
               {song.title}
@@ -79,9 +55,9 @@ const Div4OfSongs = (props) => (
 
 const { object } = React.PropTypes
 
-Div4OfSongs.propTypes = {
+Div2OfSongs.propTypes = {
   style: object,
   state: object
 }
 
-module.exports = Div4OfSongs
+module.exports = Div2OfSongs
