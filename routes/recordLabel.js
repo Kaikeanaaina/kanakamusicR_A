@@ -10,7 +10,7 @@ router.use(bodyParser.json({ extended: false }))
 
 router.get('/', function (req, res) {
   RecordLabel.findAll({
-    order: name
+    order: 'name'
   })
   .then(function (recordLabels) {
     return res.json(recordLabels)
