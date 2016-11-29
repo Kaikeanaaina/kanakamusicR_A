@@ -14,8 +14,17 @@ const style = {
     flexWrap: 'nowrap',
     justifyContent: 'space-around'
   },
-  songListDiv: {
+  songList1DivContainer: {
+
+  },
+  songList4Div: {
     width: '24%'
+  },
+  songList3Div: {
+    width: '32%'
+  },
+  songList2Div: {
+    width: '49%'
   },
   songLink: {
     textDecoration: 'none',
@@ -71,26 +80,25 @@ class SongList extends React.Component {
         this.setState({
           songs: res.data
         })
-        let divAmount = 4
+        let div4Amount = 4
         let songsLength = this.state.songs.length
-        const standardEach = Math.floor(songsLength / divAmount)
+        const standardEach4Div = Math.floor(songsLength / div4Amount)
         let songs4DivArray1 = []
         let songs4DivArray2 = []
         let songs4DivArray3 = []
         let songs4DivArray4 = []
 
-        if (songsLength % divAmount === 1) {
-          console.log('one remainder')
-          for (let i = 0; i < (standardEach + 1); i++) {
+        if (songsLength % div4Amount === 1) {
+          for (let i = 0; i < (standardEach4Div + 1); i++) {
             songs4DivArray1.push(this.state.songs[i])
           }
-          for (let j = (standardEach + 1); (j < (standardEach * 2) + 1); j++) {
+          for (let j = (standardEach4Div + 1); (j < (standardEach4Div * 2) + 1); j++) {
             songs4DivArray2.push(this.state.songs[j])
           }
-          for (let k = ((standardEach * 2) + 1); (k < (standardEach * 3) + 1); k++) {
+          for (let k = ((standardEach4Div * 2) + 1); (k < (standardEach4Div * 3) + 1); k++) {
             songs4DivArray3.push(this.state.songs[k])
           }
-          for (let l = ((standardEach * 3) + 1); (l < (standardEach * 4) + 1); l++) {
+          for (let l = ((standardEach4Div * 3) + 1); (l < (standardEach4Div * 4) + 1); l++) {
             songs4DivArray4.push(this.state.songs[l])
           }
           this.setState({
@@ -99,18 +107,17 @@ class SongList extends React.Component {
             songs4DivArray3: songs4DivArray3,
             songs4DivArray4: songs4DivArray4
           })
-        } else if (songsLength % divAmount === 2) {
-          console.log('two remainder')
-          for (let i = 0; i < (standardEach + 1); i++) {
+        } else if (songsLength % div4Amount === 2) {
+          for (let i = 0; i < (standardEach4Div + 1); i++) {
             songs4DivArray1.push(this.state.songs[i])
           }
-          for (let j = (standardEach + 1); (j < (standardEach * 2) + 2); j++) {
+          for (let j = (standardEach4Div + 1); (j < (standardEach4Div * 2) + 2); j++) {
             songs4DivArray2.push(this.state.songs[j])
           }
-          for (let k = ((standardEach * 2) + 2); (k < (standardEach * 3) + 2); k++) {
+          for (let k = ((standardEach4Div * 2) + 2); (k < (standardEach4Div * 3) + 2); k++) {
             songs4DivArray3.push(this.state.songs[k])
           }
-          for (let l = ((standardEach * 3) + 2); (l < (standardEach * 4) + 2); l++) {
+          for (let l = ((standardEach4Div * 3) + 2); (l < (standardEach4Div * 4) + 2); l++) {
             songs4DivArray4.push(this.state.songs[l])
           }
           this.setState({
@@ -119,18 +126,17 @@ class SongList extends React.Component {
             songs4DivArray3: songs4DivArray3,
             songs4DivArray4: songs4DivArray4
           })
-        } else if (songsLength % divAmount === 3) {
-          console.log('three remainder')
-          for (let i = 0; i < (standardEach + 1); i++) {
+        } else if (songsLength % div4Amount === 3) {
+          for (let i = 0; i < (standardEach4Div + 1); i++) {
             songs4DivArray1.push(this.state.songs[i])
           }
-          for (let j = (standardEach + 1); (j < (standardEach * 2) + 2); j++) {
+          for (let j = (standardEach4Div + 1); (j < (standardEach4Div * 2) + 2); j++) {
             songs4DivArray2.push(this.state.songs[j])
           }
-          for (let k = ((standardEach * 2) + 2); (k < (standardEach * 3) + 3); k++) {
+          for (let k = ((standardEach4Div * 2) + 2); (k < (standardEach4Div * 3) + 3); k++) {
             songs4DivArray3.push(this.state.songs[k])
           }
-          for (let l = ((standardEach * 3) + 3); (l < (standardEach * 4) + 3); l++) {
+          for (let l = ((standardEach4Div * 3) + 3); (l < (standardEach4Div * 4) + 3); l++) {
             songs4DivArray4.push(this.state.songs[l])
           }
           this.setState({
@@ -140,17 +146,16 @@ class SongList extends React.Component {
             songs4DivArray4: songs4DivArray4
           })
         } else {
-          console.log('four remainder')
-          for (let i = 0; i < standardEach; i++) {
+          for (let i = 0; i < standardEach4Div; i++) {
             songs4DivArray1.push(this.state.songs[i])
           }
-          for (let j = standardEach; j < (standardEach * 2); j++) {
+          for (let j = standardEach4Div; j < (standardEach4Div * 2); j++) {
             songs4DivArray2.push(this.state.songs[j])
           }
-          for (let k = (standardEach * 2); k < (standardEach * 3); k++) {
+          for (let k = (standardEach4Div * 2); k < (standardEach4Div * 3); k++) {
             songs4DivArray3.push(this.state.songs[k])
           }
-          for (let l = (standardEach * 3); l < (standardEach * 4); l++) {
+          for (let l = (standardEach4Div * 3); l < (standardEach4Div * 4); l++) {
             songs4DivArray4.push(this.state.songs[l])
           }
           this.setState({
@@ -158,6 +163,88 @@ class SongList extends React.Component {
             songs4DivArray2: songs4DivArray2,
             songs4DivArray3: songs4DivArray3,
             songs4DivArray4: songs4DivArray4
+          })
+        }
+
+        let div3Amount = 3
+        const standardEach3Div = Math.floor(songsLength / div3Amount)
+        let songs3DivArray1 = []
+        let songs3DivArray2 = []
+        let songs3DivArray3 = []
+
+        if (songsLength % div3Amount === 1) {
+          for (let i = 0; i < (standardEach3Div + 1); i++) {
+            songs3DivArray1.push(this.state.songs[i])
+          }
+          for (let j = (standardEach3Div + 1); (j < (standardEach3Div * 2) + 1); j++) {
+            songs3DivArray2.push(this.state.songs[j])
+          }
+          for (let k = ((standardEach3Div * 2) + 1); (k < (standardEach3Div * 3) + 1); k++) {
+            songs3DivArray3.push(this.state.songs[k])
+          }
+          this.setState({
+            songs3DivArray1: songs3DivArray1,
+            songs3DivArray2: songs3DivArray2,
+            songs3DivArray3: songs3DivArray3
+          })
+        } else if (songsLength % div3Amount === 2) {
+          for (let i = 0; i < (standardEach3Div + 1); i++) {
+            songs3DivArray1.push(this.state.songs[i])
+          }
+          for (let j = (standardEach3Div + 1); (j < (standardEach3Div * 2) + 2); j++) {
+            songs3DivArray2.push(this.state.songs[j])
+          }
+          for (let k = ((standardEach3Div * 2) + 2); (k < (standardEach3Div * 3) + 2); k++) {
+            songs3DivArray3.push(this.state.songs[k])
+          }
+          this.setState({
+            songs3DivArray1: songs3DivArray1,
+            songs3DivArray2: songs3DivArray2,
+            songs3DivArray3: songs3DivArray3
+          })
+        } else {
+          for (let i = 0; i < standardEach3Div; i++) {
+            songs3DivArray1.push(this.state.songs[i])
+          }
+          for (let j = standardEach3Div; j < (standardEach3Div * 2); j++) {
+            songs3DivArray2.push(this.state.songs[j])
+          }
+          for (let k = (standardEach3Div * 2); k < (standardEach3Div * 3); k++) {
+            songs3DivArray3.push(this.state.songs[k])
+          }
+          this.setState({
+            songs3DivArray1: songs3DivArray1,
+            songs3DivArray2: songs3DivArray2,
+            songs3DivArray3: songs3DivArray3
+          })
+        }
+
+        let div2Amount = 2
+        const standardEach2Div = Math.floor(songsLength / div2Amount)
+        let songs2DivArray1 = []
+        let songs2DivArray2 = []
+
+        if (songsLength % div2Amount === 1) {
+          for (let i = 0; i < (standardEach2Div + 1); i++) {
+            songs2DivArray1.push(this.state.songs[i])
+          }
+          for (let j = (standardEach2Div + 1); (j < (standardEach2Div * 2) + 1); j++) {
+            songs2DivArray2.push(this.state.songs[j])
+          }
+          this.setState({
+            songs2DivArray1: songs2DivArray1,
+            songs2DivArray2: songs2DivArray2
+          })
+        } else {
+          for (let i = 0; i < standardEach2Div; i++) {
+            songs2DivArray1.push(this.state.songs[i])
+          }
+          for (let j = standardEach2Div; j < (standardEach2Div * 2); j++) {
+            songs2DivArray2.push(this.state.songs[j])
+          }
+          this.setState({
+            songs2DivArray1: songs2DivArray1,
+            songs2DivArray2: songs2DivArray2
           })
         }
       })
@@ -172,8 +259,8 @@ class SongList extends React.Component {
         <h2>Songs</h2>
       </div>
 
-      <MediaQuery query='(min-width: 1000px)' style={style.songListDivContainer} >
-        <div style={style.songListDiv}>
+      <MediaQuery minWidth={1024} style={style.songListDivContainer} >
+        <div style={style.songList4Div}>
           {this.state.songs4DivArray1.map((song, i) => (
             <div style={{backgroundColor: 'red'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
@@ -185,7 +272,7 @@ class SongList extends React.Component {
             </div>
           ))}
         </div>
-        <div style={style.songListDiv}>
+        <div style={style.songList4Div}>
           {this.state.songs4DivArray2.map((song, i) => (
             <div style={{backgroundColor: 'blue'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
@@ -197,7 +284,7 @@ class SongList extends React.Component {
             </div>
           ))}
         </div>
-        <div style={style.songListDiv}>
+        <div style={style.songList4Div}>
           {this.state.songs4DivArray3.map((song, i) => (
             <div style={{backgroundColor: 'green'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
@@ -209,7 +296,7 @@ class SongList extends React.Component {
             </div>
           ))}
         </div>
-        <div style={style.songListDiv}>
+        <div style={style.songList4Div}>
           {this.state.songs4DivArray4.map((song, i) => (
             <div style={{backgroundColor: 'yellow'}} key={i} >
               <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
@@ -222,18 +309,84 @@ class SongList extends React.Component {
           ))}
         </div>
       </MediaQuery>
-      <div>
-        {this.state.songs.map((song, i) => (
-          <div style={style.songLinkContainer} key={i} >
-            <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-              <div key={i} style={style.SongText}>
-                {song.title}
-              </div>
-              <br />
-            </Link>
-          </div>
-        ))}
-      </div>
+      <MediaQuery minWidth={768} maxWidth={1024} style={style.songListDivContainer} >
+        <div style={style.songList3Div}>
+          {this.state.songs3DivArray1.map((song, i) => (
+            <div style={{backgroundColor: 'red'}} key={i} >
+              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+                <div key={i} style={style.SongText}>
+                  {song.title}
+                </div>
+                <br />
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div style={style.songList3Div}>
+          {this.state.songs3DivArray2.map((song, i) => (
+            <div style={{backgroundColor: 'blue'}} key={i} >
+              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+                <div key={i} style={style.SongText}>
+                  {song.title}
+                </div>
+                <br />
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div style={style.songList3Div}>
+          {this.state.songs3DivArray3.map((song, i) => (
+            <div style={{backgroundColor: 'green'}} key={i} >
+              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+                <div key={i} style={style.SongText}>
+                  {song.title}
+                </div>
+                <br />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </MediaQuery>
+      <MediaQuery minWidth={425} maxWidth={768} style={style.songListDivContainer} >
+        <div style={style.songList2Div}>
+          {this.state.songs2DivArray1.map((song, i) => (
+            <div style={{backgroundColor: 'red'}} key={i} >
+              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+                <div key={i} style={style.SongText}>
+                  {song.title}
+                </div>
+                <br />
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div style={style.songList2Div}>
+          {this.state.songs2DivArray2.map((song, i) => (
+            <div style={{backgroundColor: 'blue'}} key={i} >
+              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+                <div key={i} style={style.SongText}>
+                  {song.title}
+                </div>
+                <br />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </MediaQuery>
+      <MediaQuery maxWidth={425} style={style.songList1DivContainer} >
+        <div>
+          {this.state.songs.map((song, i) => (
+            <div style={{backgroundColor: 'blue'}} key={i} >
+              <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
+                <div key={i} style={style.SongText}>
+                  {song.title}
+                </div>
+                <br />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </MediaQuery>
     </div>)
   }
 }
