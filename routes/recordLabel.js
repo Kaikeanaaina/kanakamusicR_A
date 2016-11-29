@@ -10,7 +10,7 @@ router.use(bodyParser.json({ extended: false }))
 
 router.get('/', function (req, res) {
   RecordLabel.findAll({
-    order: 'name'
+    order: ('name').toUpperCase()
   })
   .then(function (recordLabels) {
     return res.json(recordLabels)
@@ -45,5 +45,31 @@ router.get('/:id', function (req, res) {
     return res.json({ error: err})
   })
 })
+
+router.put('/:id', function(req, res){
+  RecordLabel.update(
+  {
+    updatedAt : 'now()',
+    name : req.body.name,
+  }, {
+    where : {
+      id : req.params.id
+    }
+  })
+  .then(function(recordLabel){
+    return res.json(recordLabel);
+  });
+});
+
+router.delete('/:id', function(req, res){
+  RecordLabel.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(data){
+    return res.json(data);
+  });
+});
 
 module.exports = router
