@@ -39,7 +39,7 @@ class AlbumList extends React.Component {
         console.log('axios error', error)
       })
     } else if (this.props.RecordLabelId) {
-      axios.get(`${domain}/albums/ByRecordLabelId/${this.props.ArtistId}`)
+      axios.get(`${domain}/albums/ByRecordLabelId/${this.props.RecordLabelId}`)
       .then((res) => {
         this.setState({
           albums: res.data
