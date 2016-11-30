@@ -30,22 +30,14 @@ class AddNewAlbum extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
   openModal () {
-    if (!this.refs.title.value) {
+    if (!this.refs.title.value || !this.refs.artist.value || !this.refs.recordLabel.value) {
       // throw error message here
-      return console.log('fill in the title')
+      return console.log('fill in the blanks')
     }
     let splitName = this.refs.title.value.split('')
     if (splitName[0] !== splitName[0].toUpperCase()) {
       // throw error message here
       return console.log('tell the admin to make sure it starts in upper case')
-    }
-    if (!this.refs.artist.value) {
-      // throw error message here
-      return console.log('pick artist')
-    }
-    if (!this.refs.recordLabel.value) {
-      // throw error message here
-      return console.log('pick recordLabel')
     }
     let object = {
       title: this.refs.title.value,
