@@ -31,12 +31,20 @@ class AddNewAlbum extends React.Component {
   }
   openModal () {
     if (!this.refs.title.value) {
+      // throw error message here
       return console.log('fill in the title')
     }
+    let splitName = this.refs.title.value.split('')
+    if (splitName[0] !== splitName[0].toUpperCase()) {
+      // throw error message here
+      return console.log('tell the admin to make sure it starts in upper case')
+    }
     if (!this.refs.artist.value) {
+      // throw error message here
       return console.log('pick artist')
     }
     if (!this.refs.recordLabel.value) {
+      // throw error message here
       return console.log('pick recordLabel')
     }
     let object = {

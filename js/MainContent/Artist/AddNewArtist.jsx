@@ -27,7 +27,13 @@ class AddNewArtist extends React.Component {
   }
   openModal () {
     if (!this.refs.name.value || !this.refs.type.value) {
+      // throw error message here
       return console.log('fill in the name input')
+    }
+    let splitName = this.refs.name.value.split('')
+    if (splitName[0] !== splitName[0].toUpperCase()) {
+      // throw error message here
+      return console.log('tell the admin to make sure it starts in upper case')
     }
     let object = {
       name: this.refs.name.value,
@@ -39,7 +45,6 @@ class AddNewArtist extends React.Component {
       bookingEmail: this.refs.bookingEmail.value,
       bookingPhoneNumber: this.refs.bookingPhoneNumber.value
     }
-
     if (!this.refs.description.value) {
       object.description = null
     }

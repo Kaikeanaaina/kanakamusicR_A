@@ -100,8 +100,15 @@ class EditSong extends React.Component {
       id: this.state.Song.id
     }
 
+    let splitName = this.refs.title.value.split('')
+
     if (this.refs.title.value) {
-      object.title = this.refs.title.value
+      if (splitName[0] === splitName[0].toUpperCase()) {
+        object.title = this.refs.title.value
+      } else {
+        // throw error message here
+        return console.log('tell the user to make sure the name starts in upper case')
+      }
     } else {
       object.title = this.state.Song.title
     }

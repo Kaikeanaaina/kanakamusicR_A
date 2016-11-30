@@ -29,7 +29,13 @@ class AddNewRecordLabel extends React.Component {
   }
   openModal () {
     if (!this.refs.name.value) {
-      return console.log('fill in the name input')
+      // throw error message here
+      return console.log('fill in all the blanks')
+    }
+    let splitName = this.refs.name.value.split('')
+    if (splitName[0] !== splitName[0].toUpperCase()) {
+      // throw error here
+      return console.log('tell the admin to make sure it starts in upper case')
     }
 
     var object = {
