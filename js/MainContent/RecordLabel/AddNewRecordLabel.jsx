@@ -28,16 +28,6 @@ class AddNewRecordLabel extends React.Component {
     this.returnToHome = this.returnToHome.bind(this)
   }
   openModal () {
-    if (!this.refs.name.value) {
-      // throw error message here
-      return console.log('fill in all the blanks')
-    }
-    let splitName = this.refs.name.value.split('')
-    if (splitName[0] !== splitName[0].toUpperCase()) {
-      // throw error here
-      return console.log('tell the admin to make sure it starts in upper case')
-    }
-
     var object = {
       name: this.refs.name.value
     }
@@ -45,7 +35,6 @@ class AddNewRecordLabel extends React.Component {
     this.setState({
       object: object
     })
-
     this.setState({
       modalIsOpen: true
     })

@@ -117,18 +117,6 @@ class AddNewSong extends React.Component {
     })
   }
   openModal () {
-    if (!this.refs.title.value || !this.refs.artist.value || !this.refs.album.value || !this.refs.type.value || this.refs.description.valua === 'type') {
-      // throw error message here
-      return console.log('fill in the necessary blanks')
-    }
-
-    let splitName = this.refs.title.value.split('')
-
-    if (splitName[0] !== splitName[0].toUpperCase()) {
-      // throw error message here
-      return console.log('tell the admin to make sure the title starts in a upper case')
-    }
-
     let object = {
       title: this.refs.title.value,
       type: this.refs.type.value,
