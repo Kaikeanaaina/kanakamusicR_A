@@ -50,6 +50,7 @@ class AddNewSong extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
     this.returnToHome = this.returnToHome.bind(this)
+    this.showSubmitButton = this.showSubmitButton.bind(this)
 
     this.state = ({
       artists: [],
@@ -85,7 +86,9 @@ class AddNewSong extends React.Component {
       line30: false,
       modalIsOpen: false,
       successModalIsOpen: false,
-      object: {}
+      object: {},
+      showErrorMessage: false,
+      showSubmitButton: false
     })
   }
   componentDidMount () {
@@ -117,8 +120,21 @@ class AddNewSong extends React.Component {
     })
   }
   openModal () {
+    if (!this.refs.title.value) {
+      // throw error message here
+      return console.log('fill in the title')
+    }
+    let splitName = this.refs.title.value.split('')
+    let splitNameStartWithCap = splitName[0].toUpperCase()
+    splitName.splice(0, 1, splitNameStartWithCap)
+    let capitalizeName = splitName.join('')
+
+    if (this.refs.artist.value === '' || this.refs.album.value === '' || this.refs.type.value === '' || !this.refs.line1.value) {
+      return console.log('pick an artist, album and type. Insert atleast one line')
+    }
+
     let object = {
-      title: this.refs.title.value,
+      title: capitalizeName,
       type: this.refs.type.value,
       description: this.refs.description.value,
       ArtistId: this.refs.artist.value,
@@ -331,10 +347,11 @@ class AddNewSong extends React.Component {
   }
   artistChange (event) {
     event.preventDefault()
+    this.showSubmitButton()
 
     this.refs.album.value = 'album here'
 
-    if (event.target.value === 'artistHere') {
+    if (event.target.value === '') {
       return
     } else {
       // populate the albums depending on the artist
@@ -350,6 +367,7 @@ class AddNewSong extends React.Component {
     }
   }
   handleLine1 (e) {
+    this.showSubmitButton()
     if (e.target.value) {
       return this.setState({
         line2: true
@@ -552,6 +570,17 @@ class AddNewSong extends React.Component {
       })
     }
   }
+  showSubmitButton (e) {
+    if (this.refs.title.value && this.refs.artist.value && this.refs.album.value && this.refs.type.value && this.refs.line1.value) {
+      this.setState({
+        showSubmitButton: true
+      })
+    } else {
+      this.setState({
+        showSubmitButton: false
+      })
+    }
+  }
 
   render () {
     let line2 = null
@@ -670,27 +699,31 @@ class AddNewSong extends React.Component {
     if (this.state.line30) {
       line30 = <div id='addSongLine30' ><input type='text' ref='line30' placeholder='line30' style={styles} /><br /></div>
     }
+    let submitButton = null
+    if (this.state.showSubmitButton) {
+      submitButton = <div><button onClick={this.openModal}> Add Song </button></div>
+    }
     return (
       <div id='AddNewSong'>
         <h2>AddNewSong</h2>
         <form onSubmit={this.onSubmit}>
-          <input type='text' ref='title' style={styles} placeholder='title' />
+          <input type='text' ref='title' style={styles} placeholder='title' onChange={this.showSubmitButton} />
           <br />
           <select type='text' ref='artist' style={styles} onChange={this.artistChange} >
-            <option value='artistHere' > artist here </option>
+            <option value='' > artist here </option>
             {this.state.artists.map((artist, index) => (
               <option key={index} value={artist.id} > {artist.name} </option>
             ))}
           </select>
           <br />
-          <select type='text' ref='album' style={styles} placeholder='album' >
-            <option >album here</option>
+          <select type='text' ref='album' style={styles} placeholder='album' onChange={this.showSubmitButton}>
+            <option value='' >album here</option>
               {this.state.albums.map((album, index) => (
                 <option key={index} value={album.id} > {album.title} </option>
               ))}
           </select>
           <br />
-          <select type='text' ref='type' placeholder='type' style={styles} >
+          <select type='text' ref='type' placeholder='type' style={styles} onChange={this.showSubmitButton}>
             <option value=''> type </option>
             <option value='hawaii'>Hawaii</option>
             <option value='contemporary'>contemporary</option>
@@ -730,7 +763,7 @@ class AddNewSong extends React.Component {
           {line29}
           {line30}
         </form>
-        <button onClick={this.openModal}> Add Song </button>
+        {submitButton}
         <PreviewModal type='addSong' modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} object={this.state.object} onSubmit={this.onSubmit} />
         <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
       </div>
