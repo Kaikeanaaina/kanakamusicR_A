@@ -22,16 +22,23 @@ class AddNewAlbum extends React.Component {
       artists: [],
       modalIsOpen: false,
       successModalIsOpen: false,
-      object: {}
+      object: {},
+      showSubmitButton: false
     }
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
     this.returnToHome = this.returnToHome.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.showSubmitButton = this.showSubmitButton.bind(this)
   }
   openModal () {
+    let splitTitle = this.refs.title.value.split('')
+    let splitTitleStartWithCap = splitTitle[0].toUpperCase()
+    splitTitle.splice(0, 1, splitTitleStartWithCap)
+    let capitalizeTitle = splitTitle.join('')
+
     let object = {
-      title: this.refs.title.value,
+      title: capitalizeTitle,
       RecordLabelId: this.refs.recordLabel.value,
       ArtistId: this.refs.artist.value,
       description: this.refs.description.value
@@ -95,21 +102,36 @@ class AddNewAlbum extends React.Component {
       console.log('axios error', error)
     })
   }
+  showSubmitButton (e) {
+    if (this.refs.title.value && this.refs.artist.value && this.refs.recordLabel.value) {
+      this.setState({
+        showSubmitButton: true
+      })
+    } else {
+      this.setState({
+        showSubmitButton: false
+      })
+    }
+  }
   render () {
+    let submitButton = null
+    if (this.state.showSubmitButton) {
+      submitButton = <button onClick={this.openModal}>Add Album</button>
+    }
     return (
       <div id='AddNewAlbum'>
         <h3>Add New Album</h3>
         <form onSubmit={this.onSubmit}>
-          <input type='text' ref='title' placeholder='title' style={styles} />
+          <input type='text' ref='title' placeholder='title' style={styles} onChange={this.showSubmitButton} />
           <br />
-          <select ref='artist' style={styles} >
+          <select ref='artist' style={styles} onChange={this.showSubmitButton} >
             <option value='' >artist here</option>
             {this.state.artists.map((artist, index) => (
               <option key={index} value={artist.id} > {artist.name} </option>
             ))}
           </select>
           <br />
-          <select ref='recordLabel' style={styles} >
+          <select ref='recordLabel' style={styles} onChange={this.showSubmitButton} >
             <option value='' >record label here</option>
             {this.state.recordLabels.map((recordlabel, index) => (
               <option key={index} value={recordlabel.id} > {recordlabel.name} </option>
@@ -119,7 +141,7 @@ class AddNewAlbum extends React.Component {
           <textarea type='text' ref='description' placeholder='description' style={styles} />
           <br />
         </form>
-        <button onClick={this.openModal}>Add Album</button>
+        {submitButton}
         <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addAlbum' object={this.state.object} onSubmit={this.onSubmit} />
         <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
       </div>

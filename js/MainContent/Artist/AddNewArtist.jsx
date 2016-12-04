@@ -19,15 +19,22 @@ class AddNewArtist extends React.Component {
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
     this.returnToHome = this.returnToHome.bind(this)
+    this.showSubmitButton = this.showSubmitButton.bind(this)
     this.state = {
       modalIsOpen: false,
       successModalIsOpen: false,
-      object: {}
+      object: {},
+      showSubmitButton: false
     }
   }
   openModal () {
+    let splitName = this.refs.name.value.split('')
+    let splitNameStartWithCap = splitName[0].toUpperCase()
+    splitName.splice(0, 1, splitNameStartWithCap)
+    let capitalizeName = splitName.join('')
+
     let object = {
-      name: this.refs.name.value,
+      name: capitalizeName,
       type: this.refs.type.value,
       description: this.refs.description.value,
       facebook: this.refs.facebook.value,
@@ -90,15 +97,29 @@ class AddNewArtist extends React.Component {
       console.log('axios error', error)
     })
   }
-
+  showSubmitButton (e) {
+    if (this.refs.name.value && this.refs.type.value) {
+      this.setState({
+        showSubmitButton: true
+      })
+    } else {
+      this.setState({
+        showSubmitButton: false
+      })
+    }
+  }
   render () {
+    let submitButton = null
+    if (this.state.showSubmitButton) {
+      submitButton = <div><button onClick={this.openModal} > Add Artist </button></div>
+    }
     return (
       <div id='AddNewArtist'>
         <h3>AddNewArtist</h3>
         <form onSubmit={this.onSubmit}>
-          <input type='text' ref='name' style={styles} placeholder='artist name' />
+          <input type='text' ref='name' style={styles} placeholder='artist name' onChange={this.showSubmitButton}/>
           <br />
-          <select ref='type' style={styles} >
+          <select ref='type' style={styles} onChange={this.showSubmitButton}>
             <option value=''> type </option>
             <option value='hawaii' > Hawaii </option>
             <option value='contemporary'> Contemporary </option>
@@ -117,7 +138,7 @@ class AddNewArtist extends React.Component {
           <input type='text' ref='bookingPhoneNumber' placeholder='bookingPhoneNumber' style={styles} />
           <br />
         </form>
-        <button onClick={this.openModal} > Add Artist </button>
+        {submitButton}
         <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addArtist' object={this.state.object} onSubmit={this.onSubmit} />
         <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
       </div>

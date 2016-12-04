@@ -120,21 +120,13 @@ class AddNewSong extends React.Component {
     })
   }
   openModal () {
-    if (!this.refs.title.value) {
-      // throw error message here
-      return console.log('fill in the title')
-    }
-    let splitName = this.refs.title.value.split('')
-    let splitNameStartWithCap = splitName[0].toUpperCase()
-    splitName.splice(0, 1, splitNameStartWithCap)
-    let capitalizeName = splitName.join('')
-
-    if (this.refs.artist.value === '' || this.refs.album.value === '' || this.refs.type.value === '' || !this.refs.line1.value) {
-      return console.log('pick an artist, album and type. Insert atleast one line')
-    }
+    let splitTitle = this.refs.title.value.split('')
+    let splitTitleStartWithCap = splitTitle[0].toUpperCase()
+    splitTitle.splice(0, 1, splitTitleStartWithCap)
+    let capitalizeTitle = splitTitle.join('')
 
     let object = {
-      title: capitalizeName,
+      title: capitalizeTitle,
       type: this.refs.type.value,
       description: this.refs.description.value,
       ArtistId: this.refs.artist.value,
