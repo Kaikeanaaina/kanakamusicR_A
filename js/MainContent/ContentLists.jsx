@@ -66,7 +66,7 @@ class ContentLists extends React.Component {
     return (
       <div>
         <div className='buttons'>
-          <Button node='a' waves='light'><Icon right>file_cloud</Icon>button</Button>
+          <Button className='buttons' node='a' waves='light' ><Icon right>file_cloud</Icon>button</Button>
           <button onClick={this.ShowSongList} > Song is true </button>
           <button onClick={this.ShowArtistList} > Artist is true </button>
           <button onClick={this.ShowAlbumList} > Album is true </button>
