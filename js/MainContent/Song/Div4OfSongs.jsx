@@ -18,7 +18,7 @@ const style = {
     textDecoration: 'none',
     fontSize: '24px'
   },
-  SongText: {
+  songText: {
     borderBottom: 'black solid 1px',
     color: 'grey'
   }
@@ -30,7 +30,7 @@ const Div4OfSongs = (props) => (
       {props.state.songs4DivArray1.map((song, i) => (
         <div style={{backgroundColor: 'red'}} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-            <div key={i} style={style.SongText}>
+            <div key={i} style={style.songText}>
               {song.title}
             </div>
             <br />
@@ -42,7 +42,7 @@ const Div4OfSongs = (props) => (
       {props.state.songs4DivArray2.map((song, i) => (
         <div style={{backgroundColor: 'blue'}} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-            <div key={i} style={style.SongText}>
+            <div key={i} style={style.songText}>
               {song.title}
             </div>
             <br />
@@ -54,7 +54,7 @@ const Div4OfSongs = (props) => (
       {props.state.songs4DivArray3.map((song, i) => (
         <div style={{backgroundColor: 'green'}} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-            <div key={i} style={style.SongText}>
+            <div key={i} style={style.songText}>
               {song.title}
             </div>
             <br />
@@ -66,7 +66,7 @@ const Div4OfSongs = (props) => (
       {props.state.songs4DivArray4.map((song, i) => (
         <div style={{backgroundColor: 'yellow'}} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
-            <div key={i} style={style.SongText}>
+            <div key={i} style={style.songText}>
               {song.title}
             </div>
             <br />
