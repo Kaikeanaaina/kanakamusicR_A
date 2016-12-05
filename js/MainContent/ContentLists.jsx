@@ -3,6 +3,7 @@ const SongList = require('./Song/SongList')
 const ArtistList = require('./Artist/ArtistList')
 const AlbumList = require('./Album/AlbumList')
 const RecordLabelList = require('./RecordLabel/RecordLabelList')
+const { Button, Icon } = require('react-materialize')
 
 class ContentLists extends React.Component {
   constructor () {
@@ -54,23 +55,26 @@ class ContentLists extends React.Component {
     let Listing = null
 
     if (this.state.SongList) {
-      Listing = <div><SongList /></div>
+      Listing = <SongList />
     } else if (this.state.ArtistList) {
-      Listing = <div><ArtistList /></div>
+      Listing = <ArtistList />
     } else if (this.state.AlbumList) {
-      Listing = <div><AlbumList /></div>
+      Listing = <AlbumList />
     } else {
-      Listing = <div><RecordLabelList /></div>
+      Listing = <RecordLabelList />
     }
     return (
       <div>
         <div className='buttons'>
+          <Button node='a' waves='light'><Icon right>file_cloud</Icon>button</Button>
           <button onClick={this.ShowSongList} > Song is true </button>
           <button onClick={this.ShowArtistList} > Artist is true </button>
           <button onClick={this.ShowAlbumList} > Album is true </button>
           <button onClick={this.ShowRecordLabelList} > RecordLabel is true </button>
         </div>
-        {Listing}
+        <div>
+          {Listing}
+        </div>
       </div>
     )
   }
