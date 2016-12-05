@@ -8,6 +8,27 @@ const Album = db.Album
 
 router.use(bodyParser.json({ extended: false }))
 
+const exists =(req) => {
+  if (typeof parseInt(req.params.id) === 'number') {
+    Album.findOne({
+      where : {
+        id: req.params.id
+      }
+    })
+    .then((album) => {
+      if (album) {
+        return true;
+      };
+      return false;
+    })
+    .catch((err) => {
+      return false;
+    })
+  } else {
+    return false;
+  }
+};
+
 router.get('/', function (req, res) {
   Album.findAll({
     order: 'title'
@@ -23,7 +44,7 @@ router.get('/', function (req, res) {
 router.get('/ByArtistId/:id', function (req, res) {
   Album.findAll({
     where: {
-      ArtistId: encodeURI(req.params.id)
+      ArtistId: req.params.id
     }
   })
   .then(function (albums) {
@@ -50,17 +71,21 @@ router.get('/ByRecordLabelId/:id', function (req, res) {
 })
 
 router.get('/:id', function (req, res) {
-  Album.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(function (album) {
-    return res.json(album)
-  })
-  .catch(function (err) {
-    return res.json({ error: err})
-  })
+  if (exists) {
+    Album.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function (album) {
+      return res.json(album)
+    })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
 })
 
 router.post('/', function (req, res) {
@@ -99,25 +124,29 @@ router.put('/ByArtistId/:id', function (req, res) {
 })
 
 router.put('/:id', function (req, res) {
-  Album.update(
-    {
-      updatedAt: 'now()',
-      title: req.body.title,
-      description: req.body.description,
-      ArtistId: req.body.ArtistId,
-      RecordLabelId: req.body.RecordLabelId,
-      visibilityByAlbum: req.body.visibilityByAlbum
-    }, {
-      where: {
-        id: req.params.id
-      }
+  if (exists) {
+    Album.update(
+      {
+        updatedAt: 'now()',
+        title: req.body.title,
+        description: req.body.description,
+        ArtistId: req.body.ArtistId,
+        RecordLabelId: req.body.RecordLabelId,
+        visibilityByAlbum: req.body.visibilityByAlbum
+      }, {
+        where: {
+          id: req.params.id
+        }
+      })
+    .then(function (album) {
+      return res.json(album)
     })
-  .then(function (album) {
-    return res.json(album)
-  })
-  .catch(function (err) {
-    return res.json({ error: err})
-  })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
 })
 
 router.delete('/ByArtistId/:id', function (req, res) {
@@ -135,17 +164,21 @@ router.delete('/ByArtistId/:id', function (req, res) {
 })
 
 router.delete('/:id', function (req, res) {
-  Album.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(function (data) {
-    return res.json(data)
-  })
-  .catch(function (err) {
-    return res.json({ error: err})
-  })
+  if (exists) {
+    Album.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function (data) {
+      return res.json(data)
+    })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
 })
 
 module.exports = router
