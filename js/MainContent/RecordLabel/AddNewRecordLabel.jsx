@@ -28,8 +28,12 @@ class AddNewRecordLabel extends React.Component {
     this.returnToHome = this.returnToHome.bind(this)
   }
   openModal () {
+    let splitName = this.refs.name.value.split('')
+    let splitNameStartWithCap = splitName[0].toUpperCase()
+    splitName.splice(0, 1, splitNameStartWithCap)
+    let capitalizeName = splitName.join('')
     var object = {
-      name: this.refs.name.value
+      name: capitalizeName
     }
 
     this.setState({
