@@ -223,7 +223,6 @@ class RecordLabelList extends React.Component {
       <div>
         <h2>Record Labels</h2>
       </div>
-
       <MediaQuery minWidth={1024} style={style.recordLabelListDivContainer} >
         <Div4OfRecordLabels state={this.state} />
       </MediaQuery>
