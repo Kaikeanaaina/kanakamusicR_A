@@ -103,7 +103,9 @@ class Album extends React.Component {
         <div style={style.description}>
           <p>{this.state.Album.description}</p>
         </div>
-        {SongListing}
+        <div>
+          {SongListing}
+        </div>
       </div>
     )
   }
