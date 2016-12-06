@@ -1,7 +1,6 @@
 const React = require('react')
 const axios = require('axios')
 const SongList = require('../Song/SongList')
-const { Link } = require('react-router')
 const { domain } = require('../Domain')
 
 const style = {
@@ -29,8 +28,6 @@ class EditAlbum extends React.Component {
     }
     this.onSubmit = this.onSubmit.bind(this)
     this.DeleteAlbum = this.DeleteAlbum.bind(this)
-    this.recordLabelChange = this.recordLabelChange.bind(this)
-    this.artistChange = this.artistChange.bind(this)
   }
   componentDidMount () {
     axios.get(`${domain}/albums/${this.props.params.id}`)
@@ -83,30 +80,6 @@ class EditAlbum extends React.Component {
       console.log('axios error', error)
     })
   }
-  recordLabelChange (e) {
-    e.preventDefault()
-    if (e.target.value === 'giveAddNewRecordLabelLink') {
-      this.setState({
-        linkToNewRecordLabel: true
-      })
-    } else {
-      this.setState({
-        linkToNewRecordLabel: false
-      })
-    }
-  }
-  artistChange (e) {
-    e.preventDefault()
-    if (e.target.value === 'giveAddNewArtistLink') {
-      this.setState({
-        linkToNewArtist: true
-      })
-    } else {
-      this.setState({
-        linkToNewArtist: false
-      })
-    }
-  }
   DeleteAlbum (e) {
     e.preventDefault()
 
@@ -137,7 +110,7 @@ class EditAlbum extends React.Component {
       if (splitName[0] === splitName[0].toUpperCase()) {
         object.title = this.refs.title.value
       } else {
-        // throw eorror message here
+        // throw error message here
         return console.log('tell the admin to make sure the name starts in upper case')
       }
     } else {
@@ -199,14 +172,6 @@ class EditAlbum extends React.Component {
     } else {
       visibleByArtistProperty = (<div>visibilityByArtist: false</div>)
     }
-    let AddNewArtistLink = null
-    if (this.state.linkToNewArtist) {
-      AddNewArtistLink = <div><br /><Link to='/AddNewArtist'>Add New Artist</Link><br /></div>
-    }
-    let AddNewRecordLabelLink = null
-    if (this.state.linkToNewRecordLabel) {
-      AddNewRecordLabelLink = <div><br /><Link to='/AddNewRecordLabel'>Add New Record Label</Link><br /></div>
-    }
     return (
       <div>
         <div>
@@ -223,28 +188,24 @@ class EditAlbum extends React.Component {
           <div style={style.details}>
             <label>
               <span>Artist:</span>
-              <select onChange={this.artistChange} ref='artist'>
+              <select ref='artist'>
                 <option >artist here</option>
-                <option value='giveAddNewArtistLink'>AddNewArtist</option>
                 {this.state.artists.map((artist, index) => (
                   <option key={index} value={artist.id} > {artist.name} </option>
                 ))}
               </select>
               <span> Current: {this.state.Artist.name} </span>
-              {AddNewArtistLink}
             </label>
             <br />
             <label>
               <span>Record Label </span>
-              <select onChange={this.recordLabelChange} ref='recordLabel'>
+              <select ref='recordLabel'>
                 <option >record label here</option>
-                <option value='giveAddNewRecordLabelLink'>AddNewRecordLabel</option>
                 {this.state.recordLabels.map((recordlabel, index) => (
                   <option key={index} value={recordlabel.id} > {recordlabel.name} </option>
                 ))}
               </select>
               <span> Current: {this.state.RecordLabel.name} </span>
-              {AddNewRecordLabelLink}
             </label>
             <br />
             <label>
