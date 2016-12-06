@@ -8,6 +8,27 @@ const Artist = db.Artist
 
 router.use(bodyParser.json({ extended: false }))
 
+const exists = (req) => {
+  if (typeof parseInt(req.params.id) === 'number') {
+    Artist.findOne({
+      where : {
+        id: req.params.id
+      }
+    })
+    .then((artist) => {
+      if (artist) {
+        return true;
+      };
+      return false;
+    })
+    .catch((err) => {
+      return false;
+    })
+  } else {
+    return false;
+  }
+};
+
 router.get('/', function (req, res) {
   Artist.findAll({
     order: 'name'
@@ -41,57 +62,69 @@ router.post('/', function (req, res) {
 })
 
 router.get('/:id', function (req, res) {
-  Artist.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(function (artist) {
-    return res.json(artist)
-  })
-  .catch(function (err) {
-    return res.json({ error: err})
-  })
-})
-
-router.put('/:id', function (req, res) {
-  Artist.update(
-    {
-      updatedAt: 'now()',
-      name: req.body.name,
-      type: req.body.type,
-      facebook: req.body.facebook,
-      instagram: req.body.instagram,
-      twitter: req.body.twitter,
-      bookingPhoneNumber: req.body.bookingPhoneNumber,
-      bookingEmail: req.body.bookingEmail,
-      description: req.body.description,
-      visibilityByArtist: req.body.visibilityByArtist
-    }, {
+  if (exists) {
+    Artist.findOne({
       where: {
         id: req.params.id
       }
     })
-  .then(function (artist) {
-    return res.json(artist)
-  })
-  .catch(function (err) {
-    return res.json({ error: err})
-  })
+    .then(function (artist) {
+      return res.json(artist)
+    })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
+})
+
+router.put('/:id', function (req, res) {
+  if (exists) {
+    Artist.update(
+      {
+        updatedAt: 'now()',
+        name: req.body.name,
+        type: req.body.type,
+        facebook: req.body.facebook,
+        instagram: req.body.instagram,
+        twitter: req.body.twitter,
+        bookingPhoneNumber: req.body.bookingPhoneNumber,
+        bookingEmail: req.body.bookingEmail,
+        description: req.body.description,
+        visibilityByArtist: req.body.visibilityByArtist
+      }, {
+        where: {
+          id: req.params.id
+        }
+      })
+    .then(function (artist) {
+      return res.json(artist)
+    })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
 })
 
 router.delete('/:id', function (req, res) {
-  Artist.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(function (data) {
-    return res.json(data)
-  })
-  .catch(function (err) {
-    return res.json({ error: err})
-  })
+  if (exists) {
+    Artist.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function (data) {
+      return res.json(data)
+    })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
 })
 
 module.exports = router

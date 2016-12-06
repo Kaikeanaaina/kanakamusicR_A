@@ -234,6 +234,10 @@ class SongList extends React.Component {
     }
   }
   render () {
+    let PropIdList = null
+    if (this.props.AlbumId || this.props.ArtistId) {
+      PropIdList = <Div1OfSongs state={this.state} />
+    }
     return (<div style={style.songListContainer}>
       <div>
         <h2>Songs</h2>
@@ -251,6 +255,9 @@ class SongList extends React.Component {
       <MediaQuery maxWidth={425} >
         <Div1OfSongs state={this.state} />
       </MediaQuery>
+      <div>
+        {PropIdList}
+      </div>
     </div>)
   }
 }
