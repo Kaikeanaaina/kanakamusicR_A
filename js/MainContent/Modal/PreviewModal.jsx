@@ -20,9 +20,6 @@ class PreviewModal extends React.Component {
     }
     this.afterOpenModal = this.afterOpenModal.bind(this)
   }
-  componentDidMount () {
-    console.log(this.props)
-  }
   afterOpenModal () {
     // references are now sync'd and can be accessed.
     this.refs.subtitle.style.color = '#f00'
