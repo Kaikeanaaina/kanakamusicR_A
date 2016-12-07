@@ -139,8 +139,8 @@ class AddNewArtist extends React.Component {
           <br />
         </form>
         {submitButton}
-        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addArtist' object={this.state.object} onSubmit={this.onSubmit} />
-        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addArtist' object={this.state.object} onSubmit={this.onSubmit} contentLabel='previewModal' />
+        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} contentLabel='SuccessEntryModal' />
       </div>
     )
   }
