@@ -456,9 +456,9 @@ class EditSong extends React.Component {
                 <span> Album </span>
                 <select type='text' ref='album' placeholder='album' >
                   <option >album here</option>
-                    {this.state.albums.map((album, index) => (
-                      <option key={index} value={album.id} > {album.title} </option>
-                    ))}
+                  {this.state.albums.map((album, index) => (
+                    <option key={index} value={album.id} > {album.title} </option>
+                  ))}
                 </select>
                 <span> Current: {this.state.Album.title} </span>
               </label>

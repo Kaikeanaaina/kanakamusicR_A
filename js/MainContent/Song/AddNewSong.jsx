@@ -710,9 +710,9 @@ class AddNewSong extends React.Component {
           <br />
           <select type='text' ref='album' style={styles} placeholder='album' onChange={this.showSubmitButton}>
             <option value='' >album here</option>
-              {this.state.albums.map((album, index) => (
-                <option key={index} value={album.id} > {album.title} </option>
-              ))}
+            {this.state.albums.map((album, index) => (
+              <option key={index} value={album.id} > {album.title} </option>
+            ))}
           </select>
           <br />
           <select type='text' ref='type' placeholder='type' style={styles} onChange={this.showSubmitButton}>
