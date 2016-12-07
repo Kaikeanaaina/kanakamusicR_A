@@ -20,6 +20,9 @@ class PreviewModal extends React.Component {
     }
     this.afterOpenModal = this.afterOpenModal.bind(this)
   }
+  componentDidMount () {
+    console.log(this.props)
+  }
   afterOpenModal () {
     // references are now sync'd and can be accessed.
     this.refs.subtitle.style.color = '#f00'
@@ -32,7 +35,7 @@ class PreviewModal extends React.Component {
             isOpen={this.props.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            contentLabel='previewModal' >
+            contentLabel={this.props.contentLabel} >
 
             <h4 ref='subtitle'>Confirm New Song</h4>
             <label>
@@ -152,7 +155,8 @@ class PreviewModal extends React.Component {
             isOpen={this.props.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            style={customStyles} >
+            style={customStyles}
+            contentLabel={this.props.contentLabel} >
 
             <h4 ref='subtitle'>Confirm New Artist</h4>
             <label>
@@ -179,7 +183,8 @@ class PreviewModal extends React.Component {
             isOpen={this.props.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            style={customStyles} >
+            style={customStyles}
+            contentLabel={this.props.contentLabel} >
 
             <h4 ref='subtitle'>Confirm New Artist</h4>
             <label>
@@ -215,7 +220,8 @@ class PreviewModal extends React.Component {
             isOpen={this.props.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            style={customStyles} >
+            style={customStyles}
+            contentLabel={this.props.contentLabel} >
 
             <h4 ref='subtitle'>Confirm New RecordLabel</h4>
             <label>
@@ -235,7 +241,8 @@ PreviewModal.propTypes = {
   closeModal: React.PropTypes.func,
   type: React.PropTypes.string,
   object: React.PropTypes.object,
-  onSubmit: React.PropTypes.func
+  onSubmit: React.PropTypes.func,
+  contentLabel: React.PropTypes.string.isRequired
 }
 
 module.exports = PreviewModal

@@ -32,7 +32,7 @@ class SuccessEntryModal extends React.Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel='successModal' >
+          contentLabel={this.props.contentLabel} >
 
           <h2 ref='subtitle'>Add Another Content?</h2>
           <button onClick={this.props.closeModal}>Yes</button>
@@ -43,12 +43,13 @@ class SuccessEntryModal extends React.Component {
   }
 }
 
-const { bool, func } = React.PropTypes
+const { bool, func, string } = React.PropTypes
 
 SuccessEntryModal.propTypes = {
   modalIsOpen: bool,
   closeModal: func,
-  returnToHome: func
+  returnToHome: func,
+  contentLabel: string.isRequired
 }
 
 module.exports = SuccessEntryModal

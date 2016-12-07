@@ -85,8 +85,8 @@ class AddNewRecordLabel extends React.Component {
           <br />
         </form>
         <button onClick={this.openModal} > Add Record Label </button>
-        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addRecordLabel' object={this.state.object} onSubmit={this.onSubmit} />
-        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addRecordLabel' object={this.state.object} onSubmit={this.onSubmit} contentLabel='previewModal' />
+        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} contentLabel='SuccessEntryModal' />
       </div>
     )
   }

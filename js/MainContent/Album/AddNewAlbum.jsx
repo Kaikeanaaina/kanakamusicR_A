@@ -142,8 +142,8 @@ class AddNewAlbum extends React.Component {
           <br />
         </form>
         {submitButton}
-        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addAlbum' object={this.state.object} onSubmit={this.onSubmit} />
-        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} />
+        <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} type='addAlbum' object={this.state.object} onSubmit={this.onSubmit} contentLabel='previewModal' />
+        <SuccessEntryModal modalIsOpen={this.state.successModalIsOpen} closeModal={this.closeModal} returnToHome={this.returnToHome} contentLabel='successEntryModal' />
       </div>
     )
   }
