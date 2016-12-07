@@ -31,7 +31,8 @@ class PreviewModal extends React.Component {
           <Modal
             isOpen={this.props.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal} >
+            onRequestClose={this.closeModal}
+            contentLabel='previewModal' >
 
             <h4 ref='subtitle'>Confirm New Song</h4>
             <label>

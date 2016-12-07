@@ -31,7 +31,8 @@ class SuccessEntryModal extends React.Component {
           isOpen={this.props.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles} >
+          style={customStyles}
+          contentLabel='successModal' >
 
           <h2 ref='subtitle'>Add Another Content?</h2>
           <button onClick={this.props.closeModal}>Yes</button>
