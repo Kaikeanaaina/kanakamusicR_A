@@ -11,23 +11,23 @@ router.use(bodyParser.json({ extended: false }))
 const exists = (req) => {
   if (typeof parseInt(req.params.id) === 'number') {
     RecordLabel.findOne({
-      where : {
+      where: {
         id: req.params.id
       }
     })
     .then((recordLabel) => {
       if (recordLabel) {
-        return true;
+        return true
       };
-      return false;
+      return false
     })
     .catch((err) => {
-      return false;
+      return false
     })
   } else {
-    return false;
+    return false
   }
-};
+}
 
 router.get('/', function (req, res) {
   RecordLabel.findAll({
@@ -53,7 +53,7 @@ router.post('/', function (req, res) {
       return res.json({ error: err})
     })
   } else {
-    res.json({success:false})
+    res.json({success: false})
   }
 })
 
@@ -71,42 +71,42 @@ router.get('/:id', function (req, res) {
       return res.json({ error: err})
     })
   } else {
-    res.json({success:false})
+    res.json({success: false})
   }
 })
 
-router.put('/:id', function(req, res){
+router.put('/:id', function (req, res) {
   if (exists) {
     RecordLabel.update(
-    {
-      updatedAt : 'now()',
-      name : req.body.name,
-    }, {
-      where : {
-        id : req.params.id
-      }
+      {
+        updatedAt: 'now()',
+        name: req.body.name
+      }, {
+        where: {
+          id: req.params.id
+        }
+      })
+    .then(function (recordLabel) {
+      return res.json(recordLabel)
     })
-    .then(function(recordLabel){
-      return res.json(recordLabel);
-    });
   } else {
     res.json({success: false})
   }
-});
+})
 
-router.delete('/:id', function(req, res){
+router.delete('/:id', function (req, res) {
   if (exists) {
     RecordLabel.destroy({
       where: {
         id: req.params.id
       }
     })
-    .then(function(data){
-      return res.json(data);
-    });
+    .then(function (data) {
+      return res.json(data)
+    })
   } else {
     res.json({success: false})
   }
-});
+})
 
 module.exports = router

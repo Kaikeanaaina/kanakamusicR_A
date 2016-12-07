@@ -27,7 +27,7 @@ const style = {
 const Div2OfRecordlabels = (props) => (
   <div style={style.recordlabelListDivContainer}>
     <div style={style.recordlabelList2Div}>
-      {props.state.recordlabels2DivArray1.map((recordlabel, i) => (
+      {props.state.recordLabels2DivArray1.map((recordlabel, i) => (
         <div style={{backgroundColor: 'red'}} key={i} >
           <Link key={i} to={`/recordlabel/${recordlabel.id}`} style={style.recordlabelLink} >
             <div key={i} style={style.recordlabelText}>
@@ -39,7 +39,7 @@ const Div2OfRecordlabels = (props) => (
       ))}
     </div>
     <div style={style.recordlabelList2Div}>
-      {props.state.recordlabels2DivArray2.map((recordlabel, i) => (
+      {props.state.recordLabels2DivArray2.map((recordlabel, i) => (
         <div style={{backgroundColor: 'blue'}} key={i} >
           <Link key={i} to={`/recordlabel/${recordlabel.id}`} style={style.recordlabelLink} >
             <div key={i} style={style.recordlabelText}>

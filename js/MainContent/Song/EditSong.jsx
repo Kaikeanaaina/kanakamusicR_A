@@ -393,7 +393,7 @@ class EditSong extends React.Component {
 
     if (event.target.value !== 'artist here') {
       // populate the albums depending on the artist
-      axios.get(`${domain}/albums/ofArtist/${event.target.value}`)
+      axios.get(`${domain}/albums/ByArtistId/${event.target.value}`)
       .then((res) => {
         this.setState({
           albums: res.data
@@ -403,12 +403,6 @@ class EditSong extends React.Component {
         console.log('axios error', error)
       })
     }
-  }
-  albumChange (event) {
-    event.preventDefault()
-    this.setState({
-      linkToNewAlbum: false
-    })
   }
   render () {
     let visibleBySongProperty
@@ -460,7 +454,7 @@ class EditSong extends React.Component {
             <div>
               <label>
                 <span> Album </span>
-                <select type='text' ref='album' placeholder='album' onChange={this.albumChange}>
+                <select type='text' ref='album' placeholder='album' >
                   <option >album here</option>
                     {this.state.albums.map((album, index) => (
                       <option key={index} value={album.id} > {album.title} </option>

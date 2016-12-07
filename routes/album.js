@@ -8,26 +8,26 @@ const Album = db.Album
 
 router.use(bodyParser.json({ extended: false }))
 
-const exists =(req) => {
+const exists = (req) => {
   if (typeof parseInt(req.params.id) === 'number') {
     Album.findOne({
-      where : {
+      where: {
         id: req.params.id
       }
     })
     .then((album) => {
       if (album) {
-        return true;
+        return true
       };
-      return false;
+      return false
     })
     .catch((err) => {
-      return false;
+      return false
     })
   } else {
-    return false;
+    return false
   }
-};
+}
 
 router.get('/', function (req, res) {
   Album.findAll({
