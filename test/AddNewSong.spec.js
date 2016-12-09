@@ -5,17 +5,12 @@ const React = require('react')
 const { mount, shallow } = require('enzyme')
 const sinon = require('sinon')
 
-const AddNewSong = require('../js/AddNewSong')
+const AddNewSong = require('../js/MainContent/Song/AddNewSong')
 
 describe('AddNewSong Initial State', () => {
   it('should have an intial linkToNewArtist state', () => {
     const wrapper = mount(<AddNewSong />)
     expect(wrapper.state().linkToNewArtist).to.be.defined
-  })
-
-  it('linkToNewArtist state initially should be false', () => {
-    const wrapper = mount(<AddNewSong />)
-    expect(wrapper.state().linkToNewArtist).to.equal(false)
   })
 
   it('should have an intial artists state', () => {
@@ -367,15 +362,7 @@ describe('artistChange method', () => {
   })
 })
 
-describe('albumChange method', () => {
-  it('should handle event', () => {
-    sinon.spy(AddNewSong.prototype, 'albumChange')
-    const wrapper = mount(<AddNewSong />)
-    expect(AddNewSong.prototype.albumChange).to.be.defined
-  })
-})
-
-describe('handline', () => {
+describe('handle line', () => {
   describe('handleLine1 method', () => {
     it('should handle event', () => {
       sinon.spy(AddNewSong.prototype, 'handleLine1')
