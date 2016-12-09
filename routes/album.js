@@ -155,7 +155,7 @@ router.delete('/ByArtistId/:id', function (req, res) {
       ArtistId: req.params.id
     }
   })
-  .then(function (data) {
+  .then(function (data) {q
     return res.json(data)
   })
   .catch(function (err) {
