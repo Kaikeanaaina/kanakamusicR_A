@@ -13,8 +13,4 @@ describe('<HeaderNavBar />', () => {
     expect(wrapper.find(Link)).to.have.length(6)
   })
 
-  it('should have search input', () => {
-    const wrapper = shallow(<HeaderNavBar />)
-    expect(wrapper.find('input')).to.have.length(1)
-  })
 })
