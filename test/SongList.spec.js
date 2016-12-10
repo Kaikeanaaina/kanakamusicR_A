@@ -4,7 +4,7 @@ const { expect } = require('chai')
 const React = require('react')
 const { mount, shallow } = require('enzyme')
 
-const SongList = require('../../js/MainContent/Song/SongList')
+const SongList = require('../js/MainContent/Song/SongList')
 
 describe('<SongList />', () => {
   it('should have an initial songs state', () => {

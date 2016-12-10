@@ -5,7 +5,7 @@ const React = require('react')
 const { mount, shallow } = require('enzyme')
 const sinon = require('sinon')
 
-const AddNewSong = require('../../js/MainContent/Song/AddNewSong')
+const AddNewSong = require('../js/MainContent/Song/AddNewSong')
 
 describe('AddNewSong Initial State', () => {
   it('should have an intial linkToNewArtist state', () => {
