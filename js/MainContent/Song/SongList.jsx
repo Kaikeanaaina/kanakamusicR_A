@@ -237,24 +237,28 @@ class SongList extends React.Component {
     let PropIdList = null
     if (this.props.AlbumId || this.props.ArtistId) {
       PropIdList = <Div1OfSongs state={this.state} />
+    } else {
+      PropIdList = (
+        <div>
+          <MediaQuery minWidth={1024} style={style.songListDivContainer} >
+            <Div4OfSongs state={this.state} />
+          </MediaQuery>
+          <MediaQuery minWidth={768} maxWidth={1024} style={style.songListDivContainer} >
+            <Div3OfSongs state={this.state} />
+          </MediaQuery>
+          <MediaQuery minWidth={425} maxWidth={768} style={style.songListDivContainer} >
+            <Div2OfSongs state={this.state} />
+          </MediaQuery>
+          <MediaQuery maxWidth={425} >
+            <Div1OfSongs state={this.state} />
+          </MediaQuery>
+        </div>
+      )
     }
     return (<div style={style.songListContainer}>
       <div>
         <h2>Songs</h2>
       </div>
-
-      <MediaQuery minWidth={1024} style={style.songListDivContainer} >
-        <Div4OfSongs state={this.state} />
-      </MediaQuery>
-      <MediaQuery minWidth={768} maxWidth={1024} style={style.songListDivContainer} >
-        <Div3OfSongs state={this.state} />
-      </MediaQuery>
-      <MediaQuery minWidth={425} maxWidth={768} style={style.songListDivContainer} >
-        <Div2OfSongs state={this.state} />
-      </MediaQuery>
-      <MediaQuery maxWidth={425} >
-        <Div1OfSongs state={this.state} />
-      </MediaQuery>
       <div>
         {PropIdList}
       </div>
