@@ -83,9 +83,9 @@ class EditAlbum extends React.Component {
   DeleteAlbum (e) {
     e.preventDefault()
 
-    axios.delete(`${domain}/albums/${this.state.Album.id}`, this.state.Album.id)
+    axios.delete(`${domain}/albums/${this.state.Album.id}`)
     .then((res) => {
-      axios.delete(`${domain}/songs/ByAlbumId/${this.state.Album.id}`, this.state.Album.id)
+      axios.delete(`${domain}/songs/ByAlbumId/${this.state.Album.id}`)
       .then((res) => {
         window.location.href = '/#/'
       })
@@ -172,6 +172,10 @@ class EditAlbum extends React.Component {
     } else {
       visibleByArtistProperty = (<div>visibilityByArtist: false</div>)
     }
+    let AlbumSongList
+    if (this.state.Album.id) {
+      AlbumSongList = <SongList AlbumId={this.state.Album.id} />
+    }
     return (
       <div>
         <div>
@@ -230,8 +234,9 @@ class EditAlbum extends React.Component {
           </div>
           <button type='submit'> Edit Album </button>
         </form>
-
-        <SongList AlbumId={this.state.Album.id} />
+        <div>
+          {AlbumSongList}
+        </div>
         <div>
           <button onClick={this.DeleteAlbum}>Delete Album</button>
         </div>

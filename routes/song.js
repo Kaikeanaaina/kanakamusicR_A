@@ -241,7 +241,7 @@ router.put('/:id', function (req, res) {
 router.delete('/ByAlbumId/:id', function (req, res) {
   Song.destroy({
     where: {
-      AlbumId: req.body.id
+      AlbumId: req.params.id
     }
   })
   .then(function (data) {
