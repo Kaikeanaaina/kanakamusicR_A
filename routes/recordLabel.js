@@ -30,8 +30,9 @@ const exists = (req) => {
 }
 
 router.get('/', function (req, res) {
+  var sequelize = require('sequelize')
   RecordLabel.findAll({
-    order: 'name'
+    order: [sequelize.fn('lower', sequelize.col('name'))]
   })
   .then(function (recordLabels) {
     return res.json(recordLabels)
