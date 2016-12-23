@@ -24,11 +24,17 @@ const style = {
   }
 }
 
+function checkVisibility (artist) {
+  if (artist.visibilityByArtist === false) {
+    return {backgroundColor: 'red'}
+  }
+}
+
 const Div4OfArtists = (props) => (
   <div style={style.artistListDivContainer}>
     <div style={style.artistList4Div}>
       {props.state.artists4DivArray1.map((artist, i) => (
-        <div style={artist.visibilityByArtist === true ? {backgroundColor: 'none'} : {backgroundColor: 'red'}} key={i} >
+        <div style={checkVisibility(artist)} key={i} >
           <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}

@@ -24,11 +24,17 @@ const style = {
   }
 }
 
+function checkVisibility (album) {
+  if (album.visibilityByAlbum === false || album.visibilityByArtist === false) {
+    return {backgroundColor: 'red'}
+  }
+}
+
 const Div4OfAlbums = (props) => (
   <div style={style.albumListDivContainer}>
     <div style={style.albumList4Div}>
       {props.state.albums4DivArray1.map((album, i) => (
-        <div style={album.visibilityByAlbum === true ? {backgroundColor: 'none'} : {backgroundColor: 'red'}} key={i} >
+        <div style={checkVisibility(album)} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}

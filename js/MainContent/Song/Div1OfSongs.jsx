@@ -27,11 +27,17 @@ const style = {
   }
 }
 
+function checkVisibility (song) {
+  if (song.visibilityBySong === false || song.visibilityByAlbum === false || song.visibilityByArtist === false) {
+    return {backgroundColor: 'red'}
+  }
+}
+
 const Div1OfSongs = (props) => (
   <div style={style.songListDivContainer}>
     <div style={style.songList1Div}>
       {props.state.songs.map((song, i) => (
-        <div style={song.visibilityBySong === true ? {backgroundColor: 'none'} : {backgroundColor: 'red'}} key={i} >
+        <div style={checkVisibility(song)} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.SongText}>
               {song.title}
