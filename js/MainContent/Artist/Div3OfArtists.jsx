@@ -46,7 +46,7 @@ const Div3OfArtists = (props) => (
     </div>
     <div style={style.artistList3Div}>
       {props.state.artists3DivArray2.map((artist, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(artist)} key={i} >
           <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}
@@ -58,7 +58,7 @@ const Div3OfArtists = (props) => (
     </div>
     <div style={style.artistList3Div}>
       {props.state.artists3DivArray3.map((artist, i) => (
-        <div style={{backgroundColor: 'green'}} key={i} >
+        <div style={checkVisibility(artist)} key={i} >
           <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}

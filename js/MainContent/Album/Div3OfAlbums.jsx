@@ -46,7 +46,7 @@ const Div3OfAlbums = (props) => (
     </div>
     <div style={style.albumList3Div}>
       {props.state.albums3DivArray2.map((album, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(album)} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}
@@ -58,7 +58,7 @@ const Div3OfAlbums = (props) => (
     </div>
     <div style={style.albumList3Div}>
       {props.state.albums3DivArray3.map((album, i) => (
-        <div style={{backgroundColor: 'green'}} key={i} >
+        <div style={checkVisibility(album)} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}

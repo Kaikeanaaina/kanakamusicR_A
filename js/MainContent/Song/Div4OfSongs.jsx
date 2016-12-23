@@ -46,7 +46,7 @@ const Div4OfSongs = (props) => (
     </div>
     <div style={style.songList4Div}>
       {props.state.songs4DivArray2.map((song, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(song)} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.songText}>
               {song.title}
@@ -58,7 +58,7 @@ const Div4OfSongs = (props) => (
     </div>
     <div style={style.songList4Div}>
       {props.state.songs4DivArray3.map((song, i) => (
-        <div style={{backgroundColor: 'green'}} key={i} >
+        <div style={checkVisibility(song)} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.songText}>
               {song.title}
@@ -70,7 +70,7 @@ const Div4OfSongs = (props) => (
     </div>
     <div style={style.songList4Div}>
       {props.state.songs4DivArray4.map((song, i) => (
-        <div style={{backgroundColor: 'yellow'}} key={i} >
+        <div style={checkVisibility(song)} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.songText}>
               {song.title}

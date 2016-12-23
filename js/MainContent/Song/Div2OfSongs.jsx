@@ -46,7 +46,7 @@ const Div2OfSongs = (props) => (
     </div>
     <div style={style.songList2Div}>
       {props.state.songs2DivArray2.map((song, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(song)} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.SongText}>
               {song.title}

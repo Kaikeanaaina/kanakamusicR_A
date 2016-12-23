@@ -46,7 +46,7 @@ const Div2OfArtists = (props) => (
     </div>
     <div style={style.artistList2Div}>
       {props.state.artists2DivArray2.map((artist, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(artist)} key={i} >
           <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}

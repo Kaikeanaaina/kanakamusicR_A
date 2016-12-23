@@ -46,7 +46,7 @@ const Div2OfAlbums = (props) => (
     </div>
     <div style={style.albumList2Div}>
       {props.state.albums2DivArray2.map((album, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(album)} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}

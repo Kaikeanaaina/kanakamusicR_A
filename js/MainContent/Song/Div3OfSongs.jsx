@@ -46,7 +46,7 @@ const Div3OfSongs = (props) => (
     </div>
     <div style={style.songList3Div}>
       {props.state.songs3DivArray2.map((song, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(song)} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.SongText}>
               {song.title}
@@ -58,7 +58,7 @@ const Div3OfSongs = (props) => (
     </div>
     <div style={style.songList3Div}>
       {props.state.songs3DivArray3.map((song, i) => (
-        <div style={{backgroundColor: 'green'}} key={i} >
+        <div style={checkVisibility(song)} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.SongText}>
               {song.title}

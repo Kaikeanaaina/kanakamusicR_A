@@ -46,7 +46,7 @@ const Div4OfAlbums = (props) => (
     </div>
     <div style={style.albumList4Div}>
       {props.state.albums4DivArray2.map((album, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={checkVisibility(album)} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}
@@ -58,7 +58,7 @@ const Div4OfAlbums = (props) => (
     </div>
     <div style={style.albumList4Div}>
       {props.state.albums4DivArray3.map((album, i) => (
-        <div style={{backgroundColor: 'green'}} key={i} >
+        <div style={checkVisibility(album)} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}
@@ -70,7 +70,7 @@ const Div4OfAlbums = (props) => (
     </div>
     <div style={style.albumList4Div}>
       {props.state.albums4DivArray4.map((album, i) => (
-        <div style={{backgroundColor: 'yellow'}} key={i} >
+        <div style={checkVisibility(album)} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}
