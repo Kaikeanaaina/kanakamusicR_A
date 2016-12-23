@@ -4,7 +4,8 @@ const { Provider } = require('react-redux')
 const { Router, Route, IndexRoute, hashHistory } = require('react-router')
 
 const Layout = require('./Layout')
-const Landing = require('./Landing')
+const LogIn = require('./LogIn')
+const Home = require('./Home')
 const TermsOfService = require('./TermsOfService')
 const PrivacyPolicy = require('./PrivacyPolicy')
 const ContactInformation = require('./ContactInformation')
@@ -25,7 +26,8 @@ const EditRecordLabel = require('./MainContent/RecordLabel/EditRecordLabel')
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
-    <IndexRoute component={Landing} />
+    <IndexRoute component={Home} />
+    <Route path='/LogIn' component={LogIn} />
     <Route path='/TermsOfService' component={TermsOfService} />
     <Route path='/PrivacyPolicy' component={PrivacyPolicy} />
     <Route path='/ContactInformation' component={ContactInformation} />
