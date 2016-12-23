@@ -31,7 +31,7 @@ const Div1OfSongs = (props) => (
   <div style={style.songListDivContainer}>
     <div style={style.songList1Div}>
       {props.state.songs.map((song, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={song.visibilityBySong === true ? {backgroundColor: 'none'} : {backgroundColor: 'red'}} key={i} >
           <Link key={i} to={`/song/${song.id}`} style={style.songLink} >
             <div key={i} style={style.SongText}>
               {song.title}

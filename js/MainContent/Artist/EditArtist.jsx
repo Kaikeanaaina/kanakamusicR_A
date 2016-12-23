@@ -127,12 +127,17 @@ class EditArtist extends React.Component {
   DeleteArtist (e) {
     e.preventDefault()
 
-    axios.delete(`${domain}/artists/${this.state.Artist.id}`)
+    axios.delete(`${domain}/songs/ByArtistId/${this.state.Artist.id}`)
     .then((res) => {
       axios.delete(`${domain}/albums/ByArtistId/${this.state.Artist.id}`)
-      axios.delete(`${domain}/songs/ByArtistId/${this.state.Artist.id}`)
       .then((res) => {
-        window.location.href = '/#/'
+        axios.delete(`${domain}/artists/${this.state.Artist.id}`)
+        .then((res) => {
+          window.location.href = '/#/'
+        })
+        .catch((error) => {
+          console.log('axios error', error)
+        })
       })
       .catch((error) => {
         console.log('axios error', error)

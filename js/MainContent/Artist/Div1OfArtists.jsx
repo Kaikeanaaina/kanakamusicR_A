@@ -31,7 +31,7 @@ const Div1OfArtists = (props) => (
   <div style={style.artistListDivContainer}>
     <div style={style.artistList1Div}>
       {props.state.artists.map((artist, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={artist.visibilityByArtist === true ? {backgroundColor: 'none'} : {backgroundColor: 'red'}} key={i} >
           <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}

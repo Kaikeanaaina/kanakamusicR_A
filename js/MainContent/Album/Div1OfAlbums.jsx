@@ -31,7 +31,7 @@ const Div1OfAlbums = (props) => (
   <div style={style.albumListDivContainer}>
     <div style={style.albumList1Div}>
       {props.state.albums.map((album, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div style={album.visibilityByAlbum === true ? {backgroundColor: 'none'} : {backgroundColor: 'red'}} key={i} >
           <Link key={i} to={`/album/${album.id}`} style={style.albumLink} >
             <div key={i} style={style.albumText}>
               {album.title}
