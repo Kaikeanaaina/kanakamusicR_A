@@ -7,9 +7,7 @@ const { mount, shallow } = require('enzyme')
 const SongList = require('../js/MainContent/Song/SongList')
 
 describe('<SongList />', () => {
-
   describe('state', () => {
-
     it('should have an initial songs state', () => {
       const wrapper = mount(<SongList />)
       expect(wrapper.state().songs.length).to.equal(0)
@@ -53,7 +51,5 @@ describe('<SongList />', () => {
       expect(wrapper.state().songs2DivArray2).to.be.an('array')
       expect(wrapper.state().songs2DivArray2.length).to.equal(0)
     })
-
   })
-
 })

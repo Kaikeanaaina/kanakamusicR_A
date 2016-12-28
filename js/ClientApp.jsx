@@ -1,7 +1,8 @@
 const React = require('react')
 const { store } = require('./Store')
 const { Provider } = require('react-redux')
-const { Router, Route, IndexRoute, hashHistory } = require('react-router')
+const { Router, Route, IndexRoute, hashHistory, IndexRedirect } = require('react-router')
+const AuthService = require('./utils/AuthService')
 
 const Layout = require('./Layout')
 const LogIn = require('./LogIn')
@@ -23,6 +24,15 @@ const EditSong = require('./MainContent/Song/EditSong')
 const EditAlbum = require('./MainContent/Album/EditAlbum')
 const EditArtist = require('./MainContent/Artist/EditArtist')
 const EditRecordLabel = require('./MainContent/RecordLabel/EditRecordLabel')
+
+const auth = new AuthService('rgsl53PnLpwDI5H36IYRLbW4NZvMTTmR', 'kaikeanaaina.auth0.com')
+
+// onEnter callback to validate authentication in private routes
+const requireAuth = (nextState, replace) => {
+  if (!auth.loggedIn()) {
+    replace({ pathname: '/login' })
+  }
+}
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
@@ -53,6 +63,7 @@ class App extends React.Component {
     console.log('call all information', window.location.href)
   }
   render () {
+    // this is like src/container/App/App.js
     return (
       <Provider store={store}>
         <Router history={hashHistory}>
