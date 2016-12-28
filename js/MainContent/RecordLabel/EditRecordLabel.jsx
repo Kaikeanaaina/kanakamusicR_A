@@ -9,6 +9,7 @@ class EditRecordLabel extends React.Component {
       RecordLabel: {}
     }
     this.onSubmit = this.onSubmit.bind(this)
+    this.DeleteRecordLabel = this.DeleteRecordLabel.bind(this)
   }
   componentDidMount () {
     axios.get(`${domain}/recordLabels/${this.props.params.id}`)
@@ -51,7 +52,13 @@ class EditRecordLabel extends React.Component {
   }
   DeleteRecordLabel (e) {
     e.preventDefault()
-    console.log('delete')
+    axios.delete(`${domain}/recordLabels/${this.state.RecordLabel.id}`)
+    .then((res) => {
+      window.location.href = `/#/`
+    })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
   render () {
     return (
