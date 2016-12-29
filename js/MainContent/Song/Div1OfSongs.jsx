@@ -29,7 +29,7 @@ const style = {
 
 function checkVisibility (song) {
   if (song.visibilityBySong === false || song.visibilityByAlbum === false || song.visibilityByArtist === false) {
-    return {backgroundColor: 'red'}
+    return {backgroundColor: 'rgba(255,0,0,0.4)'}
   }
 }
 

@@ -26,7 +26,7 @@ const style = {
 
 function checkVisibility (album) {
   if (album.visibilityByAlbum === false || album.visibilityByArtist === false) {
-    return {backgroundColor: 'red'}
+    return {backgroundColor: 'rgba(255,0,0,0.4)'}
   }
 }
 

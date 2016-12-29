@@ -20,13 +20,13 @@ const style = {
   },
   artistText: {
     borderBottom: 'black solid 1px',
-    color: 'grey'
+    color: 'black'
   }
 }
 
 function checkVisibility (artist) {
   if (artist.visibilityByArtist === false) {
-    return {backgroundColor: 'red'}
+    return {backgroundColor: 'rgba(255,0,0,0.4)'}
   }
 }
 
