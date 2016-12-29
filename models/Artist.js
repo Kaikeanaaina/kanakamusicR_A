@@ -41,6 +41,8 @@ module.exports = function (sequelize, DataTypes) {
       associate: function (models) {
         Artist.hasMany(models.Album)
         Artist.hasMany(models.Song)
+        Artist.hasMany(models.Gigs)
+        Artist.hasMany(models.BandMember)
       }
     }
   })
