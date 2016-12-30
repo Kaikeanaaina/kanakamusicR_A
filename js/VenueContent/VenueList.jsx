@@ -1,4 +1,4 @@
-const react = require('react')
+const React = require('react')
 
 class VenueList extends React.Component {
   render () {

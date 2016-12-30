@@ -42,6 +42,9 @@ class Gigs extends React.Component {
           <button>
             <Link to='/AddNewGig'> +Gig </Link>
           </button>
+          <button>
+            <Link to='/AddNewVenue'> +Venue </Link>
+          </button>
         </div>
 
         <div style={{backgroundColor: 'rgba(0,0,255, 0.4)'}}>

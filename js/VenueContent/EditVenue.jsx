@@ -1,4 +1,4 @@
-const react = require('react')
+const React = require('react')
 
 class EditVenue extends React.Component {
   render () {
