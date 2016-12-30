@@ -23,7 +23,11 @@ const EditSong = require('./MainContent/Song/EditSong')
 const EditAlbum = require('./MainContent/Album/EditAlbum')
 const EditArtist = require('./MainContent/Artist/EditArtist')
 const EditRecordLabel = require('./MainContent/RecordLabel/EditRecordLabel')
+
 const AddNewGig = require('./GigContent/AddNewGig')
+
+const VenueList = require('./VenueContent/VenueList')
+const AddNewVenue = require('./VenueContent/AddNewVenue')
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
@@ -47,6 +51,8 @@ const myRoutes = () => (
     <Route path='/artist/edit/:id' component={EditArtist} />
     <Route path='/recordLabel/edit/:id' component={EditRecordLabel} />
     <Route path='/AddNewGig' component={AddNewGig} />
+    <Route path='/AddNewVenue' component={AddNewVenue} />
+    <Route path='/Venue' component={VenueList} />
   </Route>
 )
 
