@@ -1,14 +1,27 @@
 const React = require('react')
+const axios = require('axios')
+const { domain } = require('../MainContent/Domain')
 
 class AddNewGig extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      artists: [],
       showSubmitButton: false
     }
     this.showSubmitButton = this.showSubmitButton.bind(this)
   }
   componentDidMount () {
+    axios.get(`${domain}/artists`)
+    .then((res) => {
+      this.setState({
+        artists: res.data
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
+
     var d = new Date(1991, 6, 21, 10, 30)
     // new Date(year, month, day, hours, minutes)
     console.log(d)
@@ -64,7 +77,12 @@ class AddNewGig extends React.Component {
 
             <label>
               Artists:
-              <input type='text' ref='Artists' placeholder='artists' onChange={this.showSubmitButton} />
+              <select type='text' ref='Artists' placeholder='artists' onChange={this.showSubmitButton}>
+                <option value=''> artist here </option>
+                {this.state.artists.map((artist, i) => (
+                  <option key={i} value={artist.id} >{artist.name}</option>
+                ))}
+              </select>
               <br />
             </label>
 
