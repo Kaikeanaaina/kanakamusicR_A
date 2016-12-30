@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('./MainContent/Domain')
+const { domain } = require('./Domain')
 
 class LogIn extends React.Component {
   constructor () {

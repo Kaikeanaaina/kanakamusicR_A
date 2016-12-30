@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../MainContent/Domain')
+const { domain } = require('../Domain')
 
 class AddNewGig extends React.Component {
   constructor (props) {

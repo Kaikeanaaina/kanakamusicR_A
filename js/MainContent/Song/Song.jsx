@@ -1,7 +1,7 @@
 const React = require('react')
 const axios = require('axios')
 const { Link } = require('react-router')
-const { domain } = require('../Domain')
+const { domain } = require('../../Domain')
 
 const style = {
   details: {

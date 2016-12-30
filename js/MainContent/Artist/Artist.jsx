@@ -3,7 +3,7 @@ const axios = require('axios')
 const AlbumList = require('../Album/AlbumList')
 const SongList = require('../Song/SongList')
 const { Link } = require('react-router')
-const { domain } = require('../Domain')
+const { domain } = require('../../Domain')
 
 const style = {
   socialMedia: {

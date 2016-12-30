@@ -2,7 +2,7 @@ const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('../Modal/PreviewModal')
 const SuccessEntryModal = require('../Modal/SuccessEntryModal')
-const { domain } = require('../Domain')
+const { domain } = require('../../Domain')
 
 const styles = {
   fontSize: '24px',

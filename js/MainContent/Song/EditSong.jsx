@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../Domain')
+const { domain } = require('../../Domain')
 
 const style = {
   details: {

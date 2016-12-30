@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../Domain')
+const { domain } = require('../../Domain')
 
 class EditRecordLabel extends React.Component {
   constructor (props) {

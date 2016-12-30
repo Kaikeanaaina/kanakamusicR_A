@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../Domain')
+const { domain } = require('../../Domain')
 const MediaQuery = require('react-responsive')
 const Div4OfSongs = require('./Div4OfSongs')
 const Div3OfSongs = require('./Div3OfSongs')

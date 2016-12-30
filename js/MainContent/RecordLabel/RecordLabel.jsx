@@ -2,7 +2,7 @@ const React = require('react')
 const axios = require('axios')
 const AlbumList = require('../Album/AlbumList')
 const { Link } = require('react-router')
-const { domain } = require('../Domain')
+const { domain } = require('../../Domain')
 
 class Artist extends React.Component {
   constructor (props) {
