@@ -1,6 +1,7 @@
 const React = require('react')
 const MyTitle = require('./../MyTitle')
 const GigCard = require('./GigCard')
+const { Link } = require('react-router')
 
 class Gigs extends React.Component {
   constructor (props) {
@@ -12,6 +13,9 @@ class Gigs extends React.Component {
     this.onChange = this.onChange.bind(this)
     this.changeAgeFilter = this.changeAgeFilter.bind(this)
     this.changePriceFilter = this.changePriceFilter.bind(this)
+  }
+  componentDidMount () {
+    console.log('call of gigs')
   }
   onChange (e) {
     e.preventDefault()
@@ -34,7 +38,12 @@ class Gigs extends React.Component {
       <div>
         <MyTitle title='Gigs' />
 
-        <button> +Gig </button>
+        <div>
+          <button>
+            <Link to='/AddNewGig'> +Gig </Link>
+          </button>
+        </div>
+
         <div style={{backgroundColor: 'rgba(0,0,255, 0.4)'}}>
           <h2>filters</h2>
           <input placeholder='search' />
