@@ -1,19 +1,57 @@
 module.exports = function(sequelize, DataTypes) {
-  var Gigs = sequelize.define("Gigs", {
-    band: DataTypes.STRING,
-    location : DataTypes.STRING,
-    date : DataTypes.TIME,
-    cover: DataTypes.INTEGER,
-    description : DataTypes.TEXT,
-    promoter: DataTypes.STRING,
-    promoter_contact:DataTypes.STRING,
+  var Gig = sequelize.define("Gig", {
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    Month: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    Day: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    Year: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    startHour: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    startMinute: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    promoter: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    contact: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    description : {
+      type: DataTypes.STRING(10000),
+      allowNull: false
+    },
   }, {
     classMethods : {
       associate : function(models) {
-        Gigs.belongsTo(models.Artist);
+        Gig.belongsTo(models.Artist);
+        Gig.belongsTo(models.Venue);
       }
     }
   });
 
-  return Gigs;
+  return Gig;
 };
