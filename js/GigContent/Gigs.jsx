@@ -2,20 +2,30 @@ const React = require('react')
 const MyTitle = require('./../MyTitle')
 const GigCard = require('./GigCard')
 const { Link } = require('react-router')
+const axios = require('axios')
+const { domain } = require('../Domain')
 
 class Gigs extends React.Component {
   constructor (props) {
     super(props)
     this.setState = {
       priceFilter: 0,
-      ageFilter: 0
+      ageFilter: 0,
+      gigs: []
     }
     this.onChange = this.onChange.bind(this)
     this.changeAgeFilter = this.changeAgeFilter.bind(this)
     this.changePriceFilter = this.changePriceFilter.bind(this)
   }
   componentDidMount () {
-    console.log('call of gigs')
+    console.log(11111111)
+    axios.get(`${domain}/gigs`)
+    .then((res) => {
+      console.log(444444, res)
+    })
+    .catch((err) => {
+      console.log('axios error', err)
+    })
   }
   onChange (e) {
     e.preventDefault()
