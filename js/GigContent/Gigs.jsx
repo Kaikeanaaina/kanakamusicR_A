@@ -8,7 +8,7 @@ const { domain } = require('../Domain')
 class Gigs extends React.Component {
   constructor (props) {
     super(props)
-    this.setState = {
+    this.state = {
       priceFilter: 0,
       ageFilter: 0,
       gigs: []
@@ -18,10 +18,11 @@ class Gigs extends React.Component {
     this.changePriceFilter = this.changePriceFilter.bind(this)
   }
   componentDidMount () {
-    console.log(11111111)
     axios.get(`${domain}/gigs`)
     .then((res) => {
-      console.log(444444, res)
+      this.setState({
+        gigs: res.data
+      })
     })
     .catch((err) => {
       console.log('axios error', err)
@@ -103,7 +104,9 @@ class Gigs extends React.Component {
 
         </div>
 
-        <GigCard />
+        {this.state.gigs.map((gig, i) => (
+          <GigCard gig={gig} key={i} />
+        ))}
 
       </div>
     )
