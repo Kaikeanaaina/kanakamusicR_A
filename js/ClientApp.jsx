@@ -28,6 +28,7 @@ const AddNewGig = require('./GigContent/AddNewGig')
 
 const VenueList = require('./VenueContent/VenueList')
 const AddNewVenue = require('./VenueContent/AddNewVenue')
+const Venue = require('./VenueContent/Venue')
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
@@ -53,6 +54,7 @@ const myRoutes = () => (
     <Route path='/AddNewGig' component={AddNewGig} />
     <Route path='/AddNewVenue' component={AddNewVenue} />
     <Route path='/Venue' component={VenueList} />
+    <Route path='/venue/:id' component={Venue} />
   </Route>
 )
 
