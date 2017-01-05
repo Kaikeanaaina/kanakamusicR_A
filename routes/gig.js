@@ -30,16 +30,13 @@ const exists = (req) => {
 }
 
 router.get('/', function (req, res) {
-  console.log(222222)
   Gig.findAll({
     order: 'name'
   })
   .then(function (gigs) {
-    console.log('33333333')
     return res.json(gigs)
   })
   .catch(function (err) {
-    console.log(3333222222, err)
     return res.json({ error: err})
   })
 })
