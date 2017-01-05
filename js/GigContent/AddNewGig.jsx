@@ -1,21 +1,39 @@
 const React = require('react')
 const axios = require('axios')
 const { domain } = require('../Domain')
+const PreviewModal = require('./Modal/PreviewModal')
 
 class AddNewGig extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       artists: [],
-      showSubmitButton: false
+      venues: [],
+      showSubmitButton: false,
+      object: {}
     }
     this.showSubmitButton = this.showSubmitButton.bind(this)
+    this.openModal = this.openModal.bind(this)
+    this.afterOpenModal = this.afterOpenModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    this.returnToHome = this.returnToHome.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
   componentDidMount () {
     axios.get(`${domain}/artists`)
     .then((res) => {
       this.setState({
         artists: res.data
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
+
+    axios.get(`${domain}/venues`)
+    .then((res) => {
+      this.setState({
+        venues: res.data
       })
     })
     .catch((error) => {
@@ -41,27 +59,90 @@ class AddNewGig extends React.Component {
     // minute
     console.log(D.getMinutes())
   }
-  showSubmitButton (e) {
-    if (this.refs.eventName.value &&
+  showSubmitButton () {
+    if (this.refs.name.value &&
         this.refs.Artists.value &&
         this.refs.Month.value &&
         this.refs.Day.value &&
         this.refs.Year.value &&
-        this.refs.Hour.value &&
-        this.refs.Minute.value &&
+        this.refs.startHour.value &&
+        this.refs.startMinute.value &&
         this.refs.Age.value &&
-        this.refs.Promoter.value &&
+        this.refs.Price.value &&
         this.refs.Venue.value &&
+        this.refs.Promoter.value &&
         this.refs.Contact.value) {
       this.setState({
         showSubmitButton: true
       })
+    } else {
+      this.setState({
+        showSubmitButton: false
+      })
     }
+  }
+  openModal () {
+    let splitName = this.refs.name.value.split('')
+    let splitNameStartWithCap = splitName[0].toUpperCase()
+    splitName.splice(0, 1, splitNameStartWithCap)
+    let capitalizeName = splitName.join('')
+    var object = {
+      name: capitalizeName,
+      Artists: this.refs.Artists.value,
+      Month: this.refs.Month.value,
+      Day: this.refs.Day.value,
+      Year: this.refs.Year.value,
+      startHour: this.refs.startHour.value,
+      startMinute: this.refs.startMinute.value,
+      Age: this.refs.Age.value,
+      Price: this.refs.Price.value,
+      Venue: this.refs.Venue.value,
+      Promoter: this.refs.Promoter.value,
+      Contact: this.refs.Contact.value,
+      Description: this.refs.Description.value
+    }
+
+    this.setState({
+      object: object
+    })
+    this.setState({
+      modalIsOpen: true
+    })
+  }
+  afterOpenModal () {
+    // references are now sync'd and can be accessed.
+    this.refs.subtitle.style.color = '#f00'
+  }
+  onSubmit (e) {
+    e.preventDefault()
+    axios.post(`${domain}/gigs`, this.state.object)
+    .then((res) => {
+      // should catch error here
+      return this.setState({
+        modalIsOpen: false,
+        successModalIsOpen: true
+      })
+    })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
+  }
+  closeModal () {
+    this.setState({
+      modalIsOpen: false,
+      successModalIsOpen: false
+    })
+  }
+  returnToHome () {
+    this.setState({
+      successModalIsOpen: false
+    })
+    window.location.href = '/#/'
   }
   render () {
     let submitButton = null
     if (this.state.showSubmitButton) {
-      submitButton = <div><button onClick={this.openModal}> Add Song </button></div>
+      submitButton = <div><button onClick={this.openModal}> Add Venue </button></div>
     }
     return (
       <div>
@@ -70,8 +151,8 @@ class AddNewGig extends React.Component {
         <div>
           <form onSubmit={this.onSubmit}>
             <label>
-              EventName:
-              <input type='text' ref='eventName' placeholder='event name' onChange={this.showSubmitButton} />
+              name:
+              <input type='text' ref='name' placeholder='event name' onChange={this.showSubmitButton} />
               <br />
             </label>
 
@@ -153,8 +234,8 @@ class AddNewGig extends React.Component {
               </label>
 
               <label>
-                Hour:
-                <select type='number' ref='Hour' onChange={this.showSubmitButton} >
+                Start Hour:
+                <select type='number' ref='startHour' onChange={this.showSubmitButton} >
                   <option value='' > -- </option>
                   <option value={0}> 12am</option>
                   <option value={1}> 1am</option>
@@ -184,8 +265,8 @@ class AddNewGig extends React.Component {
               </label>
 
               <label>
-                Minute:
-                <select type='number' ref='Minute' onChange={this.showSubmitButton} >
+                Start Minute:
+                <select type='number' ref='startMinute' onChange={this.showSubmitButton} >
                   <option value={0}> 00</option>
                   <option value={15}> 15</option>
                   <option value={30}> 30</option>
@@ -224,10 +305,14 @@ class AddNewGig extends React.Component {
             <div>
               <label>
                 Promoter:
-                <select type='text' ref='Promoter' onChange={this.showSubmitButton} >
-                  <option value=''> -- </option>
-                  <option value='name'>name</option>
-                </select>
+                <input placeholder='promoter' type='text' ref='Promoter' onChange={this.showSubmitButton} />
+              </label>
+            </div>
+
+            <div>
+              <label>
+                Contact:
+                <input placeholder='contact' type='text' ref='Contact' onChange={this.showSubmitButton} />
               </label>
             </div>
 
@@ -236,23 +321,24 @@ class AddNewGig extends React.Component {
                 Venue:
                 <select type='text' ref='Venue' onChange={this.showSubmitButton} >
                   <option value=''> -- </option>
-                  <option value='venue'>venue</option>
+                  {this.state.venues.map((venues, i) => (
+                    <option key={i} value={venues.id} >{venues.name}</option>
+                  ))}
                 </select>
               </label>
             </div>
 
             <div>
               <label>
-                Contact:
-                <select type='text' ref='Contact' onChange={this.showSubmitButton} >
-                  <option value=''> -- </option>
-                  <option value='contact'>contact</option>
-                </select>
+              Description:
+                <textArea placeholder='Description' ref='Description' />
               </label>
             </div>
 
           </form>
           {submitButton}
+          <br />
+          <PreviewModal modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} object={this.state.object} onSubmit={this.onSubmit} contentLabel='previewModal' />
 
         </div>
 
