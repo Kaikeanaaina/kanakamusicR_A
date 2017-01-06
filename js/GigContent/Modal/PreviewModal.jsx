@@ -1,5 +1,7 @@
 const React = require('react')
 const Modal = require('react-modal')
+const axios = require('axios')
+const { domain } = require('../../Domain')
 
 const customStyles = {
   content: {
@@ -16,9 +18,32 @@ class PreviewModal extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      Artist: {},
+      Venue: {}
     }
     this.afterOpenModal = this.afterOpenModal.bind(this)
+  }
+  componentDidMount () {
+    axios.get(`${domain}/artists/${this.props.object.Artists}`)
+    .then((res) => {
+      this.setState({
+        Artist: res.data
+      })
+    })
+    .catch((err) => {
+      console.log('axios error', err)
+    })
+
+    axios.get(`${domain}/venues/${this.props.object.Venue}`)
+    .then((res) => {
+      this.setState({
+        Venue: res.data
+      })
+    })
+    .catch((err) => {
+      console.log('axios error', err)
+    })
   }
   afterOpenModal () {
     // references are now sync'd and can be accessed.
@@ -39,7 +64,7 @@ class PreviewModal extends React.Component {
             <h2>Name: {this.props.object.eventName}</h2>
           </label>
           <label>
-            <h2>Artists: {this.props.object.Artists}</h2>
+            <h2>Artists: {this.state.Artist.name}</h2>
           </label>
           <label>
             <h2>Month: {this.props.object.Month}</h2>
@@ -63,7 +88,7 @@ class PreviewModal extends React.Component {
             <h2>Price: {this.props.object.Price}</h2>
           </label>
           <label>
-            <h2>Venue: {this.props.object.Venue}</h2>
+            <h2>Venue: {this.state.Venue.name}</h2>
           </label>
           <label>
             <h2>Promoter: {this.props.object.Promoter}</h2>
