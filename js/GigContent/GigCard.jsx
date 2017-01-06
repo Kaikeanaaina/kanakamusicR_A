@@ -2,6 +2,52 @@ const React = require('react')
 const axios = require('axios')
 const { domain } = require('../Domain')
 
+const style = {
+  GigCardContainer: {
+    backgroundColor: 'red',
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around'
+  },
+  NameContainer: {
+    backgroundColor: 'blue'
+  },
+  ArtistsContainer: {
+    backgroundColor: 'yellow'
+  },
+  DetailsContainer: {
+    backgroundColor: 'green'
+  },
+  DetailsContainer1: {
+    backgroundColor: 'orange',
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around'
+  },
+  DetailsContainer2: {
+    backgroundColor: 'gray',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around'
+  },
+  DetailItems: {
+
+  },
+  contactContainer: {
+    backgroundColor: 'red',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around'
+  },
+  contactItem: {
+
+  }
+}
+
 class GigCard extends React.Component {
   constructor (props) {
     super(props)
@@ -42,7 +88,7 @@ class GigCard extends React.Component {
     if (this.props.gig.age === 0) {
       age = (<p>All Ages</p>)
     } else {
-      age = (<p>{this.props.gig.age}</p>)
+      age = (<p>{this.props.gig.age}+</p>)
     }
     let time
     if (this.props.gig.startHour < 12) {
@@ -50,55 +96,46 @@ class GigCard extends React.Component {
     } else {
       time = (<p>{this.props.gig.startHour - 12}:{this.props.gig.startMinute} pm</p>)
     }
+    let description = null
+    if (this.props.gig.description) {
+      description = (<div><i><p>{this.props.gig.description}</p></i></div>)
+    }
     return (
-      <div>
-        <h1> Gig Card </h1>
+      <div style={style.GigCardContainer}>
 
-        <div style={{backgroundColor: 'rgba(0,255,0,0.4)'}}>
-          <label>
-            <strong>Name:</strong>
-            <p>{this.props.gig.name}</p>
-          </label>
-          <label>
-            <strong>Artists:</strong>
-            <p>{this.state.Artist.name}</p>
-          </label>
+        <div style={style.NameContainer}>
+          <p>{this.props.gig.name}</p>
+        </div>
 
-          <div>
-            <label>
-              <strong>Date:</strong>
-              <p>{this.props.gig.Month}/{this.props.gig.Day}/{this.props.gig.Year}</p>
-            </label>
-            <label>
-              <strong>Time:</strong>
-              {time}
-            </label>
+        <div style={style.ArtistsContainer}>
+          <p>{this.state.Artist.name}</p>
+        </div>
+
+        <div style={style.DetailsContainer}>
+          <div style={style.DetailsContainer1}>
+            <div style={style.DetailsContainer2}>
+              <div style={style.DetailItems}> <p>{this.state.Venue.name}</p> </div>
+              <div style={style.DetailItems}> <p>{this.props.gig.Month}/{this.props.gig.Day}</p> </div>
+              <div style={style.DetailItems}> {time} </div>
+              <div style={style.DetailItems}> {age} </div>
+              <div style={style.DetailItems}> {price} </div>
+            </div>
+
+            <div style={style.contactContainer}>
+              <div style={style.contactItem}>
+                <p>{this.props.gig.promoter}</p>
+              </div>
+
+              <div style={style.contactItem}>
+                <p>{this.props.gig.contact}</p>
+              </div>
+            </div>
+
           </div>
 
-          <label>
-            <strong>Venue:</strong>
-            <p>{this.state.Venue.name}</p>
-          </label>
-          <label>
-            <strong>Age:</strong>
-            {age}
-          </label>
-          <label>
-            <strong>Price:</strong>
-            {price}
-          </label>
-          <label>
-            <strong>Promoters:</strong>
-            <p>{this.props.gig.promoter}</p>
-          </label>
-          <label>
-            <strong>Contact:</strong>
-            <p>{this.props.gig.contact}</p>
-          </label>
-          <label>
-            <strong>Description:</strong>
-            <p>{this.props.gig.description}</p>
-          </label>
+          <div>
+            {description}
+          </div>
         </div>
 
       </div>
