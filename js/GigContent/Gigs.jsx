@@ -64,18 +64,18 @@ class Gigs extends React.Component {
 
           <h3>date bar</h3>
           <select type='number'>
-            <option value={1}> January</option>
-            <option value={2}> February</option>
-            <option value={3}> March</option>
-            <option value={4}> April</option>
-            <option value={5}> May</option>
-            <option value={6}> June</option>
-            <option value={7}> July</option>
-            <option value={8}> August</option>
-            <option value={9}> September</option>
-            <option value={10}> October</option>
-            <option value={11}> November</option>
-            <option value={12}> December</option>
+            <option value={'Jan'}> January</option>
+            <option value={'Feb'}> February</option>
+            <option value={'Mar'}> March</option>
+            <option value={'Apr'}> April</option>
+            <option value={'May'}> May</option>
+            <option value={'Jun'}> June</option>
+            <option value={'Jul'}> July</option>
+            <option value={'Aug'}> August</option>
+            <option value={'Sep'}> September</option>
+            <option value={'Oct'}> October</option>
+            <option value={'Nov'}> November</option>
+            <option value={'Dec'}> December</option>
           </select>
 
           <h3>age</h3>
@@ -103,6 +103,8 @@ class Gigs extends React.Component {
           </select>
 
         </div>
+
+        <br />
 
         {this.state.gigs.map((gig, i) => (
           <GigCard gig={gig} key={i} />
