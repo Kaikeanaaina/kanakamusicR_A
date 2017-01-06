@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     Month: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(15),
       allowNull: false
     },
     Day: {
