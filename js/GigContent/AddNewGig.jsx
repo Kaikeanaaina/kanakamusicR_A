@@ -53,7 +53,7 @@ class AddNewGig extends React.Component {
     // day of the week
     console.log(D.getDay())
     // year
-    console.log(D.getFullYear())
+    console.log('this is the year', D.getFullYear())
     // hour
     console.log(D.getHours())
     // minute
@@ -101,7 +101,6 @@ class AddNewGig extends React.Component {
       Contact: this.refs.Contact.value,
       Description: this.refs.Description.value
     }
-
     this.setState({
       object: object
     })
@@ -144,6 +143,8 @@ class AddNewGig extends React.Component {
     if (this.state.showSubmitButton) {
       submitButton = <div><button onClick={this.openModal}> Add Venue </button></div>
     }
+    let D = new Date()
+    let currentYear = D.getFullYear()
     return (
       <div>
         <h1> Add New Gig </h1>
@@ -228,8 +229,10 @@ class AddNewGig extends React.Component {
               <label>
                 Year:
                 <select type='number' ref='Year' onChange={this.showSubmitButton} >
-                  <option value={2016}> current year</option>
-                  <option value={2017}> next year</option>
+                  <option value={currentYear}> {currentYear}</option>
+                  <option value={currentYear + 1}> {currentYear + 1}</option>
+                  <option value={currentYear + 2}> {currentYear + 2}</option>
+                  <option value={currentYear + 3}> {currentYear + 3}</option>
                 </select>
               </label>
 
