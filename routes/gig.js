@@ -67,8 +67,8 @@ router.post('/', function (req, res) {
     Year: req.body.Year,
     startHour: req.body.startHour,
     startMinute: req.body.startMinute,
-    age: req.body.Age,
-    price: req.body.Price,
+    age: parseInt(req.body.Age),
+    price: parseInt(req.body.Price),
     VenueId: req.body.Venue,
     promoter: req.body.Promoter,
     contact: req.body.Contact,
@@ -84,23 +84,25 @@ router.post('/', function (req, res) {
 })
 
 router.put('/:id', function (req, res) {
+  console.log(1111111)
   if (exists) {
+    console.log(66666666, req.body)
     Gig.update(
       {
         updatedAt: 'now()',
-        eventName: req.body.eventName,
+        name: req.body.name,
         Month: req.body.Month,
         Day: req.body.Day,
         Year: req.body.Year,
         startHour: req.body.startHour,
         startMinute: req.body.startMinute,
-        Age: req.body.Age,
-        Price: req.body.Price,
-        Venue: req.body.VenueId,
-        Promoter: req.body.Promoter,
-        Contact: req.body.Contact,
-        Description: req.body.Description,
-        Artist: req.body.ArtistId,
+        age: req.body.Age,
+        price: req.body.Price,
+        VenueId: req.body.VenueId,
+        promoter: req.body.Promoter,
+        contact: req.body.Contact,
+        description: req.body.description,
+        ArtistId: req.body.ArtistId,
         id: req.body.id
       }, {
         where: {
@@ -108,6 +110,7 @@ router.put('/:id', function (req, res) {
         }
       })
     .then(function (gig) {
+      console.log(77777777)
       return res.json(gig)
     })
     .catch(function (err) {
