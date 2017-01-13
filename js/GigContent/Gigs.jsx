@@ -11,11 +11,13 @@ class Gigs extends React.Component {
     this.state = {
       priceFilter: 0,
       ageFilter: 0,
-      gigs: []
+      gigs: [],
+      searchInput: ''
     }
     this.onChange = this.onChange.bind(this)
     this.changeAgeFilter = this.changeAgeFilter.bind(this)
     this.changePriceFilter = this.changePriceFilter.bind(this)
+    this.searchInputEvent = this.searchInputEvent.bind(this)
   }
   componentDidMount () {
     axios.get(`${domain}/gigs`)
@@ -31,6 +33,11 @@ class Gigs extends React.Component {
   onChange (e) {
     e.preventDefault()
     console.log(e.target.value)
+  }
+  searchInputEvent (e) {
+    this.setState({
+      searchInput: e.target.value
+    })
   }
   changeAgeFilter (e) {
     e.preventDefault()
@@ -60,7 +67,7 @@ class Gigs extends React.Component {
 
         <div style={{backgroundColor: 'rgba(0,0,255, 0.4)'}}>
           <h2>filters</h2>
-          <input placeholder='search' />
+          <input placeholder='search' onChange={this.searchInputEvent} type='text' ref='search' />
 
           <h3>date bar</h3>
           <select type='number'>
@@ -106,8 +113,10 @@ class Gigs extends React.Component {
 
         <br />
 
-        {this.state.gigs.map((gig, i) => (
-          <GigCard gig={gig} key={i} />
+        {this.state.gigs
+          .filter((gig) => `${gig.name} ${gig.description}`.toUpperCase().indexOf(this.state.searchInput.toUpperCase()) >= 0)
+          .map((gig, i) => (
+            <GigCard gig={gig} key={i} />
         ))}
 
       </div>
