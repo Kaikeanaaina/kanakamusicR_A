@@ -25,6 +25,11 @@ class PreviewModal extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this)
   }
   componentDidMount () {
+  }
+  afterOpenModal () {
+    // references are now sync'd and can be accessed.
+    this.refs.subtitle.style.color = '#f00'
+
     axios.get(`${domain}/artists/${this.props.object.Artists}`)
     .then((res) => {
       this.setState({
@@ -45,23 +50,18 @@ class PreviewModal extends React.Component {
       console.log('axios error', err)
     })
   }
-  afterOpenModal () {
-    // references are now sync'd and can be accessed.
-    this.refs.subtitle.style.color = '#f00'
-  }
   render () {
     return (
-      <div>
+      <div style={customStyles}>
         <Modal
           isOpen={this.props.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
           contentLabel={this.props.contentLabel} >
 
           <h4 ref='subtitle'>Confirm New Venue</h4>
           <label>
-            <h2>Name: {this.props.object.eventName}</h2>
+            <h2>Name: {this.props.object.name}</h2>
           </label>
           <label>
             <h2>Artists: {this.state.Artist.name}</h2>
@@ -95,6 +95,9 @@ class PreviewModal extends React.Component {
           </label>
           <label>
             <h2>Contact: {this.props.object.Contact}</h2>
+          </label>
+          <label>
+            <h2>Description: {this.props.object.Description}</h2>
           </label>
           <button onClick={this.props.closeModal}>cancel</button>
           <button onClick={this.props.onSubmit}>submit</button>
