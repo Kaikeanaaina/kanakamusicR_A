@@ -13,41 +13,22 @@ class Gigs extends React.Component {
       ageFilter: 0,
       gigs: [],
       searchInputFilter: '',
-      dateFilter: '',
-      venueFilter: '',
-      venues: []
+      dateFilter: ''
     }
-    this.onChange = this.onChange.bind(this)
     this.searchInputFilterEvent = this.searchInputFilterEvent.bind(this)
     this.dateFilterEvent = this.dateFilterEvent.bind(this)
     this.ageFilterEvent = this.ageFilterEvent.bind(this)
   }
   componentDidMount () {
-    console.log(this)
     axios.get(`${domain}/gigs`)
     .then((res) => {
       this.setState({
         gigs: res.data
       })
-      console.log(this.state.gigs)
     })
     .catch((err) => {
       console.log('axios error', err)
     })
-    axios.get(`${domain}/venues`)
-    .then((res) => {
-      this.setState({
-        venues: res.data
-      })
-      console.log(this.state.venues)
-    })
-    .catch((err) => {
-      console.log('axios error', err)
-    })
-  }
-  onChange (e) {
-    e.preventDefault()
-    console.log(e.target.value)
   }
   searchInputFilterEvent (e) {
     this.setState({
