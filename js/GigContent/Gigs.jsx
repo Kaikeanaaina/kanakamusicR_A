@@ -12,19 +12,34 @@ class Gigs extends React.Component {
       priceFilter: 0,
       ageFilter: 0,
       gigs: [],
-      searchInput: ''
+      searchInputFilter: '',
+      dateFilter: '',
+      venueFilter: '',
+      venues: []
     }
     this.onChange = this.onChange.bind(this)
-    this.changeAgeFilter = this.changeAgeFilter.bind(this)
-    this.changePriceFilter = this.changePriceFilter.bind(this)
-    this.searchInputEvent = this.searchInputEvent.bind(this)
+    this.searchInputFilterEvent = this.searchInputFilterEvent.bind(this)
+    this.dateFilterEvent = this.dateFilterEvent.bind(this)
+    this.ageFilterEvent = this.ageFilterEvent.bind(this)
   }
   componentDidMount () {
+    console.log(this)
     axios.get(`${domain}/gigs`)
     .then((res) => {
       this.setState({
         gigs: res.data
       })
+      console.log(this.state.gigs)
+    })
+    .catch((err) => {
+      console.log('axios error', err)
+    })
+    axios.get(`${domain}/venues`)
+    .then((res) => {
+      this.setState({
+        venues: res.data
+      })
+      console.log(this.state.venues)
     })
     .catch((err) => {
       console.log('axios error', err)
@@ -34,21 +49,19 @@ class Gigs extends React.Component {
     e.preventDefault()
     console.log(e.target.value)
   }
-  searchInputEvent (e) {
+  searchInputFilterEvent (e) {
     this.setState({
-      searchInput: e.target.value
+      searchInputFilter: e.target.value
     })
   }
-  changeAgeFilter (e) {
-    e.preventDefault()
+  dateFilterEvent (e) {
+    this.setState({
+      dateFilter: e.target.value
+    })
+  }
+  ageFilterEvent (e) {
     this.setState({
       ageFilter: e.target.value
-    })
-  }
-  changePriceFilter (e) {
-    e.preventDefault()
-    this.setState({
-      priceFilter: e.target.value
     })
   }
   render () {
@@ -67,10 +80,11 @@ class Gigs extends React.Component {
 
         <div style={{backgroundColor: 'rgba(0,0,255, 0.4)'}}>
           <h2>filters</h2>
-          <input placeholder='search' onChange={this.searchInputEvent} type='text' ref='search' />
+          <input placeholder='search' onChange={this.searchInputFilterEvent} type='text' ref='search' />
 
           <h3>date bar</h3>
-          <select type='number'>
+          <select type='number' ref='date' onChange={this.dateFilterEvent}>
+            <option value=''> All </option>
             <option value={'Jan'}> January</option>
             <option value={'Feb'}> February</option>
             <option value={'Mar'}> March</option>
@@ -86,27 +100,11 @@ class Gigs extends React.Component {
           </select>
 
           <h3>age</h3>
-          <select type='number' onChange={this.changeAgeFilter}>
+          <select type='number' onChange={this.ageFilterEvent}>
             <option value={0}> All Ages</option>
             <option value={18}> 18+</option>
             <option value={21}> 21+</option>
             <option value={24}> 24+</option>
-          </select>
-
-          <h3>price</h3>
-          <select type='number' onChange={this.changePriceFilter}>
-            <option value=''> All</option>
-            <option value={0}> Free</option>
-            <option value={10}> $10</option>
-            <option value={25}> $25</option>
-            <option value={50}> $50</option>
-            <option value={100}> $100</option>
-            <option value={101}> $100+</option>
-          </select>
-
-          <h3>venue</h3>
-          <select type='text' onChange={this.onChange}>
-            <option value=''> All</option>
           </select>
 
         </div>
@@ -114,11 +112,12 @@ class Gigs extends React.Component {
         <br />
 
         {this.state.gigs
-          .filter((gig) => `${gig.name} ${gig.description}`.toUpperCase().indexOf(this.state.searchInput.toUpperCase()) >= 0)
+          .filter((gig) => `${gig.name} ${gig.description}`.toUpperCase().indexOf(this.state.searchInputFilter.toUpperCase()) >= 0)
+          .filter((gig) => `${gig.Month}`.toUpperCase().indexOf(this.state.dateFilter.toUpperCase()) >= 0)
+          .filter((gig) => gig.age >= this.state.ageFilter)
           .map((gig, i) => (
             <GigCard gig={gig} key={i} />
         ))}
-
       </div>
     )
   }
