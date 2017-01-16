@@ -77,7 +77,7 @@ class AddNewRecordLabel extends React.Component {
   render () {
     return (
       <div>
-        <h3>add new record label</h3>
+        <h3>Add New Record Label</h3>
         <form onSubmit={this.openModal}>
           <label>
             <input type='text' ref='name' placeholder='name' style={styles} />

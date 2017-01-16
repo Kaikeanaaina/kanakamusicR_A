@@ -697,7 +697,7 @@ class AddNewSong extends React.Component {
     }
     return (
       <div id='AddNewSong'>
-        <h2>AddNewSong</h2>
+        <h3>AddNewSong</h3>
         <form onSubmit={this.onSubmit}>
           <input type='text' ref='title' style={styles} placeholder='title' onChange={this.showSubmitButton} />
           <br />

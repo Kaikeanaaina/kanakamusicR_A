@@ -8,11 +8,38 @@ const { domain } = require('../Domain')
 const style = {
   filter: {
     backgroundColor: 'rgba(0,0,255, 0.4)',
-    padding: '5px'
+    padding: '5px',
+    borderRadius: '5px',
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'nowrap'
+  },
+  filterSelect: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'center'
+  },
+  filterSelectItems: {
+    marginBottom: '0px'
   },
   filterHeader: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'nowrap',
+    flexDirection: 'column',
     textAlign: 'center',
     margin: '0px'
+  },
+  filterTitle: {
+    marginTop: '5px'
+  },
+  filterSearchBar: {
+    textAlign: 'center',
+    fontSize: '20px'
+  },
+  buttonContainer: {
+    margin: '5px'
   }
 }
 
@@ -61,7 +88,7 @@ class Gigs extends React.Component {
       <div>
         <MyTitle title='Gigs' />
 
-        <div>
+        <div style={style.buttonContainer}>
           <button>
             <Link to='/AddNewGig'> +Gig </Link>
           </button>
@@ -71,33 +98,41 @@ class Gigs extends React.Component {
         </div>
 
         <div style={style.filter}>
-          <h2 style={style.filterHeader}>filters</h2>
-          <input placeholder='search' onChange={this.searchInputFilterEvent} type='text' ref='search' />
+          <div style={style.filterHeader}>
+            <h2 style={style.filterTitle} >filters</h2>
+            <input style={style.filterSearchBar} placeholder='search' onChange={this.searchInputFilterEvent} type='text' ref='search' />
+          </div>
 
-          <h3>date bar</h3>
-          <select type='number' ref='date' onChange={this.dateFilterEvent}>
-            <option value=''> All </option>
-            <option value={'Jan'}> January</option>
-            <option value={'Feb'}> February</option>
-            <option value={'Mar'}> March</option>
-            <option value={'Apr'}> April</option>
-            <option value={'May'}> May</option>
-            <option value={'Jun'}> June</option>
-            <option value={'Jul'}> July</option>
-            <option value={'Aug'}> August</option>
-            <option value={'Sep'}> September</option>
-            <option value={'Oct'}> October</option>
-            <option value={'Nov'}> November</option>
-            <option value={'Dec'}> December</option>
-          </select>
+          <div style={style.filterSelect}>
+            <div>
+              <h3 style={style.filterSelectItems} >Month</h3>
+              <select type='number' ref='date' onChange={this.dateFilterEvent}>
+                <option value=''> All Months</option>
+                <option value={'Jan'}> January</option>
+                <option value={'Feb'}> February</option>
+                <option value={'Mar'}> March</option>
+                <option value={'Apr'}> April</option>
+                <option value={'May'}> May</option>
+                <option value={'Jun'}> June</option>
+                <option value={'Jul'}> July</option>
+                <option value={'Aug'}> August</option>
+                <option value={'Sep'}> September</option>
+                <option value={'Oct'}> October</option>
+                <option value={'Nov'}> November</option>
+                <option value={'Dec'}> December</option>
+              </select>
+            </div>
 
-          <h3>age</h3>
-          <select type='number' onChange={this.ageFilterEvent}>
-            <option value={0}> All Ages</option>
-            <option value={18}> 18+</option>
-            <option value={21}> 21+</option>
-            <option value={24}> 24+</option>
-          </select>
+            <div>
+              <h3 style={style.filterSelectItems} >Age</h3>
+              <select type='number' onChange={this.ageFilterEvent}>
+                <option value={0}> All Ages</option>
+                <option value={18}> 18+</option>
+                <option value={21}> 21+</option>
+                <option value={24}> 24+</option>
+              </select>
+            </div>
+          </div>
 
         </div>
 
