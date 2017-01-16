@@ -5,11 +5,10 @@ const { domain } = require('../../Domain')
 
 const style = {
   details: {
-    backgroundColor: 'pink',
-    fontSize: '24px'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    fontSize: '18px'
   },
   lyrics: {
-    backgroundColor: 'lightblue',
     fontSize: '24px'
   },
   description: {
@@ -81,9 +80,9 @@ class Song extends React.Component {
           </button>
         </div>
         <div style={style.details}>
-          <h4>{this.state.Artist.name}</h4>
-          <h4>{this.state.Album.title}</h4>
-          <h4>{this.state.RecordLabel.name}</h4>
+          <p>{this.state.Artist.name}</p>
+          <p>{this.state.Album.title}</p>
+          <p>{this.state.RecordLabel.name}</p>
         </div>
         <div style={style.lyrics}>
           <h3>{this.state.song.line1}</h3>

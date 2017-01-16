@@ -10,8 +10,7 @@ const style = {
     fontSize: '24px'
   },
   description: {
-    backgroundColor: 'lightgreen',
-    fontSize: '24px'
+    fontSize: '18px'
   },
   songListContainer: {
 
@@ -90,18 +89,17 @@ class Album extends React.Component {
     return (
       <div>
         <div>
-          <h1>Album Page</h1>
           <h1>{this.state.Album.title}</h1>
+          <div>
+            <button>
+              <Link to={`/album/edit/${this.state.Album.id}`}> Edit Album </Link>
+            </button>
+          </div>
           <p>{this.state.Artist.name}</p>
           <p>{this.state.RecordLabel.name}</p>
         </div>
-        <div>
-          <button>
-            <Link to={`/album/edit/${this.state.Album.id}`}> Edit Album </Link>
-          </button>
-        </div>
         <div style={style.description}>
-          <p>{this.state.Album.description}</p>
+          <p><i>{this.state.Album.description}</i></p>
         </div>
         <div>
           {SongListing}

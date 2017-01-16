@@ -28,7 +28,7 @@ const Div3OfRecordLabels = (props) => (
   <div style={style.recordLabelListDivContainer}>
     <div style={style.recordLabelList3Div}>
       {props.state.recordLabels3DivArray1.map((recordLabel, i) => (
-        <div style={{backgroundColor: 'red'}} key={i} >
+        <div key={i} >
           <Link key={i} to={`/recordLabel/${recordLabel.id}`} style={style.recordLabelLink} >
             <div key={i} style={style.recordLabelText}>
               {recordLabel.name}
@@ -40,7 +40,7 @@ const Div3OfRecordLabels = (props) => (
     </div>
     <div style={style.recordLabelList3Div}>
       {props.state.recordLabels3DivArray2.map((recordLabel, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div key={i} >
           <Link key={i} to={`/recordLabel/${recordLabel.id}`} style={style.recordLabelLink} >
             <div key={i} style={style.recordLabelText}>
               {recordLabel.name}
@@ -52,7 +52,7 @@ const Div3OfRecordLabels = (props) => (
     </div>
     <div style={style.recordLabelList3Div}>
       {props.state.recordLabels3DivArray3.map((recordLabel, i) => (
-        <div style={{backgroundColor: 'green'}} key={i} >
+        <div key={i} >
           <Link key={i} to={`/recordLabel/${recordLabel.id}`} style={style.recordLabelLink} >
             <div key={i} style={style.recordLabelText}>
               {recordLabel.name}

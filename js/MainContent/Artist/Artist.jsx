@@ -7,13 +7,22 @@ const { domain } = require('../../Domain')
 
 const style = {
   socialMedia: {
-    backgroundColor: 'pink'
+    margin: '5px'
+  },
+  socialMediaItems: {
+    fontSize: '18px',
+    margin: '0px'
   },
   booking: {
-    backgroundColor: 'lightblue'
+    fontSize: '18px',
+    margin: '5px'
+  },
+  bookingItems: {
+    fontSize: '18px',
+    margin: '0px'
   },
   description: {
-    backgroundColor: 'lightgreen'
+    margin: '5px'
   }
 }
 
@@ -82,17 +91,17 @@ class Artist extends React.Component {
             <Link to={`/artist/edit/${this.state.Artist.id}`}> Edit Artist </Link>
           </button>
         </div>
-        <div style={style.description}>
-          <h3>{this.state.Artist.description}</h3>
-        </div>
         <div style={style.booking}>
-          <h3>{this.state.Artist.bookingEmail}</h3>
-          <h3>{this.state.Artist.bookingPhoneNumber}</h3>
+          <p style={style.bookingItems}>{this.state.Artist.bookingEmail}</p>
+          <p style={style.bookingItems}>{this.state.Artist.bookingPhoneNumber}</p>
         </div>
-        <div style={style.socialMedia}>
-          <h3>{this.state.Artist.twitter}</h3>
-          <h3>{this.state.Artist.facebook}</h3>
-          <h3>{this.state.Artist.instagram}</h3>
+        <div>
+          <a style={style.socialMedia} href={this.state.Artist.twitter}>{this.state.Artist.twitter}</a>
+          <a style={style.socialMedia} href={this.state.Artist.facebook}>{this.state.Artist.facebook}</a>
+          <a style={style.socialMedia} href={this.state.Artist.instagram}>{this.state.Artist.instagram}</a>
+        </div>
+        <div style={style.description}>
+          <p><i>{this.state.Artist.description}</i></p>
         </div>
         <div>
           {AlbumListing}

@@ -3,20 +3,19 @@ const { Link } = require('react-router')
 
 const style = {
   divContainer: {
-    backgroundColor: 'yellow'
   },
   KanakaMusicHeader: {
     textDecoration: 'none',
     fontSize: 50,
-    backgroundColor: 'pink',
+    color: 'black',
     width: '100%'
   },
   headerChildren: {
     display: 'flex',
     flexFlow: 'row no-wrap',
     alignItems: 'center',
-    backgroundColor: 'red',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    backgroundColor: 'rgba(200,200,200,0.5)'
   },
   headerLinks: {
     textDecoration: 'none',

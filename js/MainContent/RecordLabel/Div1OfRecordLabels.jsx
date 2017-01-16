@@ -31,7 +31,7 @@ const Div1OfRecordLabels = (props) => (
   <div style={style.recordLabelListDivContainer}>
     <div style={style.recordLabelList1Div}>
       {props.state.recordLabels.map((recordLabel, i) => (
-        <div style={{backgroundColor: 'blue'}} key={i} >
+        <div key={i} >
           <Link key={i} to={`/recordLabel/${recordLabel.id}`} style={style.recordLabelLink} >
             <div key={i} style={style.recordLabelText}>
               {recordLabel.name}
