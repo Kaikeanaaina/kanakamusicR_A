@@ -6,14 +6,17 @@ const { domain } = require('../../Domain')
 const style = {
   details: {
     backgroundColor: 'rgba(200,200,200,0.4)',
-    fontSize: '18px'
+    fontSize: '18px',
+    padding: '5px'
+  },
+  detailItems: {
+    margin: '0px'
   },
   lyrics: {
     fontSize: '24px'
   },
   description: {
-    backgroundColor: 'lightgreen',
-    fontSize: '24px'
+    fontSize: '18px'
   }
 }
 
@@ -80,45 +83,45 @@ class Song extends React.Component {
           </button>
         </div>
         <div style={style.details}>
-          <p>{this.state.Artist.name}</p>
-          <p>{this.state.Album.title}</p>
-          <p>{this.state.RecordLabel.name}</p>
+          <p style={style.detailItems}>{this.state.Artist.name}</p>
+          <p style={style.detailItems}>{this.state.Album.title}</p>
+          <p style={style.detailItems}>{this.state.RecordLabel.name}</p>
         </div>
         <div style={style.lyrics}>
-          <h3>{this.state.song.line1}</h3>
-          <h3>{this.state.song.line2}</h3>
-          <h3>{this.state.song.line3}</h3>
-          <h3>{this.state.song.line3}</h3>
-          <h3>{this.state.song.line4}</h3>
-          <h3>{this.state.song.line5}</h3>
-          <h3>{this.state.song.line6}</h3>
-          <h3>{this.state.song.line7}</h3>
-          <h3>{this.state.song.line8}</h3>
-          <h3>{this.state.song.line9}</h3>
-          <h3>{this.state.song.line10}</h3>
-          <h3>{this.state.song.line11}</h3>
-          <h3>{this.state.song.line12}</h3>
-          <h3>{this.state.song.line13}</h3>
-          <h3>{this.state.song.line14}</h3>
-          <h3>{this.state.song.line15}</h3>
-          <h3>{this.state.song.line16}</h3>
-          <h3>{this.state.song.line17}</h3>
-          <h3>{this.state.song.line18}</h3>
-          <h3>{this.state.song.line19}</h3>
-          <h3>{this.state.song.line20}</h3>
-          <h3>{this.state.song.line21}</h3>
-          <h3>{this.state.song.line22}</h3>
-          <h3>{this.state.song.line23}</h3>
-          <h3>{this.state.song.line24}</h3>
-          <h3>{this.state.song.line25}</h3>
-          <h3>{this.state.song.line26}</h3>
-          <h3>{this.state.song.line27}</h3>
-          <h3>{this.state.song.line28}</h3>
-          <h3>{this.state.song.line29}</h3>
-          <h3>{this.state.song.line30}</h3>
+          <p>{this.state.song.line1}</p>
+          <p>{this.state.song.line2}</p>
+          <p>{this.state.song.line3}</p>
+          <p>{this.state.song.line3}</p>
+          <p>{this.state.song.line4}</p>
+          <p>{this.state.song.line5}</p>
+          <p>{this.state.song.line6}</p>
+          <p>{this.state.song.line7}</p>
+          <p>{this.state.song.line8}</p>
+          <p>{this.state.song.line9}</p>
+          <p>{this.state.song.line10}</p>
+          <p>{this.state.song.line11}</p>
+          <p>{this.state.song.line12}</p>
+          <p>{this.state.song.line13}</p>
+          <p>{this.state.song.line14}</p>
+          <p>{this.state.song.line15}</p>
+          <p>{this.state.song.line16}</p>
+          <p>{this.state.song.line17}</p>
+          <p>{this.state.song.line18}</p>
+          <p>{this.state.song.line19}</p>
+          <p>{this.state.song.line20}</p>
+          <p>{this.state.song.line21}</p>
+          <p>{this.state.song.line22}</p>
+          <p>{this.state.song.line23}</p>
+          <p>{this.state.song.line24}</p>
+          <p>{this.state.song.line25}</p>
+          <p>{this.state.song.line26}</p>
+          <p>{this.state.song.line27}</p>
+          <p>{this.state.song.line28}</p>
+          <p>{this.state.song.line29}</p>
+          <p>{this.state.song.line30}</p>
         </div>
         <div style={style.description}>
-          <h4>{this.state.song.description}</h4>
+          <p><i>{this.state.song.description}</i></p>
         </div>
       </div>
     )
