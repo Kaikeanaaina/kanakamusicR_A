@@ -11,7 +11,8 @@ const style = {
     flexDirection: 'column',
     flexWrap: 'nowrap',
     justifyContent: 'space-around',
-    margin: '4px'
+    margin: '4px',
+    padding: '5px'
   },
   NameContainer: {
   },

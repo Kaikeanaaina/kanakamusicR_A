@@ -5,12 +5,14 @@ const { domain } = require('../../Domain')
 
 const style = {
   details: {
-    backgroundColor: 'pink',
-    fontSize: '24px'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    fontSize: '18px',
+    padding: '5px'
   },
   description: {
-    backgroundColor: 'lightgreen',
-    fontSize: '24px'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    fontSize: '18px',
+    padding: '5px'
   }
 }
 

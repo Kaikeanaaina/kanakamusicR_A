@@ -6,13 +6,16 @@ const { domain } = require('../../Domain')
 
 const style = {
   socialMedia: {
-    backgroundColor: 'pink'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    padding: '5px'
   },
   booking: {
-    backgroundColor: 'lightblue'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    padding: '5px'
   },
   description: {
-    backgroundColor: 'lightgreen'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    padding: '5px'
   }
 }
 
@@ -172,12 +175,6 @@ class EditArtist extends React.Component {
           <div style={style.description}>
             <div>
               <label>
-                <span> description </span>
-                <textarea ref='description' placeholder={this.state.Artist.description} />
-              </label>
-            </div>
-            <div>
-              <label>
                 <span> Visibility </span>
                 <select type='text' ref='visibilityByArtist' >
                   <option> visibility </option>
@@ -196,6 +193,12 @@ class EditArtist extends React.Component {
                   <option value='contemporary' >contemporary</option>
                 </select>
                 <span> Current: {this.state.Artist.type} </span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <span> description </span>
+                <textarea ref='description' placeholder={this.state.Artist.description} />
               </label>
             </div>
           </div>

@@ -5,7 +5,7 @@ const SuccessEntryModal = require('../Modal/SuccessEntryModal')
 const { domain } = require('../../Domain')
 
 const styles = {
-  fontSize: '24px',
+  fontSize: '18px',
   padding: '5px',
   margin: '5px',
   width: '80%',

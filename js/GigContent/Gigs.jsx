@@ -5,6 +5,17 @@ const { Link } = require('react-router')
 const axios = require('axios')
 const { domain } = require('../Domain')
 
+const style = {
+  filter: {
+    backgroundColor: 'rgba(0,0,255, 0.4)',
+    padding: '5px'
+  },
+  filterHeader: {
+    textAlign: 'center',
+    margin: '0px'
+  }
+}
+
 class Gigs extends React.Component {
   constructor (props) {
     super(props)
@@ -59,8 +70,8 @@ class Gigs extends React.Component {
           </button>
         </div>
 
-        <div style={{backgroundColor: 'rgba(0,0,255, 0.4)'}}>
-          <h2>filters</h2>
+        <div style={style.filter}>
+          <h2 style={style.filterHeader}>filters</h2>
           <input placeholder='search' onChange={this.searchInputFilterEvent} type='text' ref='search' />
 
           <h3>date bar</h3>

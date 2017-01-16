@@ -4,16 +4,19 @@ const { domain } = require('../../Domain')
 
 const style = {
   details: {
-    backgroundColor: 'pink',
-    fontSize: '24px'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    fontSize: '18px',
+    padding: '5px'
   },
   lyrics: {
-    backgroundColor: 'lightblue',
-    fontSize: '24px'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    fontSize: '18px',
+    padding: '5px'
   },
   description: {
-    backgroundColor: 'lightgreen',
-    fontSize: '24px'
+    backgroundColor: 'rgba(200,200,200,0.4)',
+    fontSize: '18px',
+    padding: '5px'
   }
 }
 
@@ -485,7 +488,6 @@ class EditSong extends React.Component {
                 {visibleBySongProperty}
               </label>
             </div>
-            <br />
             <div>
               {visibleByAlbumProperty}
               {visibleByArtistProperty}
@@ -684,6 +686,9 @@ class EditSong extends React.Component {
           </div>
           <button type='submit' > Edit Song</button>
         </form>
+
+        <br />
+
         <div>
           <button onClick={this.DeleteSong}>Delete Song</button>
         </div>

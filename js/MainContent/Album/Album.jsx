@@ -6,7 +6,7 @@ const { domain } = require('../../Domain')
 
 const style = {
   details: {
-    backgroundColor: 'pink',
+    backgroundColor: 'rgba(200,200,200,0.4)',
     fontSize: '24px'
   },
   description: {
