@@ -14,14 +14,24 @@ const style = {
     flexDirection: 'column',
     flexWrap: 'nowrap'
   },
+  filterThings: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around'
+  },
   filterSelect: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'nowrap',
-    justifyContent: 'center'
+    justifyContent: 'space-around',
+    flexShrink: '1'
   },
   filterSelectItems: {
     marginBottom: '0px'
+  },
+  filterSelectItemContainer: {
+    flexGrow: 1
   },
   filterHeader: {
     display: 'flex',
@@ -98,42 +108,45 @@ class Gigs extends React.Component {
         </div>
 
         <div style={style.filter}>
-          <div style={style.filterHeader}>
-            <h2 style={style.filterTitle} >filters</h2>
-            <input style={style.filterSearchBar} placeholder='search' onChange={this.searchInputFilterEvent} type='text' ref='search' />
-          </div>
+          <div style={style.filterThings}>
 
-          <div style={style.filterSelect}>
-            <div>
-              <h3 style={style.filterSelectItems} >Month</h3>
-              <select type='number' ref='date' onChange={this.dateFilterEvent}>
-                <option value=''> All Months</option>
-                <option value={'Jan'}> January</option>
-                <option value={'Feb'}> February</option>
-                <option value={'Mar'}> March</option>
-                <option value={'Apr'}> April</option>
-                <option value={'May'}> May</option>
-                <option value={'Jun'}> June</option>
-                <option value={'Jul'}> July</option>
-                <option value={'Aug'}> August</option>
-                <option value={'Sep'}> September</option>
-                <option value={'Oct'}> October</option>
-                <option value={'Nov'}> November</option>
-                <option value={'Dec'}> December</option>
-              </select>
+            <div style={style.filterHeader}>
+              <h2 style={style.filterTitle} >filters</h2>
+              <input style={style.filterSearchBar} placeholder='search' onChange={this.searchInputFilterEvent} type='text' ref='search' />
             </div>
 
-            <div>
-              <h3 style={style.filterSelectItems} >Age</h3>
-              <select type='number' onChange={this.ageFilterEvent}>
-                <option value={0}> All Ages</option>
-                <option value={18}> 18+</option>
-                <option value={21}> 21+</option>
-                <option value={24}> 24+</option>
-              </select>
-            </div>
-          </div>
+            <div style={style.filterSelect}>
+              <div style={style.filterSelectItemContainer}>
+                <h3 style={style.filterSelectItems} >Month</h3>
+                <select type='number' ref='date' onChange={this.dateFilterEvent}>
+                  <option value=''> All Months</option>
+                  <option value={'Jan'}> January</option>
+                  <option value={'Feb'}> February</option>
+                  <option value={'Mar'}> March</option>
+                  <option value={'Apr'}> April</option>
+                  <option value={'May'}> May</option>
+                  <option value={'Jun'}> June</option>
+                  <option value={'Jul'}> July</option>
+                  <option value={'Aug'}> August</option>
+                  <option value={'Sep'}> September</option>
+                  <option value={'Oct'}> October</option>
+                  <option value={'Nov'}> November</option>
+                  <option value={'Dec'}> December</option>
+                </select>
+              </div>
 
+              <div style={style.filterSelectItemContainer}>
+                <h3 style={style.filterSelectItems} >Age</h3>
+                <select type='number' onChange={this.ageFilterEvent}>
+                  <option value={0}> All Ages</option>
+                  <option value={18}> 18yr+</option>
+                  <option value={21}> 21yr+</option>
+                  <option value={24}> 24yr+</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <br />
