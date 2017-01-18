@@ -4,7 +4,6 @@ const { Link } = require('react-router')
 const axios = require('axios')
 const { domain } = require('./Domain')
 
-
 class PrivacyPolicy extends React.Component {
   constructor (props) {
     super(props)
