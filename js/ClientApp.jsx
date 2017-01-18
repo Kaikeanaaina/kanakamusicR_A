@@ -8,6 +8,7 @@ const LogIn = require('./LogIn')
 const Home = require('./Home')
 const TermsOfService = require('./TermsOfService')
 const PrivacyPolicy = require('./PrivacyPolicy')
+const EditPrivacyPolicy = require('./EditPrivacyPolicy')
 const ContactInformation = require('./ContactInformation')
 const About = require('./About')
 const Connect = require('./Connect')
@@ -37,6 +38,7 @@ const myRoutes = () => (
     <Route path='/LogIn' component={LogIn} />
     <Route path='/TermsOfService' component={TermsOfService} />
     <Route path='/PrivacyPolicy' component={PrivacyPolicy} />
+    <Route path='/EditPrivacyPolicy' component={EditPrivacyPolicy} />
     <Route path='/ContactInformation' component={ContactInformation} />
     <Route path='/About' component={About} />
     <Route path='/Connect' component={Connect} />
