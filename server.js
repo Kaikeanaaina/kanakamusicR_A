@@ -36,6 +36,7 @@ app.use('/recordLabels', require('./routes/recordLabel.js'))
 app.use('/venues', require('./routes/venue.js'))
 app.use('/gigs', require('./routes/gig.js'))
 app.use('/privacyPolicies', require('./routes/privacyPolicy.js'))
+app.use('/resources', require('./routes/resource.js'))
 
 app.use((req, res) => {
   match({ routes: Routes(), location: req.url }, (error, redirectLocation, renderProps) => {
