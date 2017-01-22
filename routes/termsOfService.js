@@ -42,6 +42,7 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', function (req, res) {
+  console.log(11111111111, req.body)
   TermsOfService.create({
     terms: req.body.terms
   })
