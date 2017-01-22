@@ -57,9 +57,11 @@ class TermsOfServices extends React.Component {
     })
   }
   onSubmit () {
-    if (!this.state.terms) {
-      console.log('post')
-      axios.post(`${domain}/termsOfServices/`)
+    if (!this.state.OldTerms) {
+      let object = {
+        terms: this.refs.Terms.value
+      }
+      axios.post(`${domain}/termsOfServices/`, object)
       .then((res) => {
         axios.get(`${domain}/termsOfServices/1`)
         .then((res) => {
@@ -76,7 +78,30 @@ class TermsOfServices extends React.Component {
         console.log('axios error', err)
       })
     } else {
-      console.log('put')
+      let object = {
+        id: 1
+      }
+      if (!this.refs.Terms.value) {
+        object.terms = this.state.terms
+      } else {
+        object.terms = this.refs.Terms.value
+      }
+      axios.put(`${domain}/termsOfServices/1`, object)
+      .then((res) => {
+        axios.get(`${domain}/termsOfServices/1`)
+        .then((res) => {
+          this.setState({
+            terms: res.data.terms,
+            termsModalIsOpen: false
+          })
+        })
+        .catch((err) => {
+          console.log('axios error', err)
+        })
+      })
+      .catch((err) => {
+        console.log('axios error', err)
+      })
     }
   }
   changingTerms (e) {
