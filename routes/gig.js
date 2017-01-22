@@ -84,9 +84,7 @@ router.post('/', function (req, res) {
 })
 
 router.put('/:id', function (req, res) {
-  console.log(1111111)
   if (exists) {
-    console.log(66666666, req.body)
     Gig.update(
       {
         updatedAt: 'now()',
@@ -110,7 +108,6 @@ router.put('/:id', function (req, res) {
         }
       })
     .then(function (gig) {
-      console.log(77777777)
       return res.json(gig)
     })
     .catch(function (err) {
