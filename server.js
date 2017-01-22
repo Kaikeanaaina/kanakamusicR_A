@@ -39,6 +39,7 @@ app.use('/privacyPolicies', require('./routes/privacyPolicy.js'))
 app.use('/resources', require('./routes/resource.js'))
 app.use('/credits', require('./routes/credit.js'))
 app.use('/termsOfServices', require('./routes/termsOfService.js'))
+app.use('/about', require('./routes/about.js'))
 
 app.use((req, res) => {
   match({ routes: Routes(), location: req.url }, (error, redirectLocation, renderProps) => {
