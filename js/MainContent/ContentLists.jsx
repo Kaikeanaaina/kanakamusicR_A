@@ -56,7 +56,7 @@ class ContentLists extends React.Component {
     if (this.state.SongList) {
       Listing = <div><SongList /></div>
     } else if (this.state.ArtistList) {
-      Listing = <div><ArtistList /></div>
+      Listing = <div><ArtistList type='mainContent' /></div>
     } else if (this.state.AlbumList) {
       Listing = <div><AlbumList /></div>
     } else {
