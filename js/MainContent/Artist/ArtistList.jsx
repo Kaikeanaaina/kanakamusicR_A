@@ -217,23 +217,24 @@ class ArtistList extends React.Component {
       </div>
 
       <MediaQuery minWidth={1024} style={style.artistListDivContainer} >
-        <Div4OfArtists state={this.state} />
+        <Div4OfArtists state={this.state} type={this.props.type} />
       </MediaQuery>
       <MediaQuery minWidth={768} maxWidth={1024} style={style.artistListDivContainer} >
-        <Div3OfArtists state={this.state} />
+        <Div3OfArtists state={this.state} type={this.props.type} />
       </MediaQuery>
       <MediaQuery minWidth={425} maxWidth={768} style={style.artistListDivContainer} >
-        <Div2OfArtists state={this.state} />
+        <Div2OfArtists state={this.state} type={this.props.type} />
       </MediaQuery>
       <MediaQuery maxWidth={425} >
-        <Div1OfArtists state={this.state} />
+        <Div1OfArtists state={this.state} type={this.props.type} />
       </MediaQuery>
     </div>)
   }
 }
 
 ArtistList.propTypes = {
-  artists: React.PropTypes.arrayOf(React.PropTypes.object)
+  artists: React.PropTypes.arrayOf(React.PropTypes.object),
+  type: React.PropTypes.string
 }
 
 module.exports = ArtistList
