@@ -3,6 +3,7 @@ const { store } = require('./Store')
 const { Provider } = require('react-redux')
 const { Router, Route, IndexRoute, hashHistory } = require('react-router')
 
+const AddNewContent = require('./MainContent/AddNewContent')
 const Layout = require('./Layout')
 const LogIn = require('./LogIn')
 const Home = require('./Home')
@@ -17,7 +18,6 @@ const Artist = require('./MainContent/Artist/Artist')
 const Album = require('./MainContent/Album/Album')
 const RecordLabel = require('./MainContent/RecordLabel/RecordLabel')
 const Chords = require('./Chords')
-const AddNewContent = require('./MainContent/AddNewContent')
 const EditSong = require('./MainContent/Song/EditSong')
 const EditAlbum = require('./MainContent/Album/EditAlbum')
 const EditArtist = require('./MainContent/Artist/EditArtist')
@@ -37,38 +37,45 @@ const EditProfile = require('./SettingContent/EditProfile')
 const Sources = require('./SettingContent/Sources')
 const Feedback = require('./SettingContent/Feedback')
 
+const BandMembers = require('./BandMembers')
+
 const myRoutes = () => (
   <Route path='/' component={Layout}>
     <IndexRoute component={Home} />
-    <Route path='/LogIn' component={LogIn} />
-    <Route path='/TermsOfService' component={TermsOfService} />
-    <Route path='/PrivacyPolicy' component={PrivacyPolicy} />
-    <Route path='/ContactInformation' component={ContactInformation} />
-    <Route path='/About' component={About} />
-    <Route path='/Connect' component={Connect} />
-    <Route path='/Gigs' component={Gigs} />
-    <Route path='/song/:id' component={Song} />
-    <Route path='/artist/:id' component={Artist} />
-    <Route path='/album/:id' component={Album} />
-    <Route path='/recordLabel/:id' component={RecordLabel} />
-    <Route path='/Chords' component={Chords} />
     <Route path='/addNewContent' component={AddNewContent} />
-    <Route path='/song/edit/:id' component={EditSong} />
+    <Route path='/album/:id' component={Album} />
     <Route path='/album/edit/:id' component={EditAlbum} />
+    <Route path='/artist/:id' component={Artist} />
     <Route path='/artist/edit/:id' component={EditArtist} />
+    <Route path='/song/:id' component={Song} />
+    <Route path='/song/edit/:id' component={EditSong} />
+    <Route path='/recordLabel/:id' component={RecordLabel} />
     <Route path='/recordLabel/edit/:id' component={EditRecordLabel} />
+
     <Route path='/AddNewGig' component={AddNewGig} />
     <Route path='/AddNewVenue' component={AddNewVenue} />
+    <Route path='/editGig/:id' component={EditGig} />
+    <Route path='/Gigs' component={Gigs} />
     <Route path='/Venue' component={VenueList} />
     <Route path='/venue/:id' component={Venue} />
-    <Route path='/editGig/:id' component={EditGig} />
 
-    <Route path='/Settings' component={SettingPage} />
+    <Route path='/Connect' component={Connect} />
+    <Route path='/bandMembers/:id' component={BandMembers} />
+
+    <Route path='/Chords' component={Chords} />
+
     <Route path='/Credits' component={Credits} />
-    <Route path='/LayoutAddOns' component={LayoutAddOns} />
     <Route path='/EditProfile' component={EditProfile} />
-    <Route path='/Sources' component={Sources} />
     <Route path='/Feedback' component={Feedback} />
+    <Route path='/LayoutAddOns' component={LayoutAddOns} />
+    <Route path='/LogIn' component={LogIn} />
+    <Route path='/Settings' component={SettingPage} />
+    <Route path='/Sources' component={Sources} />
+
+    <Route path='/About' component={About} />
+    <Route path='/ContactInformation' component={ContactInformation} />
+    <Route path='/PrivacyPolicy' component={PrivacyPolicy} />
+    <Route path='/TermsOfService' component={TermsOfService} />
   </Route>
 )
 
