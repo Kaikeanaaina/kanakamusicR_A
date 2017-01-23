@@ -20,6 +20,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING( 1000 ),
       allowNull: true
     },
+    additionComments: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     visibility: {
       type: DataTypes.BOOLEAN,
       allowNull: false
