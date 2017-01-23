@@ -30,12 +30,20 @@ function checkVisibility (artist) {
   }
 }
 
+function ListPath (artist, props) {
+  if (props.type === 'connect') {
+    return `/bandMembers/${artist.id}`
+  } else {
+    return `/artist/${artist.id}`
+  }
+}
+
 const Div4OfArtists = (props) => (
   <div style={style.artistListDivContainer}>
     <div style={style.artistList4Div}>
       {props.state.artists4DivArray1.map((artist, i) => (
         <div style={checkVisibility(artist)} key={i} >
-          <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+          <Link key={i} to={ListPath(artist, props)} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}
             </div>
@@ -47,7 +55,7 @@ const Div4OfArtists = (props) => (
     <div style={style.artistList4Div}>
       {props.state.artists4DivArray2.map((artist, i) => (
         <div style={checkVisibility(artist)} key={i} >
-          <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+          <Link key={i} to={ListPath(artist, props)} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}
             </div>
@@ -59,7 +67,7 @@ const Div4OfArtists = (props) => (
     <div style={style.artistList4Div}>
       {props.state.artists4DivArray3.map((artist, i) => (
         <div style={checkVisibility(artist)} key={i} >
-          <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+          <Link key={i} to={ListPath(artist, props)} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}
             </div>
@@ -71,7 +79,7 @@ const Div4OfArtists = (props) => (
     <div style={style.artistList4Div}>
       {props.state.artists4DivArray4.map((artist, i) => (
         <div style={checkVisibility(artist)} key={i} >
-          <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+          <Link key={i} to={ListPath(artist, props)} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}
             </div>
@@ -87,7 +95,8 @@ const { object } = React.PropTypes
 
 Div4OfArtists.propTypes = {
   style: object,
-  state: object
+  state: object,
+  props: object
 }
 
 module.exports = Div4OfArtists

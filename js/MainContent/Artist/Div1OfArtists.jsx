@@ -33,12 +33,20 @@ function checkVisibility (artist) {
   }
 }
 
+function ListPath (artist, props) {
+  if (props.type === 'connect') {
+    return `/bandMembers/${artist.id}`
+  } else {
+    return `/artist/${artist.id}`
+  }
+}
+
 const Div1OfArtists = (props) => (
   <div style={style.artistListDivContainer}>
     <div style={style.artistList1Div}>
       {props.state.artists.map((artist, i) => (
         <div style={checkVisibility(artist)} key={i} >
-          <Link key={i} to={`/artist/${artist.id}`} style={style.artistLink} >
+          <Link key={i} to={ListPath(artist, props)} style={style.artistLink} >
             <div key={i} style={style.artistText}>
               {artist.name}
             </div>
