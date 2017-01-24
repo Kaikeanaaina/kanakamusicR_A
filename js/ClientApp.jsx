@@ -11,7 +11,7 @@ const TermsOfService = require('./TermsOfService')
 const PrivacyPolicy = require('./PrivacyPolicy')
 const ContactInformation = require('./ContactInformation')
 const About = require('./About')
-const Connect = require('./Connect')
+const Connect = require('./ConnectContent/Connect')
 const Gigs = require('./GigContent/Gigs')
 const Song = require('./MainContent/Song/Song')
 const Artist = require('./MainContent/Artist/Artist')
@@ -37,7 +37,7 @@ const EditProfile = require('./SettingContent/EditProfile')
 const Sources = require('./SettingContent/Sources')
 const Feedback = require('./SettingContent/Feedback')
 
-const BandMembers = require('./BandMembers')
+const BandMembers = require('./ConnectContent/BandMembers')
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
