@@ -75,12 +75,13 @@ router.get('/:id', function (req, res) {
 
 router.post('/', function (req, res) {
   BandMember.create({
-    name: res.body.name,
-    instrument: res.body.instrument,
+    name: req.body.name,
+    instrument: req.body.instrument,
     howYouStartedToPlayMusic: req.body.howYouStartedToPlayMusic,
     whatMotivatesYouToPlayMusic: req.body.whatMotivatesYouToPlayMusic,
     whoDoYouLookUpTo: req.body.whoDoYouLookUpTo,
     additionComments: req.body.additionComments,
+    ArtistId: req.body.ArtistId,
     visibility: false
   })
   .then(function (BandMembers) {
