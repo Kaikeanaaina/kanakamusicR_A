@@ -36,7 +36,6 @@ class Connect extends React.Component {
       this.setState({
         artists: res.data
       })
-      console.log(this.state.artists)
     })
     .catch((err) => {
       console.log('axios error', err)
