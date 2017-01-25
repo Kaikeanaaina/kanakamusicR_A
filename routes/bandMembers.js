@@ -97,8 +97,8 @@ router.put('/:id', function (req, res) {
     BandMember.update(
       {
         updatedAt: 'now()',
-        name: res.body.name,
-        instrument: res.body.instrument,
+        name: req.body.name,
+        instrument: req.body.instrument,
         howYouStartedToPlayMusic: req.body.howYouStartedToPlayMusic,
         whatMotivatesYouToPlayMusic: req.body.whatMotivatesYouToPlayMusic,
         whoDoYouLookUpTo: req.body.whoDoYouLookUpTo,
