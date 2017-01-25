@@ -67,6 +67,7 @@ class BandMembers extends React.Component {
     this.changingAdditionComments = this.changingAdditionComments.bind(this)
     this.changingArtistId = this.changingArtistId.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
+    this.deleteBandMember = this.deleteBandMember.bind(this)
   }
   componentDidMount () {
     axios.get(`${domain}/bandMembers/ByArtistId/${this.props.params.id}`)
@@ -122,7 +123,8 @@ class BandMembers extends React.Component {
     axios.get(`${domain}/bandMembers/${e.target.value}`)
     .then((res) => {
       this.setState({
-        BandMember: res.data
+        BandMember: res.data,
+        deleteModalIsOpen: true
       })
     })
     .catch((err) => {
@@ -196,6 +198,24 @@ class BandMembers extends React.Component {
         this.setState({
           bandMembers: res.data,
           editModalIsOpen: false
+        })
+      })
+      .catch((err) => {
+        console.log('axios error', err)
+      })
+    })
+    .catch((err) => {
+      console.log('axios error', err)
+    })
+  }
+  deleteBandMember () {
+    axios.delete(`${domain}/bandMembers/${this.state.BandMember.id}`)
+    .then((res) => {
+      axios.get(`${domain}/bandMembers`)
+      .then((res) => {
+        this.setState({
+          bandMembers: res.data,
+          deleteModalIsOpen: false
         })
       })
       .catch((err) => {
@@ -285,6 +305,21 @@ class BandMembers extends React.Component {
             <br />
             <button onClick={this.closeModal}>cancel</button>
             <button onClick={this.submitEdit}>edit</button>
+          </Modal>
+        </div>
+
+        <div >
+          <Modal
+            isOpen={this.state.deleteModalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+            contentLabel='deleteBandMember' >
+
+            <h4 ref='subtitle'> Are you sure you want to delete the band member {this.state.BandMember.name}? </h4>
+
+            <button onClick={this.closeModal}>cancel</button>
+            <button onClick={this.deleteBandMember}>delete</button>
           </Modal>
         </div>
       </div>
