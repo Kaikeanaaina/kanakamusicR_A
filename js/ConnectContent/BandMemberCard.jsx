@@ -10,7 +10,6 @@ const style = {
 const BandMemberCard = (props) => (
   <div style={style}>
     <h1> {props.bandMember.name} </h1>
-    <p> {props.bandMember.ArtistId} </p>
     <p> {props.bandMember.instrument} </p>
     <p> {props.bandMember.howYouStartedToPlayMusic} </p>
     <p> {props.bandMember.whatMotivatesYouToPlayMusic} </p>
