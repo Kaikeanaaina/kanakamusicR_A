@@ -98,7 +98,7 @@ class AddNewArtist extends React.Component {
     })
   }
   showSubmitButton (e) {
-    if (this.refs.name.value && this.refs.type.value) {
+    if (this.refs.name.value && this.refs.type.value && this.refs.password.value && this.refs.password.value === this.refs.verifyPassword.value) {
       this.setState({
         showSubmitButton: true
       })
@@ -118,6 +118,10 @@ class AddNewArtist extends React.Component {
         <h3>AddNewArtist</h3>
         <form onSubmit={this.onSubmit}>
           <input type='text' ref='name' style={styles} placeholder='artist name' onChange={this.showSubmitButton} />
+          <br />
+          <input type='password' ref='password' style={styles} placeholder='password' onChange={this.showSubmitButton} />
+          <br />
+          <input type='password' ref='verifyPassword' style={styles} placeholder='verify password' onChange={this.showSubmitButton} />
           <br />
           <select ref='type' style={styles} onChange={this.showSubmitButton}>
             <option value=''> type </option>
