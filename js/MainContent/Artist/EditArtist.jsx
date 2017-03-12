@@ -136,7 +136,7 @@ class EditArtist extends React.Component {
       .then((res) => {
         axios.delete(`${domain}/artists/${this.state.Artist.id}`)
         .then((res) => {
-          window.location.href = '/#/'
+          window.location.href = '/#/home'
         })
         .catch((error) => {
           console.log('axios error', error)

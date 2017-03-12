@@ -136,7 +136,7 @@ class AddNewGig extends React.Component {
     this.setState({
       successModalIsOpen: false
     })
-    window.location.href = '/#/'
+    window.location.href = '/#/home'
   }
   render () {
     let submitButton = null

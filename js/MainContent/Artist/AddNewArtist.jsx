@@ -80,7 +80,7 @@ class AddNewArtist extends React.Component {
     this.setState({
       successModalIsOpen: false
     })
-    window.location.href = '/#/'
+    window.location.href = '/#/home'
   }
   onSubmit (e) {
     e.preventDefault()

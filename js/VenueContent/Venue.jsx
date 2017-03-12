@@ -67,7 +67,7 @@ class Venue extends React.Component {
 
     axios.put(`${domain}/venues/${this.state.Venue.id}`, object)
     .then((res) => {
-      window.location.href = '/#/'
+      window.location.href = '/#/home'
     })
     .catch((error) => {
       console.log('axios error', error)
