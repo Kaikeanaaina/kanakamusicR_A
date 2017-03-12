@@ -1,42 +1,46 @@
 const React = require('react')
-const axios = require('axios')
-const { domain } = require('./Domain')
+const { PropTypes } = require('react')
+// const axios = require('axios')
+// const { domain } = require('./Domain')
+const { ButtonToolbar, Button } = require('react-bootstrap')
+const AuthService = require('./utils/AuthService')
 
-class LogIn extends React.Component {
+// import styles from './styles.module.css'
+
+class Login extends React.Component {
   constructor () {
     super()
-    this.logIn = this.logIn.bind(this)
+    this.login = this.login.bind(this)
   }
-  logIn (e) {
-    e.preventDefault()
-
-    let object = {
-      email: this.refs.email,
-      password: this.refs.password
-    }
-
-    axios.post(`${domain}/users/login`, object)
-    .then((res) => {
-
-    })
-    .catch((error) => {
-      console.log('axios error', error)
-    })
+  login () {
+    this.props.auth.login()
   }
   render () {
     return (
       <div>
-        <h3>Log In </h3>
-        <form onSubmit={this.logIn}>
-          <label>
-            <input type='text' ref='email' placeholder='email' />
-            <input type='password' ref='password' placeholder='password' />
-          </label>
-          <button>Log In</button>
-        </form>
+        <h2>Login</h2>
+        <ButtonToolbar>
+          <Button onClick={this.login}>Login</Button>
+        </ButtonToolbar>
       </div>
     )
   }
 }
 
-module.exports = LogIn
+Login.propTypes = {
+  location: PropTypes.object,
+  auth: PropTypes.instanceOf(AuthService)
+}
+
+module.exports = Login
+
+// render () {
+//     return (
+//       <div className={styles.root}>
+//         <h2>Login</h2>
+//         <ButtonToolbar className={styles.toolbar}>
+//           <Button bsStyle='primary' onClick={this.login}>Login</Button>
+//         </ButtonToolbar>
+//       </div>
+//     )
+//   }
