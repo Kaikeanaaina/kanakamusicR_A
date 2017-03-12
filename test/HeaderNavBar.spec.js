@@ -12,5 +12,4 @@ describe('<HeaderNavBar />', () => {
     const wrapper = mount(<HeaderNavBar />)
     expect(wrapper.find(Link)).to.have.length(6)
   })
-
 })

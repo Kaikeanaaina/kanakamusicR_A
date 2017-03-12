@@ -7,7 +7,6 @@ const { mount, shallow } = require('enzyme')
 const AddNewAlbum = require('../js/MainContent/Album/AddNewAlbum')
 
 describe('<AddNewAlbum />', () => {
-
   describe('State', () => {
     const wrapper = mount(<AddNewAlbum />)
     const state = wrapper.state()
@@ -46,10 +45,6 @@ describe('<AddNewAlbum />', () => {
       expect(wrapper.state().object).to.be.defined
       expect(wrapper.state().object).to.be.an('object')
     })
-
   })
-
 })
-
-
 

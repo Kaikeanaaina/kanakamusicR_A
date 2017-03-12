@@ -24,6 +24,7 @@ const EditAlbum = require('./MainContent/Album/EditAlbum')
 const EditArtist = require('./MainContent/Artist/EditArtist')
 const EditRecordLabel = require('./MainContent/RecordLabel/EditRecordLabel')
 
+
 const AddNewGig = require('./GigContent/AddNewGig')
 const EditGig = require('./GigContent/EditGig')
 
@@ -43,6 +44,7 @@ const BandMembers = require('./ConnectContent/BandMembers')
 const AuthService = require('./utils/AuthService')
 const auth = new AuthService('JkKudAwWVjXQsnOV9M7SyWQqECnsoAB3', 'kaikeanaaina.auth0.com')
 
+// onEnter callback to validate authentication in private routes
 const requireAuth = (nextState, replace) => {
   if (!auth.loggedIn()) {
     replace({ pathname: '/login' })
@@ -95,6 +97,7 @@ class App extends React.Component {
     console.log('call all information', window.location.href)
   }
   render () {
+    // this is like src/container/App/App.js
     return (
       <Provider store={store}>
         <Router history={hashHistory}>
