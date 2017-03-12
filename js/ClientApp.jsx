@@ -1,7 +1,8 @@
 const React = require('react')
 const { store } = require('./Store')
 const { Provider } = require('react-redux')
-const { Router, Route, IndexRoute, hashHistory } = require('react-router')
+const { Router, Route, hashHistory, IndexRedirect } = require('react-router')
+// const { IndexRoute } = require('react-router')
 
 const AddNewContent = require('./MainContent/AddNewContent')
 const Layout = require('./Layout')
@@ -39,9 +40,19 @@ const Feedback = require('./SettingContent/Feedback')
 
 const BandMembers = require('./ConnectContent/BandMembers')
 
+const AuthService = require('./utils/AuthService')
+const auth = new AuthService('JkKudAwWVjXQsnOV9M7SyWQqECnsoAB3', 'kaikeanaaina.auth0.com')
+
+const requireAuth = (nextState, replace) => {
+  if (!auth.loggedIn()) {
+    replace({ pathname: '/login' })
+  }
+}
+
 const myRoutes = () => (
-  <Route path='/' component={Layout}>
-    <IndexRoute component={Home} />
+  <Route path='/' component={Layout} auth={auth} >
+    <IndexRedirect to='/home' />
+    <Route path='/home' component={Home} onEnter={requireAuth} />
     <Route path='/addNewContent' component={AddNewContent} />
     <Route path='/album/:id' component={Album} />
     <Route path='/album/edit/:id' component={EditAlbum} />
@@ -68,7 +79,7 @@ const myRoutes = () => (
     <Route path='/EditProfile' component={EditProfile} />
     <Route path='/Feedback' component={Feedback} />
     <Route path='/LayoutAddOns' component={LayoutAddOns} />
-    <Route path='/LogIn' component={LogIn} />
+    <Route path='/logIn' component={LogIn} />
     <Route path='/Settings' component={SettingPage} />
     <Route path='/Sources' component={Sources} />
 
