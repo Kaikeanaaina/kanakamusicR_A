@@ -14,7 +14,13 @@ const style = {
     padding: '5px'
   },
   lyricsAndChords: {
-    fontFamily: 'Courier'
+    fontFamily: 'Courier',
+    fontSize: '18px'
+  },
+  lyricsAndChordsLabel: {
+    fontFamily: '',
+    margin: 0,
+    fontSize: '15px'
   },
   description: {
     backgroundColor: 'rgba(200,200,200,0.4)',
@@ -381,6 +387,246 @@ class EditSong extends React.Component {
       object.description = this.refs.description.value
     }
 
+    if (!this.refs.chord1.value) {
+      object.chord1 = this.state.Song.chord1
+    } else if (this.refs.chord1.value === ' ') {
+      object.chord1 = null
+    } else {
+      object.chord1 = this.refs.chord1.value
+    }
+
+    if (!this.refs.chord2.value) {
+      object.chord2 = this.state.Song.chord2
+    } else if (this.refs.chord2.value === ' ') {
+      object.chord2 = null
+    } else {
+      object.chord2 = this.refs.chord2.value
+    }
+
+    if (!this.refs.chord3.value) {
+      object.chord3 = this.state.Song.chord3
+    } else if (this.refs.chord3.value === ' ') {
+      object.chord3 = null
+    } else {
+      object.chord3 = this.refs.chord3.value
+    }
+
+    if (!this.refs.chord4.value) {
+      object.chord4 = this.state.Song.chord4
+    } else if (this.refs.chord4.value === ' ') {
+      object.chord4 = null
+    } else {
+      object.chord4 = this.refs.chord4.value
+    }
+
+    if (!this.refs.chord5.value) {
+      object.chord5 = this.state.Song.chord5
+    } else if (this.refs.chord5.value === ' ') {
+      object.chord5 = null
+    } else {
+      object.chord5 = this.refs.chord5.value
+    }
+
+    if (!this.refs.chord6.value) {
+      object.chord6 = this.state.Song.chord6
+    } else if (this.refs.chord6.value === ' ') {
+      object.chord6 = null
+    } else {
+      object.chord6 = this.refs.chord6.value
+    }
+
+    if (!this.refs.chord7.value) {
+      object.chord7 = this.state.Song.chord7
+    } else if (this.refs.chord7.value === ' ') {
+      object.chord7 = null
+    } else {
+      object.chord7 = this.refs.chord7.value
+    }
+
+    if (!this.refs.chord8.value) {
+      object.chord8 = this.state.Song.chord8
+    } else if (this.refs.chord8.value === ' ') {
+      object.chord8 = null
+    } else {
+      object.chord8 = this.refs.chord8.value
+    }
+
+    if (!this.refs.chord9.value) {
+      object.chord9 = this.state.Song.chord9
+    } else if (this.refs.chord9.value === ' ') {
+      object.chord9 = null
+    } else {
+      object.chord9 = this.refs.chord9.value
+    }
+
+    if (!this.refs.chord10.value) {
+      object.chord10 = this.state.Song.chord10
+    } else if (this.refs.chord10.value === ' ') {
+      object.chord10 = null
+    } else {
+      object.chord10 = this.refs.chord10.value
+    }
+
+    if (!this.refs.chord11.value) {
+      object.chord11 = this.state.Song.chord11
+    } else if (this.refs.chord11.value === ' ') {
+      object.chord11 = null
+    } else {
+      object.chord11 = this.refs.chord11.value
+    }
+
+    if (!this.refs.chord12.value) {
+      object.chord12 = this.state.Song.chord12
+    } else if (this.refs.chord12.value === ' ') {
+      object.chord12 = null
+    } else {
+      object.chord12 = this.refs.chord12.value
+    }
+
+    if (!this.refs.chord13.value) {
+      object.chord13 = this.state.Song.chord13
+    } else if (this.refs.chord13.value === ' ') {
+      object.chord13 = null
+    } else {
+      object.chord13 = this.refs.chord13.value
+    }
+
+    if (!this.refs.chord14.value) {
+      object.chord14 = this.state.Song.chord14
+    } else if (this.refs.chord14.value === ' ') {
+      object.chord14 = null
+    } else {
+      object.chord14 = this.refs.chord14.value
+    }
+
+    if (!this.refs.chord15.value) {
+      object.chord15 = this.state.Song.chord15
+    } else if (this.refs.chord15.value === ' ') {
+      object.chord15 = null
+    } else {
+      object.chord15 = this.refs.chord15.value
+    }
+
+    if (!this.refs.chord16.value) {
+      object.chord16 = this.state.Song.chord16
+    } else if (this.refs.chord16.value === ' ') {
+      object.chord16 = null
+    } else {
+      object.chord16 = this.refs.chord16.value
+    }
+
+    if (!this.refs.chord17.value) {
+      object.chord17 = this.state.Song.chord17
+    } else if (this.refs.chord17.value === ' ') {
+      object.chord17 = null
+    } else {
+      object.chord17 = this.refs.chord17.value
+    }
+
+    if (!this.refs.chord18.value) {
+      object.chord18 = this.state.Song.chord18
+    } else if (this.refs.chord18.value === ' ') {
+      object.chord18 = null
+    } else {
+      object.chord18 = this.refs.chord18.value
+    }
+
+    if (!this.refs.chord19.value) {
+      object.chord19 = this.state.Song.chord19
+    } else if (this.refs.chord19.value === ' ') {
+      object.chord19 = null
+    } else {
+      object.chord19 = this.refs.chord19.value
+    }
+
+    if (!this.refs.chord20.value) {
+      object.chord20 = this.state.Song.chord20
+    } else if (this.refs.chord20.value === ' ') {
+      object.chord20 = null
+    } else {
+      object.chord20 = this.refs.chord20.value
+    }
+
+    if (!this.refs.chord21.value) {
+      object.chord21 = this.state.Song.chord21
+    } else if (this.refs.chord21.value === ' ') {
+      object.chord21 = null
+    } else {
+      object.chord21 = this.refs.chord21.value
+    }
+
+    if (!this.refs.chord22.value) {
+      object.chord22 = this.state.Song.chord22
+    } else if (this.refs.chord22.value === ' ') {
+      object.chord22 = null
+    } else {
+      object.chord22 = this.refs.chord22.value
+    }
+
+    if (!this.refs.chord23.value) {
+      object.chord23 = this.state.Song.chord23
+    } else if (this.refs.chord23.value === ' ') {
+      object.chord23 = null
+    } else {
+      object.chord23 = this.refs.chord23.value
+    }
+
+    if (!this.refs.chord24.value) {
+      object.chord24 = this.state.Song.chord24
+    } else if (this.refs.chord24.value === ' ') {
+      object.chord24 = null
+    } else {
+      object.chord24 = this.refs.chord24.value
+    }
+
+    if (!this.refs.chord25.value) {
+      object.chord25 = this.state.Song.chord25
+    } else if (this.refs.chord25.value === ' ') {
+      object.chord25 = null
+    } else {
+      object.chord25 = this.refs.chord25.value
+    }
+
+    if (!this.refs.chord26.value) {
+      object.chord26 = this.state.Song.chord26
+    } else if (this.refs.chord26.value === ' ') {
+      object.chord26 = null
+    } else {
+      object.chord26 = this.refs.chord26.value
+    }
+
+    if (!this.refs.chord27.value) {
+      object.chord27 = this.state.Song.chord27
+    } else if (this.refs.chord27.value === ' ') {
+      object.chord27 = null
+    } else {
+      object.chord27 = this.refs.chord27.value
+    }
+
+    if (!this.refs.chord28.value) {
+      object.chord28 = this.state.Song.chord28
+    } else if (this.refs.chord28.value === ' ') {
+      object.chord28 = null
+    } else {
+      object.chord28 = this.refs.chord28.value
+    }
+
+    if (!this.refs.chord29.value) {
+      object.chord29 = this.state.Song.chord29
+    } else if (this.refs.chord29.value === ' ') {
+      object.chord29 = null
+    } else {
+      object.chord29 = this.refs.chord29.value
+    }
+
+    if (!this.refs.chord30.value) {
+      object.chord30 = this.state.Song.chord30
+    } else if (this.refs.chord30.value === ' ') {
+      object.chord30 = null
+    } else {
+      object.chord30 = this.refs.chord30.value
+    }
+
     object.visibilityByAlbum = this.state.Song.visibilityByAlbum
     object.visibilityByArtist = this.state.Song.visibilityByArtist
 
@@ -499,183 +745,391 @@ class EditSong extends React.Component {
           </div>
           <div style={style.lyrics}>
             <p>to change lyric line to null, just enter a space</p>
+            <p style={style.lyricsAndChordsLabel} >line 1</p>
             <div>
               <label>
-                <span> Line 1 </span>
+                <input ref='chord1' placeholder={this.state.Song.chord1} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line1' placeholder={this.state.Song.line1} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 2</p>
             <div>
               <label>
-                <span> Line 2 </span>
+                <input ref='chord2' placeholder={this.state.Song.chord2} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line2' placeholder={this.state.Song.line2} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 3</p>
             <div>
               <label>
-                <span> Line 3 </span>
+                <input ref='chord3' placeholder={this.state.Song.chord3} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line3' placeholder={this.state.Song.line3} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 4</p>
             <div>
               <label>
-                <span> Line 4 </span>
+                <input ref='chord4' placeholder={this.state.Song.chord4} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line4' placeholder={this.state.Song.line4} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 5</p>
             <div>
               <label>
-                <span> Line 5 </span>
+                <input ref='chord5' placeholder={this.state.Song.chord5} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line5' placeholder={this.state.Song.line5} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 6</p>
             <div>
               <label>
-                <span> Line 6 </span>
+                <input ref='chord6' placeholder={this.state.Song.chord6} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line6' placeholder={this.state.Song.line6} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 7</p>
             <div>
               <label>
-                <span> Line 7 </span>
+                <input ref='chord7' placeholder={this.state.Song.chord7} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line7' placeholder={this.state.Song.line7} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 8</p>
             <div>
               <label>
-                <span> Line 8 </span>
+                <input ref='chord8' placeholder={this.state.Song.chord8} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line8' placeholder={this.state.Song.line8} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 9</p>
             <div>
               <label>
-                <span> Line 9 </span>
+                <input ref='chord9' placeholder={this.state.Song.chord9} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line9' placeholder={this.state.Song.line9} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 10</p>
             <div>
               <label>
-                <span> Line 10 </span>
+                <input ref='chord10' placeholder={this.state.Song.chord10} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line10' placeholder={this.state.Song.line10} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 11</p>
             <div>
               <label>
-                <span> Line 11 </span>
+                <input ref='chord11' placeholder={this.state.Song.chord11} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line11' placeholder={this.state.Song.line11} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 12</p>
             <div>
               <label>
-                <span> Line 12 </span>
+                <input ref='chord12' placeholder={this.state.Song.chord12} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line12' placeholder={this.state.Song.line12} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line13</p>
             <div>
               <label>
-                <span> Line 13 </span>
+                <input ref='chord13' placeholder={this.state.Song.chord13} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line13' placeholder={this.state.Song.line13} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 14</p>
             <div>
               <label>
-                <span> Line 14 </span>
+                <input ref='chord14' placeholder={this.state.Song.chord14} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line14' placeholder={this.state.Song.line14} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line15</p>
             <div>
               <label>
-                <span> Line 15 </span>
+                <input ref='chord15' placeholder={this.state.Song.chord15} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line15' placeholder={this.state.Song.line15} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 16</p>
             <div>
               <label>
-                <span> Line 16 </span>
+                <input ref='chord16' placeholder={this.state.Song.chord16} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line16' placeholder={this.state.Song.line16} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 17</p>
             <div>
               <label>
-                <span> Line 17 </span>
+                <input ref='chord17' placeholder={this.state.Song.chord17} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line17' placeholder={this.state.Song.line17} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 18</p>
             <div>
               <label>
-                <span> Line 18 </span>
+                <input ref='chord18' placeholder={this.state.Song.chord18} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line18' placeholder={this.state.Song.line18} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 19</p>
             <div>
               <label>
-                <span> Line 19 </span>
+                <input ref='chord19' placeholder={this.state.Song.chord19} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line19' placeholder={this.state.Song.line19} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 20</p>
             <div>
               <label>
-                <span> Line 20 </span>
+                <input ref='chord20' placeholder={this.state.Song.chord20} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line20' placeholder={this.state.Song.line20} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 21</p>
             <div>
               <label>
-                <span> Line 21 </span>
+                <input ref='chord21' placeholder={this.state.Song.chord21} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line21' placeholder={this.state.Song.line21} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 22</p>
             <div>
               <label>
-                <span> Line 22 </span>
+                <input ref='chord22' placeholder={this.state.Song.chord22} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line22' placeholder={this.state.Song.line22} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 23</p>
             <div>
               <label>
-                <span> Line 23 </span>
+                <input ref='chord23' placeholder={this.state.Song.chord23} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line23' placeholder={this.state.Song.line23} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 24</p>
             <div>
               <label>
-                <span> Line 24 </span>
+                <input ref='chord24' placeholder={this.state.Song.chord24} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line24' placeholder={this.state.Song.line24} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 25</p>
             <div>
               <label>
-                <span> Line 25 </span>
+                <input ref='chord25' placeholder={this.state.Song.chord25} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line25' placeholder={this.state.Song.line25} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 26</p>
             <div>
               <label>
-                <span> Line 26 </span>
+                <input ref='chord26' placeholder={this.state.Song.chord26} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line26' placeholder={this.state.Song.line26} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 27</p>
             <div>
               <label>
-                <span> Line 27 </span>
+                <input ref='chord27' placeholder={this.state.Song.chord27} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line27' placeholder={this.state.Song.line27} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 28</p>
             <div>
               <label>
-                <span> Line 28 </span>
+                <input ref='chord28' placeholder={this.state.Song.chord28} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line28' placeholder={this.state.Song.line28} style={style.lyricsAndChords} />
               </label>
             </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 29</p>
             <div>
               <label>
-                <span> Line 29 </span>
-                <input ref='line29' placeholder={this.state.Song.line29} style={style.lyricsAndChords} />
+                <input ref='chord29' placeholder={this.state.Song.chord29} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
-                <span> Line 30 </span>
+                <input ref='line29' placeholder={this.state.Song.line29} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <br />
+
+            <p style={style.lyricsAndChordsLabel} >line 30</p>
+            <div>
+              <label>
+                <input ref='chord30' placeholder={this.state.Song.chord30} style={style.lyricsAndChords} />
+              </label>
+            </div>
+            <div>
+              <label>
                 <input ref='line30' placeholder={this.state.Song.line30} style={style.lyricsAndChords} />
               </label>
             </div>

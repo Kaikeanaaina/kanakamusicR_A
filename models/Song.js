@@ -136,6 +136,126 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    chord1: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord2: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord3: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord4: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord5: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord6: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord7: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord8: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord9: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord10: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord11: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord12: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord13: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord14: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord15: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord16: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord17: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord18: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord19: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord20: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord21: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord22: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord23: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord24: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord25: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord26: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord27: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord28: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord29: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    chord30: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     visibilityBySong: {
       type: DataTypes.BOOLEAN,
       allowNull: false

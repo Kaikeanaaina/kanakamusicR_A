@@ -47,98 +47,218 @@ class PreviewModal extends React.Component {
             <label>
               <h2>Type: {this.props.object.type}</h2>
             </label>
+            <br />
+
             <label>
-              <h2>line1: {this.props.object.line1}</h2>
+              <h4> {this.props.object.chord1}</h4>
             </label>
             <label>
-              <h2>line2: {this.props.object.line2}</h2>
+              <h4>{this.props.object.line1}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord2}</h4>
             </label>
             <label>
-              <h2>line3: {this.props.object.line3}</h2>
+              <h4> {this.props.object.line2}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord3}</h4>
             </label>
             <label>
-              <h2>line4: {this.props.object.line4}</h2>
+              <h4> {this.props.object.line3}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord4}</h4>
             </label>
             <label>
-              <h2>line5: {this.props.object.line5}</h2>
+              <h4> {this.props.object.line4}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord5}</h4>
             </label>
             <label>
-              <h2>line6: {this.props.object.line6}</h2>
+              <h4> {this.props.object.line5}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord6}</h4>
             </label>
             <label>
-              <h2>line7: {this.props.object.line7}</h2>
+              <h4> {this.props.object.line6}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord7}</h4>
             </label>
             <label>
-              <h2>line8: {this.props.object.line8}</h2>
+              <h4> {this.props.object.line7}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord8}</h4>
             </label>
             <label>
-              <h2>line9: {this.props.object.line9}</h2>
+              <h4> {this.props.object.line8}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord9}</h4>
             </label>
             <label>
-              <h2>line10: {this.props.object.line10}</h2>
+              <h4> {this.props.object.line9}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord10}</h4>
             </label>
             <label>
-              <h2>line11: {this.props.object.line11}</h2>
+              <h4> {this.props.object.line10}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord11}</h4>
             </label>
             <label>
-              <h2>line12: {this.props.object.line12}</h2>
+              <h4> {this.props.object.line11}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord12}</h4>
             </label>
             <label>
-              <h2>line13: {this.props.object.line13}</h2>
+              <h4> {this.props.object.line12}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord13}</h4>
             </label>
             <label>
-              <h2>line14: {this.props.object.line14}</h2>
+              <h4> {this.props.object.line13}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord14}</h4>
             </label>
             <label>
-              <h2>line15: {this.props.object.line15}</h2>
+              <h4> {this.props.object.line14}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord15}</h4>
             </label>
             <label>
-              <h2>line16: {this.props.object.line16}</h2>
+              <h4> {this.props.object.line15}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord16}</h4>
             </label>
             <label>
-              <h2>line17: {this.props.object.line17}</h2>
+              <h4> {this.props.object.line16}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord17}</h4>
             </label>
             <label>
-              <h2>line18: {this.props.object.line18}</h2>
+              <h4> {this.props.object.line17}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord18}</h4>
             </label>
             <label>
-              <h2>line19: {this.props.object.line19}</h2>
+              <h4> {this.props.object.line18}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord19}</h4>
             </label>
             <label>
-              <h2>line20: {this.props.object.line20}</h2>
+              <h4> {this.props.object.line19}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord20}</h4>
             </label>
             <label>
-              <h2>line21: {this.props.object.line21}</h2>
+              <h4> {this.props.object.line20}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord21}</h4>
             </label>
             <label>
-              <h2>line22: {this.props.object.line22}</h2>
+              <h4> {this.props.object.line21}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord22}</h4>
             </label>
             <label>
-              <h2>line23: {this.props.object.line23}</h2>
+              <h4> {this.props.object.line22}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord23}</h4>
             </label>
             <label>
-              <h2>line24: {this.props.object.line24}</h2>
+              <h4> {this.props.object.line23}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord24}</h4>
             </label>
             <label>
-              <h2>line25: {this.props.object.line25}</h2>
+              <h4> {this.props.object.line24}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord25}</h4>
             </label>
             <label>
-              <h2>line26: {this.props.object.line26}</h2>
+              <h4> {this.props.object.line25}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord26}</h4>
             </label>
             <label>
-              <h2>line27: {this.props.object.line27}</h2>
+              <h4> {this.props.object.line26}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord27}</h4>
             </label>
             <label>
-              <h2>line28: {this.props.object.line28}</h2>
+              <h4> {this.props.object.line27}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord28}</h4>
             </label>
             <label>
-              <h2>line29: {this.props.object.line29}</h2>
+              <h4> {this.props.object.line28}</h4>
+            </label>
+            <br />
+            <label>
+              <h4> {this.props.object.chord29}</h4>
             </label>
             <label>
-              <h2>line30: {this.props.object.line30}</h2>
+              <h4> {this.props.object.line29}</h4>
             </label>
             <label>
-              <h2>description: {this.props.object.description}</h2>
+              <h4> {this.props.object.chord30}</h4>
+            </label>
+            <label>
+              <h4> {this.props.object.line30}</h4>
+            </label>
+            <label>
+              <p>description: {this.props.object.description}</p>
             </label>
             <button onClick={this.props.closeModal}>cancel</button>
             <button onClick={this.props.onSubmit}>submit</button>
