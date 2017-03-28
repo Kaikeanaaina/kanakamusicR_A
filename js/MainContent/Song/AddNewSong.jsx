@@ -717,7 +717,7 @@ class AddNewSong extends React.Component {
           <br />
           <select type='text' ref='type' placeholder='type' style={styles} onChange={this.showSubmitButton}>
             <option value=''> type </option>
-            <option value='hawaii'>Hawaii</option>
+            <option value='melehawaii'>Mele Hawaii</option>
             <option value='contemporary'>contemporary</option>
           </select>
           <br />
