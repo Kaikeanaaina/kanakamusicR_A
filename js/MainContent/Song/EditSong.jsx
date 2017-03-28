@@ -10,8 +10,11 @@ const style = {
   },
   lyrics: {
     backgroundColor: 'rgba(200,200,200,0.4)',
-    fontSize: '18px',
+    fontSize: '24px',
     padding: '5px'
+  },
+  lyricsAndChords: {
+    fontFamily: 'Courier'
   },
   description: {
     backgroundColor: 'rgba(200,200,200,0.4)',
@@ -499,181 +502,181 @@ class EditSong extends React.Component {
             <div>
               <label>
                 <span> Line 1 </span>
-                <input ref='line1' placeholder={this.state.Song.line1} />
+                <input ref='line1' placeholder={this.state.Song.line1} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 2 </span>
-                <input ref='line2' placeholder={this.state.Song.line2} />
+                <input ref='line2' placeholder={this.state.Song.line2} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 3 </span>
-                <input ref='line3' placeholder={this.state.Song.line3} />
+                <input ref='line3' placeholder={this.state.Song.line3} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 4 </span>
-                <input ref='line4' placeholder={this.state.Song.line4} />
+                <input ref='line4' placeholder={this.state.Song.line4} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 5 </span>
-                <input ref='line5' placeholder={this.state.Song.line5} />
+                <input ref='line5' placeholder={this.state.Song.line5} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 6 </span>
-                <input ref='line6' placeholder={this.state.Song.line6} />
+                <input ref='line6' placeholder={this.state.Song.line6} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 7 </span>
-                <input ref='line7' placeholder={this.state.Song.line7} />
+                <input ref='line7' placeholder={this.state.Song.line7} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 8 </span>
-                <input ref='line8' placeholder={this.state.Song.line8} />
+                <input ref='line8' placeholder={this.state.Song.line8} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 9 </span>
-                <input ref='line9' placeholder={this.state.Song.line9} />
+                <input ref='line9' placeholder={this.state.Song.line9} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 10 </span>
-                <input ref='line10' placeholder={this.state.Song.line10} />
+                <input ref='line10' placeholder={this.state.Song.line10} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 11 </span>
-                <input ref='line11' placeholder={this.state.Song.line11} />
+                <input ref='line11' placeholder={this.state.Song.line11} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 12 </span>
-                <input ref='line12' placeholder={this.state.Song.line12} />
+                <input ref='line12' placeholder={this.state.Song.line12} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 13 </span>
-                <input ref='line13' placeholder={this.state.Song.line13} />
+                <input ref='line13' placeholder={this.state.Song.line13} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 14 </span>
-                <input ref='line14' placeholder={this.state.Song.line14} />
+                <input ref='line14' placeholder={this.state.Song.line14} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 15 </span>
-                <input ref='line15' placeholder={this.state.Song.line15} />
+                <input ref='line15' placeholder={this.state.Song.line15} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 16 </span>
-                <input ref='line16' placeholder={this.state.Song.line16} />
+                <input ref='line16' placeholder={this.state.Song.line16} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 17 </span>
-                <input ref='line17' placeholder={this.state.Song.line17} />
+                <input ref='line17' placeholder={this.state.Song.line17} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 18 </span>
-                <input ref='line18' placeholder={this.state.Song.line18} />
+                <input ref='line18' placeholder={this.state.Song.line18} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 19 </span>
-                <input ref='line19' placeholder={this.state.Song.line19} />
+                <input ref='line19' placeholder={this.state.Song.line19} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 20 </span>
-                <input ref='line20' placeholder={this.state.Song.line20} />
+                <input ref='line20' placeholder={this.state.Song.line20} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 21 </span>
-                <input ref='line21' placeholder={this.state.Song.line21} />
+                <input ref='line21' placeholder={this.state.Song.line21} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 22 </span>
-                <input ref='line22' placeholder={this.state.Song.line22} />
+                <input ref='line22' placeholder={this.state.Song.line22} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 23 </span>
-                <input ref='line23' placeholder={this.state.Song.line23} />
+                <input ref='line23' placeholder={this.state.Song.line23} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 24 </span>
-                <input ref='line24' placeholder={this.state.Song.line24} />
+                <input ref='line24' placeholder={this.state.Song.line24} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 25 </span>
-                <input ref='line25' placeholder={this.state.Song.line25} />
+                <input ref='line25' placeholder={this.state.Song.line25} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 26 </span>
-                <input ref='line26' placeholder={this.state.Song.line26} />
+                <input ref='line26' placeholder={this.state.Song.line26} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 27 </span>
-                <input ref='line27' placeholder={this.state.Song.line27} />
+                <input ref='line27' placeholder={this.state.Song.line27} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 28 </span>
-                <input ref='line28' placeholder={this.state.Song.line28} />
+                <input ref='line28' placeholder={this.state.Song.line28} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 29 </span>
-                <input ref='line29' placeholder={this.state.Song.line29} />
+                <input ref='line29' placeholder={this.state.Song.line29} style={style.lyricsAndChords} />
               </label>
             </div>
             <div>
               <label>
                 <span> Line 30 </span>
-                <input ref='line30' placeholder={this.state.Song.line30} />
+                <input ref='line30' placeholder={this.state.Song.line30} style={style.lyricsAndChords} />
               </label>
             </div>
           </div>

@@ -13,7 +13,8 @@ const style = {
     margin: '0px'
   },
   lyrics: {
-    fontSize: '24px'
+    fontSize: '24px',
+    fontFamily: 'Courier'
   },
   description: {
     fontSize: '18px'
