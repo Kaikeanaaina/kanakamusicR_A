@@ -188,9 +188,6 @@ class PreviewModal extends React.Component {
               <h2>name: {this.props.object.name}</h2>
             </label>
             <label>
-              <h2>type: {this.props.object.type}</h2>
-            </label>
-            <label>
               <h2>facebook: {this.props.object.facebook}</h2>
             </label>
             <label>

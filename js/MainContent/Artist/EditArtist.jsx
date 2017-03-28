@@ -71,12 +71,6 @@ class EditArtist extends React.Component {
       object.visibilityByArtist = this.state.Artist.visibilityByArtist
     }
 
-    if (this.refs.type.value !== 'type') {
-      object.type = this.refs.type.value
-    } else {
-      object.type = this.state.Artist.type
-    }
-
     if (this.refs.bookingEmail.value) {
       object.bookingEmail = this.refs.bookingEmail.value
     } else {
@@ -182,17 +176,6 @@ class EditArtist extends React.Component {
                   <option value='true' >true</option>
                 </select>
                 <span> {visibleProperty} </span>
-              </label>
-            </div>
-            <div>
-              <label>
-                <span> Type </span>
-                <select type='text' ref='type' >
-                  <option> type </option>
-                  <option value='hawaii' >Hawaii</option>
-                  <option value='contemporary' >contemporary</option>
-                </select>
-                <span> Current: {this.state.Artist.type} </span>
               </label>
             </div>
             <div>

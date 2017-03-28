@@ -35,7 +35,6 @@ class AddNewArtist extends React.Component {
 
     let object = {
       name: capitalizeName,
-      type: this.refs.type.value,
       description: this.refs.description.value,
       facebook: this.refs.facebook.value,
       instagram: this.refs.instagram.value,
@@ -88,7 +87,6 @@ class AddNewArtist extends React.Component {
     axios.post(`${domain}/artists`, this.state.object)
     .then((res) => {
     // should catch error here
-      console.log('3333333')
       return this.setState({
         modalIsOpen: false,
         successModalIsOpen: true
@@ -99,7 +97,7 @@ class AddNewArtist extends React.Component {
     })
   }
   showSubmitButton (e) {
-    if (this.refs.name.value && this.refs.type.value) {
+    if (this.refs.name.value) {
       this.setState({
         showSubmitButton: true
       })
@@ -119,12 +117,6 @@ class AddNewArtist extends React.Component {
         <h3>AddNewArtist</h3>
         <form onSubmit={this.onSubmit}>
           <input type='text' ref='name' style={styles} placeholder='artist name' onChange={this.showSubmitButton} />
-          <br />
-          <select ref='type' style={styles} onChange={this.showSubmitButton}>
-            <option value=''> type </option>
-            <option value='hawaii' > Hawaii </option>
-            <option value='contemporary'> Contemporary </option>
-          </select>
           <br />
           <textarea type='text' ref='description' placeholder='description' style={styles} />
           <br />
