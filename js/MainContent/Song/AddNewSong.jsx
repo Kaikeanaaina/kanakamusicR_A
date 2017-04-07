@@ -27,35 +27,35 @@ class AddNewSong extends React.Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.artistChange = this.artistChange.bind(this)
-    this.handleLine1 = this.handleLine1.bind(this)
-    this.handleLine2 = this.handleLine2.bind(this)
-    this.handleLine3 = this.handleLine3.bind(this)
-    this.handleLine4 = this.handleLine4.bind(this)
-    this.handleLine5 = this.handleLine5.bind(this)
-    this.handleLine6 = this.handleLine6.bind(this)
-    this.handleLine7 = this.handleLine7.bind(this)
-    this.handleLine8 = this.handleLine8.bind(this)
-    this.handleLine9 = this.handleLine9.bind(this)
-    this.handleLine10 = this.handleLine10.bind(this)
-    this.handleLine11 = this.handleLine11.bind(this)
-    this.handleLine12 = this.handleLine12.bind(this)
-    this.handleLine13 = this.handleLine13.bind(this)
-    this.handleLine14 = this.handleLine14.bind(this)
-    this.handleLine15 = this.handleLine15.bind(this)
-    this.handleLine16 = this.handleLine16.bind(this)
-    this.handleLine17 = this.handleLine17.bind(this)
-    this.handleLine18 = this.handleLine18.bind(this)
-    this.handleLine19 = this.handleLine19.bind(this)
-    this.handleLine20 = this.handleLine20.bind(this)
-    this.handleLine21 = this.handleLine21.bind(this)
-    this.handleLine22 = this.handleLine22.bind(this)
-    this.handleLine23 = this.handleLine23.bind(this)
-    this.handleLine24 = this.handleLine24.bind(this)
-    this.handleLine25 = this.handleLine25.bind(this)
-    this.handleLine26 = this.handleLine26.bind(this)
-    this.handleLine27 = this.handleLine27.bind(this)
-    this.handleLine28 = this.handleLine28.bind(this)
-    this.handleLine29 = this.handleLine29.bind(this)
+    this.handleLyric1 = this.handleLyric1.bind(this)
+    this.handleLyric2 = this.handleLyric2.bind(this)
+    this.handleLyric3 = this.handleLyric3.bind(this)
+    this.handleLyric4 = this.handleLyric4.bind(this)
+    this.handleLyric5 = this.handleLyric5.bind(this)
+    this.handleLyric6 = this.handleLyric6.bind(this)
+    this.handleLyric7 = this.handleLyric7.bind(this)
+    this.handleLyric8 = this.handleLyric8.bind(this)
+    this.handleLyric9 = this.handleLyric9.bind(this)
+    this.handleLyric10 = this.handleLyric10.bind(this)
+    this.handleLyric11 = this.handleLyric11.bind(this)
+    this.handleLyric12 = this.handleLyric12.bind(this)
+    this.handleLyric13 = this.handleLyric13.bind(this)
+    this.handleLyric14 = this.handleLyric14.bind(this)
+    this.handleLyric15 = this.handleLyric15.bind(this)
+    this.handleLyric16 = this.handleLyric16.bind(this)
+    this.handleLyric17 = this.handleLyric17.bind(this)
+    this.handleLyric18 = this.handleLyric18.bind(this)
+    this.handleLyric19 = this.handleLyric19.bind(this)
+    this.handleLyric20 = this.handleLyric20.bind(this)
+    this.handleLyric21 = this.handleLyric21.bind(this)
+    this.handleLyric22 = this.handleLyric22.bind(this)
+    this.handleLyric23 = this.handleLyric23.bind(this)
+    this.handleLyric24 = this.handleLyric24.bind(this)
+    this.handleLyric25 = this.handleLyric25.bind(this)
+    this.handleLyric26 = this.handleLyric26.bind(this)
+    this.handleLyric27 = this.handleLyric27.bind(this)
+    this.handleLyric28 = this.handleLyric28.bind(this)
+    this.handleLyric29 = this.handleLyric29.bind(this)
     this.openModal = this.openModal.bind(this)
     this.afterOpenModal = this.afterOpenModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
@@ -65,35 +65,35 @@ class AddNewSong extends React.Component {
     this.state = ({
       artists: [],
       albums: [],
-      line2: false,
-      line3: false,
-      line4: false,
-      line5: false,
-      line6: false,
-      line7: false,
-      line8: false,
-      line9: false,
-      line10: false,
-      line11: false,
-      line12: false,
-      line13: false,
-      line14: false,
-      line15: false,
-      line16: false,
-      line17: false,
-      line18: false,
-      line19: false,
-      line20: false,
-      line21: false,
-      line22: false,
-      line23: false,
-      line24: false,
-      line25: false,
-      line26: false,
-      line27: false,
-      line28: false,
-      line29: false,
-      line30: false,
+      lyric2: false,
+      lyric3: false,
+      lyric4: false,
+      lyric5: false,
+      lyric6: false,
+      lyric7: false,
+      lyric8: false,
+      lyric9: false,
+      lyric10: false,
+      lyric11: false,
+      lyric12: false,
+      lyric13: false,
+      lyric14: false,
+      lyric15: false,
+      lyric16: false,
+      lyric17: false,
+      lyric18: false,
+      lyric19: false,
+      lyric20: false,
+      lyric21: false,
+      lyric22: false,
+      lyric23: false,
+      lyric24: false,
+      lyric25: false,
+      lyric26: false,
+      lyric27: false,
+      lyric28: false,
+      lyric29: false,
+      lyric30: false,
       modalIsOpen: false,
       successModalIsOpen: false,
       object: {},
@@ -143,184 +143,184 @@ class AddNewSong extends React.Component {
       AlbumId: this.refs.album.value
     }
 
-    if (!this.refs.line1 || !this.refs.line1.value) {
-      object.line1 = null
+    if (!this.refs.lyric1 || !this.refs.lyric1.value) {
+      object.lyric1 = null
     } else {
-      object.line1 = this.refs.line1.value
+      object.lyric1 = this.refs.lyric1.value
     }
 
-    if (!this.refs.line2 || !this.refs.line2.value) {
-      object.line2 = null
+    if (!this.refs.lyric2 || !this.refs.lyric2.value) {
+      object.lyric2 = null
     } else {
-      object.line2 = this.refs.line2.value
+      object.lyric2 = this.refs.lyric2.value
     }
 
-    if (!this.refs.line3 || !this.refs.line3.value) {
-      object.line3 = null
+    if (!this.refs.lyric3 || !this.refs.lyric3.value) {
+      object.lyric3 = null
     } else {
-      object.line3 = this.refs.line3.value
+      object.lyric3 = this.refs.lyric3.value
     }
 
-    if (!this.refs.line4 || !this.refs.line4.value) {
-      object.line4 = null
+    if (!this.refs.lyric4 || !this.refs.lyric4.value) {
+      object.lyric4 = null
     } else {
-      object.line4 = this.refs.line4.value
+      object.lyric4 = this.refs.lyric4.value
     }
 
-    if (!this.refs.line5 || !this.refs.line5.value) {
-      object.line5 = null
+    if (!this.refs.lyric5 || !this.refs.lyric5.value) {
+      object.lyric5 = null
     } else {
-      object.line5 = this.refs.line5.value
+      object.lyric5 = this.refs.lyric5.value
     }
 
-    if (!this.refs.line6 || !this.refs.line6.value) {
-      object.line6 = null
+    if (!this.refs.lyric6 || !this.refs.lyric6.value) {
+      object.lyric6 = null
     } else {
-      object.line6 = this.refs.line6.value
+      object.lyric6 = this.refs.lyric6.value
     }
 
-    if (!this.refs.line7 || !this.refs.line7.value) {
-      object.line7 = null
+    if (!this.refs.lyric7 || !this.refs.lyric7.value) {
+      object.lyric7 = null
     } else {
-      object.line7 = this.refs.line7.value
+      object.lyric7 = this.refs.lyric7.value
     }
 
-    if (!this.refs.line8 || !this.refs.line8.value) {
-      object.line8 = null
+    if (!this.refs.lyric8 || !this.refs.lyric8.value) {
+      object.lyric8 = null
     } else {
-      object.line8 = this.refs.line8.value
+      object.lyric8 = this.refs.lyric8.value
     }
 
-    if (!this.refs.line9 || !this.refs.line9.value) {
-      object.line9 = null
+    if (!this.refs.lyric9 || !this.refs.lyric9.value) {
+      object.lyric9 = null
     } else {
-      object.line9 = this.refs.line9.value
+      object.lyric9 = this.refs.lyric9.value
     }
 
-    if (!this.refs.line10 || !this.refs.line10.value) {
-      object.line10 = null
+    if (!this.refs.lyric10 || !this.refs.lyric10.value) {
+      object.lyric10 = null
     } else {
-      object.line10 = this.refs.line10.value
+      object.lyric10 = this.refs.lyric10.value
     }
 
-    if (!this.refs.line11 || !this.refs.line11.value) {
-      object.line11 = null
+    if (!this.refs.lyric11 || !this.refs.lyric11.value) {
+      object.lyric11 = null
     } else {
-      object.line11 = this.refs.line11.value
+      object.lyric11 = this.refs.lyric11.value
     }
 
-    if (!this.refs.line12 || !this.refs.line12.value) {
-      object.line12 = null
+    if (!this.refs.lyric12 || !this.refs.lyric12.value) {
+      object.lyric12 = null
     } else {
-      object.line12 = this.refs.line12.value
+      object.lyric12 = this.refs.lyric12.value
     }
 
-    if (!this.refs.line13 || !this.refs.line13.value) {
-      object.line13 = null
+    if (!this.refs.lyric13 || !this.refs.lyric13.value) {
+      object.lyric13 = null
     } else {
-      object.line13 = this.refs.line13.value
+      object.lyric13 = this.refs.lyric13.value
     }
 
-    if (!this.refs.line14 || !this.refs.line14.value) {
-      object.line14 = null
+    if (!this.refs.lyric14 || !this.refs.lyric14.value) {
+      object.lyric14 = null
     } else {
-      object.line14 = this.refs.line14.value
+      object.lyric14 = this.refs.lyric14.value
     }
 
-    if (!this.refs.line15 || !this.refs.line15.value) {
-      object.line15 = null
+    if (!this.refs.lyric15 || !this.refs.lyric15.value) {
+      object.lyric15 = null
     } else {
-      object.line15 = this.refs.line15.value
+      object.lyric15 = this.refs.lyric15.value
     }
 
-    if (!this.refs.line16 || !this.refs.line16.value) {
-      object.line16 = null
+    if (!this.refs.lyric16 || !this.refs.lyric16.value) {
+      object.lyric16 = null
     } else {
-      object.line16 = this.refs.line16.value
+      object.lyric16 = this.refs.lyric16.value
     }
 
-    if (!this.refs.line17 || !this.refs.line17.value) {
-      object.line17 = null
+    if (!this.refs.lyric17 || !this.refs.lyric17.value) {
+      object.lyric17 = null
     } else {
-      object.line17 = this.refs.line17.value
+      object.lyric17 = this.refs.lyric17.value
     }
 
-    if (!this.refs.line18 || !this.refs.line18.value) {
-      object.line18 = null
+    if (!this.refs.lyric18 || !this.refs.lyric18.value) {
+      object.lyric18 = null
     } else {
-      object.line18 = this.refs.line18.value
+      object.lyric18 = this.refs.lyric18.value
     }
 
-    if (!this.refs.line19 || !this.refs.line19.value) {
-      object.line19 = null
+    if (!this.refs.lyric19 || !this.refs.lyric19.value) {
+      object.lyric19 = null
     } else {
-      object.line19 = this.refs.line19.value
+      object.lyric19 = this.refs.lyric19.value
     }
 
-    if (!this.refs.line20 || !this.refs.line20.value) {
-      object.line20 = null
+    if (!this.refs.lyric20 || !this.refs.lyric20.value) {
+      object.lyric20 = null
     } else {
-      object.line20 = this.refs.line20.value
+      object.lyric20 = this.refs.lyric20.value
     }
 
-    if (!this.refs.line21 || !this.refs.line21.value) {
-      object.line21 = null
+    if (!this.refs.lyric21 || !this.refs.lyric21.value) {
+      object.lyric21 = null
     } else {
-      object.line21 = this.refs.line21.value
+      object.lyric21 = this.refs.lyric21.value
     }
 
-    if (!this.refs.line22 || !this.refs.line22.value) {
-      object.line22 = null
+    if (!this.refs.lyric22 || !this.refs.lyric22.value) {
+      object.lyric22 = null
     } else {
-      object.line22 = this.refs.line22.value
+      object.lyric22 = this.refs.lyric22.value
     }
 
-    if (!this.refs.line23 || !this.refs.line23.value) {
-      object.line23 = null
+    if (!this.refs.lyric23 || !this.refs.lyric23.value) {
+      object.lyric23 = null
     } else {
-      object.line23 = this.refs.line23.value
+      object.lyric23 = this.refs.lyric23.value
     }
 
-    if (!this.refs.line24 || !this.refs.line24.value) {
-      object.line24 = null
+    if (!this.refs.lyric24 || !this.refs.lyric24.value) {
+      object.lyric24 = null
     } else {
-      object.line24 = this.refs.line24.value
+      object.lyric24 = this.refs.lyric24.value
     }
 
-    if (!this.refs.line25 || !this.refs.line25.value) {
-      object.line25 = null
+    if (!this.refs.lyric25 || !this.refs.lyric25.value) {
+      object.lyric25 = null
     } else {
-      object.line25 = this.refs.line25.value
+      object.lyric25 = this.refs.lyric25.value
     }
 
-    if (!this.refs.line26 || !this.refs.line26.value) {
-      object.line26 = null
+    if (!this.refs.lyric26 || !this.refs.lyric26.value) {
+      object.lyric26 = null
     } else {
-      object.line26 = this.refs.line26.value
+      object.lyric26 = this.refs.lyric26.value
     }
 
-    if (!this.refs.line27 || !this.refs.line27.value) {
-      object.line27 = null
+    if (!this.refs.lyric27 || !this.refs.lyric27.value) {
+      object.lyric27 = null
     } else {
-      object.line27 = this.refs.line27.value
+      object.lyric27 = this.refs.lyric27.value
     }
 
-    if (!this.refs.line28 || !this.refs.line28.value) {
-      object.line28 = null
+    if (!this.refs.lyric28 || !this.refs.lyric28.value) {
+      object.lyric28 = null
     } else {
-      object.line28 = this.refs.line28.value
+      object.lyric28 = this.refs.lyric28.value
     }
 
-    if (!this.refs.line29 || !this.refs.line29.value) {
-      object.line29 = null
+    if (!this.refs.lyric29 || !this.refs.lyric29.value) {
+      object.lyric29 = null
     } else {
-      object.line29 = this.refs.line29.value
+      object.lyric29 = this.refs.lyric29.value
     }
 
-    if (!this.refs.line30 || !this.refs.line30.value) {
-      object.line30 = null
+    if (!this.refs.lyric30 || !this.refs.lyric30.value) {
+      object.lyric30 = null
     } else {
-      object.line30 = this.refs.line30.value
+      object.lyric30 = this.refs.lyric30.value
     }
 
     if (!this.refs.chord1 || !this.refs.chord1.value) {
@@ -539,212 +539,212 @@ class AddNewSong extends React.Component {
       })
     }
   }
-  handleLine1 (e) {
+  handleLyric1 (e) {
     this.showSubmitButton()
     if (e.target.value) {
       return this.setState({
-        line2: true
+        lyric2: true
       })
     }
   }
-  handleLine2 (e) {
+  handleLyric2 (e) {
     if (e.target.value) {
       return this.setState({
-        line3: true
+        lyric3: true
       })
     }
   }
-  handleLine3 (e) {
+  handleLyric3 (e) {
     if (e.target.value) {
       return this.setState({
-        line4: true
+        lyric4: true
       })
     }
   }
-  handleLine4 (e) {
+  handleLyric4 (e) {
     if (e.target.value) {
       return this.setState({
-        line5: true
+        lyric5: true
       })
     }
   }
-  handleLine5 (e) {
+  handleLyric5 (e) {
     if (e.target.value) {
       return this.setState({
-        line6: true
+        lyric6: true
       })
     }
   }
-  handleLine6 (e) {
+  handleLyric6 (e) {
     if (e.target.value) {
       return this.setState({
-        line7: true
+        lyric7: true
       })
     }
   }
-  handleLine7 (e) {
+  handleLyric7 (e) {
     if (e.target.value) {
       return this.setState({
-        line8: true
+        lyric8: true
       })
     }
   }
-  handleLine8 (e) {
+  handleLyric8 (e) {
     if (e.target.value) {
       return this.setState({
-        line9: true
+        lyric9: true
       })
     }
   }
-  handleLine9 (e) {
+  handleLyric9 (e) {
     if (e.target.value) {
       return this.setState({
-        line10: true
+        lyric10: true
       })
     }
   }
-  handleLine10 (e) {
+  handleLyric10 (e) {
     if (e.target.value) {
       return this.setState({
-        line11: true
+        lyric11: true
       })
     }
   }
-  handleLine11 (e) {
+  handleLyric11 (e) {
     if (e.target.value) {
       return this.setState({
-        line12: true
+        lyric12: true
       })
     }
   }
-  handleLine12 (e) {
+  handleLyric12 (e) {
     if (e.target.value) {
       return this.setState({
-        line13: true
+        lyric13: true
       })
     }
   }
-  handleLine13 (e) {
+  handleLyric13 (e) {
     if (e.target.value) {
       return this.setState({
-        line14: true
+        lyric14: true
       })
     }
   }
-  handleLine14 (e) {
+  handleLyric14 (e) {
     if (e.target.value) {
       return this.setState({
-        line15: true
+        lyric15: true
       })
     }
   }
-  handleLine15 (e) {
+  handleLyric15 (e) {
     if (e.target.value) {
       return this.setState({
-        line16: true
+        lyric16: true
       })
     }
   }
-  handleLine16 (e) {
+  handleLyric16 (e) {
     if (e.target.value) {
       return this.setState({
-        line17: true
+        lyric17: true
       })
     }
   }
-  handleLine17 (e) {
+  handleLyric17 (e) {
     if (e.target.value) {
       return this.setState({
-        line18: true
+        lyric18: true
       })
     }
   }
-  handleLine18 (e) {
+  handleLyric18 (e) {
     if (e.target.value) {
       return this.setState({
-        line19: true
+        lyric19: true
       })
     }
   }
-  handleLine19 (e) {
+  handleLyric19 (e) {
     if (e.target.value) {
       return this.setState({
-        line20: true
+        lyric20: true
       })
     }
   }
-  handleLine20 (e) {
+  handleLyric20 (e) {
     if (e.target.value) {
       return this.setState({
-        line21: true
+        lyric21: true
       })
     }
   }
-  handleLine21 (e) {
+  handleLyric21 (e) {
     if (e.target.value) {
       return this.setState({
-        line22: true
+        lyric22: true
       })
     }
   }
-  handleLine22 (e) {
+  handleLyric22 (e) {
     if (e.target.value) {
       return this.setState({
-        line23: true
+        lyric23: true
       })
     }
   }
-  handleLine23 (e) {
+  handleLyric23 (e) {
     if (e.target.value) {
       return this.setState({
-        line24: true
+        lyric24: true
       })
     }
   }
-  handleLine24 (e) {
+  handleLyric24 (e) {
     if (e.target.value) {
       return this.setState({
-        line25: true
+        lyric25: true
       })
     }
   }
-  handleLine25 (e) {
+  handleLyric25 (e) {
     if (e.target.value) {
       return this.setState({
-        line26: true
+        lyric26: true
       })
     }
   }
-  handleLine26 (e) {
+  handleLyric26 (e) {
     if (e.target.value) {
       return this.setState({
-        line27: true
+        lyric27: true
       })
     }
   }
-  handleLine27 (e) {
+  handleLyric27 (e) {
     if (e.target.value) {
       return this.setState({
-        line28: true
+        lyric28: true
       })
     }
   }
-  handleLine28 (e) {
+  handleLyric28 (e) {
     if (e.target.value) {
       return this.setState({
-        line29: true
+        lyric29: true
       })
     }
   }
-  handleLine29 (e) {
+  handleLyric29 (e) {
     if (e.target.value) {
       return this.setState({
-        line30: true
+        lyric30: true
       })
     }
   }
   showSubmitButton (e) {
-    if (this.refs.title.value && this.refs.artist.value && this.refs.album.value && this.refs.type.value && this.refs.line1.value) {
+    if (this.refs.title.value && this.refs.artist.value && this.refs.album.value && this.refs.type.value && this.refs.lyric1.value) {
       this.setState({
         showSubmitButton: true
       })
@@ -756,121 +756,121 @@ class AddNewSong extends React.Component {
   }
 
   render () {
-    let line2 = null
-    if (this.state.line2) {
-      line2 = <div id='addSongLine2' > <input type='text' ref='chord2' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine2} ref='line2' placeholder='line2' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric2 = null
+    if (this.state.lyric2) {
+      lyric2 = <div id='addSongLyric2' > <input type='text' ref='chord2' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric2} ref='lyric2' placeholder='lyric2' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line3 = null
-    if (this.state.line3) {
-      line3 = <div id='addSongLine3' > <input type='text' ref='chord3' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine3} ref='line3' placeholder='line3' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric3 = null
+    if (this.state.lyric3) {
+      lyric3 = <div id='addSongLyric3' > <input type='text' ref='chord3' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric3} ref='lyric3' placeholder='lyric3' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line4 = null
-    if (this.state.line4) {
-      line4 = <div id='addSongLine4' > <input type='text' ref='chord4' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine4} ref='line4' placeholder='line4' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric4 = null
+    if (this.state.lyric4) {
+      lyric4 = <div id='addSongLyric4' > <input type='text' ref='chord4' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric4} ref='lyric4' placeholder='lyric4' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line5 = null
-    if (this.state.line5) {
-      line5 = <div id='addSongLine5' > <input type='text' ref='chord5' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine5} ref='line5' placeholder='line5' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric5 = null
+    if (this.state.lyric5) {
+      lyric5 = <div id='addSongLyric5' > <input type='text' ref='chord5' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric5} ref='lyric5' placeholder='lyric5' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line6 = null
-    if (this.state.line6) {
-      line6 = <div id='addSongLine6' > <input type='text' ref='chord6' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine6} ref='line6' placeholder='line6' style={styles.lyricsAndChords} /><br /> <br /> </div>
+    let lyric6 = null
+    if (this.state.lyric6) {
+      lyric6 = <div id='addSongLyric6' > <input type='text' ref='chord6' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric6} ref='lyric6' placeholder='lyric6' style={styles.lyricsAndChords} /><br /> <br /> </div>
     }
-    let line7 = null
-    if (this.state.line7) {
-      line7 = <div id='addSongLine7' > <input type='text' ref='chord7' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine7} ref='line7' placeholder='line7' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric7 = null
+    if (this.state.lyric7) {
+      lyric7 = <div id='addSongLyric7' > <input type='text' ref='chord7' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric7} ref='lyric7' placeholder='lyric7' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line8 = null
-    if (this.state.line8) {
-      line8 = <div id='addSongLine8' > <input type='text' ref='chord8' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine8} ref='line8' placeholder='line8' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric8 = null
+    if (this.state.lyric8) {
+      lyric8 = <div id='addSongLyric8' > <input type='text' ref='chord8' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric8} ref='lyric8' placeholder='lyric8' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line9 = null
-    if (this.state.line9) {
-      line9 = <div id='addSongLine9' > <input type='text' ref='chord9' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine9} ref='line9' placeholder='line9' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric9 = null
+    if (this.state.lyric9) {
+      lyric9 = <div id='addSongLyric9' > <input type='text' ref='chord9' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric9} ref='lyric9' placeholder='lyric9' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line10 = null
-    if (this.state.line10) {
-      line10 = <div id='addSongLine10' > <input type='text' ref='chord10' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine10} ref='line10' placeholder='line10' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric10 = null
+    if (this.state.lyric10) {
+      lyric10 = <div id='addSongLyric10' > <input type='text' ref='chord10' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric10} ref='lyric10' placeholder='lyric10' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line11 = null
-    if (this.state.line11) {
-      line11 = <div id='addSongLine11' > <input type='text' ref='chord11' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine11} ref='line11' placeholder='line11' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric11 = null
+    if (this.state.lyric11) {
+      lyric11 = <div id='addSongLyric11' > <input type='text' ref='chord11' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric11} ref='lyric11' placeholder='lyric11' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line12 = null
-    if (this.state.line12) {
-      line12 = <div id='addSongLine12' > <input type='text' ref='chord12' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine12} ref='line12' placeholder='line12' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric12 = null
+    if (this.state.lyric12) {
+      lyric12 = <div id='addSongLyric12' > <input type='text' ref='chord12' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric12} ref='lyric12' placeholder='lyric12' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line13 = null
-    if (this.state.line13) {
-      line13 = <div id='addSongLine13' > <input type='text' ref='chord13' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine13} ref='line13' placeholder='line13' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric13 = null
+    if (this.state.lyric13) {
+      lyric13 = <div id='addSongLyric13' > <input type='text' ref='chord13' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric13} ref='lyric13' placeholder='lyric13' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line14 = null
-    if (this.state.line14) {
-      line14 = <div id='addSongLine14' > <input type='text' ref='chord14' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine14} ref='line14' placeholder='line14' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric14 = null
+    if (this.state.lyric14) {
+      lyric14 = <div id='addSongLyric14' > <input type='text' ref='chord14' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric14} ref='lyric14' placeholder='lyric14' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line15 = null
-    if (this.state.line15) {
-      line15 = <div id='addSongLine15' > <input type='text' ref='chord15' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine15} ref='line15' placeholder='line15' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric15 = null
+    if (this.state.lyric15) {
+      lyric15 = <div id='addSongLyric15' > <input type='text' ref='chord15' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric15} ref='lyric15' placeholder='lyric15' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line16 = null
-    if (this.state.line16) {
-      line16 = <div id='addSongLine16' > <input type='text' ref='chord16' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine16} ref='line16' placeholder='line16' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric16 = null
+    if (this.state.lyric16) {
+      lyric16 = <div id='addSongLyric16' > <input type='text' ref='chord16' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric16} ref='lyric16' placeholder='lyric16' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line17 = null
-    if (this.state.line17) {
-      line17 = <div id='addSongLine17' > <input type='text' ref='chord17' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine17} ref='line17' placeholder='line17' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric17 = null
+    if (this.state.lyric17) {
+      lyric17 = <div id='addSongLyric17' > <input type='text' ref='chord17' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric17} ref='lyric17' placeholder='lyric17' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line18 = null
-    if (this.state.line18) {
-      line18 = <div id='addSongLine18' > <input type='text' ref='chord18' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine18} ref='line18' placeholder='line18' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric18 = null
+    if (this.state.lyric18) {
+      lyric18 = <div id='addSongLyric18' > <input type='text' ref='chord18' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric18} ref='lyric18' placeholder='lyric18' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line19 = null
-    if (this.state.line19) {
-      line19 = <div id='addSongLine19' > <input type='text' ref='chord19' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine19} ref='line19' placeholder='line19' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric19 = null
+    if (this.state.lyric19) {
+      lyric19 = <div id='addSongLyric19' > <input type='text' ref='chord19' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric19} ref='lyric19' placeholder='lyric19' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line20 = null
-    if (this.state.line20) {
-      line20 = <div id='addSongLine20' > <input type='text' ref='chord20' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine20} ref='line20' placeholder='line20' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric20 = null
+    if (this.state.lyric20) {
+      lyric20 = <div id='addSongLyric20' > <input type='text' ref='chord20' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric20} ref='lyric20' placeholder='lyric20' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line21 = null
-    if (this.state.line21) {
-      line21 = <div id='addSongLine21' > <input type='text' ref='chord21' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine21} ref='line21' placeholder='line21' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric21 = null
+    if (this.state.lyric21) {
+      lyric21 = <div id='addSongLyric21' > <input type='text' ref='chord21' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric21} ref='lyric21' placeholder='lyric21' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line22 = null
-    if (this.state.line22) {
-      line22 = <div id='addSongLine22' > <input type='text' ref='chord22' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine22} ref='line22' placeholder='line22' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric22 = null
+    if (this.state.lyric22) {
+      lyric22 = <div id='addSongLyric22' > <input type='text' ref='chord22' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric22} ref='lyric22' placeholder='lyric22' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line23 = null
-    if (this.state.line23) {
-      line23 = <div id='addSongLine23' > <input type='text' ref='chord23' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine23} ref='line23' placeholder='line23' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric23 = null
+    if (this.state.lyric23) {
+      lyric23 = <div id='addSongLyric23' > <input type='text' ref='chord23' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric23} ref='lyric23' placeholder='lyric23' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line24 = null
-    if (this.state.line24) {
-      line24 = <div id='addSongLine24' > <input type='text' ref='chord24' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine24} ref='line24' placeholder='line24' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric24 = null
+    if (this.state.lyric24) {
+      lyric24 = <div id='addSongLyric24' > <input type='text' ref='chord24' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric24} ref='lyric24' placeholder='lyric24' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line25 = null
-    if (this.state.line25) {
-      line25 = <div id='addSongLine25' > <input type='text' ref='chord25' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine25} ref='line25' placeholder='line25' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric25 = null
+    if (this.state.lyric25) {
+      lyric25 = <div id='addSongLyric25' > <input type='text' ref='chord25' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric25} ref='lyric25' placeholder='lyric25' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line26 = null
-    if (this.state.line26) {
-      line26 = <div id='addSongLine26' > <input type='text' ref='chord26' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine26} ref='line26' placeholder='line26' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric26 = null
+    if (this.state.lyric26) {
+      lyric26 = <div id='addSongLyric26' > <input type='text' ref='chord26' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric26} ref='lyric26' placeholder='lyric26' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line27 = null
-    if (this.state.line27) {
-      line27 = <div id='addSongLine27' > <input type='text' ref='chord27' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine27} ref='line27' placeholder='line27' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric27 = null
+    if (this.state.lyric27) {
+      lyric27 = <div id='addSongLyric27' > <input type='text' ref='chord27' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric27} ref='lyric27' placeholder='lyric27' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line28 = null
-    if (this.state.line28) {
-      line28 = <div id='addSongLine28' > <input type='text' ref='chord28' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine28} ref='line28' placeholder='line28' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric28 = null
+    if (this.state.lyric28) {
+      lyric28 = <div id='addSongLyric28' > <input type='text' ref='chord28' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric28} ref='lyric28' placeholder='lyric28' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line29 = null
-    if (this.state.line29) {
-      line29 = <div id='addSongLine29' > <input type='text' ref='chord29' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLine29} ref='line29' placeholder='line29' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric29 = null
+    if (this.state.lyric29) {
+      lyric29 = <div id='addSongLyric29' > <input type='text' ref='chord29' style={styles.lyricsAndChords} /> <br /> <input type='text' onChange={this.handleLyric29} ref='lyric29' placeholder='lyric29' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
-    let line30 = null
-    if (this.state.line30) {
-      line30 = <div id='addSongLine30' > <input type='text' ref='chord30' style={styles.lyricsAndChords} /> <br /> <input type='text' ref='line30' placeholder='line30' style={styles.lyricsAndChords} /> <br /> <br /> </div>
+    let lyric30 = null
+    if (this.state.lyric30) {
+      lyric30 = <div id='addSongLyric30' > <input type='text' ref='chord30' style={styles.lyricsAndChords} /> <br /> <input type='text' ref='lyric30' placeholder='lyric30' style={styles.lyricsAndChords} /> <br /> <br /> </div>
     }
     let submitButton = null
     if (this.state.showSubmitButton) {
@@ -905,38 +905,38 @@ class AddNewSong extends React.Component {
           <textarea type='text' ref='description' placeholder='description' style={styles.others} />
           <br />
           <input type='text' ref='chord1' style={styles.lyricsAndChords} />
-          <input type='text' ref='line1' placeholder='line1' style={styles.lyricsAndChords} onChange={this.handleLine1} />
+          <input type='text' ref='lyric1' placeholder='lyric1' style={styles.lyricsAndChords} onChange={this.handleLyric1} />
           <br />
           <br />
-          {line2}
-          {line3}
-          {line4}
-          {line5}
-          {line6}
-          {line7}
-          {line8}
-          {line9}
-          {line10}
-          {line11}
-          {line12}
-          {line13}
-          {line14}
-          {line15}
-          {line16}
-          {line17}
-          {line18}
-          {line19}
-          {line20}
-          {line21}
-          {line22}
-          {line23}
-          {line24}
-          {line25}
-          {line26}
-          {line27}
-          {line28}
-          {line29}
-          {line30}
+          {lyric2}
+          {lyric3}
+          {lyric4}
+          {lyric5}
+          {lyric6}
+          {lyric7}
+          {lyric8}
+          {lyric9}
+          {lyric10}
+          {lyric11}
+          {lyric12}
+          {lyric13}
+          {lyric14}
+          {lyric15}
+          {lyric16}
+          {lyric17}
+          {lyric18}
+          {lyric19}
+          {lyric20}
+          {lyric21}
+          {lyric22}
+          {lyric23}
+          {lyric24}
+          {lyric25}
+          {lyric26}
+          {lyric27}
+          {lyric28}
+          {lyric29}
+          {lyric30}
         </form>
         {submitButton}
         <PreviewModal type='addSong' modalIsOpen={this.state.modalIsOpen} closeModal={this.closeModal} object={this.state.object} onSubmit={this.onSubmit} contentLabel='previewModal' />

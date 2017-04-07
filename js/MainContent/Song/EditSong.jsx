@@ -15,7 +15,8 @@ const style = {
   },
   lyricsAndChords: {
     fontFamily: 'Courier',
-    fontSize: '18px'
+    fontSize: '18px',
+    width: '98%'
   },
   lyricsAndChordsLabel: {
     fontFamily: '',
@@ -149,236 +150,236 @@ class EditSong extends React.Component {
       object.visibilityBySong = this.state.Song.visibilityBySong
     }
 
-    if (!this.refs.line1.value) {
-      object.line1 = this.state.Song.line1
-    } else if (this.refs.line1.value === ' ') {
-      object.line1 = null
+    if (!this.refs.lyric1.value) {
+      object.lyric1 = this.state.Song.lyric1
+    } else if (this.refs.lyric1.value === ' ') {
+      object.lyric1 = null
     } else {
-      object.line1 = this.refs.line1.value
+      object.lyric1 = this.refs.lyric1.value
     }
 
-    if (!this.refs.line2.value) {
-      object.line2 = this.state.Song.line2
-    } else if (this.refs.line2.value === ' ') {
-      object.line2 = null
+    if (!this.refs.lyric2.value) {
+      object.lyric2 = this.state.Song.lyric2
+    } else if (this.refs.lyric2.value === ' ') {
+      object.lyric2 = null
     } else {
-      object.line2 = this.refs.line2.value
+      object.lyric2 = this.refs.lyric2.value
     }
 
-    if (!this.refs.line3.value) {
-      object.line3 = this.state.Song.line3
-    } else if (this.refs.line3.value === ' ') {
-      object.line3 = null
+    if (!this.refs.lyric3.value) {
+      object.lyric3 = this.state.Song.lyric3
+    } else if (this.refs.lyric3.value === ' ') {
+      object.lyric3 = null
     } else {
-      object.line3 = this.refs.line3.value
+      object.lyric3 = this.refs.lyric3.value
     }
 
-    if (!this.refs.line4.value) {
-      object.line4 = this.state.Song.line4
-    } else if (this.refs.line4.value === ' ') {
-      object.line4 = null
+    if (!this.refs.lyric4.value) {
+      object.lyric4 = this.state.Song.lyric4
+    } else if (this.refs.lyric4.value === ' ') {
+      object.lyric4 = null
     } else {
-      object.line4 = this.refs.line4.value
+      object.lyric4 = this.refs.lyric4.value
     }
 
-    if (!this.refs.line5.value) {
-      object.line5 = this.state.Song.line5
-    } else if (this.refs.line5.value === ' ') {
-      object.line5 = null
+    if (!this.refs.lyric5.value) {
+      object.lyric5 = this.state.Song.lyric5
+    } else if (this.refs.lyric5.value === ' ') {
+      object.lyric5 = null
     } else {
-      object.line5 = this.refs.line5.value
+      object.lyric5 = this.refs.lyric5.value
     }
 
-    if (!this.refs.line6.value) {
-      object.line6 = this.state.Song.line6
-    } else if (this.refs.line6.value === ' ') {
-      object.line6 = null
+    if (!this.refs.lyric6.value) {
+      object.lyric6 = this.state.Song.lyric6
+    } else if (this.refs.lyric6.value === ' ') {
+      object.lyric6 = null
     } else {
-      object.line6 = this.refs.line6.value
+      object.lyric6 = this.refs.lyric6.value
     }
 
-    if (!this.refs.line7.value) {
-      object.line7 = this.state.Song.line7
-    } else if (this.refs.line7.value === ' ') {
-      object.line7 = null
+    if (!this.refs.lyric7.value) {
+      object.lyric7 = this.state.Song.lyric7
+    } else if (this.refs.lyric7.value === ' ') {
+      object.lyric7 = null
     } else {
-      object.line7 = this.refs.line7.value
+      object.lyric7 = this.refs.lyric7.value
     }
 
-    if (!this.refs.line8.value) {
-      object.line8 = this.state.Song.line8
-    } else if (this.refs.line8.value === ' ') {
-      object.line8 = null
+    if (!this.refs.lyric8.value) {
+      object.lyric8 = this.state.Song.lyric8
+    } else if (this.refs.lyric8.value === ' ') {
+      object.lyric8 = null
     } else {
-      object.line8 = this.refs.line8.value
+      object.lyric8 = this.refs.lyric8.value
     }
 
-    if (!this.refs.line9.value) {
-      object.line9 = this.state.Song.line9
-    } else if (this.refs.line9.value === ' ') {
-      object.line9 = null
+    if (!this.refs.lyric9.value) {
+      object.lyric9 = this.state.Song.lyric9
+    } else if (this.refs.lyric9.value === ' ') {
+      object.lyric9 = null
     } else {
-      object.line9 = this.refs.line9.value
+      object.lyric9 = this.refs.lyric9.value
     }
 
-    if (!this.refs.line10.value) {
-      object.line10 = this.state.Song.line10
-    } else if (this.refs.line10.value === ' ') {
-      object.line10 = null
+    if (!this.refs.lyric10.value) {
+      object.lyric10 = this.state.Song.lyric10
+    } else if (this.refs.lyric10.value === ' ') {
+      object.lyric10 = null
     } else {
-      object.line10 = this.refs.line10.value
+      object.lyric10 = this.refs.lyric10.value
     }
 
-    if (!this.refs.line11.value) {
-      object.line11 = this.state.Song.line11
-    } else if (this.refs.line11.value === ' ') {
-      object.line11 = null
+    if (!this.refs.lyric11.value) {
+      object.lyric11 = this.state.Song.lyric11
+    } else if (this.refs.lyric11.value === ' ') {
+      object.lyric11 = null
     } else {
-      object.line11 = this.refs.line11.value
+      object.lyric11 = this.refs.lyric11.value
     }
 
-    if (!this.refs.line12.value) {
-      object.line12 = this.state.Song.line12
-    } else if (this.refs.line12.value === ' ') {
-      object.line12 = null
+    if (!this.refs.lyric12.value) {
+      object.lyric12 = this.state.Song.lyric12
+    } else if (this.refs.lyric12.value === ' ') {
+      object.lyric12 = null
     } else {
-      object.line12 = this.refs.line12.value
+      object.lyric12 = this.refs.lyric12.value
     }
 
-    if (!this.refs.line13.value) {
-      object.line13 = this.state.Song.line13
-    } else if (this.refs.line13.value === ' ') {
-      object.line13 = null
+    if (!this.refs.lyric13.value) {
+      object.lyric13 = this.state.Song.lyric13
+    } else if (this.refs.lyric13.value === ' ') {
+      object.lyric13 = null
     } else {
-      object.line13 = this.refs.line13.value
+      object.lyric13 = this.refs.lyric13.value
     }
 
-    if (!this.refs.line14.value) {
-      object.line14 = this.state.Song.line14
-    } else if (this.refs.line14.value === ' ') {
-      object.line14 = null
+    if (!this.refs.lyric14.value) {
+      object.lyric14 = this.state.Song.lyric14
+    } else if (this.refs.lyric14.value === ' ') {
+      object.lyric14 = null
     } else {
-      object.line14 = this.refs.line14.value
+      object.lyric14 = this.refs.lyric14.value
     }
 
-    if (!this.refs.line15.value) {
-      object.line15 = this.state.Song.line15
-    } else if (this.refs.line15.value === ' ') {
-      object.line15 = null
+    if (!this.refs.lyric15.value) {
+      object.lyric15 = this.state.Song.lyric15
+    } else if (this.refs.lyric15.value === ' ') {
+      object.lyric15 = null
     } else {
-      object.line15 = this.refs.line15.value
+      object.lyric15 = this.refs.lyric15.value
     }
 
-    if (!this.refs.line16.value) {
-      object.line16 = this.state.Song.line16
-    } else if (this.refs.line16.value === ' ') {
-      object.line16 = null
+    if (!this.refs.lyric16.value) {
+      object.lyric16 = this.state.Song.lyric16
+    } else if (this.refs.lyric16.value === ' ') {
+      object.lyric16 = null
     } else {
-      object.line16 = this.refs.line16.value
+      object.lyric16 = this.refs.lyric16.value
     }
 
-    if (!this.refs.line17.value) {
-      object.line17 = this.state.Song.line17
-    } else if (this.refs.line17.value === ' ') {
-      object.line17 = null
+    if (!this.refs.lyric17.value) {
+      object.lyric17 = this.state.Song.lyric17
+    } else if (this.refs.lyric17.value === ' ') {
+      object.lyric17 = null
     } else {
-      object.line17 = this.refs.line17.value
+      object.lyric17 = this.refs.lyric17.value
     }
 
-    if (!this.refs.line18.value) {
-      object.line18 = this.state.Song.line18
-    } else if (this.refs.line18.value === ' ') {
-      object.line18 = null
+    if (!this.refs.lyric18.value) {
+      object.lyric18 = this.state.Song.lyric18
+    } else if (this.refs.lyric18.value === ' ') {
+      object.lyric18 = null
     } else {
-      object.line18 = this.refs.line18.value
+      object.lyric18 = this.refs.lyric18.value
     }
 
-    if (!this.refs.line19.value) {
-      object.line19 = this.state.Song.line19
-    } else if (this.refs.line19.value === ' ') {
-      object.line19 = null
+    if (!this.refs.lyric19.value) {
+      object.lyric19 = this.state.Song.lyric19
+    } else if (this.refs.lyric19.value === ' ') {
+      object.lyric19 = null
     } else {
-      object.line19 = this.refs.line19.value
+      object.lyric19 = this.refs.lyric19.value
     }
 
-    if (!this.refs.line20.value) {
-      object.line20 = this.state.Song.line20
-    } else if (this.refs.line20.value === ' ') {
-      object.line20 = null
+    if (!this.refs.lyric20.value) {
+      object.lyric20 = this.state.Song.lyric20
+    } else if (this.refs.lyric20.value === ' ') {
+      object.lyric20 = null
     } else {
-      object.line20 = this.refs.line20.value
+      object.lyric20 = this.refs.lyric20.value
     }
 
-    if (!this.refs.line21.value) {
-      object.line21 = this.state.Song.line21
-    } else if (this.refs.line21.value === ' ') {
-      object.line21 = null
+    if (!this.refs.lyric21.value) {
+      object.lyric21 = this.state.Song.lyric21
+    } else if (this.refs.lyric21.value === ' ') {
+      object.lyric21 = null
     } else {
-      object.line21 = this.refs.line21.value
+      object.lyric21 = this.refs.lyric21.value
     }
 
-    if (!this.refs.line22.value) {
-      object.line22 = this.state.Song.line22
-    } else if (this.refs.line22.value === ' ') {
-      object.line22 = null
+    if (!this.refs.lyric22.value) {
+      object.lyric22 = this.state.Song.lyric22
+    } else if (this.refs.lyric22.value === ' ') {
+      object.lyric22 = null
     } else {
-      object.line22 = this.refs.line22.value
+      object.lyric22 = this.refs.lyric22.value
     }
 
-    if (!this.refs.line23.value) {
-      object.line23 = this.state.Song.line23
-    } else if (this.refs.line23.value === ' ') {
-      object.line23 = null
+    if (!this.refs.lyric23.value) {
+      object.lyric23 = this.state.Song.lyric23
+    } else if (this.refs.lyric23.value === ' ') {
+      object.lyric23 = null
     } else {
-      object.line23 = this.refs.line23.value
+      object.lyric23 = this.refs.lyric23.value
     }
 
-    if (!this.refs.line24.value) {
-      object.line24 = this.state.Song.line24
-    } else if (this.refs.line24.value === ' ') {
-      object.line24 = null
+    if (!this.refs.lyric24.value) {
+      object.lyric24 = this.state.Song.lyric24
+    } else if (this.refs.lyric24.value === ' ') {
+      object.lyric24 = null
     } else {
-      object.line24 = this.refs.line24.value
+      object.lyric24 = this.refs.lyric24.value
     }
 
-    if (!this.refs.line25.value) {
-      object.line25 = this.state.Song.line25
-    } else if (this.refs.line25.value === ' ') {
-      object.line25 = null
+    if (!this.refs.lyric25.value) {
+      object.lyric25 = this.state.Song.lyric25
+    } else if (this.refs.lyric25.value === ' ') {
+      object.lyric25 = null
     } else {
-      object.line25 = this.refs.line25.value
+      object.lyric25 = this.refs.lyric25.value
     }
 
-    if (!this.refs.line26.value) {
-      object.line26 = this.state.Song.line26
-    } else if (this.refs.line26.value === ' ') {
-      object.line26 = null
+    if (!this.refs.lyric26.value) {
+      object.lyric26 = this.state.Song.lyric26
+    } else if (this.refs.lyric26.value === ' ') {
+      object.lyric26 = null
     } else {
-      object.line26 = this.refs.line26.value
+      object.lyric26 = this.refs.lyric26.value
     }
 
-    if (!this.refs.line27.value) {
-      object.line27 = this.state.Song.line27
-    } else if (this.refs.line27.value === ' ') {
-      object.line27 = null
+    if (!this.refs.lyric27.value) {
+      object.lyric27 = this.state.Song.lyric27
+    } else if (this.refs.lyric27.value === ' ') {
+      object.lyric27 = null
     } else {
-      object.line27 = this.refs.line27.value
+      object.lyric27 = this.refs.lyric27.value
     }
 
-    if (!this.refs.line29.value) {
-      object.line29 = this.state.Song.line29
-    } else if (this.refs.line29.value === ' ') {
-      object.line29 = null
+    if (!this.refs.lyric29.value) {
+      object.lyric29 = this.state.Song.lyric29
+    } else if (this.refs.lyric29.value === ' ') {
+      object.lyric29 = null
     } else {
-      object.line29 = this.refs.line29.value
+      object.lyric29 = this.refs.lyric29.value
     }
 
-    if (!this.refs.line30.value) {
-      object.line30 = this.state.Song.line30
-    } else if (this.refs.line30.value === ' ') {
-      object.line30 = null
+    if (!this.refs.lyric30.value) {
+      object.lyric30 = this.state.Song.lyric30
+    } else if (this.refs.lyric30.value === ' ') {
+      object.lyric30 = null
     } else {
-      object.line30 = this.refs.line30.value
+      object.lyric30 = this.refs.lyric30.value
     }
 
     if (!this.refs.description.value) {
@@ -744,8 +745,8 @@ class EditSong extends React.Component {
             <br />
           </div>
           <div style={style.lyrics}>
-            <p>to change lyric line to null, just enter a space</p>
-            <p style={style.lyricsAndChordsLabel} >line 1</p>
+            <p>to change lyric lyric to null, just enter a space</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 1</p>
             <div>
               <label>
                 <input ref='chord1' placeholder={this.state.Song.chord1} style={style.lyricsAndChords} />
@@ -753,12 +754,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line1' placeholder={this.state.Song.line1} style={style.lyricsAndChords} />
+                <input ref='lyric1' placeholder={this.state.Song.lyric1} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 2</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 2</p>
             <div>
               <label>
                 <input ref='chord2' placeholder={this.state.Song.chord2} style={style.lyricsAndChords} />
@@ -766,12 +767,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line2' placeholder={this.state.Song.line2} style={style.lyricsAndChords} />
+                <input ref='lyric2' placeholder={this.state.Song.lyric2} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 3</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 3</p>
             <div>
               <label>
                 <input ref='chord3' placeholder={this.state.Song.chord3} style={style.lyricsAndChords} />
@@ -779,12 +780,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line3' placeholder={this.state.Song.line3} style={style.lyricsAndChords} />
+                <input ref='lyric3' placeholder={this.state.Song.lyric3} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 4</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 4</p>
             <div>
               <label>
                 <input ref='chord4' placeholder={this.state.Song.chord4} style={style.lyricsAndChords} />
@@ -792,12 +793,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line4' placeholder={this.state.Song.line4} style={style.lyricsAndChords} />
+                <input ref='lyric4' placeholder={this.state.Song.lyric4} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 5</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 5</p>
             <div>
               <label>
                 <input ref='chord5' placeholder={this.state.Song.chord5} style={style.lyricsAndChords} />
@@ -805,12 +806,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line5' placeholder={this.state.Song.line5} style={style.lyricsAndChords} />
+                <input ref='lyric5' placeholder={this.state.Song.lyric5} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 6</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 6</p>
             <div>
               <label>
                 <input ref='chord6' placeholder={this.state.Song.chord6} style={style.lyricsAndChords} />
@@ -818,12 +819,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line6' placeholder={this.state.Song.line6} style={style.lyricsAndChords} />
+                <input ref='lyric6' placeholder={this.state.Song.lyric6} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 7</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 7</p>
             <div>
               <label>
                 <input ref='chord7' placeholder={this.state.Song.chord7} style={style.lyricsAndChords} />
@@ -831,12 +832,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line7' placeholder={this.state.Song.line7} style={style.lyricsAndChords} />
+                <input ref='lyric7' placeholder={this.state.Song.lyric7} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 8</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 8</p>
             <div>
               <label>
                 <input ref='chord8' placeholder={this.state.Song.chord8} style={style.lyricsAndChords} />
@@ -844,12 +845,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line8' placeholder={this.state.Song.line8} style={style.lyricsAndChords} />
+                <input ref='lyric8' placeholder={this.state.Song.lyric8} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 9</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 9</p>
             <div>
               <label>
                 <input ref='chord9' placeholder={this.state.Song.chord9} style={style.lyricsAndChords} />
@@ -857,12 +858,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line9' placeholder={this.state.Song.line9} style={style.lyricsAndChords} />
+                <input ref='lyric9' placeholder={this.state.Song.lyric9} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 10</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 10</p>
             <div>
               <label>
                 <input ref='chord10' placeholder={this.state.Song.chord10} style={style.lyricsAndChords} />
@@ -870,12 +871,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line10' placeholder={this.state.Song.line10} style={style.lyricsAndChords} />
+                <input ref='lyric10' placeholder={this.state.Song.lyric10} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 11</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 11</p>
             <div>
               <label>
                 <input ref='chord11' placeholder={this.state.Song.chord11} style={style.lyricsAndChords} />
@@ -883,12 +884,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line11' placeholder={this.state.Song.line11} style={style.lyricsAndChords} />
+                <input ref='lyric11' placeholder={this.state.Song.lyric11} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 12</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 12</p>
             <div>
               <label>
                 <input ref='chord12' placeholder={this.state.Song.chord12} style={style.lyricsAndChords} />
@@ -896,12 +897,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line12' placeholder={this.state.Song.line12} style={style.lyricsAndChords} />
+                <input ref='lyric12' placeholder={this.state.Song.lyric12} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line13</p>
+            <p style={style.lyricsAndChordsLabel} >lyric13</p>
             <div>
               <label>
                 <input ref='chord13' placeholder={this.state.Song.chord13} style={style.lyricsAndChords} />
@@ -909,12 +910,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line13' placeholder={this.state.Song.line13} style={style.lyricsAndChords} />
+                <input ref='lyric13' placeholder={this.state.Song.lyric13} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 14</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 14</p>
             <div>
               <label>
                 <input ref='chord14' placeholder={this.state.Song.chord14} style={style.lyricsAndChords} />
@@ -922,12 +923,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line14' placeholder={this.state.Song.line14} style={style.lyricsAndChords} />
+                <input ref='lyric14' placeholder={this.state.Song.lyric14} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line15</p>
+            <p style={style.lyricsAndChordsLabel} >lyric15</p>
             <div>
               <label>
                 <input ref='chord15' placeholder={this.state.Song.chord15} style={style.lyricsAndChords} />
@@ -935,12 +936,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line15' placeholder={this.state.Song.line15} style={style.lyricsAndChords} />
+                <input ref='lyric15' placeholder={this.state.Song.lyric15} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 16</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 16</p>
             <div>
               <label>
                 <input ref='chord16' placeholder={this.state.Song.chord16} style={style.lyricsAndChords} />
@@ -948,12 +949,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line16' placeholder={this.state.Song.line16} style={style.lyricsAndChords} />
+                <input ref='lyric16' placeholder={this.state.Song.lyric16} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 17</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 17</p>
             <div>
               <label>
                 <input ref='chord17' placeholder={this.state.Song.chord17} style={style.lyricsAndChords} />
@@ -961,12 +962,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line17' placeholder={this.state.Song.line17} style={style.lyricsAndChords} />
+                <input ref='lyric17' placeholder={this.state.Song.lyric17} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 18</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 18</p>
             <div>
               <label>
                 <input ref='chord18' placeholder={this.state.Song.chord18} style={style.lyricsAndChords} />
@@ -974,12 +975,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line18' placeholder={this.state.Song.line18} style={style.lyricsAndChords} />
+                <input ref='lyric18' placeholder={this.state.Song.lyric18} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 19</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 19</p>
             <div>
               <label>
                 <input ref='chord19' placeholder={this.state.Song.chord19} style={style.lyricsAndChords} />
@@ -987,12 +988,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line19' placeholder={this.state.Song.line19} style={style.lyricsAndChords} />
+                <input ref='lyric19' placeholder={this.state.Song.lyric19} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 20</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 20</p>
             <div>
               <label>
                 <input ref='chord20' placeholder={this.state.Song.chord20} style={style.lyricsAndChords} />
@@ -1000,12 +1001,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line20' placeholder={this.state.Song.line20} style={style.lyricsAndChords} />
+                <input ref='lyric20' placeholder={this.state.Song.lyric20} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 21</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 21</p>
             <div>
               <label>
                 <input ref='chord21' placeholder={this.state.Song.chord21} style={style.lyricsAndChords} />
@@ -1013,12 +1014,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line21' placeholder={this.state.Song.line21} style={style.lyricsAndChords} />
+                <input ref='lyric21' placeholder={this.state.Song.lyric21} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 22</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 22</p>
             <div>
               <label>
                 <input ref='chord22' placeholder={this.state.Song.chord22} style={style.lyricsAndChords} />
@@ -1026,12 +1027,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line22' placeholder={this.state.Song.line22} style={style.lyricsAndChords} />
+                <input ref='lyric22' placeholder={this.state.Song.lyric22} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 23</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 23</p>
             <div>
               <label>
                 <input ref='chord23' placeholder={this.state.Song.chord23} style={style.lyricsAndChords} />
@@ -1039,12 +1040,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line23' placeholder={this.state.Song.line23} style={style.lyricsAndChords} />
+                <input ref='lyric23' placeholder={this.state.Song.lyric23} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 24</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 24</p>
             <div>
               <label>
                 <input ref='chord24' placeholder={this.state.Song.chord24} style={style.lyricsAndChords} />
@@ -1052,12 +1053,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line24' placeholder={this.state.Song.line24} style={style.lyricsAndChords} />
+                <input ref='lyric24' placeholder={this.state.Song.lyric24} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 25</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 25</p>
             <div>
               <label>
                 <input ref='chord25' placeholder={this.state.Song.chord25} style={style.lyricsAndChords} />
@@ -1065,12 +1066,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line25' placeholder={this.state.Song.line25} style={style.lyricsAndChords} />
+                <input ref='lyric25' placeholder={this.state.Song.lyric25} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 26</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 26</p>
             <div>
               <label>
                 <input ref='chord26' placeholder={this.state.Song.chord26} style={style.lyricsAndChords} />
@@ -1078,12 +1079,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line26' placeholder={this.state.Song.line26} style={style.lyricsAndChords} />
+                <input ref='lyric26' placeholder={this.state.Song.lyric26} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 27</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 27</p>
             <div>
               <label>
                 <input ref='chord27' placeholder={this.state.Song.chord27} style={style.lyricsAndChords} />
@@ -1091,12 +1092,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line27' placeholder={this.state.Song.line27} style={style.lyricsAndChords} />
+                <input ref='lyric27' placeholder={this.state.Song.lyric27} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 28</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 28</p>
             <div>
               <label>
                 <input ref='chord28' placeholder={this.state.Song.chord28} style={style.lyricsAndChords} />
@@ -1104,12 +1105,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line28' placeholder={this.state.Song.line28} style={style.lyricsAndChords} />
+                <input ref='lyric28' placeholder={this.state.Song.lyric28} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 29</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 29</p>
             <div>
               <label>
                 <input ref='chord29' placeholder={this.state.Song.chord29} style={style.lyricsAndChords} />
@@ -1117,12 +1118,12 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line29' placeholder={this.state.Song.line29} style={style.lyricsAndChords} />
+                <input ref='lyric29' placeholder={this.state.Song.lyric29} style={style.lyricsAndChords} />
               </label>
             </div>
             <br />
 
-            <p style={style.lyricsAndChordsLabel} >line 30</p>
+            <p style={style.lyricsAndChordsLabel} >lyric 30</p>
             <div>
               <label>
                 <input ref='chord30' placeholder={this.state.Song.chord30} style={style.lyricsAndChords} />
@@ -1130,7 +1131,7 @@ class EditSong extends React.Component {
             </div>
             <div>
               <label>
-                <input ref='line30' placeholder={this.state.Song.line30} style={style.lyricsAndChords} />
+                <input ref='lyric30' placeholder={this.state.Song.lyric30} style={style.lyricsAndChords} />
               </label>
             </div>
           </div>

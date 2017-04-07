@@ -16,123 +16,123 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(20),
       allowNull: false
     },
-    line1: {
+    lyric1: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line2: {
+    lyric2: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line3: {
+    lyric3: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line4: {
+    lyric4: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line5: {
+    lyric5: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line6: {
+    lyric6: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line7: {
+    lyric7: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line8: {
+    lyric8: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line9: {
+    lyric9: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line10: {
+    lyric10: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line11: {
+    lyric11: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line12: {
+    lyric12: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line13: {
+    lyric13: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line14: {
+    lyric14: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line15: {
+    lyric15: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line16: {
+    lyric16: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line17: {
+    lyric17: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line18: {
+    lyric18: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line19: {
+    lyric19: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line20: {
+    lyric20: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line21: {
+    lyric21: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line22: {
+    lyric22: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line23: {
+    lyric23: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line24: {
+    lyric24: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line25: {
+    lyric25: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line26: {
+    lyric26: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line27: {
+    lyric27: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line28: {
+    lyric28: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line29: {
+    lyric29: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    line30: {
+    lyric30: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
