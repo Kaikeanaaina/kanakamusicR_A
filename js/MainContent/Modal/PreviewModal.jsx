@@ -53,209 +53,209 @@ class PreviewModal extends React.Component {
               <h4> {this.props.object.chord1}</h4>
             </label>
             <label>
-              <h4>{this.props.object.line1}</h4>
+              <h4>{this.props.object.lyric1}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord2}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line2}</h4>
+              <h4> {this.props.object.lyric2}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord3}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line3}</h4>
+              <h4> {this.props.object.lyric3}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord4}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line4}</h4>
+              <h4> {this.props.object.lyric4}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord5}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line5}</h4>
+              <h4> {this.props.object.lyric5}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord6}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line6}</h4>
+              <h4> {this.props.object.lyric6}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord7}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line7}</h4>
+              <h4> {this.props.object.lyric7}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord8}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line8}</h4>
+              <h4> {this.props.object.lyric8}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord9}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line9}</h4>
+              <h4> {this.props.object.lyric9}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord10}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line10}</h4>
+              <h4> {this.props.object.lyric10}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord11}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line11}</h4>
+              <h4> {this.props.object.lyric11}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord12}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line12}</h4>
+              <h4> {this.props.object.lyric12}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord13}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line13}</h4>
+              <h4> {this.props.object.lyric13}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord14}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line14}</h4>
+              <h4> {this.props.object.lyric14}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord15}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line15}</h4>
+              <h4> {this.props.object.lyric15}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord16}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line16}</h4>
+              <h4> {this.props.object.lyric16}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord17}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line17}</h4>
+              <h4> {this.props.object.lyric17}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord18}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line18}</h4>
+              <h4> {this.props.object.lyric18}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord19}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line19}</h4>
+              <h4> {this.props.object.lyric19}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord20}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line20}</h4>
+              <h4> {this.props.object.lyric20}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord21}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line21}</h4>
+              <h4> {this.props.object.lyric21}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord22}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line22}</h4>
+              <h4> {this.props.object.lyric22}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord23}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line23}</h4>
+              <h4> {this.props.object.lyric23}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord24}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line24}</h4>
+              <h4> {this.props.object.lyric24}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord25}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line25}</h4>
+              <h4> {this.props.object.lyric25}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord26}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line26}</h4>
+              <h4> {this.props.object.lyric26}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord27}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line27}</h4>
+              <h4> {this.props.object.lyric27}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord28}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line28}</h4>
+              <h4> {this.props.object.lyric28}</h4>
             </label>
             <br />
             <label>
               <h4> {this.props.object.chord29}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line29}</h4>
+              <h4> {this.props.object.lyric29}</h4>
             </label>
             <label>
               <h4> {this.props.object.chord30}</h4>
             </label>
             <label>
-              <h4> {this.props.object.line30}</h4>
+              <h4> {this.props.object.lyric30}</h4>
             </label>
             <label>
               <p>description: {this.props.object.description}</p>
