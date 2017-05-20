@@ -227,6 +227,7 @@ class SongList extends React.Component {
         this.setState({
           songs: res.data
         })
+
         let div4Amount = 4
         let songsLength = this.state.songs.length
         const standardEach4Div = Math.floor(songsLength / div4Amount)
