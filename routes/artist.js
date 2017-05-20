@@ -41,24 +41,38 @@ router.get('/', function (req, res) {
   })
 })
 
-router.post('/', function (req, res) {
-  Artist.create({
-    name: req.body.name,
-    type: req.body.type,
-    facebook: req.body.facebook,
-    instagram: req.body.instagram,
-    twitter: req.body.twitter,
-    bookingPhoneNumber: req.body.bookingPhoneNumber,
-    bookingEmail: req.body.bookingEmail,
-    description: req.body.description,
-    visibilityByArtist: false
+router.get('/consumers/', function (req, res) {
+  Artist.findAll({
+    order: 'name',
+    where: {
+      visibilityByArtist: true
+    }
   })
-  .then(function (artist) {
-    return res.json(artist)
+  .then(function (artists) {
+    return res.json(artists)
   })
   .catch(function (err) {
     return res.json({ error: err})
   })
+})
+
+router.get('/consumers/:id', function (req, res) {
+  if (exists) {
+    Artist.findOne({
+      where: {
+        id: req.params.id,
+        visibilityByArtist: true
+      }
+    })
+    .then(function (artist) {
+      return res.json(artist)
+    })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
 })
 
 router.get('/:id', function (req, res) {
@@ -77,6 +91,26 @@ router.get('/:id', function (req, res) {
   } else {
     res.json({success: false})
   }
+})
+
+router.post('/', function (req, res) {
+  Artist.create({
+    name: req.body.name,
+    type: req.body.type,
+    facebook: req.body.facebook,
+    instagram: req.body.instagram,
+    twitter: req.body.twitter,
+    bookingPhoneNumber: req.body.bookingPhoneNumber,
+    bookingEmail: req.body.bookingEmail,
+    description: req.body.description,
+    visibilityByArtist: false
+  })
+  .then(function (artist) {
+    return res.json(artist)
+  })
+  .catch(function (err) {
+    return res.json({ error: err})
+  })
 })
 
 router.put('/:id', function (req, res) {

@@ -69,6 +69,78 @@ router.get('/ByArtistId/:id', function (req, res) {
   })
 })
 
+router.get('/consumers/', function (req, res) {
+  Song.findAll({
+    order: 'title',
+    where: {
+      visibilityBySong: true,
+      visibilityByAlbum: true,
+      visibilityByArtist: true
+    }
+  })
+  .then(function (songs) {
+    return res.json(songs)
+  })
+  .catch(function (err) {
+    return res.json({ error: err})
+  })
+})
+
+router.get('/consumers/ByAlbumId/:id', function (req, res) {
+  Song.findAll({
+    where: {
+      AlbumId: encodeURI(req.params.id),
+      visibilityBySong: true,
+      visibilityByAlbum: true,
+      visibilityByArtist: true
+    }
+  })
+  .then(function (songs) {
+    return res.json(songs)
+  })
+  .catch(function (err) {
+    return res.json({ error: err})
+  })
+})
+
+router.get('/consumers/ByArtistId/:id', function (req, res) {
+  Song.findAll({
+    where: {
+      ArtistId: encodeURI(req.params.id),
+      visibilityBySong: true,
+      visibilityByAlbum: true,
+      visibilityByArtist: true
+    }
+  })
+  .then(function (songs) {
+    return res.json(songs)
+  })
+  .catch(function (err) {
+    return res.json({ error: err})
+  })
+})
+
+router.get('/consumers/:id', function (req, res) {
+  if (exists) {
+    Song.findOne({
+      where: {
+        id: req.params.id,
+        visibilityBySong: true,
+        visibilityByAlbum: true,
+        visibilityByArtist: true
+      }
+    })
+    .then(function (song) {
+      return res.json(song)
+    })
+    .catch(function (err) {
+      return res.json({ error: err})
+    })
+  } else {
+    res.json({success: false})
+  }
+})
+
 router.get('/:id', function (req, res) {
   if (exists) {
     Song.findOne({
@@ -91,36 +163,36 @@ router.post('/', function (req, res) {
   var urltitle = (encodeURI(req.body.title)).toString()
   Song.create({
     title: req.body.title,
-    line1: req.body.line1,
-    line2: req.body.line2,
-    line3: req.body.line3,
-    line4: req.body.line4,
-    line5: req.body.line5,
-    line6: req.body.line6,
-    line7: req.body.line7,
-    line8: req.body.line8,
-    line9: req.body.line9,
-    line10: req.body.line10,
-    line11: req.body.line11,
-    line12: req.body.line12,
-    line13: req.body.line13,
-    line14: req.body.line14,
-    line15: req.body.line15,
-    line16: req.body.line16,
-    line17: req.body.line17,
-    line18: req.body.line18,
-    line19: req.body.line19,
-    line20: req.body.line20,
-    line21: req.body.line21,
-    line22: req.body.line22,
-    line23: req.body.line23,
-    line24: req.body.line24,
-    line25: req.body.line25,
-    line26: req.body.line26,
-    line27: req.body.line27,
-    line28: req.body.line28,
-    line29: req.body.line29,
-    line30: req.body.line30,
+    lyric1: req.body.lyric1,
+    lyric2: req.body.lyric2,
+    lyric3: req.body.lyric3,
+    lyric4: req.body.lyric4,
+    lyric5: req.body.lyric5,
+    lyric6: req.body.lyric6,
+    lyric7: req.body.lyric7,
+    lyric8: req.body.lyric8,
+    lyric9: req.body.lyric9,
+    lyric10: req.body.lyric10,
+    lyric11: req.body.lyric11,
+    lyric12: req.body.lyric12,
+    lyric13: req.body.lyric13,
+    lyric14: req.body.lyric14,
+    lyric15: req.body.lyric15,
+    lyric16: req.body.lyric16,
+    lyric17: req.body.lyric17,
+    lyric18: req.body.lyric18,
+    lyric19: req.body.lyric19,
+    lyric20: req.body.lyric20,
+    lyric21: req.body.lyric21,
+    lyric22: req.body.lyric22,
+    lyric23: req.body.lyric23,
+    lyric24: req.body.lyric24,
+    lyric25: req.body.lyric25,
+    lyric26: req.body.lyric26,
+    lyric27: req.body.lyric27,
+    lyric28: req.body.lyric28,
+    lyric29: req.body.lyric29,
+    lyric30: req.body.lyric30,
     chord1: req.body.chord1,
     chord2: req.body.chord2,
     chord3: req.body.chord3,
@@ -163,8 +235,8 @@ router.post('/', function (req, res) {
     memberWeeklyViews: 0,
     memberMonthlyViews: 0,
     visibilityBySong: false,
-    visibilityByAlbum: false,
-    visibilityByArtist: false
+    visibilityByAlbum: req.body.visibilityByAlbum,
+    visibilityByArtist: req.body.visibilityByArtist
   })
   .then(function (data) {
     return res.json(data)
@@ -218,36 +290,36 @@ router.put('/:id', function (req, res) {
         title: req.body.title,
         ArtistId: req.body.ArtistId,
         AlbumId: req.body.AlbumId,
-        line1: req.body.line1,
-        line2: req.body.line2,
-        line3: req.body.line3,
-        line4: req.body.line4,
-        line5: req.body.line5,
-        line6: req.body.line6,
-        line7: req.body.line7,
-        line8: req.body.line8,
-        line9: req.body.line9,
-        line10: req.body.line10,
-        line11: req.body.line11,
-        line12: req.body.line12,
-        line13: req.body.line13,
-        line14: req.body.line14,
-        line15: req.body.line15,
-        line16: req.body.line16,
-        line17: req.body.line17,
-        line18: req.body.line18,
-        line19: req.body.line19,
-        line20: req.body.line20,
-        line21: req.body.line21,
-        line22: req.body.line22,
-        line23: req.body.line23,
-        line24: req.body.line24,
-        line25: req.body.line25,
-        line26: req.body.line26,
-        line27: req.body.line27,
-        line28: req.body.line28,
-        line29: req.body.line29,
-        line30: req.body.line30,
+        lyric1: req.body.lyric1,
+        lyric2: req.body.lyric2,
+        lyric3: req.body.lyric3,
+        lyric4: req.body.lyric4,
+        lyric5: req.body.lyric5,
+        lyric6: req.body.lyric6,
+        lyric7: req.body.lyric7,
+        lyric8: req.body.lyric8,
+        lyric9: req.body.lyric9,
+        lyric10: req.body.lyric10,
+        lyric11: req.body.lyric11,
+        lyric12: req.body.lyric12,
+        lyric13: req.body.lyric13,
+        lyric14: req.body.lyric14,
+        lyric15: req.body.lyric15,
+        lyric16: req.body.lyric16,
+        lyric17: req.body.lyric17,
+        lyric18: req.body.lyric18,
+        lyric19: req.body.lyric19,
+        lyric20: req.body.lyric20,
+        lyric21: req.body.lyric21,
+        lyric22: req.body.lyric22,
+        lyric23: req.body.lyric23,
+        lyric24: req.body.lyric24,
+        lyric25: req.body.lyric25,
+        lyric26: req.body.lyric26,
+        lyric27: req.body.lyric27,
+        lyric28: req.body.lyric28,
+        lyric29: req.body.lyric29,
+        lyric30: req.body.lyric30,
         chord1: req.body.chord1,
         chord2: req.body.chord2,
         chord3: req.body.chord3,
