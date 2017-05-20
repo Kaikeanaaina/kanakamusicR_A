@@ -23,13 +23,33 @@ class AddNewAlbum extends React.Component {
       modalIsOpen: false,
       successModalIsOpen: false,
       object: {},
-      showSubmitButton: false
+      showSubmitButton: false,
+      visibilityByArtist: false
     }
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
     this.returnToHome = this.returnToHome.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.showSubmitButton = this.showSubmitButton.bind(this)
+    this.artistChange = this.artistChange.bind(this)
+  }
+  artistChange (e) {
+    e.preventDefault()
+    this.showSubmitButton()
+
+    if (e.target.value === '') {
+      return
+    } else {
+      axios.get(`${domain}/artists/${e.target.value}`)
+      .then((res) => {
+        this.setState({
+          visibilityByArtist: res.data.visibilityByArtist
+        })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+    }
   }
   openModal () {
     let splitTitle = this.refs.title.value.split('')
@@ -41,7 +61,8 @@ class AddNewAlbum extends React.Component {
       title: capitalizeTitle,
       RecordLabelId: this.refs.recordLabel.value,
       ArtistId: this.refs.artist.value,
-      description: this.refs.description.value
+      description: this.refs.description.value,
+      visibilityByArtist: this.state.visibilityByArtist
     }
     if (!this.refs.description.value) {
       object.description = null
@@ -124,7 +145,7 @@ class AddNewAlbum extends React.Component {
         <form onSubmit={this.onSubmit}>
           <input type='text' ref='title' placeholder='title' style={styles} onChange={this.showSubmitButton} />
           <br />
-          <select ref='artist' style={styles} onChange={this.showSubmitButton} >
+          <select ref='artist' style={styles} onChange={this.artistChange} >
             <option value='' >artist here</option>
             {this.state.artists.map((artist, index) => (
               <option key={index} value={artist.id} > {artist.name} </option>
