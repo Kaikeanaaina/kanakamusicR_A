@@ -27,6 +27,7 @@ class AddNewSong extends React.Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.artistChange = this.artistChange.bind(this)
+    this.albumChange = this.albumChange.bind(this)
     this.handleLyric1 = this.handleLyric1.bind(this)
     this.handleLyric2 = this.handleLyric2.bind(this)
     this.handleLyric3 = this.handleLyric3.bind(this)
@@ -98,7 +99,9 @@ class AddNewSong extends React.Component {
       successModalIsOpen: false,
       object: {},
       showErrorMessage: false,
-      showSubmitButton: false
+      showSubmitButton: false,
+      visibilityByArtist: false,
+      visibilityByAlbum: false
     })
   }
   componentDidMount () {
@@ -140,7 +143,9 @@ class AddNewSong extends React.Component {
       type: this.refs.type.value,
       description: this.refs.description.value,
       ArtistId: this.refs.artist.value,
-      AlbumId: this.refs.album.value
+      AlbumId: this.refs.album.value,
+      visibilityByArtist: this.state.visibilityByArtist,
+      visibilityByAlbum: this.state.visibilityByAlbum
     }
 
     if (!this.refs.lyric1 || !this.refs.lyric1.value) {
@@ -527,11 +532,38 @@ class AddNewSong extends React.Component {
     if (event.target.value === '') {
       return
     } else {
+      axios.get(`${domain}/artists/${event.target.value}`)
+      .then((res) => {
+        this.setState({
+          visibilityByArtist: res.data.visibilityByArtist
+        })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
       // populate the albums depending on the artist
       axios.get(`${domain}/albums/ByArtistId/${event.target.value}`)
       .then((res) => {
         this.setState({
           albums: res.data
+        })
+      })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
+    }
+  }
+  albumChange (event) {
+    event.preventDefault()
+    this.showSubmitButton()
+
+    if (event.target.value === '') {
+      return
+    } else {
+      axios.get(`${domain}/albums/${event.target.value}`)
+      .then((res) => {
+        this.setState({
+          visibilityByAlbum: res.data.visibilityByAlbum
         })
       })
       .catch((error) => {
@@ -889,7 +921,7 @@ class AddNewSong extends React.Component {
             ))}
           </select>
           <br />
-          <select type='text' ref='album' style={styles.others} placeholder='album' onChange={this.showSubmitButton}>
+          <select type='text' ref='album' style={styles.others} placeholder='album' onChange={this.albumChange}>
             <option value='' >album here</option>
             {this.state.albums.map((album, index) => (
               <option key={index} value={album.id} > {album.title} </option>
