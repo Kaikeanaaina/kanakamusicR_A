@@ -500,10 +500,7 @@ class AddNewSong extends React.Component {
     }
 
     this.setState({
-      object: object
-    })
-
-    this.setState({
+      object: object,
       modalIsOpen: true
     })
   }
