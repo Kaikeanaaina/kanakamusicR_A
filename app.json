@@ -1,0 +1,7 @@
+{
+  "name": "Start on Heroku: Node.js",
+  "description": "Heroku KanakaMusic",
+  "repository": "https://github.com/Kaikeanaaina/kanakamusicR_A",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
