@@ -8,7 +8,7 @@
     "watch": "webpack --watch",
     "test": "mocha --require test/helpers/setup.js",
     "lint": "eslint --ignore-path .gitignore --cache ./",
-    "postinstall": "npm build",
+    "heroku-postbuild": "npm build",
     "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require babel-register --extension .jsx npm test"
   },
   "license": "MIT",
