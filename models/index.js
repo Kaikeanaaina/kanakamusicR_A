@@ -8,7 +8,7 @@ var env = process.env.NODE_ENV || 'development'
 //var config = require(__dirname + '/../config/config.js')[env]
 var db = {}
 
-var sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {dialect:'postgres'})
+var sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {dialect:'postgres', host:process.env.DATABASE_HOST})
 
 
 fs
