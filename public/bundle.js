@@ -35908,10 +35908,6 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var MediaQuery = __webpack_require__(325);
 	var Div4OfSongs = __webpack_require__(326);
 	var Div3OfSongs = __webpack_require__(327);
@@ -35956,7 +35952,7 @@
 	      var _this2 = this;
 
 	      if (this.props.ArtistId) {
-	        axios.get(domain + '/songs/ByArtistId/' + this.props.ArtistId).then(function (res) {
+	        axios.get('/songs/ByArtistId/' + this.props.ArtistId).then(function (res) {
 	          _this2.setState({
 	            songs: res.data
 	          });
@@ -35964,7 +35960,7 @@
 	          console.log('axios error', error);
 	        });
 	      } else if (this.props.AlbumId) {
-	        axios.get(domain + '/songs/ByAlbumId/' + this.props.AlbumId).then(function (res) {
+	        axios.get('/songs/ByAlbumId/' + this.props.AlbumId).then(function (res) {
 	          _this2.setState({
 	            songs: res.data
 	          });
@@ -36139,7 +36135,7 @@
 	          console.log('axios error', error);
 	        });
 	      } else {
-	        axios.get(domain + '/songs').then(function (res) {
+	        axios.get('/songs').then(function (res) {
 	          _this2.setState({
 	            songs: res.data
 	          });
