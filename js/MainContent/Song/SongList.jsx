@@ -1,6 +1,5 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../../Domain')
 const MediaQuery = require('react-responsive')
 const Div4OfSongs = require('./Div4OfSongs')
 const Div3OfSongs = require('./Div3OfSongs')
@@ -35,7 +34,7 @@ class SongList extends React.Component {
   }
   componentDidMount () {
     if (this.props.ArtistId) {
-      axios.get(`${domain}/songs/ByArtistId/${this.props.ArtistId}`)
+      axios.get(`/songs/ByArtistId/${this.props.ArtistId}`)
       .then((res) => {
         this.setState({
           songs: res.data
@@ -45,7 +44,7 @@ class SongList extends React.Component {
         console.log('axios error', error)
       })
     } else if (this.props.AlbumId) {
-      axios.get(`${domain}/songs/ByAlbumId/${this.props.AlbumId}`)
+      axios.get(`/songs/ByAlbumId/${this.props.AlbumId}`)
       .then((res) => {
         this.setState({
           songs: res.data
@@ -222,7 +221,7 @@ class SongList extends React.Component {
         console.log('axios error', error)
       })
     } else {
-      axios.get(`${domain}/songs`)
+      axios.get(`/songs`)
       .then((res) => {
         this.setState({
           songs: res.data
