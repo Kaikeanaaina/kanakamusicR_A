@@ -2,7 +2,6 @@ const React = require('react')
 const axios = require('axios')
 const AlbumList = require('../Album/AlbumList')
 const SongList = require('../Song/SongList')
-const { domain } = require('../../Domain')
 
 const style = {
   socialMedia: {
@@ -29,7 +28,7 @@ class EditArtist extends React.Component {
     this.DeleteArtist = this.DeleteArtist.bind(this)
   }
   componentDidMount () {
-    axios.get(`${domain}/artists/${this.props.params.id}`)
+    axios.get(`/artists/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         Artist: res.data
@@ -101,11 +100,11 @@ class EditArtist extends React.Component {
       object.instagram = this.state.Artist.instagram
     }
 
-    axios.put(`${domain}/artists/${this.state.Artist.id}`, object)
+    axios.put(`/artists/${this.state.Artist.id}`, object)
     .then((res) => {
-      axios.put(`${domain}/albums/ByArtistId/${this.state.Artist.id}`, object)
+      axios.put(`/albums/ByArtistId/${this.state.Artist.id}`, object)
       .then((res) => {
-        axios.put(`${domain}/songs/ByArtistId/${this.state.Artist.id}`, object)
+        axios.put(`/songs/ByArtistId/${this.state.Artist.id}`, object)
         .then((res) => {
           window.location.href = `/#/artist/${this.state.Artist.id}`
         })
@@ -124,11 +123,11 @@ class EditArtist extends React.Component {
   DeleteArtist (e) {
     e.preventDefault()
 
-    axios.delete(`${domain}/songs/ByArtistId/${this.state.Artist.id}`)
+    axios.delete(`/songs/ByArtistId/${this.state.Artist.id}`)
     .then((res) => {
-      axios.delete(`${domain}/albums/ByArtistId/${this.state.Artist.id}`)
+      axios.delete(`/albums/ByArtistId/${this.state.Artist.id}`)
       .then((res) => {
-        axios.delete(`${domain}/artists/${this.state.Artist.id}`)
+        axios.delete(`/artists/${this.state.Artist.id}`)
         .then((res) => {
           window.location.href = '/#/'
         })

@@ -3,7 +3,6 @@ const axios = require('axios')
 const AlbumList = require('../Album/AlbumList')
 const SongList = require('../Song/SongList')
 const { Link } = require('react-router')
-const { domain } = require('../../Domain')
 
 const style = {
   socialMedia: {
@@ -39,7 +38,7 @@ class Artist extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get(`${domain}/artists/${this.props.params.id}`)
+    axios.get(`/artists/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         Artist: res.data,
@@ -51,7 +50,7 @@ class Artist extends React.Component {
       console.log('axios error', error)
     })
 
-    axios.get(`${domain}/albums/ByArtistId/${this.props.params.id}`)
+    axios.get(`/albums/ByArtistId/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         albums: res.data
@@ -61,7 +60,7 @@ class Artist extends React.Component {
       console.log('axios error', error)
     })
 
-    axios.get(`${domain}/songs/ByArtistId/${this.props.params.id}`)
+    axios.get(`/songs/ByArtistId/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         songs: res.data

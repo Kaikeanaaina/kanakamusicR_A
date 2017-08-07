@@ -2,7 +2,6 @@ const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('../Modal/PreviewModal')
 const SuccessEntryModal = require('../Modal/SuccessEntryModal')
-const { domain } = require('../../Domain')
 
 const styles = {
   others: {
@@ -105,7 +104,7 @@ class AddNewSong extends React.Component {
     })
   }
   componentDidMount () {
-    axios.get(`${domain}/artists`)
+    axios.get(`/artists`)
     .then((res) => {
       this.setState({
         artists: res.data,
@@ -120,7 +119,7 @@ class AddNewSong extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    axios.post(`${domain}/songs`, this.state.object)
+    axios.post(`/songs`, this.state.object)
     .then((res) => {
     // should catch error here
       this.setState({
@@ -529,7 +528,7 @@ class AddNewSong extends React.Component {
     if (event.target.value === '') {
       return
     } else {
-      axios.get(`${domain}/artists/${event.target.value}`)
+      axios.get(`/artists/${event.target.value}`)
       .then((res) => {
         this.setState({
           visibilityByArtist: res.data.visibilityByArtist
@@ -539,7 +538,7 @@ class AddNewSong extends React.Component {
         console.log('axios error', error)
       })
       // populate the albums depending on the artist
-      axios.get(`${domain}/albums/ByArtistId/${event.target.value}`)
+      axios.get(`/albums/ByArtistId/${event.target.value}`)
       .then((res) => {
         this.setState({
           albums: res.data
@@ -557,7 +556,7 @@ class AddNewSong extends React.Component {
     if (event.target.value === '') {
       return
     } else {
-      axios.get(`${domain}/albums/${event.target.value}`)
+      axios.get(`/albums/${event.target.value}`)
       .then((res) => {
         this.setState({
           visibilityByAlbum: res.data.visibilityByAlbum

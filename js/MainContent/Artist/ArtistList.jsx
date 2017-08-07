@@ -1,6 +1,5 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../../Domain')
 const MediaQuery = require('react-responsive')
 const Div4OfArtists = require('./Div4OfArtists')
 const Div3OfArtists = require('./Div3OfArtists')
@@ -33,7 +32,7 @@ class ArtistList extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get(`${domain}/artists`)
+    axios.get(`/artists`)
     .then((res) => {
       this.setState({
         artists: res.data

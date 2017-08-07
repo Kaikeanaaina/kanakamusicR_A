@@ -2,7 +2,6 @@ const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('../Modal/PreviewModal')
 const SuccessEntryModal = require('../Modal/SuccessEntryModal')
-const { domain } = require('../../Domain')
 
 const styles = {
   fontSize: '18px',
@@ -40,7 +39,7 @@ class AddNewAlbum extends React.Component {
     if (e.target.value === '') {
       return
     } else {
-      axios.get(`${domain}/artists/${e.target.value}`)
+      axios.get(`/artists/${e.target.value}`)
       .then((res) => {
         this.setState({
           visibilityByArtist: res.data.visibilityByArtist
@@ -89,7 +88,7 @@ class AddNewAlbum extends React.Component {
     window.location.href = '/#/'
   }
   componentDidMount () {
-    axios.get(`${domain}/recordLabels`)
+    axios.get(`/recordLabels`)
     .then((res) => {
       this.setState({
         recordLabels: res.data
@@ -98,7 +97,7 @@ class AddNewAlbum extends React.Component {
     .catch((error) => {
       console.log('axios error', error)
     })
-    axios.get(`${domain}/artists`)
+    axios.get(`/artists`)
     .then((res) => {
       this.setState({
         artists: res.data
@@ -111,7 +110,7 @@ class AddNewAlbum extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    axios.post(`${domain}/albums`, this.state.object)
+    axios.post(`/albums`, this.state.object)
     .then((res) => {
       // should catch error here
       return this.setState({

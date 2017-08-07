@@ -28409,9 +28409,6 @@
 	var PreviewModal = __webpack_require__(291);
 	var SuccessEntryModal = __webpack_require__(312);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var styles = {
 	  others: {
 	    fontSize: '18px',
@@ -28524,7 +28521,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/artists').then(function (res) {
+	      axios.get('/artists').then(function (res) {
 	        _this2.setState({
 	          artists: res.data,
 	          modalIsOpen: false,
@@ -28541,7 +28538,7 @@
 
 	      e.preventDefault();
 
-	      axios.post(domain + '/songs', this.state.object).then(function (res) {
+	      axios.post('/songs', this.state.object).then(function (res) {
 	        // should catch error here
 	        _this3.setState({
 	          modalIsOpen: false,
@@ -28960,7 +28957,7 @@
 	      if (event.target.value === '') {
 	        return;
 	      } else {
-	        axios.get(domain + '/artists/' + event.target.value).then(function (res) {
+	        axios.get('/artists/' + event.target.value).then(function (res) {
 	          _this4.setState({
 	            visibilityByArtist: res.data.visibilityByArtist
 	          });
@@ -28968,7 +28965,7 @@
 	          console.log('axios error', error);
 	        });
 	        // populate the albums depending on the artist
-	        axios.get(domain + '/albums/ByArtistId/' + event.target.value).then(function (res) {
+	        axios.get('/albums/ByArtistId/' + event.target.value).then(function (res) {
 	          _this4.setState({
 	            albums: res.data
 	          });
@@ -28988,7 +28985,7 @@
 	      if (event.target.value === '') {
 	        return;
 	      } else {
-	        axios.get(domain + '/albums/' + event.target.value).then(function (res) {
+	        axios.get('/albums/' + event.target.value).then(function (res) {
 	          _this5.setState({
 	            visibilityByAlbum: res.data.visibilityByAlbum
 	          });
@@ -34507,9 +34504,6 @@
 	var PreviewModal = __webpack_require__(291);
 	var SuccessEntryModal = __webpack_require__(312);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var styles = {
 	  fontSize: '18px',
 	  padding: '5px',
@@ -34607,7 +34601,7 @@
 
 	      e.preventDefault();
 
-	      axios.post(domain + '/artists', this.state.object).then(function (res) {
+	      axios.post('/artists', this.state.object).then(function (res) {
 	        // should catch error here
 	        return _this2.setState({
 	          modalIsOpen: false,
@@ -34702,9 +34696,6 @@
 	var PreviewModal = __webpack_require__(291);
 	var SuccessEntryModal = __webpack_require__(312);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var styles = {
 	  fontSize: '18px',
 	  padding: '5px',
@@ -34752,7 +34743,7 @@
 	      if (e.target.value === '') {
 	        return;
 	      } else {
-	        axios.get(domain + '/artists/' + e.target.value).then(function (res) {
+	        axios.get('/artists/' + e.target.value).then(function (res) {
 	          _this2.setState({
 	            visibilityByArtist: res.data.visibilityByArtist
 	          });
@@ -34809,14 +34800,14 @@
 	    value: function componentDidMount() {
 	      var _this3 = this;
 
-	      axios.get(domain + '/recordLabels').then(function (res) {
+	      axios.get('/recordLabels').then(function (res) {
 	        _this3.setState({
 	          recordLabels: res.data
 	        });
 	      }).catch(function (error) {
 	        console.log('axios error', error);
 	      });
-	      axios.get(domain + '/artists').then(function (res) {
+	      axios.get('/artists').then(function (res) {
 	        _this3.setState({
 	          artists: res.data
 	        });
@@ -34831,7 +34822,7 @@
 
 	      e.preventDefault();
 
-	      axios.post(domain + '/albums', this.state.object).then(function (res) {
+	      axios.post('/albums', this.state.object).then(function (res) {
 	        // should catch error here
 	        return _this4.setState({
 	          modalIsOpen: false,
@@ -39105,10 +39096,6 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var MediaQuery = __webpack_require__(325);
 	var Div4OfArtists = __webpack_require__(331);
 	var Div3OfArtists = __webpack_require__(332);
@@ -39152,7 +39139,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/artists').then(function (res) {
+	      axios.get('/artists').then(function (res) {
 	        _this2.setState({
 	          artists: res.data
 	        });
@@ -39849,10 +39836,6 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var MediaQuery = __webpack_require__(325);
 	var Div4OfAlbums = __webpack_require__(336);
 	var Div3OfAlbums = __webpack_require__(337);
@@ -39897,7 +39880,7 @@
 	      var _this2 = this;
 
 	      if (this.props.ArtistId) {
-	        axios.get(domain + '/albums/ByArtistId/' + this.props.ArtistId).then(function (res) {
+	        axios.get('/albums/ByArtistId/' + this.props.ArtistId).then(function (res) {
 	          _this2.setState({
 	            albums: res.data
 	          });
@@ -39905,7 +39888,7 @@
 	          console.log('axios error', error);
 	        });
 	      } else if (this.props.RecordLabelId) {
-	        axios.get(domain + '/albums/ByRecordLabelId/' + this.props.RecordLabelId).then(function (res) {
+	        axios.get('/albums/ByRecordLabelId/' + this.props.RecordLabelId).then(function (res) {
 	          _this2.setState({
 	            albums: res.data
 	          });
@@ -39913,7 +39896,7 @@
 	          console.log('axios error', error);
 	        });
 	      } else {
-	        axios.get(domain + '/albums').then(function (res) {
+	        axios.get('/albums').then(function (res) {
 	          _this2.setState({
 	            albums: res.data
 	          });
@@ -43324,9 +43307,6 @@
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
-	var _require2 = __webpack_require__(313),
-	    domain = _require2.domain;
-
 	var style = {
 	  details: {
 	    backgroundColor: 'rgba(200,200,200,0.4)',
@@ -43372,12 +43352,12 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/songs/' + this.props.params.id).then(function (res) {
+	      axios.get('/songs/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          song: res.data
 	        });
 
-	        axios.get(domain + '/artists/' + _this2.state.song.ArtistId).then(function (res) {
+	        axios.get('/artists/' + _this2.state.song.ArtistId).then(function (res) {
 	          _this2.setState({
 	            Artist: res.data
 	          });
@@ -43385,11 +43365,11 @@
 	          console.log('axios error', error);
 	        });
 
-	        axios.get(domain + '/albums/' + _this2.state.song.AlbumId).then(function (res) {
+	        axios.get('/albums/' + _this2.state.song.AlbumId).then(function (res) {
 	          _this2.setState({
 	            Album: res.data
 	          });
-	          axios.get(domain + '/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
+	          axios.get('/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
 	            _this2.setState({
 	              RecordLabel: res.data
 	            });
@@ -43803,9 +43783,6 @@
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
-	var _require2 = __webpack_require__(313),
-	    domain = _require2.domain;
-
 	var style = {
 	  socialMedia: {
 	    margin: '5px'
@@ -43850,7 +43827,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/artists/' + this.props.params.id).then(function (res) {
+	      axios.get('/artists/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          Artist: res.data,
 	          showAlbumList: true,
@@ -43860,7 +43837,7 @@
 	        console.log('axios error', error);
 	      });
 
-	      axios.get(domain + '/albums/ByArtistId/' + this.props.params.id).then(function (res) {
+	      axios.get('/albums/ByArtistId/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          albums: res.data
 	        });
@@ -43868,7 +43845,7 @@
 	        console.log('axios error', error);
 	      });
 
-	      axios.get(domain + '/songs/ByArtistId/' + this.props.params.id).then(function (res) {
+	      axios.get('/songs/ByArtistId/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          songs: res.data
 
@@ -44004,9 +43981,6 @@
 
 	var SongList = __webpack_require__(324);
 
-	var _require2 = __webpack_require__(313),
-	    domain = _require2.domain;
-
 	var style = {
 	  details: {
 	    backgroundColor: 'rgba(200,200,200,0.4)',
@@ -44050,12 +44024,12 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/albums/' + this.props.params.id).then(function (res) {
+	      axios.get('/albums/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          Album: res.data
 	        });
 
-	        axios.get(domain + '/songs/ByAlbumId/' + _this2.state.Album.id).then(function (res) {
+	        axios.get('/songs/ByAlbumId/' + _this2.state.Album.id).then(function (res) {
 	          _this2.setState({
 	            songs: res.data,
 	            showSongList: true
@@ -44064,7 +44038,7 @@
 	          console.log('axios error', error);
 	        });
 
-	        axios.get(domain + '/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
+	        axios.get('/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
 	          _this2.setState({
 	            RecordLabel: res.data
 	          });
@@ -44072,7 +44046,7 @@
 	          console.log('axios error', error);
 	        });
 
-	        axios.get(domain + '/artists/' + _this2.state.Album.ArtistId).then(function (res) {
+	        axios.get('/artists/' + _this2.state.Album.ArtistId).then(function (res) {
 	          _this2.setState({
 	            Artist: res.data
 	          });
@@ -44312,9 +44286,6 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var style = {
 	  details: {
 	    backgroundColor: 'rgba(200,200,200,0.4)',
@@ -44370,7 +44341,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/artists').then(function (res) {
+	      axios.get('/artists').then(function (res) {
 	        _this2.setState({
 	          artists: res.data
 	        });
@@ -44378,12 +44349,12 @@
 	        console.log('axios error', error);
 	      });
 
-	      axios.get(domain + '/songs/' + this.props.params.id).then(function (res) {
+	      axios.get('/songs/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          Song: res.data
 	        });
 
-	        axios.get(domain + '/artists/' + _this2.state.Song.ArtistId).then(function (res) {
+	        axios.get('/artists/' + _this2.state.Song.ArtistId).then(function (res) {
 	          _this2.setState({
 	            Artist: res.data
 	          });
@@ -44391,11 +44362,11 @@
 	          console.log('axios error', error);
 	        });
 
-	        axios.get(domain + '/albums/' + _this2.state.Song.AlbumId).then(function (res) {
+	        axios.get('/albums/' + _this2.state.Song.AlbumId).then(function (res) {
 	          _this2.setState({
 	            Album: res.data
 	          });
-	          axios.get(domain + '/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
+	          axios.get('/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
 	            _this2.setState({
 	              RecordLabel: res.data
 	            });
@@ -44414,7 +44385,7 @@
 	    value: function DeleteSong(e) {
 	      e.preventDefault();
 
-	      axios.delete(domain + '/songs/' + this.state.Song.id).then(function (res) {
+	      axios.delete('/songs/' + this.state.Song.id).then(function (res) {
 	        window.location.href = '/#/';
 	      }).catch(function (error) {
 	        console.log('axios error', error);
@@ -44949,7 +44920,7 @@
 	      object.visibilityByAlbum = this.state.Song.visibilityByAlbum;
 	      object.visibilityByArtist = this.state.Song.visibilityByArtist;
 
-	      axios.put(domain + '/songs/' + this.state.Song.id, object).then(function (res) {
+	      axios.put('/songs/' + this.state.Song.id, object).then(function (res) {
 	        window.location.href = '/#/song/' + _this3.state.Song.id;
 	      }).catch(function (error) {
 	        console.log('axios error', error);
@@ -44966,7 +44937,7 @@
 
 	      if (event.target.value !== 'artist here') {
 	        // populate the albums depending on the artist
-	        axios.get(domain + '/albums/ByArtistId/' + event.target.value).then(function (res) {
+	        axios.get('/albums/ByArtistId/' + event.target.value).then(function (res) {
 	          _this4.setState({
 	            albums: res.data
 	          });
@@ -46001,9 +45972,6 @@
 	var axios = __webpack_require__(266);
 	var SongList = __webpack_require__(324);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var style = {
 	  details: {
 	    backgroundColor: 'rgba(200,200,200,0.4)',
@@ -46044,12 +46012,12 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/albums/' + this.props.params.id).then(function (res) {
+	      axios.get('/albums/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          Album: res.data
 	        });
 
-	        axios.get(domain + '/artists/' + _this2.state.Album.ArtistId).then(function (res) {
+	        axios.get('/artists/' + _this2.state.Album.ArtistId).then(function (res) {
 	          _this2.setState({
 	            Artist: res.data
 	          });
@@ -46057,7 +46025,7 @@
 	          console.log('axios error', error);
 	        });
 
-	        axios.get(domain + '/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
+	        axios.get('/recordLabels/' + _this2.state.Album.RecordLabelId).then(function (res) {
 	          _this2.setState({
 	            RecordLabel: res.data
 	          });
@@ -46068,7 +46036,7 @@
 	        console.log('axios error', error);
 	      });
 
-	      axios.get(domain + '/artists').then(function (res) {
+	      axios.get('/artists').then(function (res) {
 	        _this2.setState({
 	          artists: res.data
 	        });
@@ -46076,7 +46044,7 @@
 	        console.log('axios error', error);
 	      });
 
-	      axios.get(domain + '/recordLabels').then(function (res) {
+	      axios.get('/recordLabels').then(function (res) {
 	        _this2.setState({
 	          recordLabels: res.data
 	        });
@@ -46091,8 +46059,8 @@
 
 	      e.preventDefault();
 
-	      axios.delete(domain + '/songs/ByAlbumId/' + this.state.Album.id).then(function (res) {
-	        axios.delete(domain + '/albums/' + _this3.state.Album.id).then(function (res) {
+	      axios.delete('/songs/ByAlbumId/' + this.state.Album.id).then(function (res) {
+	        axios.delete('/albums/' + _this3.state.Album.id).then(function (res) {
 	          window.location.href = '/#/';
 	        }).catch(function (error) {
 	          console.log('axios error', error);
@@ -46153,8 +46121,8 @@
 
 	      object.visibilityByArtist = this.state.Album.visibilityByArtist;
 
-	      axios.put(domain + '/albums/' + this.state.Album.id, object).then(function (res) {
-	        axios.put(domain + '/songs/ByAlbumId/' + _this4.state.Album.id, object).then(function (res) {
+	      axios.put('/albums/' + this.state.Album.id, object).then(function (res) {
+	        axios.put('/songs/ByAlbumId/' + _this4.state.Album.id, object).then(function (res) {
 	          window.location.href = '/#/album/' + _this4.state.Album.id;
 	        }).catch(function (error) {
 	          console.log('axios error', error);
@@ -46403,9 +46371,6 @@
 	var AlbumList = __webpack_require__(335);
 	var SongList = __webpack_require__(324);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var style = {
 	  socialMedia: {
 	    backgroundColor: 'rgba(200,200,200,0.4)',
@@ -46442,7 +46407,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/artists/' + this.props.params.id).then(function (res) {
+	      axios.get('/artists/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          Artist: res.data
 	        });
@@ -46516,9 +46481,9 @@
 	        object.instagram = this.state.Artist.instagram;
 	      }
 
-	      axios.put(domain + '/artists/' + this.state.Artist.id, object).then(function (res) {
-	        axios.put(domain + '/albums/ByArtistId/' + _this3.state.Artist.id, object).then(function (res) {
-	          axios.put(domain + '/songs/ByArtistId/' + _this3.state.Artist.id, object).then(function (res) {
+	      axios.put('/artists/' + this.state.Artist.id, object).then(function (res) {
+	        axios.put('/albums/ByArtistId/' + _this3.state.Artist.id, object).then(function (res) {
+	          axios.put('/songs/ByArtistId/' + _this3.state.Artist.id, object).then(function (res) {
 	            window.location.href = '/#/artist/' + _this3.state.Artist.id;
 	          }).catch(function (error) {
 	            console.log('axios error', error);
@@ -46537,9 +46502,9 @@
 
 	      e.preventDefault();
 
-	      axios.delete(domain + '/songs/ByArtistId/' + this.state.Artist.id).then(function (res) {
-	        axios.delete(domain + '/albums/ByArtistId/' + _this4.state.Artist.id).then(function (res) {
-	          axios.delete(domain + '/artists/' + _this4.state.Artist.id).then(function (res) {
+	      axios.delete('/songs/ByArtistId/' + this.state.Artist.id).then(function (res) {
+	        axios.delete('/albums/ByArtistId/' + _this4.state.Artist.id).then(function (res) {
+	          axios.delete('/artists/' + _this4.state.Artist.id).then(function (res) {
 	            window.location.href = '/#/';
 	          }).catch(function (error) {
 	            console.log('axios error', error);

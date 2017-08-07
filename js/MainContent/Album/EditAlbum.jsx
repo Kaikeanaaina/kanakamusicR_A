@@ -1,7 +1,6 @@
 const React = require('react')
 const axios = require('axios')
 const SongList = require('../Song/SongList')
-const { domain } = require('../../Domain')
 
 const style = {
   details: {
@@ -32,13 +31,13 @@ class EditAlbum extends React.Component {
     this.DeleteAlbum = this.DeleteAlbum.bind(this)
   }
   componentDidMount () {
-    axios.get(`${domain}/albums/${this.props.params.id}`)
+    axios.get(`/albums/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         Album: res.data
       })
 
-      axios.get(`${domain}/artists/${this.state.Album.ArtistId}`)
+      axios.get(`/artists/${this.state.Album.ArtistId}`)
       .then((res) => {
         this.setState({
           Artist: res.data
@@ -48,7 +47,7 @@ class EditAlbum extends React.Component {
         console.log('axios error', error)
       })
 
-      axios.get(`${domain}/recordLabels/${this.state.Album.RecordLabelId}`)
+      axios.get(`/recordLabels/${this.state.Album.RecordLabelId}`)
       .then((res) => {
         this.setState({
           RecordLabel: res.data
@@ -62,7 +61,7 @@ class EditAlbum extends React.Component {
       console.log('axios error', error)
     })
 
-    axios.get(`${domain}/artists`)
+    axios.get(`/artists`)
     .then((res) => {
       this.setState({
         artists: res.data
@@ -72,7 +71,7 @@ class EditAlbum extends React.Component {
       console.log('axios error', error)
     })
 
-    axios.get(`${domain}/recordLabels`)
+    axios.get(`/recordLabels`)
     .then((res) => {
       this.setState({
         recordLabels: res.data
@@ -85,9 +84,9 @@ class EditAlbum extends React.Component {
   DeleteAlbum (e) {
     e.preventDefault()
 
-    axios.delete(`${domain}/songs/ByAlbumId/${this.state.Album.id}`)
+    axios.delete(`/songs/ByAlbumId/${this.state.Album.id}`)
     .then((res) => {
-      axios.delete(`${domain}/albums/${this.state.Album.id}`)
+      axios.delete(`/albums/${this.state.Album.id}`)
       .then((res) => {
         window.location.href = '/#/'
       })
@@ -147,9 +146,9 @@ class EditAlbum extends React.Component {
 
     object.visibilityByArtist = this.state.Album.visibilityByArtist
 
-    axios.put(`${domain}/albums/${this.state.Album.id}`, object)
+    axios.put(`/albums/${this.state.Album.id}`, object)
     .then((res) => {
-      axios.put(`${domain}/songs/ByAlbumId/${this.state.Album.id}`, object)
+      axios.put(`/songs/ByAlbumId/${this.state.Album.id}`, object)
       .then((res) => {
         window.location.href = `/#/album/${this.state.Album.id}`
       })

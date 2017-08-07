@@ -1,7 +1,6 @@
 const React = require('react')
 const axios = require('axios')
 const { Link } = require('react-router')
-const { domain } = require('../../Domain')
 
 const style = {
   details: {
@@ -38,13 +37,13 @@ class Song extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get(`${domain}/songs/${this.props.params.id}`)
+    axios.get(`/songs/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         song: res.data
       })
 
-      axios.get(`${domain}/artists/${this.state.song.ArtistId}`)
+      axios.get(`/artists/${this.state.song.ArtistId}`)
       .then((res) => {
         this.setState({
           Artist: res.data
@@ -54,12 +53,12 @@ class Song extends React.Component {
         console.log('axios error', error)
       })
 
-      axios.get(`${domain}/albums/${this.state.song.AlbumId}`)
+      axios.get(`/albums/${this.state.song.AlbumId}`)
       .then((res) => {
         this.setState({
           Album: res.data
         })
-        axios.get(`${domain}/recordLabels/${this.state.Album.RecordLabelId}`)
+        axios.get(`/recordLabels/${this.state.Album.RecordLabelId}`)
           .then((res) => {
             this.setState({
               RecordLabel: res.data
