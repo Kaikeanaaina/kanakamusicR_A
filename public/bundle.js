@@ -21483,8 +21483,8 @@
 	    hashHistory = _require3.hashHistory;
 
 	var AddNewContent = __webpack_require__(264);
-	var Layout = __webpack_require__(317);
-	var LogIn = __webpack_require__(320);
+	var Layout = __webpack_require__(316);
+	var LogIn = __webpack_require__(319);
 	var Home = __webpack_require__(321);
 	var TermsOfService = __webpack_require__(345);
 	var PrivacyPolicy = __webpack_require__(347);
@@ -28255,9 +28255,9 @@
 
 	var React = __webpack_require__(1);
 	var AddNewSong = __webpack_require__(265);
-	var AddNewArtist = __webpack_require__(314);
-	var AddNewAlbum = __webpack_require__(315);
-	var AddNewRecordLabel = __webpack_require__(316);
+	var AddNewArtist = __webpack_require__(313);
+	var AddNewAlbum = __webpack_require__(314);
+	var AddNewRecordLabel = __webpack_require__(315);
 
 	var AddNewContent = function (_React$Component) {
 	  _inherits(AddNewContent, _React$Component);
@@ -34475,18 +34475,6 @@
 
 /***/ },
 /* 313 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var Domain = {
-	  domain: 'http://localhost:5050'
-	};
-
-	module.exports = Domain;
-
-/***/ },
-/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34678,7 +34666,7 @@
 	module.exports = AddNewArtist;
 
 /***/ },
-/* 315 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34923,7 +34911,7 @@
 	module.exports = AddNewAlbum;
 
 /***/ },
-/* 316 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35066,14 +35054,14 @@
 	module.exports = AddNewRecordLabel;
 
 /***/ },
-/* 317 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var HeaderNavbar = __webpack_require__(318);
-	var Footer = __webpack_require__(319);
+	var HeaderNavbar = __webpack_require__(317);
+	var Footer = __webpack_require__(318);
 
 	var style = {
 	  appContainer: {
@@ -35118,7 +35106,7 @@
 	module.exports = Layout;
 
 /***/ },
-/* 318 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35218,7 +35206,7 @@
 	module.exports = HeaderNavbar;
 
 /***/ },
-/* 319 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35329,7 +35317,7 @@
 	module.exports = Footer;
 
 /***/ },
-/* 320 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35345,7 +35333,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var LogIn = function (_React$Component) {
@@ -35408,6 +35396,18 @@
 	}(React.Component);
 
 	module.exports = LogIn;
+
+/***/ },
+/* 320 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var Domain = {
+	  domain: 'http://localhost:5050'
+	};
+
+	module.exports = Domain;
 
 /***/ },
 /* 321 */
@@ -41258,7 +41258,7 @@
 	var MyTitle = __webpack_require__(346);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -41500,7 +41500,7 @@
 	var MyTitle = __webpack_require__(346);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -41699,7 +41699,7 @@
 	var MyTitle = __webpack_require__(346);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42212,7 +42212,7 @@
 	var MyTitle = __webpack_require__(346);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42411,7 +42411,7 @@
 	var ArtistList = __webpack_require__(330);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42654,7 +42654,7 @@
 
 	var axios = __webpack_require__(266);
 
-	var _require2 = __webpack_require__(313),
+	var _require2 = __webpack_require__(320),
 	    domain = _require2.domain;
 
 	var style = {
@@ -42960,7 +42960,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var _require2 = __webpack_require__(211),
@@ -46914,7 +46914,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var PreviewModal = __webpack_require__(363);
@@ -47733,7 +47733,7 @@
 	var Modal = __webpack_require__(292);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var customStyles = {
@@ -47984,7 +47984,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var ConfirmDeleteModal = __webpack_require__(365);
@@ -48990,7 +48990,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var PreviewModal = __webpack_require__(368);
@@ -49383,7 +49383,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Venue = function (_React$Component) {
@@ -49657,7 +49657,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -50237,7 +50237,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -50663,7 +50663,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
+	var _require = __webpack_require__(320),
 	    domain = _require.domain;
 
 	var BandMemberCard = __webpack_require__(377);
