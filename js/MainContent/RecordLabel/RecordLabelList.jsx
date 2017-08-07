@@ -1,6 +1,5 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../../Domain')
 const MediaQuery = require('react-responsive')
 const Div4OfRecordLabels = require('./Div4OfRecordLabels')
 const Div3OfRecordLabels = require('./Div3OfRecordLabels')
@@ -41,7 +40,7 @@ class RecordLabelList extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get(`${domain}/recordLabels`)
+    axios.get(`/recordLabels`)
     .then((res) => {
       this.setState({
         recordLabels: res.data

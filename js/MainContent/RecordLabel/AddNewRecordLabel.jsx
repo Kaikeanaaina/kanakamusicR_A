@@ -2,7 +2,6 @@ const React = require('react')
 const axios = require('axios')
 const PreviewModal = require('../Modal/PreviewModal')
 const SuccessEntryModal = require('../Modal/SuccessEntryModal')
-const { domain } = require('../../Domain')
 
 const styles = {
   fontSize: '18px',
@@ -62,7 +61,7 @@ class AddNewRecordLabel extends React.Component {
   onSubmit (e) {
     e.preventDefault()
 
-    axios.post(`${domain}/recordLabels`, this.state.object)
+    axios.post(`/recordLabels`, this.state.object)
     .then((res) => {
       // should catch error here
       return this.setState({

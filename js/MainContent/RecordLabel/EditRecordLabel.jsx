@@ -1,6 +1,5 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('../../Domain')
 
 class EditRecordLabel extends React.Component {
   constructor (props) {
@@ -12,7 +11,7 @@ class EditRecordLabel extends React.Component {
     this.DeleteRecordLabel = this.DeleteRecordLabel.bind(this)
   }
   componentDidMount () {
-    axios.get(`${domain}/recordLabels/${this.props.params.id}`)
+    axios.get(`/recordLabels/${this.props.params.id}`)
     .then((res) => {
       this.setState({
         RecordLabel: res.data
@@ -42,7 +41,7 @@ class EditRecordLabel extends React.Component {
       object.name = this.state.RecordLabel.name
     }
 
-    axios.put(`${domain}/recordLabels/${this.state.RecordLabel.id}`, object)
+    axios.put(`/recordLabels/${this.state.RecordLabel.id}`, object)
     .then((res) => {
       window.location.href = `/#/recordLabel/${this.state.RecordLabel.id}`
     })
@@ -52,7 +51,7 @@ class EditRecordLabel extends React.Component {
   }
   DeleteRecordLabel (e) {
     e.preventDefault()
-    axios.delete(`${domain}/recordLabels/${this.state.RecordLabel.id}`)
+    axios.delete(`/recordLabels/${this.state.RecordLabel.id}`)
     .then((res) => {
       window.location.href = `/#/`
     })
