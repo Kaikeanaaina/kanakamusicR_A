@@ -34950,9 +34950,6 @@
 	var PreviewModal = __webpack_require__(291);
 	var SuccessEntryModal = __webpack_require__(312);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var styles = {
 	  fontSize: '18px',
 	  padding: '5px',
@@ -35030,7 +35027,7 @@
 
 	      e.preventDefault();
 
-	      axios.post(domain + '/recordLabels', this.state.object).then(function (res) {
+	      axios.post('/recordLabels', this.state.object).then(function (res) {
 	        // should catch error here
 	        return _this2.setState({
 	          modalIsOpen: false,
@@ -35532,9 +35529,6 @@
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
-	var _require2 = __webpack_require__(313),
-	    domain = _require2.domain;
-
 	var style = {
 	  songListContainer: {},
 	  songLinkContainer: {},
@@ -35589,7 +35583,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/songs').then(function (res) {
+	      axios.get('/songs').then(function (res) {
 	        _this2.setState({
 	          songs: res.data
 	        });
@@ -35597,7 +35591,7 @@
 	        console.log('axios error', error);
 	      });
 
-	      axios.get(domain + '/artists').then(function (res) {
+	      axios.get('/artists').then(function (res) {
 	        _this2.setState({
 	          artists: res.data
 	        });
@@ -35605,7 +35599,7 @@
 	        console.log('axios error', error);
 	      });
 
-	      axios.get(domain + '/albums').then(function (res) {
+	      axios.get('/albums').then(function (res) {
 	        _this2.setState({
 	          albums: res.data
 	        });
@@ -40596,10 +40590,6 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var MediaQuery = __webpack_require__(325);
 	var Div4OfRecordLabels = __webpack_require__(341);
 	var Div3OfRecordLabels = __webpack_require__(342);
@@ -40647,7 +40637,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/recordLabels').then(function (res) {
+	      axios.get('/recordLabels').then(function (res) {
 	        _this2.setState({
 	          recordLabels: res.data
 	        });
@@ -44187,9 +44177,6 @@
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
-	var _require2 = __webpack_require__(313),
-	    domain = _require2.domain;
-
 	var Artist = function (_React$Component) {
 	  _inherits(Artist, _React$Component);
 
@@ -44209,7 +44196,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/recordLabels/' + this.props.params.id).then(function (res) {
+	      axios.get('/recordLabels/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          RecordLabel: res.data
 	        });
@@ -46808,9 +46795,6 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(313),
-	    domain = _require.domain;
-
 	var EditRecordLabel = function (_React$Component) {
 	  _inherits(EditRecordLabel, _React$Component);
 
@@ -46832,7 +46816,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      axios.get(domain + '/recordLabels/' + this.props.params.id).then(function (res) {
+	      axios.get('/recordLabels/' + this.props.params.id).then(function (res) {
 	        _this2.setState({
 	          RecordLabel: res.data
 	        });
@@ -46864,7 +46848,7 @@
 	        object.name = this.state.RecordLabel.name;
 	      }
 
-	      axios.put(domain + '/recordLabels/' + this.state.RecordLabel.id, object).then(function (res) {
+	      axios.put('/recordLabels/' + this.state.RecordLabel.id, object).then(function (res) {
 	        window.location.href = '/#/recordLabel/' + _this3.state.RecordLabel.id;
 	      }).catch(function (error) {
 	        console.log('axios error', error);
@@ -46874,7 +46858,7 @@
 	    key: 'DeleteRecordLabel',
 	    value: function DeleteRecordLabel(e) {
 	      e.preventDefault();
-	      axios.delete(domain + '/recordLabels/' + this.state.RecordLabel.id).then(function (res) {
+	      axios.delete('/recordLabels/' + this.state.RecordLabel.id).then(function (res) {
 	        window.location.href = '/#/';
 	      }).catch(function (error) {
 	        console.log('axios error', error);
