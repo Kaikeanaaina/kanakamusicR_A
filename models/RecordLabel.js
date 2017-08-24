@@ -11,3 +11,11 @@ module.exports = function (sequelize, DataTypes) {
 
   return RecordLabel
 }
+
+//description
+//location
+//email
+//phone
+//all work
+  //album
+  //song

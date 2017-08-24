@@ -21522,7 +21522,7 @@
 	  return React.createElement(
 	    Route,
 	    { path: '/', component: Layout },
-	    React.createElement(IndexRoute, { component: Home }),
+	    React.createElement(IndexRoute, { component: LogIn }),
 	    React.createElement(Route, { path: '/addNewContent', component: AddNewContent }),
 	    React.createElement(Route, { path: '/album/:id', component: Album }),
 	    React.createElement(Route, { path: '/album/edit/:id', component: EditAlbum }),
@@ -21545,7 +21545,7 @@
 	    React.createElement(Route, { path: '/EditProfile', component: EditProfile }),
 	    React.createElement(Route, { path: '/Feedback', component: Feedback }),
 	    React.createElement(Route, { path: '/LayoutAddOns', component: LayoutAddOns }),
-	    React.createElement(Route, { path: '/LogIn', component: LogIn }),
+	    React.createElement(Route, { path: '/Home', component: Home }),
 	    React.createElement(Route, { path: '/Settings', component: SettingPage }),
 	    React.createElement(Route, { path: '/Sources', component: Sources }),
 	    React.createElement(Route, { path: '/About', component: About }),
@@ -21566,9 +21566,7 @@
 
 	  _createClass(App, [{
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('call all information', window.location.href);
-	    }
+	    value: function componentDidMount() {}
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -35331,10 +35329,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var axios = __webpack_require__(266);
-
-	var _require = __webpack_require__(320),
-	    domain = _require.domain;
+	// const axios = require('axios')
+	// const { domain } = require('./Domain')
 
 	var LogIn = function (_React$Component) {
 	  _inherits(LogIn, _React$Component);
@@ -35358,9 +35354,14 @@
 	        password: this.refs.password
 	      };
 
-	      axios.post(domain + '/users/login', object).then(function (res) {}).catch(function (error) {
-	        console.log('axios error', error);
-	      });
+	      console.log(object.email.value, object.password.value);
+	      // axios.post(`${domain}/users/login`, object)
+	      // .then((res) => {
+
+	      // })
+	      // .catch((error) => {
+	      //   console.log('axios error', error)
+	      // })
 	    }
 	  }, {
 	    key: 'render',

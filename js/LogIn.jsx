@@ -1,6 +1,6 @@
 const React = require('react')
-const axios = require('axios')
-const { domain } = require('./Domain')
+// const axios = require('axios')
+// const { domain } = require('./Domain')
 
 class LogIn extends React.Component {
   constructor () {
@@ -15,13 +15,14 @@ class LogIn extends React.Component {
       password: this.refs.password
     }
 
-    axios.post(`${domain}/users/login`, object)
-    .then((res) => {
+    console.log(object.email.value, object.password.value)
+    // axios.post(`${domain}/users/login`, object)
+    // .then((res) => {
 
-    })
-    .catch((error) => {
-      console.log('axios error', error)
-    })
+    // })
+    // .catch((error) => {
+    //   console.log('axios error', error)
+    // })
   }
   render () {
     return (
