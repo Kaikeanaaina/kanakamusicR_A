@@ -21522,7 +21522,7 @@
 	  return React.createElement(
 	    Route,
 	    { path: '/', component: Layout },
-	    React.createElement(IndexRoute, { component: LogIn }),
+	    React.createElement(IndexRoute, { component: Home }),
 	    React.createElement(Route, { path: '/addNewContent', component: AddNewContent }),
 	    React.createElement(Route, { path: '/album/:id', component: Album }),
 	    React.createElement(Route, { path: '/album/edit/:id', component: EditAlbum }),
@@ -21545,7 +21545,7 @@
 	    React.createElement(Route, { path: '/EditProfile', component: EditProfile }),
 	    React.createElement(Route, { path: '/Feedback', component: Feedback }),
 	    React.createElement(Route, { path: '/LayoutAddOns', component: LayoutAddOns }),
-	    React.createElement(Route, { path: '/Home', component: Home }),
+	    React.createElement(Route, { path: '/LogIn', component: LogIn }),
 	    React.createElement(Route, { path: '/Settings', component: SettingPage }),
 	    React.createElement(Route, { path: '/Sources', component: Sources }),
 	    React.createElement(Route, { path: '/About', component: About }),
@@ -35329,8 +35329,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	// const axios = require('axios')
-	// const { domain } = require('./Domain')
+	var axios = __webpack_require__(266);
+
+	var _require = __webpack_require__(320),
+	    domain = _require.domain;
 
 	var LogIn = function (_React$Component) {
 	  _inherits(LogIn, _React$Component);
@@ -35345,23 +35347,41 @@
 	  }
 
 	  _createClass(LogIn, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('1111111');
+	      axios.get(domain + '/users').then(function (res) {
+	        console.log('33333333');
+	        console.log('success');
+	      }).catch(function (error) {
+	        console.log('axios error', error);
+	      });
+	    }
+	  }, {
 	    key: 'logIn',
 	    value: function logIn(e) {
 	      e.preventDefault();
 
-	      var object = {
-	        email: this.refs.email,
-	        password: this.refs.password
-	      };
+	      // let object = {
+	      //   email: this.refs.email,
+	      //   password: this.refs.password
+	      // }
 
-	      console.log(object.email.value, object.password.value);
-	      // axios.post(`${domain}/users/login`, object)
+	      // console.log(object.email.value, object.password.value)
+	      // // axios.post(`${domain}/users/login`, object)
+	      // // .then((res) => {
+	      // axios.get(`/users/`)
 	      // .then((res) => {
-
+	      //   console.log('success')
 	      // })
 	      // .catch((error) => {
 	      //   console.log('axios error', error)
 	      // })
+	      // // })
+	      // // .catch((error) => {
+	      // //   console.log('axios error', error)
+	      // // })
+	      console.log('123123123132', this.refs.email, this.refs.password);
 	    }
 	  }, {
 	    key: 'render',
