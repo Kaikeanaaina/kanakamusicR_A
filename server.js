@@ -42,6 +42,7 @@ app.use('/termsOfServices', require('./routes/termsOfService.js'))
 app.use('/about', require('./routes/about.js'))
 app.use('/contactInformation', require('./routes/contactInformation.js'))
 app.use('/bandMembers', require('./routes/bandMembers.js'))
+app.use('/users', require('./routes/user.js'))
 
 app.use((req, res) => {
   match({ routes: Routes(), location: req.url }, (error, redirectLocation, renderProps) => {
