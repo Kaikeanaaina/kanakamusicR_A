@@ -21485,8 +21485,8 @@
 	var AddNewContent = __webpack_require__(264);
 	var Layout = __webpack_require__(316);
 	var LogIn = __webpack_require__(319);
-	var Home = __webpack_require__(321);
-	var TermsOfService = __webpack_require__(345);
+	var Home = __webpack_require__(320);
+	var TermsOfService = __webpack_require__(344);
 	var PrivacyPolicy = __webpack_require__(347);
 	var ContactInformation = __webpack_require__(348);
 	var About = __webpack_require__(349);
@@ -35341,11 +35341,13 @@
 	    var _this = _possibleConstructorReturn(this, (LogIn.__proto__ || Object.getPrototypeOf(LogIn)).call(this));
 
 	    _this.state = {
-	      showingSignUpForm: false
+	      showingSignUpForm: false,
+	      showingSubmitSignUpButton: false
 	    };
-	    _this.logIn = _this.logIn.bind(_this);
 	    _this.showSignUpForm = _this.showSignUpForm.bind(_this);
 	    _this.showLogInForm = _this.showLogInForm.bind(_this);
+	    _this.submitSignUp = _this.submitSignUp.bind(_this);
+	    _this.showSubmitButton = _this.showSubmitButton.bind(_this);
 	    return _this;
 	  }
 
@@ -35361,38 +35363,11 @@
 	      });
 	    }
 	  }, {
-	    key: 'logIn',
-	    value: function logIn(e) {
-	      e.preventDefault();
-
-	      // let object = {
-	      //   email: this.refs.email,
-	      //   password: this.refs.password
-	      // }
-
-	      // console.log(object.email.value, object.password.value)
-	      // // axios.post(`${domain}/users/login`, object)
-	      // // .then((res) => {
-	      // axios.get(`/users/`)
-	      // .then((res) => {
-	      //   console.log('success')
-	      // })
-	      // .catch((error) => {
-	      //   console.log('axios error', error)
-	      // })
-	      // // })
-	      // // .catch((error) => {
-	      // //   console.log('axios error', error)
-	      // // })
-	      console.log('123123123132', this.refs.email.value, this.refs.password.value);
-	    }
-	  }, {
 	    key: 'showSignUpForm',
 	    value: function showSignUpForm() {
 	      this.setState({
 	        showingSignUpForm: true
 	      });
-	      console.log('sign up function');
 	    }
 	  }, {
 	    key: 'showLogInForm',
@@ -35400,6 +35375,48 @@
 	      this.setState({
 	        showingSignUpForm: false
 	      });
+	    }
+	  }, {
+	    key: 'submitSignUp',
+	    value: function submitSignUp() {
+	      var user = {
+	        email: this.refs.email.value,
+	        password: this.refs.password.value
+	      };
+	      console.log('signing up', user);
+	    }
+	  }, {
+	    key: 'showSubmitButton',
+	    value: function showSubmitButton(e) {
+	      console.log(e.target.value);
+
+	      if (this.refs.email.value === null || !this.refs.email.value) {
+	        return this.setState({ showingSubmitSignUpButton: false });
+	      }
+
+	      if (this.refs.verifyEmail.value === null || !this.refs.verifyEmail.value) {
+	        return this.setState({ showingSubmitSignUpButton: false });
+	      }
+
+	      if (this.refs.password.value === null || !this.refs.password.value) {
+	        return this.setState({ showingSubmitSignUpButton: false });
+	      }
+
+	      if (this.refs.verifyPassword.value === null || !this.refs.verifyPassword.value) {
+	        return this.setState({ showingSubmitSignUpButton: false });
+	      }
+
+	      if (this.refs.email.value !== this.refs.verifyEmail.value) {
+	        return this.setState({ showingSubmitSignUpButton: false });
+	      }
+
+	      if (this.refs.password.value !== this.refs.verifyPassword.value) {
+	        return this.setState({ showingSubmitSignUpButton: false });
+	      }
+	      this.setState({
+	        showingSubmitSignUpButton: true
+	      });
+	      console.log('made it');
 	    }
 	  }, {
 	    key: 'render',
@@ -35410,11 +35427,41 @@
 	        signUpOrLogInSection = React.createElement(
 	          'div',
 	          null,
-	          'Hi',
+	          React.createElement(
+	            'h3',
+	            null,
+	            'Sign Up'
+	          ),
+	          React.createElement('br', null),
+	          React.createElement(
+	            'form',
+	            { onSubmit: this.submitSignUp },
+	            React.createElement(
+	              'label',
+	              null,
+	              React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email', onChange: this.showSubmitButton }),
+	              ' ',
+	              React.createElement('br', null),
+	              React.createElement('input', { type: 'text', ref: 'verifyEmail', placeholder: 'verify email', onChange: this.showSubmitButton }),
+	              ' ',
+	              React.createElement('br', null),
+	              React.createElement('input', { type: 'password', ref: 'password', placeholder: 'password', onChange: this.showSubmitButton }),
+	              ' ',
+	              React.createElement('br', null),
+	              React.createElement('input', { type: 'password', ref: 'verifyPassword', placeholder: 'verifyPassword', onChange: this.showSubmitButton }),
+	              ' ',
+	              React.createElement('br', null)
+	            ),
+	            submitSignUpButton
+	          ),
+	          ' ',
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
 	          React.createElement(
 	            'button',
-	            { onClick: this.showLogInForm() },
-	            'LogIn'
+	            { onClick: this.showLogInForm },
+	            'Show LogIn'
 	          )
 	        );
 	      } else {
@@ -35426,6 +35473,7 @@
 	            null,
 	            'Log In '
 	          ),
+	          React.createElement('br', null),
 	          React.createElement(
 	            'form',
 	            { onSubmit: this.logIn },
@@ -35433,18 +35481,37 @@
 	              'label',
 	              null,
 	              React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email' }),
+	              React.createElement('br', null),
 	              React.createElement('input', { type: 'password', ref: 'password', placeholder: 'password' })
 	            ),
+	            React.createElement('br', null),
 	            React.createElement(
 	              'button',
 	              null,
 	              'Log In'
 	            )
 	          ),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
 	          React.createElement(
 	            'button',
-	            { onClick: this.showSignUpForm() },
-	            ' SignUp '
+	            { onClick: this.showSignUpForm },
+	            'Show SignUp'
+	          )
+	        );
+	      }
+
+	      var submitSignUpButton = null;
+	      if (this.state.showingSubmitSignUpButton) {
+	        submitSignUpButton = React.createElement(
+	          'div',
+	          null,
+	          ' ',
+	          React.createElement(
+	            'button',
+	            null,
+	            'SignUp'
 	          )
 	        );
 	      }
@@ -35463,18 +35530,6 @@
 
 /***/ },
 /* 320 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var Domain = {
-	  domain: 'http://localhost:5050'
-	};
-
-	module.exports = Domain;
-
-/***/ },
-/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35488,8 +35543,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var SearchResults = __webpack_require__(322);
-	var ContentLists = __webpack_require__(323);
+	var SearchResults = __webpack_require__(321);
+	var ContentLists = __webpack_require__(322);
 
 	var MyFirstComponent = function (_React$Component) {
 	  _inherits(MyFirstComponent, _React$Component);
@@ -35565,7 +35620,7 @@
 	module.exports = MyFirstComponent;
 
 /***/ },
-/* 322 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35794,7 +35849,7 @@
 	module.exports = SearchResults;
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35808,10 +35863,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var SongList = __webpack_require__(324);
-	var ArtistList = __webpack_require__(330);
-	var AlbumList = __webpack_require__(335);
-	var RecordLabelList = __webpack_require__(340);
+	var SongList = __webpack_require__(323);
+	var ArtistList = __webpack_require__(329);
+	var AlbumList = __webpack_require__(334);
+	var RecordLabelList = __webpack_require__(339);
 
 	var ContentLists = function (_React$Component) {
 	  _inherits(ContentLists, _React$Component);
@@ -35942,7 +35997,7 @@
 	module.exports = ContentLists;
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35957,11 +36012,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(325);
-	var Div4OfSongs = __webpack_require__(326);
-	var Div3OfSongs = __webpack_require__(327);
-	var Div2OfSongs = __webpack_require__(328);
-	var Div1OfSongs = __webpack_require__(329);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfSongs = __webpack_require__(325);
+	var Div3OfSongs = __webpack_require__(326);
+	var Div2OfSongs = __webpack_require__(327);
+	var Div1OfSongs = __webpack_require__(328);
 
 	var style = {
 	  songListDivContainer: {
@@ -36426,7 +36481,7 @@
 	module.exports = SongList;
 
 /***/ },
-/* 325 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -38724,7 +38779,7 @@
 	//# sourceMappingURL=react-responsive.js.map
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38859,7 +38914,7 @@
 	module.exports = Div4OfSongs;
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38974,7 +39029,7 @@
 	module.exports = Div3OfSongs;
 
 /***/ },
-/* 328 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39069,7 +39124,7 @@
 	module.exports = Div2OfSongs;
 
 /***/ },
-/* 329 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39145,7 +39200,7 @@
 	module.exports = Div1OfSongs;
 
 /***/ },
-/* 330 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39160,11 +39215,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(325);
-	var Div4OfArtists = __webpack_require__(331);
-	var Div3OfArtists = __webpack_require__(332);
-	var Div2OfArtists = __webpack_require__(333);
-	var Div1OfArtists = __webpack_require__(334);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfArtists = __webpack_require__(330);
+	var Div3OfArtists = __webpack_require__(331);
+	var Div2OfArtists = __webpack_require__(332);
+	var Div1OfArtists = __webpack_require__(333);
 
 	var style = {
 	  artistListDivContainer: {
@@ -39428,7 +39483,7 @@
 	module.exports = ArtistList;
 
 /***/ },
-/* 331 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39572,7 +39627,7 @@
 	module.exports = Div4OfArtists;
 
 /***/ },
-/* 332 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39695,7 +39750,7 @@
 	module.exports = Div3OfArtists;
 
 /***/ },
-/* 333 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39801,7 +39856,7 @@
 	module.exports = Div2OfArtists;
 
 /***/ },
-/* 334 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39885,7 +39940,7 @@
 	module.exports = Div1OfArtists;
 
 /***/ },
-/* 335 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39900,11 +39955,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(325);
-	var Div4OfAlbums = __webpack_require__(336);
-	var Div3OfAlbums = __webpack_require__(337);
-	var Div2OfAlbums = __webpack_require__(338);
-	var Div1OfAlbums = __webpack_require__(339);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfAlbums = __webpack_require__(335);
+	var Div3OfAlbums = __webpack_require__(336);
+	var Div2OfAlbums = __webpack_require__(337);
+	var Div1OfAlbums = __webpack_require__(338);
 
 	var style = {
 	  albumListDivContainer: {
@@ -40201,7 +40256,7 @@
 	module.exports = AlbumList;
 
 /***/ },
-/* 336 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40336,7 +40391,7 @@
 	module.exports = Div4OfAlbums;
 
 /***/ },
-/* 337 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40451,7 +40506,7 @@
 	module.exports = Div3OfAlbums;
 
 /***/ },
-/* 338 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40546,7 +40601,7 @@
 	module.exports = Div2OfAlbums;
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40622,7 +40677,7 @@
 	module.exports = Div1OfAlbums;
 
 /***/ },
-/* 340 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40637,11 +40692,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(325);
-	var Div4OfRecordLabels = __webpack_require__(341);
-	var Div3OfRecordLabels = __webpack_require__(342);
-	var Div2OfRecordLabels = __webpack_require__(343);
-	var Div1OfRecordLabels = __webpack_require__(344);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfRecordLabels = __webpack_require__(340);
+	var Div3OfRecordLabels = __webpack_require__(341);
+	var Div2OfRecordLabels = __webpack_require__(342);
+	var Div1OfRecordLabels = __webpack_require__(343);
 
 	var style = {
 	  recordLabelListContainer: {},
@@ -40908,7 +40963,7 @@
 	module.exports = RecordLabelList;
 
 /***/ },
-/* 341 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41037,7 +41092,7 @@
 	module.exports = Div4OfRecordLabels;
 
 /***/ },
-/* 342 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41146,7 +41201,7 @@
 	module.exports = Div3OfRecordLabels;
 
 /***/ },
-/* 343 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41235,7 +41290,7 @@
 	module.exports = Div2OfRecordlabels;
 
 /***/ },
-/* 344 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41305,7 +41360,7 @@
 	module.exports = Div1OfRecordLabels;
 
 /***/ },
-/* 345 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41319,10 +41374,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(346);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -41502,7 +41557,7 @@
 	module.exports = TermsOfServices;
 
 /***/ },
-/* 346 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41547,6 +41602,18 @@
 	module.exports = MyTitle;
 
 /***/ },
+/* 346 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var Domain = {
+	  domain: 'http://localhost:5050'
+	};
+
+	module.exports = Domain;
+
+/***/ },
 /* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -41561,10 +41628,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(346);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -41760,10 +41827,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(346);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42273,10 +42340,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(346);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42471,11 +42538,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(346);
-	var ArtistList = __webpack_require__(330);
+	var MyTitle = __webpack_require__(345);
+	var ArtistList = __webpack_require__(329);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42710,7 +42777,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(346);
+	var MyTitle = __webpack_require__(345);
 	var GigCard = __webpack_require__(352);
 
 	var _require = __webpack_require__(211),
@@ -42718,7 +42785,7 @@
 
 	var axios = __webpack_require__(266);
 
-	var _require2 = __webpack_require__(320),
+	var _require2 = __webpack_require__(346),
 	    domain = _require2.domain;
 
 	var style = {
@@ -43024,7 +43091,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var _require2 = __webpack_require__(211),
@@ -43841,8 +43908,8 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var AlbumList = __webpack_require__(335);
-	var SongList = __webpack_require__(324);
+	var AlbumList = __webpack_require__(334);
+	var SongList = __webpack_require__(323);
 
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
@@ -44043,7 +44110,7 @@
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
-	var SongList = __webpack_require__(324);
+	var SongList = __webpack_require__(323);
 
 	var style = {
 	  details: {
@@ -44210,7 +44277,7 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var AlbumList = __webpack_require__(335);
+	var AlbumList = __webpack_require__(334);
 
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
@@ -46034,7 +46101,7 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var SongList = __webpack_require__(324);
+	var SongList = __webpack_require__(323);
 
 	var style = {
 	  details: {
@@ -46432,8 +46499,8 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var AlbumList = __webpack_require__(335);
-	var SongList = __webpack_require__(324);
+	var AlbumList = __webpack_require__(334);
+	var SongList = __webpack_require__(323);
 
 	var style = {
 	  socialMedia: {
@@ -46978,7 +47045,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var PreviewModal = __webpack_require__(363);
@@ -47797,7 +47864,7 @@
 	var Modal = __webpack_require__(292);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var customStyles = {
@@ -48048,7 +48115,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var ConfirmDeleteModal = __webpack_require__(365);
@@ -49054,7 +49121,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var PreviewModal = __webpack_require__(368);
@@ -49447,7 +49514,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Venue = function (_React$Component) {
@@ -49721,7 +49788,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -50301,7 +50368,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -50727,7 +50794,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(320),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var BandMemberCard = __webpack_require__(377);
