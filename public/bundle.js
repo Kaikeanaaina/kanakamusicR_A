@@ -35341,7 +35341,6 @@
 	    var _this = _possibleConstructorReturn(this, (LogIn.__proto__ || Object.getPrototypeOf(LogIn)).call(this));
 
 	    _this.state = {
-	      showingLogInForm: true,
 	      showingSignUpForm: false
 	    };
 	    _this.logIn = _this.logIn.bind(_this);
@@ -35392,7 +35391,6 @@
 	    value: function showSignUpForm(e) {
 	      e.preventDefault();
 	      this.setState({
-	        showingLogInForm: false,
 	        showingSignUpForm: true
 	      });
 	      console.log('sign up function');
@@ -35402,15 +35400,16 @@
 	    value: function showLogInForm(e) {
 	      e.preventDefault();
 	      this.setState({
-	        showingLogInForm: true,
 	        showingSignUpForm: false
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var signUpOrLogInSection = null;
+
 	      if (this.state.showingSignUpForm) {
-	        var signUpSection = React.createElement(
+	        signUpOrLogInSection = React.createElement(
 	          'div',
 	          null,
 	          'Hi',
@@ -35420,9 +35419,8 @@
 	            'LogIn'
 	          )
 	        );
-	      }
-	      if (this.state.showingLogInForm) {
-	        var logInSection = React.createElement(
+	      } else {
+	        signUpOrLogInSection = React.createElement(
 	          'div',
 	          null,
 	          React.createElement(
@@ -35455,8 +35453,7 @@
 	      return React.createElement(
 	        'div',
 	        null,
-	        signUpSection,
-	        logInSection
+	        signUpOrLogInSection
 	      );
 	    }
 	  }]);

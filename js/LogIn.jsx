@@ -6,7 +6,6 @@ class LogIn extends React.Component {
   constructor () {
     super()
     this.state = {
-      showingLogInForm: true,
       showingSignUpForm: false
     }
     this.logIn = this.logIn.bind(this)
@@ -51,7 +50,6 @@ class LogIn extends React.Component {
   showSignUpForm (e) {
     e.preventDefault()
     this.setState({
-      showingLogInForm: false,
       showingSignUpForm: true
     })
     console.log('sign up function')
@@ -59,19 +57,19 @@ class LogIn extends React.Component {
   showLogInForm (e) {
     e.preventDefault()
     this.setState({
-      showingLogInForm: true,
       showingSignUpForm: false
     })
   }
   render () {
+    let signUpOrLogInSection = null
+
     if (this.state.showingSignUpForm) {
-      var signUpSection = <div>
+      signUpOrLogInSection = <div>
       Hi
       <button onClick={this.showLogInForm()} >LogIn</button>
       </div>
-    }
-    if (this.state.showingLogInForm) {
-      var logInSection = <div>
+    } else {
+      signUpOrLogInSection = <div>
         <h3>Log In </h3>
         <form onSubmit={this.logIn}>
           <label>
@@ -84,8 +82,7 @@ class LogIn extends React.Component {
     }
     return (
       <div>
-        {signUpSection}
-        {logInSection}
+        {signUpOrLogInSection}
       </div>
     )
   }
