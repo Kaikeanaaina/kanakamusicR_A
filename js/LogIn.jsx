@@ -13,13 +13,16 @@ class LogIn extends React.Component {
     this.showLogInForm = this.showLogInForm.bind(this)
     this.submitSignUp = this.submitSignUp.bind(this)
     this.showSubmitButton = this.showSubmitButton.bind(this)
+    this.logIn = this.logIn.bind(this)
+    this.checkIfEmailIsAvailable = this.checkIfEmailIsAvailable.bind(this)
   }
-  componentDidMount () {
-    console.log('1111111')
-    axios.get(`/users`)
+  checkIfEmailIsAvailable (e) {
+    let user = {
+      email: this.refs.email.value
+    }
+    axios.post(`/users/registrationValidation`, user)
     .then((res) => {
-      console.log('33333333')
-      console.log('success')
+      console.log('checked', res.data)
     })
     .catch((error) => {
       console.log('axios error', error)
@@ -41,10 +44,15 @@ class LogIn extends React.Component {
       password: this.refs.password.value
     }
     console.log('signing up', user)
+    axios.post(`/users`, user)
+    .then((res) => {
+      console.log('promise action', res.data)
+    })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
   showSubmitButton (e) {
-    console.log(e.target.value)
-
     if (this.refs.email.value === null || !this.refs.email.value) {
       return this.setState({ showingSubmitSignUpButton: false })
     }
@@ -71,21 +79,23 @@ class LogIn extends React.Component {
     this.setState({
       showingSubmitSignUpButton: true
     })
-    console.log('made it')
+  }
+  logIn () {
+    console.log('loggging in')
   }
   render () {
     let signUpOrLogInSection = null
-
-    if (this.state.showingSignUpForm) {
-      signUpOrLogInSection = <div><h3>Sign Up</h3><br /><form onSubmit={this.submitSignUp}><label><input type='text' ref='email' placeholder='email' onChange={this.showSubmitButton} /> <br /><input type='text' ref='verifyEmail' placeholder='verify email' onChange={this.showSubmitButton} /> <br /><input type='password' ref='password' placeholder='password' onChange={this.showSubmitButton} /> <br /><input type='password' ref='verifyPassword' placeholder='verifyPassword' onChange={this.showSubmitButton} /> <br /></label>{submitSignUpButton}</form> <br /><br /><br /><button onClick={this.showLogInForm} >Show LogIn</button></div>
-    } else {
-      signUpOrLogInSection = <div><h3>Log In </h3><br /><form onSubmit={this.logIn}><label><input type='text' ref='email' placeholder='email' /><br /><input type='password' ref='password' placeholder='password' /></label><br /><button>Log In</button></form><br /><br /><br /><button onClick={this.showSignUpForm} >Show SignUp</button></div>
-    }
-
     let submitSignUpButton = null
     if (this.state.showingSubmitSignUpButton) {
       submitSignUpButton = <div> <button>SignUp</button></div>
     }
+
+    if (this.state.showingSignUpForm) {
+      signUpOrLogInSection = <div><h3>Sign Up</h3><br /><form onSubmit={this.submitSignUp}><label><input type='text' ref='email' placeholder='email' onChange={this.checkIfEmailIsAvailable} /> <br /><input type='text' ref='verifyEmail' placeholder='verify email' onChange={this.showSubmitButton} /> <br /><input type='password' ref='password' placeholder='password' onChange={this.showSubmitButton} /> <br /><input type='password' ref='verifyPassword' placeholder='verifyPassword' onChange={this.showSubmitButton} /> <br /></label>{submitSignUpButton}</form> <br /><br /><br /><button onClick={this.showLogInForm} >Show LogIn</button></div>
+    } else {
+      signUpOrLogInSection = <div><h3>Log In </h3><br /><form onSubmit={this.logIn}><label><input type='text' ref='email' placeholder='email' /><br /><input type='password' ref='password' placeholder='password' /></label><br /><button>Log In</button></form><br /><br /><br /><button onClick={this.showSignUpForm} >Show SignUp</button></div>
+    }
+
     return (
       <div>
         {signUpOrLogInSection}
