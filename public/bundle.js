@@ -35340,7 +35340,12 @@
 
 	    var _this = _possibleConstructorReturn(this, (LogIn.__proto__ || Object.getPrototypeOf(LogIn)).call(this));
 
+	    _this.state = {
+	      showLogInForm: true,
+	      showSignUpForm: false
+	    };
 	    _this.logIn = _this.logIn.bind(_this);
+	    _this.showSignUpForm = _this.showSignUpForm.bind(_this);
 	    return _this;
 	  }
 
@@ -35382,31 +35387,75 @@
 	      console.log('123123123132', this.refs.email.value, this.refs.password.value);
 	    }
 	  }, {
+	    key: 'showSignUpForm',
+	    value: function showSignUpForm(e) {
+	      e.preventDefault();
+	      this.setState({
+	        showLogInForm: false,
+	        showSignUpForm: true
+	      });
+	      console.log('sign up function');
+	    }
+	  }, {
+	    key: 'showLogInForm',
+	    value: function showLogInForm(e) {
+	      e.preventDefault();
+	      this.setState({
+	        showLogInForm: true,
+	        showSignUpForm: false
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return React.createElement(
-	        'div',
-	        null,
-	        React.createElement(
-	          'h3',
+	      if (this.state.showSignUpForm) {
+	        var signUpSection = React.createElement(
+	          'div',
 	          null,
-	          'Log In '
-	        ),
-	        React.createElement(
-	          'form',
-	          { onSubmit: this.logIn },
+	          'Hi',
 	          React.createElement(
-	            'label',
+	            'button',
+	            { onClick: this.showLogInForm() },
+	            'LogIn'
+	          )
+	        );
+	      }
+	      if (this.state.showLogInForm) {
+	        var logInSection = React.createElement(
+	          'div',
+	          null,
+	          React.createElement(
+	            'h3',
 	            null,
-	            React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email' }),
-	            React.createElement('input', { type: 'password', ref: 'password', placeholder: 'password' })
+	            'Log In '
+	          ),
+	          React.createElement(
+	            'form',
+	            { onSubmit: this.logIn },
+	            React.createElement(
+	              'label',
+	              null,
+	              React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email' }),
+	              React.createElement('input', { type: 'password', ref: 'password', placeholder: 'password' })
+	            ),
+	            React.createElement(
+	              'button',
+	              null,
+	              'Log In'
+	            )
 	          ),
 	          React.createElement(
 	            'button',
-	            null,
-	            'Log In'
+	            { onClick: this.showSignUpForm() },
+	            ' SignUp '
 	          )
-	        )
+	        );
+	      }
+	      return React.createElement(
+	        'div',
+	        null,
+	        signUpSection,
+	        logInSection
 	      );
 	    }
 	  }]);

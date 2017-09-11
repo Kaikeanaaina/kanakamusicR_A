@@ -5,7 +5,12 @@ const axios = require('axios')
 class LogIn extends React.Component {
   constructor () {
     super()
+    this.state = {
+      showLogInForm: true,
+      showSignUpForm: false
+    }
     this.logIn = this.logIn.bind(this)
+    this.showSignUpForm = this.showSignUpForm.bind(this)
   }
   componentDidMount () {
     console.log('1111111')
@@ -42,9 +47,30 @@ class LogIn extends React.Component {
     // // })
     console.log('123123123132', this.refs.email.value, this.refs.password.value)
   }
+  showSignUpForm (e) {
+    e.preventDefault()
+    this.setState({
+      showLogInForm: false,
+      showSignUpForm: true
+    })
+    console.log('sign up function')
+  }
+  showLogInForm (e) {
+    e.preventDefault()
+    this.setState({
+      showLogInForm: true,
+      showSignUpForm: false
+    })
+  }
   render () {
-    return (
-      <div>
+    if (this.state.showSignUpForm) {
+      var signUpSection = <div>
+      Hi
+      <button onClick={this.showLogInForm()} >LogIn</button>
+      </div>
+    }
+    if (this.state.showLogInForm) {
+      var logInSection = <div>
         <h3>Log In </h3>
         <form onSubmit={this.logIn}>
           <label>
@@ -53,6 +79,12 @@ class LogIn extends React.Component {
           </label>
           <button>Log In</button>
         </form>
+        <button onClick={this.showSignUpForm()} > SignUp </button></div>
+    }
+    return (
+      <div>
+        {signUpSection}
+        {logInSection}
       </div>
     )
   }
