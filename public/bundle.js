@@ -35379,7 +35379,7 @@
 	      // // .catch((error) => {
 	      // //   console.log('axios error', error)
 	      // // })
-	      console.log('123123123132', this.refs.email, this.refs.password);
+	      console.log('123123123132', this.refs.email.value, this.refs.password.value);
 	    }
 	  }, {
 	    key: 'render',
