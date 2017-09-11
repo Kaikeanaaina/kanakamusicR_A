@@ -21522,7 +21522,7 @@
 	  return React.createElement(
 	    Route,
 	    { path: '/', component: Layout },
-	    React.createElement(IndexRoute, { component: Home }),
+	    React.createElement(IndexRoute, { component: LogIn }),
 	    React.createElement(Route, { path: '/addNewContent', component: AddNewContent }),
 	    React.createElement(Route, { path: '/album/:id', component: Album }),
 	    React.createElement(Route, { path: '/album/edit/:id', component: EditAlbum }),
@@ -21545,7 +21545,7 @@
 	    React.createElement(Route, { path: '/EditProfile', component: EditProfile }),
 	    React.createElement(Route, { path: '/Feedback', component: Feedback }),
 	    React.createElement(Route, { path: '/LayoutAddOns', component: LayoutAddOns }),
-	    React.createElement(Route, { path: '/LogIn', component: LogIn }),
+	    React.createElement(Route, { path: '/Home', component: Home }),
 	    React.createElement(Route, { path: '/Settings', component: SettingPage }),
 	    React.createElement(Route, { path: '/Sources', component: Sources }),
 	    React.createElement(Route, { path: '/About', component: About }),

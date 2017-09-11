@@ -41,7 +41,7 @@ const BandMembers = require('./ConnectContent/BandMembers')
 
 const myRoutes = () => (
   <Route path='/' component={Layout}>
-    <IndexRoute component={Home} />
+    <IndexRoute component={LogIn} />
     <Route path='/addNewContent' component={AddNewContent} />
     <Route path='/album/:id' component={Album} />
     <Route path='/album/edit/:id' component={EditAlbum} />
@@ -68,7 +68,7 @@ const myRoutes = () => (
     <Route path='/EditProfile' component={EditProfile} />
     <Route path='/Feedback' component={Feedback} />
     <Route path='/LayoutAddOns' component={LayoutAddOns} />
-    <Route path='/LogIn' component={LogIn} />
+    <Route path='/Home' component={Home} />
     <Route path='/Settings' component={SettingPage} />
     <Route path='/Sources' component={Sources} />
 
