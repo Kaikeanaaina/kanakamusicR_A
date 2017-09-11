@@ -35330,9 +35330,7 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-
-	var _require = __webpack_require__(320),
-	    domain = _require.domain;
+	// const { domain } = require('./Domain')
 
 	var LogIn = function (_React$Component) {
 	  _inherits(LogIn, _React$Component);
@@ -35350,7 +35348,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      console.log('1111111');
-	      axios.get(domain + '/users').then(function (res) {
+	      axios.get('/users').then(function (res) {
 	        console.log('33333333');
 	        console.log('success');
 	      }).catch(function (error) {

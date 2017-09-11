@@ -1,6 +1,6 @@
 const React = require('react')
 const axios = require('axios')
-const { domain } = require('./Domain')
+// const { domain } = require('./Domain')
 
 class LogIn extends React.Component {
   constructor () {
@@ -9,7 +9,7 @@ class LogIn extends React.Component {
   }
   componentDidMount () {
     console.log('1111111')
-    axios.get(`${domain}/users`)
+    axios.get(`/users`)
     .then((res) => {
       console.log('33333333')
       console.log('success')
