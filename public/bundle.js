@@ -35388,8 +35388,7 @@
 	    }
 	  }, {
 	    key: 'showSignUpForm',
-	    value: function showSignUpForm(e) {
-	      e.preventDefault();
+	    value: function showSignUpForm() {
 	      this.setState({
 	        showingSignUpForm: true
 	      });
@@ -35397,8 +35396,7 @@
 	    }
 	  }, {
 	    key: 'showLogInForm',
-	    value: function showLogInForm(e) {
-	      e.preventDefault();
+	    value: function showLogInForm() {
 	      this.setState({
 	        showingSignUpForm: false
 	      });

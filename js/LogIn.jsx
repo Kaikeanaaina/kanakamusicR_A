@@ -47,15 +47,13 @@ class LogIn extends React.Component {
     // // })
     console.log('123123123132', this.refs.email.value, this.refs.password.value)
   }
-  showSignUpForm (e) {
-    e.preventDefault()
+  showSignUpForm () {
     this.setState({
       showingSignUpForm: true
     })
     console.log('sign up function')
   }
-  showLogInForm (e) {
-    e.preventDefault()
+  showLogInForm () {
     this.setState({
       showingSignUpForm: false
     })
