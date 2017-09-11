@@ -35348,16 +35348,19 @@
 	    _this.showLogInForm = _this.showLogInForm.bind(_this);
 	    _this.submitSignUp = _this.submitSignUp.bind(_this);
 	    _this.showSubmitButton = _this.showSubmitButton.bind(_this);
+	    _this.logIn = _this.logIn.bind(_this);
+	    _this.checkIfEmailIsAvailable = _this.checkIfEmailIsAvailable.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(LogIn, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('1111111');
-	      axios.get('/users').then(function (res) {
-	        console.log('33333333');
-	        console.log('success');
+	    key: 'checkIfEmailIsAvailable',
+	    value: function checkIfEmailIsAvailable(e) {
+	      var user = {
+	        email: this.refs.email.value
+	      };
+	      axios.post('/users/registrationValidation', user).then(function (res) {
+	        console.log('checked', res.data);
 	      }).catch(function (error) {
 	        console.log('axios error', error);
 	      });
@@ -35384,12 +35387,15 @@
 	        password: this.refs.password.value
 	      };
 	      console.log('signing up', user);
+	      axios.post('/users', user).then(function (res) {
+	        console.log('promise action', res.data);
+	      }).catch(function (error) {
+	        console.log('axios error', error);
+	      });
 	    }
 	  }, {
 	    key: 'showSubmitButton',
 	    value: function showSubmitButton(e) {
-	      console.log(e.target.value);
-
 	      if (this.refs.email.value === null || !this.refs.email.value) {
 	        return this.setState({ showingSubmitSignUpButton: false });
 	      }
@@ -35416,12 +35422,29 @@
 	      this.setState({
 	        showingSubmitSignUpButton: true
 	      });
-	      console.log('made it');
+	    }
+	  }, {
+	    key: 'logIn',
+	    value: function logIn() {
+	      console.log('loggging in');
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var signUpOrLogInSection = null;
+	      var submitSignUpButton = null;
+	      if (this.state.showingSubmitSignUpButton) {
+	        submitSignUpButton = React.createElement(
+	          'div',
+	          null,
+	          ' ',
+	          React.createElement(
+	            'button',
+	            null,
+	            'SignUp'
+	          )
+	        );
+	      }
 
 	      if (this.state.showingSignUpForm) {
 	        signUpOrLogInSection = React.createElement(
@@ -35439,7 +35462,7 @@
 	            React.createElement(
 	              'label',
 	              null,
-	              React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email', onChange: this.showSubmitButton }),
+	              React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email', onChange: this.checkIfEmailIsAvailable }),
 	              ' ',
 	              React.createElement('br', null),
 	              React.createElement('input', { type: 'text', ref: 'verifyEmail', placeholder: 'verify email', onChange: this.showSubmitButton }),
@@ -35502,19 +35525,6 @@
 	        );
 	      }
 
-	      var submitSignUpButton = null;
-	      if (this.state.showingSubmitSignUpButton) {
-	        submitSignUpButton = React.createElement(
-	          'div',
-	          null,
-	          ' ',
-	          React.createElement(
-	            'button',
-	            null,
-	            'SignUp'
-	          )
-	        );
-	      }
 	      return React.createElement(
 	        'div',
 	        null,
