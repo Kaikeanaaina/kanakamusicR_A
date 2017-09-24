@@ -35332,6 +35332,13 @@
 	var axios = __webpack_require__(266);
 	// const { domain } = require('./Domain')
 
+	var style = {
+	  warning: {
+	    color: 'red',
+	    width: '100%'
+	  }
+	};
+
 	var LogIn = function (_React$Component) {
 	  _inherits(LogIn, _React$Component);
 
@@ -35342,30 +35349,18 @@
 
 	    _this.state = {
 	      showingSignUpForm: false,
-	      showingSubmitSignUpButton: false
+	      showingSubmitSignUpButton: false,
+	      errorMessage: ''
 	    };
 	    _this.showSignUpForm = _this.showSignUpForm.bind(_this);
 	    _this.showLogInForm = _this.showLogInForm.bind(_this);
 	    _this.submitSignUp = _this.submitSignUp.bind(_this);
 	    _this.showSubmitButton = _this.showSubmitButton.bind(_this);
 	    _this.logIn = _this.logIn.bind(_this);
-	    _this.checkIfEmailIsAvailable = _this.checkIfEmailIsAvailable.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(LogIn, [{
-	    key: 'checkIfEmailIsAvailable',
-	    value: function checkIfEmailIsAvailable(e) {
-	      var user = {
-	        email: this.refs.email.value
-	      };
-	      axios.post('/users/registrationValidation', user).then(function (res) {
-	        console.log('checked', res.data);
-	      }).catch(function (error) {
-	        console.log('axios error', error);
-	      });
-	    }
-	  }, {
 	    key: 'showSignUpForm',
 	    value: function showSignUpForm() {
 	      this.setState({
@@ -35382,6 +35377,8 @@
 	  }, {
 	    key: 'submitSignUp',
 	    value: function submitSignUp() {
+	      var _this2 = this;
+
 	      var user = {
 	        email: this.refs.email.value,
 	        password: this.refs.password.value
@@ -35389,6 +35386,15 @@
 	      console.log('signing up', user);
 	      axios.post('/users', user).then(function (res) {
 	        console.log('promise action', res.data);
+	        if (res.data.error) {
+	          _this2.setState({
+	            errorMessage: res.data.error
+	          });
+	        } else {
+	          _this2.setState({
+	            errorMessage: ''
+	          });
+	        }
 	      }).catch(function (error) {
 	        console.log('axios error', error);
 	      });
@@ -35419,6 +35425,7 @@
 	      if (this.refs.password.value !== this.refs.verifyPassword.value) {
 	        return this.setState({ showingSubmitSignUpButton: false });
 	      }
+
 	      this.setState({
 	        showingSubmitSignUpButton: true
 	      });
@@ -35462,7 +35469,7 @@
 	            React.createElement(
 	              'label',
 	              null,
-	              React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email', onChange: this.checkIfEmailIsAvailable }),
+	              React.createElement('input', { type: 'text', ref: 'email', placeholder: 'email', onChange: this.showSubmitButton }),
 	              ' ',
 	              React.createElement('br', null),
 	              React.createElement('input', { type: 'text', ref: 'verifyEmail', placeholder: 'verify email', onChange: this.showSubmitButton }),
@@ -35525,9 +35532,20 @@
 	        );
 	      }
 
+	      var theErrorMessageBlock = null;
+
+	      if (this.state.errorMessage) {
+	        theErrorMessageBlock = React.createElement(
+	          'div',
+	          { style: style.warning },
+	          this.state.errorMessage
+	        );
+	      }
+
 	      return React.createElement(
 	        'div',
 	        null,
+	        theErrorMessageBlock,
 	        signUpOrLogInSection
 	      );
 	    }
