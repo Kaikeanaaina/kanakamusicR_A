@@ -106,13 +106,9 @@ router.get('/:id', function (req, res) {
 })
 
 router.post('/', registerValidation, function (req, res) {
-  console.log('1111111 made it to the sign up');
 
   hash(req)
   .then(function(hash) {
-    console.log('222222222' , hash)
-
-    console.log('3333333333', userObj)
 
     User.create({
       email : req.body.email,
@@ -120,13 +116,7 @@ router.post('/', registerValidation, function (req, res) {
       type: 'user'
     })
     .then(function(user){
-      console.log('44444444', user)
-      req.login(user, function(err) {
-        if(err) {
-          return next(err)
-        }
-        return res.json(user)
-      })
+      return res.json(user)
     })
     .catch((error) => {
       return res.json({ error: error})
