@@ -35361,6 +35361,11 @@
 	  }
 
 	  _createClass(LogIn, [{
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.refs = null;
+	    }
+	  }, {
 	    key: 'showSignUpForm',
 	    value: function showSignUpForm() {
 	      this.setState({
@@ -35385,14 +35390,14 @@
 	      };
 	      console.log('signing up', user);
 	      axios.post('/users', user).then(function (res) {
-	        console.log('promise action', res.data);
 	        if (res.data.error) {
 	          _this2.setState({
 	            errorMessage: res.data.error
 	          });
 	        } else {
 	          _this2.setState({
-	            errorMessage: ''
+	            errorMessage: '',
+	            showingSignUpForm: false
 	          });
 	        }
 	      }).catch(function (error) {
@@ -35433,7 +35438,7 @@
 	  }, {
 	    key: 'logIn',
 	    value: function logIn() {
-	      console.log('loggging in');
+	      console.log('loggging in', this.refs.email.value, this.refs.password.value);
 	    }
 	  }, {
 	    key: 'render',
