@@ -23,6 +23,9 @@ class LogIn extends React.Component {
     this.showSubmitButton = this.showSubmitButton.bind(this)
     this.logIn = this.logIn.bind(this)
   }
+  componentWillUnmount () {
+    this.refs = null
+  }
   showSignUpForm () {
     this.setState({
       showingSignUpForm: true
@@ -41,14 +44,14 @@ class LogIn extends React.Component {
     console.log('signing up', user)
     axios.post(`/users`, user)
     .then((res) => {
-      console.log('promise action', res.data)
       if (res.data.error) {
         this.setState({
           errorMessage: res.data.error
         })
       } else {
         this.setState({
-          errorMessage: ''
+          errorMessage: '',
+          showingSignUpForm: false
         })
       }
     })
@@ -86,7 +89,7 @@ class LogIn extends React.Component {
     })
   }
   logIn () {
-    console.log('loggging in')
+    console.log('loggging in', this.refs.email.value, this.refs.password.value)
   }
   render () {
     let signUpOrLogInSection = null
