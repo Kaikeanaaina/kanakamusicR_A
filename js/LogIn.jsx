@@ -24,7 +24,8 @@ class LogIn extends React.Component {
     this.logIn = this.logIn.bind(this)
   }
   componentWillUnmount () {
-    this.refs = null
+    this.refs.email.value = null
+    this.refs.password.value = null
   }
   showSignUpForm () {
     this.setState({
@@ -36,12 +37,12 @@ class LogIn extends React.Component {
       showingSignUpForm: false
     })
   }
-  submitSignUp () {
+  submitSignUp (e) {
+    e.preventDefault()
     let user = {
       email: this.refs.email.value,
       password: this.refs.password.value
     }
-    console.log('signing up', user)
     axios.post(`/users`, user)
     .then((res) => {
       if (res.data.error) {
@@ -53,6 +54,8 @@ class LogIn extends React.Component {
           errorMessage: '',
           showingSignUpForm: false
         })
+        this.refs.email.value = null
+        this.refs.password.value = null
       }
     })
     .catch((error) => {
@@ -89,7 +92,19 @@ class LogIn extends React.Component {
     })
   }
   logIn () {
-    console.log('loggging in', this.refs.email.value, this.refs.password.value)
+    console.log('loggging in 111111111', this.refs.email.value, this.refs.password.value)
+
+    let user = {
+      email: this.refs.email.value,
+      password: this.refs.password.value
+    }
+    axios.post(`/users/login`, user)
+    .then((res) => {
+      console.log('success 2222222222', res)
+    })
+    .catch((error) => {
+      console.log('axios error', error)
+    })
   }
   render () {
     let signUpOrLogInSection = null
