@@ -1,23 +1,17 @@
 'use strict'
 
 const express = require('express')
+const app = express();
 const router = express.Router()
 const bodyParser = require('body-parser')
-const bcrypt = require('bcrypt')
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
+const cookieParser = require('cookie-parser');
 const db = require('./../models')
 const User = db.User
 
+const bcrypt = require('bcrypt')
 
 router.use(bodyParser.json({ extended: false }))
-
-passport.serializeUser(function(user, done) {
- done(null, user);
-})
-passport.deserializeUser(function(user, done) {
- done(null, user);
-})
+router.use(cookieParser());
 
 function hash(req) {
   return new Promise (function(resolve, reject) {
@@ -103,6 +97,10 @@ router.get('/:id', function (req, res) {
   // } else {
   //   res.json({success: false})
   // }
+})
+
+router.post('/login', function(req, res) {
+  console.log('hit the log in route')
 })
 
 router.post('/', registerValidation, function (req, res) {
