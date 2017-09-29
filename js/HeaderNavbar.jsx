@@ -27,7 +27,7 @@ const style = {
 const HeaderNavbar = () => (
   <div id='header-bar' className='HeaderNavbar' style={style.divContainer}>
     <div>
-      <Link to='/' id='KanakaMusic-Header' style={style.KanakaMusicHeader}>KanakaMusic</Link>
+      <Link to='/Home' id='KanakaMusic-Header' style={style.KanakaMusicHeader}>KanakaMusic</Link>
     </div>
     <div style={style.headerChildren}>
       <div><Link to='/addNewContent' style={style.headerLinks} > +Content </Link></div>
