@@ -16,42 +16,13 @@ const baseTemplate = fs.readFileSync('./index.html')
 const template = _.template(baseTemplate)
 const ClientApp = require('./js/ClientApp.jsx')
 const Routes = ClientApp.Routes
+const CONFIG = require('./config/config.js');
 
 const app = express()
 const db = require('./models')
 const User = db.User
 
 app.use('/public', express.static('./public'))
-
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
-const bcrypt = require('bcrypt')
-
-passport.serializeUser( function ( user, done ) {
-  return done( null, user );
-});
-
-passport.deserializeUser( function ( user, done ) {
-  return done( null, user );
-});
-
-//authenticate middleware ('local') called in above function upon login
-passport.use(new LocalStrategy({passReqToCallback: true}, function(req, name, password, done) {
-  User.findOne({
-    where: {
-      email : name
-    }
-  })
-  .then(function(user){
-    console.log(' 3333333333    got in to the local strategy')
-    // bcrypt.compare(password, user.password, function(err, res){
-    //   if(err) {
-    //     return done(err);
-    //   }
-    //   return done(null, user);
-    // });
-  }).catch(done);
-}));
 
 app.all('/*', function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
