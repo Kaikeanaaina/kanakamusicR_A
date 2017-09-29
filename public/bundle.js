@@ -21546,6 +21546,7 @@
 	    React.createElement(Route, { path: '/Feedback', component: Feedback }),
 	    React.createElement(Route, { path: '/LayoutAddOns', component: LayoutAddOns }),
 	    React.createElement(Route, { path: '/Home', component: Home }),
+	    React.createElement(Route, { path: '/LogIn', component: LogIn }),
 	    React.createElement(Route, { path: '/Settings', component: SettingPage }),
 	    React.createElement(Route, { path: '/Sources', component: Sources }),
 	    React.createElement(Route, { path: '/About', component: About }),
@@ -35145,7 +35146,7 @@
 	      null,
 	      React.createElement(
 	        Link,
-	        { to: '/', id: 'KanakaMusic-Header', style: style.KanakaMusicHeader },
+	        { to: '/Home', id: 'KanakaMusic-Header', style: style.KanakaMusicHeader },
 	        'KanakaMusic'
 	      )
 	    ),
@@ -35363,7 +35364,8 @@
 	  _createClass(LogIn, [{
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      this.refs = null;
+	      this.refs.email.value = null;
+	      this.refs.password.value = null;
 	    }
 	  }, {
 	    key: 'showSignUpForm',
@@ -35381,14 +35383,14 @@
 	    }
 	  }, {
 	    key: 'submitSignUp',
-	    value: function submitSignUp() {
+	    value: function submitSignUp(e) {
 	      var _this2 = this;
 
+	      e.preventDefault();
 	      var user = {
 	        email: this.refs.email.value,
 	        password: this.refs.password.value
 	      };
-	      console.log('signing up', user);
 	      axios.post('/users', user).then(function (res) {
 	        if (res.data.error) {
 	          _this2.setState({
@@ -35399,6 +35401,8 @@
 	            errorMessage: '',
 	            showingSignUpForm: false
 	          });
+	          _this2.refs.email.value = null;
+	          _this2.refs.password.value = null;
 	        }
 	      }).catch(function (error) {
 	        console.log('axios error', error);
@@ -35438,7 +35442,17 @@
 	  }, {
 	    key: 'logIn',
 	    value: function logIn() {
-	      console.log('loggging in', this.refs.email.value, this.refs.password.value);
+	      console.log('loggging in 111111111', this.refs.email.value, this.refs.password.value);
+
+	      var user = {
+	        email: this.refs.email.value,
+	        password: this.refs.password.value
+	      };
+	      axios.post('/users/login', user).then(function (res) {
+	        console.log('success 2222222222', res);
+	      }).catch(function (error) {
+	        console.log('axios error', error);
+	      });
 	    }
 	  }, {
 	    key: 'render',
