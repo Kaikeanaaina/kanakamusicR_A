@@ -69,6 +69,7 @@ const myRoutes = () => (
     <Route path='/Feedback' component={Feedback} />
     <Route path='/LayoutAddOns' component={LayoutAddOns} />
     <Route path='/Home' component={Home} />
+    <Route path='/LogIn' component={LogIn} />
     <Route path='/Settings' component={SettingPage} />
     <Route path='/Sources' component={Sources} />
 
