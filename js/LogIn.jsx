@@ -98,9 +98,19 @@ class LogIn extends React.Component {
       email: this.refs.email.value,
       password: this.refs.password.value
     }
+
     axios.post(`/users/login`, user)
     .then((res) => {
-      console.log('success 2222222222', res)
+      console.log('success 2222222222', res.data)
+      if (res.data.error) {
+        this.setState({
+          errorMessage: res.data.error
+        })
+      } else {
+        this.setState({
+          errorMessage: ''
+        })
+      }
     })
     .catch((error) => {
       console.log('axios error', error)

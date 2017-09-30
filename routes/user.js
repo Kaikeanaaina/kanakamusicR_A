@@ -101,6 +101,39 @@ router.get('/:id', function (req, res) {
 
 router.post('/login', function(req, res) {
   console.log('hit the log in route')
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+  .then(function(user) {
+    if (user) {
+
+      bcrypt.compare(req.body.password, user.password, function (err, response) {
+        if (response) {
+          console.log('11111111111', user.dataValues)
+          return res.json({user: user.dataValues})
+        } else {
+          console.log('22222222222 you fucked up')
+          return res.json({error: 'Invalid email or password'})
+        }
+      })
+      // bcrypt.compare(req.body.password, user.password)
+      // .then(function(res) {
+      //   console.log('the final test', res)
+      //   if (res) {
+      //     console.log('11111111111 return a user', user.dataValues)
+      //     return res.json({user: user.dataValues})
+      //   } else {
+      //     console.log('2222222222 you fucked up on the pw')
+      //     return res.json({error: 'Invalid email or password'})
+      //   }
+      // })
+
+    } else {
+      return res.json({error: 'invalid email or password'})
+    }
+  })
 })
 
 router.post('/', registerValidation, function (req, res) {
