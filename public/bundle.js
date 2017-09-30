@@ -50283,25 +50283,129 @@
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
+	var Modal = __webpack_require__(292);
+
+	var customStyles = {
+	  content: {
+	    top: '50%',
+	    left: '50%',
+	    right: 'auto',
+	    bottom: 'auto',
+	    marginRight: '-50%',
+	    transform: 'translate(-50%, -50%)'
+	  }
+	};
+
 	var SettingPage = function (_React$Component) {
 	  _inherits(SettingPage, _React$Component);
 
 	  function SettingPage() {
 	    _classCallCheck(this, SettingPage);
 
-	    return _possibleConstructorReturn(this, (SettingPage.__proto__ || Object.getPrototypeOf(SettingPage)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (SettingPage.__proto__ || Object.getPrototypeOf(SettingPage)).call(this));
+
+	    _this.state = {
+	      modalIsOpen: false
+	    };
+	    _this.openModal = _this.openModal.bind(_this);
+	    _this.closeModal = _this.closeModal.bind(_this);
+	    _this.logOutSubmit = _this.logOutSubmit.bind(_this);
+	    _this.afterOpenModal = _this.afterOpenModal.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(SettingPage, [{
+	    key: 'openModal',
+	    value: function openModal() {
+	      console.log('open modal to log out');
+	      // clicking link opens modal to confirm logging out
+	      this.setState({
+	        modalIsOpen: true
+	      });
+	    }
+	  }, {
+	    key: 'closeModal',
+	    value: function closeModal() {
+	      console.log('closing modal to log out');
+	      // close modal to cancel action
+	      this.setState({
+	        modalIsOpen: false
+	      });
+	    }
+	  }, {
+	    key: 'logOutSubmit',
+	    value: function logOutSubmit() {
+	      console.log('logging out button');
+	      // axios call to log out
+	      // promise to
+	      // clear user
+	      // go to log in screen
+	    }
+	  }, {
+	    key: 'afterOpenModal',
+	    value: function afterOpenModal() {
+	      // references are now sync'd and can be accessed.
+	      this.refs.subtitle.style.color = '#f00';
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var modal = null;
+	      if (this.state.modalIsOpen) {
+	        modal = React.createElement(
+	          'div',
+	          null,
+	          React.createElement(
+	            Modal,
+	            { isOpen: this.state.modalIsOpen, onAfterOpen: this.afterOpenModal, onRequestClose: this.closeModal, style: customStyles, contentLabel: 'confirmLogOut' },
+	            ' ',
+	            React.createElement(
+	              'h4',
+	              { ref: 'subtitle' },
+	              'Confirm Log Out'
+	            ),
+	            ' ',
+	            React.createElement(
+	              'label',
+	              null,
+	              React.createElement(
+	                'h2',
+	                null,
+	                'Are You Sure You want to Log Out?'
+	              )
+	            ),
+	            React.createElement(
+	              'button',
+	              { onClick: this.closeModal },
+	              'cancel'
+	            ),
+	            React.createElement(
+	              'button',
+	              { onClick: this.logOutSubmit },
+	              'LogOut'
+	            )
+	          )
+	        );
+	      } else {
+	        modal = null;
+	      }
 	      return React.createElement(
 	        'div',
 	        null,
+	        modal,
 	        React.createElement(
 	          'h1',
 	          null,
 	          ' Settings '
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          React.createElement(
+	            'button',
+	            { onClick: this.openModal },
+	            ' Logout '
+	          )
 	        ),
 	        React.createElement(
 	          'h3',
