@@ -35444,19 +35444,19 @@
 	    value: function logIn() {
 	      var _this3 = this;
 
-	      console.log('loggging in 111111111', this.refs.email.value, this.refs.password.value);
-
 	      var user = {
 	        email: this.refs.email.value,
 	        password: this.refs.password.value
 	      };
 
 	      axios.post('/users/login', user).then(function (res) {
-	        console.log('success 2222222222', res.data);
 	        if (res.data.error) {
 	          _this3.setState({
 	            errorMessage: res.data.error
 	          });
+	        } else if (res.data.user) {
+	          console.log('user', res.data.user);
+	          window.location.href = '/#/Home';
 	        } else {
 	          _this3.setState({
 	            errorMessage: ''
