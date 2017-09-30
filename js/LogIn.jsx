@@ -92,8 +92,6 @@ class LogIn extends React.Component {
     })
   }
   logIn () {
-    console.log('loggging in 111111111', this.refs.email.value, this.refs.password.value)
-
     let user = {
       email: this.refs.email.value,
       password: this.refs.password.value
@@ -101,11 +99,13 @@ class LogIn extends React.Component {
 
     axios.post(`/users/login`, user)
     .then((res) => {
-      console.log('success 2222222222', res.data)
       if (res.data.error) {
         this.setState({
           errorMessage: res.data.error
         })
+      } else if (res.data.user) {
+        console.log('user', res.data.user)
+        window.location.href = '/#/Home'
       } else {
         this.setState({
           errorMessage: ''
