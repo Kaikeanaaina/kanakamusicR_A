@@ -4,14 +4,12 @@ const express = require('express')
 const app = express();
 const router = express.Router()
 const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser');
 const db = require('./../models')
 const User = db.User
 
 const bcrypt = require('bcrypt')
 
 router.use(bodyParser.json({ extended: false }))
-router.use(cookieParser());
 
 function hash(req) {
   return new Promise (function(resolve, reject) {
