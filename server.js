@@ -16,7 +16,6 @@ const baseTemplate = fs.readFileSync('./index.html')
 const template = _.template(baseTemplate)
 const ClientApp = require('./js/ClientApp.jsx')
 const Routes = ClientApp.Routes
-const CONFIG = require('./config/config.js');
 
 const app = express()
 const db = require('./models')
