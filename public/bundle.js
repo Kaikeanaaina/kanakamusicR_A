@@ -21485,38 +21485,38 @@
 	var AddNewContent = __webpack_require__(264);
 	var Layout = __webpack_require__(316);
 	var LogIn = __webpack_require__(319);
-	var Home = __webpack_require__(847);
-	var TermsOfService = __webpack_require__(871);
-	var PrivacyPolicy = __webpack_require__(874);
-	var ContactInformation = __webpack_require__(875);
-	var About = __webpack_require__(876);
-	var Connect = __webpack_require__(877);
-	var Gigs = __webpack_require__(878);
-	var Song = __webpack_require__(880);
-	var Artist = __webpack_require__(881);
-	var Album = __webpack_require__(882);
-	var RecordLabel = __webpack_require__(883);
-	var Chords = __webpack_require__(884);
-	var EditSong = __webpack_require__(885);
-	var EditAlbum = __webpack_require__(886);
-	var EditArtist = __webpack_require__(887);
-	var EditRecordLabel = __webpack_require__(888);
+	var Home = __webpack_require__(320);
+	var TermsOfService = __webpack_require__(344);
+	var PrivacyPolicy = __webpack_require__(347);
+	var ContactInformation = __webpack_require__(348);
+	var About = __webpack_require__(349);
+	var Connect = __webpack_require__(350);
+	var Gigs = __webpack_require__(351);
+	var Song = __webpack_require__(353);
+	var Artist = __webpack_require__(354);
+	var Album = __webpack_require__(355);
+	var RecordLabel = __webpack_require__(356);
+	var Chords = __webpack_require__(357);
+	var EditSong = __webpack_require__(358);
+	var EditAlbum = __webpack_require__(359);
+	var EditArtist = __webpack_require__(360);
+	var EditRecordLabel = __webpack_require__(361);
 
-	var AddNewGig = __webpack_require__(889);
-	var EditGig = __webpack_require__(891);
+	var AddNewGig = __webpack_require__(362);
+	var EditGig = __webpack_require__(364);
 
-	var VenueList = __webpack_require__(893);
-	var AddNewVenue = __webpack_require__(894);
-	var Venue = __webpack_require__(896);
+	var VenueList = __webpack_require__(366);
+	var AddNewVenue = __webpack_require__(367);
+	var Venue = __webpack_require__(369);
 
-	var SettingPage = __webpack_require__(897);
-	var Credits = __webpack_require__(898);
-	var LayoutAddOns = __webpack_require__(899);
-	var EditProfile = __webpack_require__(900);
-	var Sources = __webpack_require__(901);
-	var Feedback = __webpack_require__(902);
+	var SettingPage = __webpack_require__(370);
+	var Credits = __webpack_require__(371);
+	var LayoutAddOns = __webpack_require__(372);
+	var EditProfile = __webpack_require__(373);
+	var Sources = __webpack_require__(374);
+	var Feedback = __webpack_require__(375);
 
-	var BandMembers = __webpack_require__(903);
+	var BandMembers = __webpack_require__(376);
 
 	var myRoutes = function myRoutes() {
 	  return React.createElement(
@@ -35588,534 +35588,7 @@
 	module.exports = LogIn;
 
 /***/ },
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */,
-/* 336 */,
-/* 337 */,
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */,
-/* 346 */,
-/* 347 */,
-/* 348 */,
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */,
-/* 354 */,
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */,
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */,
-/* 384 */,
-/* 385 */,
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
-/* 402 */,
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */,
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */,
-/* 427 */,
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */,
-/* 435 */,
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */,
-/* 442 */,
-/* 443 */,
-/* 444 */,
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */,
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */,
-/* 453 */,
-/* 454 */,
-/* 455 */,
-/* 456 */,
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */,
-/* 461 */,
-/* 462 */,
-/* 463 */,
-/* 464 */,
-/* 465 */,
-/* 466 */,
-/* 467 */,
-/* 468 */,
-/* 469 */,
-/* 470 */,
-/* 471 */,
-/* 472 */,
-/* 473 */,
-/* 474 */,
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */,
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */,
-/* 489 */,
-/* 490 */,
-/* 491 */,
-/* 492 */,
-/* 493 */,
-/* 494 */,
-/* 495 */,
-/* 496 */,
-/* 497 */,
-/* 498 */,
-/* 499 */,
-/* 500 */,
-/* 501 */,
-/* 502 */,
-/* 503 */,
-/* 504 */,
-/* 505 */,
-/* 506 */,
-/* 507 */,
-/* 508 */,
-/* 509 */,
-/* 510 */,
-/* 511 */,
-/* 512 */,
-/* 513 */,
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */,
-/* 519 */,
-/* 520 */,
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */,
-/* 527 */,
-/* 528 */,
-/* 529 */,
-/* 530 */,
-/* 531 */,
-/* 532 */,
-/* 533 */,
-/* 534 */,
-/* 535 */,
-/* 536 */,
-/* 537 */,
-/* 538 */,
-/* 539 */,
-/* 540 */,
-/* 541 */,
-/* 542 */,
-/* 543 */,
-/* 544 */,
-/* 545 */,
-/* 546 */,
-/* 547 */,
-/* 548 */,
-/* 549 */,
-/* 550 */,
-/* 551 */,
-/* 552 */,
-/* 553 */,
-/* 554 */,
-/* 555 */,
-/* 556 */,
-/* 557 */,
-/* 558 */,
-/* 559 */,
-/* 560 */,
-/* 561 */,
-/* 562 */,
-/* 563 */,
-/* 564 */,
-/* 565 */,
-/* 566 */,
-/* 567 */,
-/* 568 */,
-/* 569 */,
-/* 570 */,
-/* 571 */,
-/* 572 */,
-/* 573 */,
-/* 574 */,
-/* 575 */,
-/* 576 */,
-/* 577 */,
-/* 578 */,
-/* 579 */,
-/* 580 */,
-/* 581 */,
-/* 582 */,
-/* 583 */,
-/* 584 */,
-/* 585 */,
-/* 586 */,
-/* 587 */,
-/* 588 */,
-/* 589 */,
-/* 590 */,
-/* 591 */,
-/* 592 */,
-/* 593 */,
-/* 594 */,
-/* 595 */,
-/* 596 */,
-/* 597 */,
-/* 598 */,
-/* 599 */,
-/* 600 */,
-/* 601 */,
-/* 602 */,
-/* 603 */,
-/* 604 */,
-/* 605 */,
-/* 606 */,
-/* 607 */,
-/* 608 */,
-/* 609 */,
-/* 610 */,
-/* 611 */,
-/* 612 */,
-/* 613 */,
-/* 614 */,
-/* 615 */,
-/* 616 */,
-/* 617 */,
-/* 618 */,
-/* 619 */,
-/* 620 */,
-/* 621 */,
-/* 622 */,
-/* 623 */,
-/* 624 */,
-/* 625 */,
-/* 626 */,
-/* 627 */,
-/* 628 */,
-/* 629 */,
-/* 630 */,
-/* 631 */,
-/* 632 */,
-/* 633 */,
-/* 634 */,
-/* 635 */,
-/* 636 */,
-/* 637 */,
-/* 638 */,
-/* 639 */,
-/* 640 */,
-/* 641 */,
-/* 642 */,
-/* 643 */,
-/* 644 */,
-/* 645 */,
-/* 646 */,
-/* 647 */,
-/* 648 */,
-/* 649 */,
-/* 650 */,
-/* 651 */,
-/* 652 */,
-/* 653 */,
-/* 654 */,
-/* 655 */,
-/* 656 */,
-/* 657 */,
-/* 658 */,
-/* 659 */,
-/* 660 */,
-/* 661 */,
-/* 662 */,
-/* 663 */,
-/* 664 */,
-/* 665 */,
-/* 666 */,
-/* 667 */,
-/* 668 */,
-/* 669 */,
-/* 670 */,
-/* 671 */,
-/* 672 */,
-/* 673 */,
-/* 674 */,
-/* 675 */,
-/* 676 */,
-/* 677 */,
-/* 678 */,
-/* 679 */,
-/* 680 */,
-/* 681 */,
-/* 682 */,
-/* 683 */,
-/* 684 */,
-/* 685 */,
-/* 686 */,
-/* 687 */,
-/* 688 */,
-/* 689 */,
-/* 690 */,
-/* 691 */,
-/* 692 */,
-/* 693 */,
-/* 694 */,
-/* 695 */,
-/* 696 */,
-/* 697 */,
-/* 698 */,
-/* 699 */,
-/* 700 */,
-/* 701 */,
-/* 702 */,
-/* 703 */,
-/* 704 */,
-/* 705 */,
-/* 706 */,
-/* 707 */,
-/* 708 */,
-/* 709 */,
-/* 710 */,
-/* 711 */,
-/* 712 */,
-/* 713 */,
-/* 714 */,
-/* 715 */,
-/* 716 */,
-/* 717 */,
-/* 718 */,
-/* 719 */,
-/* 720 */,
-/* 721 */,
-/* 722 */,
-/* 723 */,
-/* 724 */,
-/* 725 */,
-/* 726 */,
-/* 727 */,
-/* 728 */,
-/* 729 */,
-/* 730 */,
-/* 731 */,
-/* 732 */,
-/* 733 */,
-/* 734 */,
-/* 735 */,
-/* 736 */,
-/* 737 */,
-/* 738 */,
-/* 739 */,
-/* 740 */,
-/* 741 */,
-/* 742 */,
-/* 743 */,
-/* 744 */,
-/* 745 */,
-/* 746 */,
-/* 747 */,
-/* 748 */,
-/* 749 */,
-/* 750 */,
-/* 751 */,
-/* 752 */,
-/* 753 */,
-/* 754 */,
-/* 755 */,
-/* 756 */,
-/* 757 */,
-/* 758 */,
-/* 759 */,
-/* 760 */,
-/* 761 */,
-/* 762 */,
-/* 763 */,
-/* 764 */,
-/* 765 */,
-/* 766 */,
-/* 767 */,
-/* 768 */,
-/* 769 */,
-/* 770 */,
-/* 771 */,
-/* 772 */,
-/* 773 */,
-/* 774 */,
-/* 775 */,
-/* 776 */,
-/* 777 */,
-/* 778 */,
-/* 779 */,
-/* 780 */,
-/* 781 */,
-/* 782 */,
-/* 783 */,
-/* 784 */,
-/* 785 */,
-/* 786 */,
-/* 787 */,
-/* 788 */,
-/* 789 */,
-/* 790 */,
-/* 791 */,
-/* 792 */,
-/* 793 */,
-/* 794 */,
-/* 795 */,
-/* 796 */,
-/* 797 */,
-/* 798 */,
-/* 799 */,
-/* 800 */,
-/* 801 */,
-/* 802 */,
-/* 803 */,
-/* 804 */,
-/* 805 */,
-/* 806 */,
-/* 807 */,
-/* 808 */,
-/* 809 */,
-/* 810 */,
-/* 811 */,
-/* 812 */,
-/* 813 */,
-/* 814 */,
-/* 815 */,
-/* 816 */,
-/* 817 */,
-/* 818 */,
-/* 819 */,
-/* 820 */,
-/* 821 */,
-/* 822 */,
-/* 823 */,
-/* 824 */,
-/* 825 */,
-/* 826 */,
-/* 827 */,
-/* 828 */,
-/* 829 */,
-/* 830 */,
-/* 831 */,
-/* 832 */,
-/* 833 */,
-/* 834 */,
-/* 835 */,
-/* 836 */,
-/* 837 */,
-/* 838 */,
-/* 839 */,
-/* 840 */,
-/* 841 */,
-/* 842 */,
-/* 843 */,
-/* 844 */,
-/* 845 */,
-/* 846 */,
-/* 847 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36129,8 +35602,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var SearchResults = __webpack_require__(848);
-	var ContentLists = __webpack_require__(849);
+	var SearchResults = __webpack_require__(321);
+	var ContentLists = __webpack_require__(322);
 
 	var MyFirstComponent = function (_React$Component) {
 	  _inherits(MyFirstComponent, _React$Component);
@@ -36206,7 +35679,7 @@
 	module.exports = MyFirstComponent;
 
 /***/ },
-/* 848 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36435,7 +35908,7 @@
 	module.exports = SearchResults;
 
 /***/ },
-/* 849 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36449,10 +35922,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var SongList = __webpack_require__(850);
-	var ArtistList = __webpack_require__(856);
-	var AlbumList = __webpack_require__(861);
-	var RecordLabelList = __webpack_require__(866);
+	var SongList = __webpack_require__(323);
+	var ArtistList = __webpack_require__(329);
+	var AlbumList = __webpack_require__(334);
+	var RecordLabelList = __webpack_require__(339);
 
 	var ContentLists = function (_React$Component) {
 	  _inherits(ContentLists, _React$Component);
@@ -36583,7 +36056,7 @@
 	module.exports = ContentLists;
 
 /***/ },
-/* 850 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36598,11 +36071,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(851);
-	var Div4OfSongs = __webpack_require__(852);
-	var Div3OfSongs = __webpack_require__(853);
-	var Div2OfSongs = __webpack_require__(854);
-	var Div1OfSongs = __webpack_require__(855);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfSongs = __webpack_require__(325);
+	var Div3OfSongs = __webpack_require__(326);
+	var Div2OfSongs = __webpack_require__(327);
+	var Div1OfSongs = __webpack_require__(328);
 
 	var style = {
 	  songListDivContainer: {
@@ -37067,7 +36540,7 @@
 	module.exports = SongList;
 
 /***/ },
-/* 851 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -39365,7 +38838,7 @@
 	//# sourceMappingURL=react-responsive.js.map
 
 /***/ },
-/* 852 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39500,7 +38973,7 @@
 	module.exports = Div4OfSongs;
 
 /***/ },
-/* 853 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39615,7 +39088,7 @@
 	module.exports = Div3OfSongs;
 
 /***/ },
-/* 854 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39710,7 +39183,7 @@
 	module.exports = Div2OfSongs;
 
 /***/ },
-/* 855 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39786,7 +39259,7 @@
 	module.exports = Div1OfSongs;
 
 /***/ },
-/* 856 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39801,11 +39274,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(851);
-	var Div4OfArtists = __webpack_require__(857);
-	var Div3OfArtists = __webpack_require__(858);
-	var Div2OfArtists = __webpack_require__(859);
-	var Div1OfArtists = __webpack_require__(860);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfArtists = __webpack_require__(330);
+	var Div3OfArtists = __webpack_require__(331);
+	var Div2OfArtists = __webpack_require__(332);
+	var Div1OfArtists = __webpack_require__(333);
 
 	var style = {
 	  artistListDivContainer: {
@@ -40069,7 +39542,7 @@
 	module.exports = ArtistList;
 
 /***/ },
-/* 857 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40213,7 +39686,7 @@
 	module.exports = Div4OfArtists;
 
 /***/ },
-/* 858 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40336,7 +39809,7 @@
 	module.exports = Div3OfArtists;
 
 /***/ },
-/* 859 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40442,7 +39915,7 @@
 	module.exports = Div2OfArtists;
 
 /***/ },
-/* 860 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40526,7 +39999,7 @@
 	module.exports = Div1OfArtists;
 
 /***/ },
-/* 861 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40541,11 +40014,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(851);
-	var Div4OfAlbums = __webpack_require__(862);
-	var Div3OfAlbums = __webpack_require__(863);
-	var Div2OfAlbums = __webpack_require__(864);
-	var Div1OfAlbums = __webpack_require__(865);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfAlbums = __webpack_require__(335);
+	var Div3OfAlbums = __webpack_require__(336);
+	var Div2OfAlbums = __webpack_require__(337);
+	var Div1OfAlbums = __webpack_require__(338);
 
 	var style = {
 	  albumListDivContainer: {
@@ -40842,7 +40315,7 @@
 	module.exports = AlbumList;
 
 /***/ },
-/* 862 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40977,7 +40450,7 @@
 	module.exports = Div4OfAlbums;
 
 /***/ },
-/* 863 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41092,7 +40565,7 @@
 	module.exports = Div3OfAlbums;
 
 /***/ },
-/* 864 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41187,7 +40660,7 @@
 	module.exports = Div2OfAlbums;
 
 /***/ },
-/* 865 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41263,7 +40736,7 @@
 	module.exports = Div1OfAlbums;
 
 /***/ },
-/* 866 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41278,11 +40751,11 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var MediaQuery = __webpack_require__(851);
-	var Div4OfRecordLabels = __webpack_require__(867);
-	var Div3OfRecordLabels = __webpack_require__(868);
-	var Div2OfRecordLabels = __webpack_require__(869);
-	var Div1OfRecordLabels = __webpack_require__(870);
+	var MediaQuery = __webpack_require__(324);
+	var Div4OfRecordLabels = __webpack_require__(340);
+	var Div3OfRecordLabels = __webpack_require__(341);
+	var Div2OfRecordLabels = __webpack_require__(342);
+	var Div1OfRecordLabels = __webpack_require__(343);
 
 	var style = {
 	  recordLabelListContainer: {},
@@ -41549,7 +41022,7 @@
 	module.exports = RecordLabelList;
 
 /***/ },
-/* 867 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41678,7 +41151,7 @@
 	module.exports = Div4OfRecordLabels;
 
 /***/ },
-/* 868 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41787,7 +41260,7 @@
 	module.exports = Div3OfRecordLabels;
 
 /***/ },
-/* 869 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41876,7 +41349,7 @@
 	module.exports = Div2OfRecordlabels;
 
 /***/ },
-/* 870 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41946,7 +41419,7 @@
 	module.exports = Div1OfRecordLabels;
 
 /***/ },
-/* 871 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41960,10 +41433,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(872);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42143,7 +41616,7 @@
 	module.exports = TermsOfServices;
 
 /***/ },
-/* 872 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42188,7 +41661,7 @@
 	module.exports = MyTitle;
 
 /***/ },
-/* 873 */
+/* 346 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42200,7 +41673,7 @@
 	module.exports = Domain;
 
 /***/ },
-/* 874 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42214,10 +41687,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(872);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42399,7 +41872,7 @@
 	module.exports = PrivacyPolicy;
 
 /***/ },
-/* 875 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42413,10 +41886,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(872);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -42912,7 +42385,7 @@
 	module.exports = ContactInformation;
 
 /***/ },
-/* 876 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42926,10 +42399,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(872);
+	var MyTitle = __webpack_require__(345);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -43110,7 +42583,7 @@
 	module.exports = About;
 
 /***/ },
-/* 877 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43124,11 +42597,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(872);
-	var ArtistList = __webpack_require__(856);
+	var MyTitle = __webpack_require__(345);
+	var ArtistList = __webpack_require__(329);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -43349,7 +42822,7 @@
 	module.exports = Connect;
 
 /***/ },
-/* 878 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43363,15 +42836,15 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var MyTitle = __webpack_require__(872);
-	var GigCard = __webpack_require__(879);
+	var MyTitle = __webpack_require__(345);
+	var GigCard = __webpack_require__(352);
 
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
 	var axios = __webpack_require__(266);
 
-	var _require2 = __webpack_require__(873),
+	var _require2 = __webpack_require__(346),
 	    domain = _require2.domain;
 
 	var style = {
@@ -43661,7 +43134,7 @@
 	module.exports = Gigs;
 
 /***/ },
-/* 879 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43677,7 +43150,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var _require2 = __webpack_require__(211),
@@ -44005,7 +43478,7 @@
 	module.exports = GigCard;
 
 /***/ },
-/* 880 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44479,7 +43952,7 @@
 	module.exports = Song;
 
 /***/ },
-/* 881 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44494,8 +43967,8 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var AlbumList = __webpack_require__(861);
-	var SongList = __webpack_require__(850);
+	var AlbumList = __webpack_require__(334);
+	var SongList = __webpack_require__(323);
 
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
@@ -44677,7 +44150,7 @@
 	module.exports = Artist;
 
 /***/ },
-/* 882 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44696,7 +44169,7 @@
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
 
-	var SongList = __webpack_require__(850);
+	var SongList = __webpack_require__(323);
 
 	var style = {
 	  details: {
@@ -44848,7 +44321,7 @@
 	module.exports = Album;
 
 /***/ },
-/* 883 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44863,7 +44336,7 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var AlbumList = __webpack_require__(861);
+	var AlbumList = __webpack_require__(334);
 
 	var _require = __webpack_require__(211),
 	    Link = _require.Link;
@@ -44942,7 +44415,7 @@
 	module.exports = Artist;
 
 /***/ },
-/* 884 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44987,7 +44460,7 @@
 	module.exports = Chords;
 
 /***/ },
-/* 885 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46672,7 +46145,7 @@
 	module.exports = EditSong;
 
 /***/ },
-/* 886 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46687,7 +46160,7 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var SongList = __webpack_require__(850);
+	var SongList = __webpack_require__(323);
 
 	var style = {
 	  details: {
@@ -47070,7 +46543,7 @@
 	module.exports = EditAlbum;
 
 /***/ },
-/* 887 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47085,8 +46558,8 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
-	var AlbumList = __webpack_require__(861);
-	var SongList = __webpack_require__(850);
+	var AlbumList = __webpack_require__(334);
+	var SongList = __webpack_require__(323);
 
 	var style = {
 	  socialMedia: {
@@ -47461,7 +46934,7 @@
 	module.exports = EditArtist;
 
 /***/ },
-/* 888 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47615,7 +47088,7 @@
 	module.exports = EditRecordLabel;
 
 /***/ },
-/* 889 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47631,10 +47104,10 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
-	var PreviewModal = __webpack_require__(890);
+	var PreviewModal = __webpack_require__(363);
 
 	var AddNewGig = function (_React$Component) {
 	  _inherits(AddNewGig, _React$Component);
@@ -48433,7 +47906,7 @@
 	module.exports = AddNewGig;
 
 /***/ },
-/* 890 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48450,7 +47923,7 @@
 	var Modal = __webpack_require__(292);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var customStyles = {
@@ -48685,7 +48158,7 @@
 	module.exports = PreviewModal;
 
 /***/ },
-/* 891 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48701,10 +48174,10 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
-	var ConfirmDeleteModal = __webpack_require__(892);
+	var ConfirmDeleteModal = __webpack_require__(365);
 
 	var EditGig = function (_React$Component) {
 	  _inherits(EditGig, _React$Component);
@@ -49550,7 +49023,7 @@
 	module.exports = EditGig;
 
 /***/ },
-/* 892 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49646,7 +49119,7 @@
 	module.exports = deleteConfirmModal;
 
 /***/ },
-/* 893 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49691,7 +49164,7 @@
 	module.exports = VenueList;
 
 /***/ },
-/* 894 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49707,10 +49180,10 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
-	var PreviewModal = __webpack_require__(895);
+	var PreviewModal = __webpack_require__(368);
 
 	var _require2 = __webpack_require__(211),
 	    Link = _require2.Link;
@@ -49938,7 +49411,7 @@
 	module.exports = AddNewVenue;
 
 /***/ },
-/* 895 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50084,7 +49557,7 @@
 	module.exports = PreviewModal;
 
 /***/ },
-/* 896 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50100,7 +49573,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Venue = function (_React$Component) {
@@ -50265,7 +49738,7 @@
 	module.exports = Venue;
 
 /***/ },
-/* 897 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50462,7 +49935,7 @@
 	module.exports = SettingPage;
 
 /***/ },
-/* 898 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50478,7 +49951,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -50895,7 +50368,7 @@
 	module.exports = Credits;
 
 /***/ },
-/* 899 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50945,7 +50418,7 @@
 	module.exports = LayoutAddOns;
 
 /***/ },
-/* 900 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51042,7 +50515,7 @@
 	module.exports = EditProfile;
 
 /***/ },
-/* 901 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51058,7 +50531,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
 	var Modal = __webpack_require__(292);
@@ -51399,7 +50872,7 @@
 	module.exports = Sources;
 
 /***/ },
-/* 902 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51468,7 +50941,7 @@
 	module.exports = Feedback;
 
 /***/ },
-/* 903 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51484,10 +50957,10 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(266);
 
-	var _require = __webpack_require__(873),
+	var _require = __webpack_require__(346),
 	    domain = _require.domain;
 
-	var BandMemberCard = __webpack_require__(904);
+	var BandMemberCard = __webpack_require__(377);
 
 	var _require2 = __webpack_require__(211),
 	    Link = _require2.Link;
@@ -51976,7 +51449,7 @@
 	module.exports = BandMembers;
 
 /***/ },
-/* 904 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
