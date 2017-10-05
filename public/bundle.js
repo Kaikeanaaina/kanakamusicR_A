@@ -35358,6 +35358,7 @@
 	    _this.submitSignUp = _this.submitSignUp.bind(_this);
 	    _this.showSubmitButton = _this.showSubmitButton.bind(_this);
 	    _this.logIn = _this.logIn.bind(_this);
+	    _this.hitTheRoute = _this.hitTheRoute.bind(_this);
 	    return _this;
 	  }
 
@@ -35444,26 +35445,41 @@
 	    value: function logIn() {
 	      var _this3 = this;
 
+	      console.log('111111111 log in fired');
 	      var user = {
 	        email: this.refs.email.value,
 	        password: this.refs.password.value
 	      };
 
+	      console.log('22222222222 created user', user);
+
 	      axios.post('/users/login', user).then(function (res) {
-	        if (res.data.error) {
+	        console.log('8888888888 got a response', res);
+	        if (res.data.message) {
+	          console.log('9a9a9a9a9a9a got an errorMessage');
 	          _this3.setState({
-	            errorMessage: res.data.error
+	            errorMessage: res.data.message
 	          });
 	        } else if (res.data.user) {
-	          console.log('user', res.data.user);
+	          console.log('9b9b9b9b9b9b9 got a user back', res.data.user);
 	          window.location.href = '/#/Home';
 	        } else {
+	          console.log('9c9c9c9c9c9c9c9c got nothing back', res.data);
 	          _this3.setState({
 	            errorMessage: ''
 	          });
 	        }
 	      }).catch(function (error) {
+	        console.log('88f8f8f8f8f8f8f8 got an error');
 	        console.log('axios error', error);
+	      });
+	    }
+	  }, {
+	    key: 'hitTheRoute',
+	    value: function hitTheRoute() {
+	      console.log('route hit');
+	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/1').then(function (res) {
+	        console.log('finish', res.data);
 	      });
 	    }
 	  }, {
@@ -35577,7 +35593,12 @@
 	        'div',
 	        null,
 	        theErrorMessageBlock,
-	        signUpOrLogInSection
+	        signUpOrLogInSection,
+	        React.createElement(
+	          'button',
+	          { onClick: this.hitTheRoute },
+	          ' hit the route'
+	        )
 	      );
 	    }
 	  }]);
@@ -49757,6 +49778,7 @@
 	    Link = _require.Link;
 
 	var Modal = __webpack_require__(292);
+	var axios = __webpack_require__(266);
 
 	var customStyles = {
 	  content: {
@@ -49790,8 +49812,6 @@
 	  _createClass(SettingPage, [{
 	    key: 'openModal',
 	    value: function openModal() {
-	      console.log('open modal to log out');
-	      // clicking link opens modal to confirm logging out
 	      this.setState({
 	        modalIsOpen: true
 	      });
@@ -49799,8 +49819,6 @@
 	  }, {
 	    key: 'closeModal',
 	    value: function closeModal() {
-	      console.log('closing modal to log out');
-	      // close modal to cancel action
 	      this.setState({
 	        modalIsOpen: false
 	      });
@@ -49808,7 +49826,16 @@
 	  }, {
 	    key: 'logOutSubmit',
 	    value: function logOutSubmit() {
+	      var _this2 = this;
+
 	      console.log('logging out button');
+	      axios.get('/users/logout').then(function (res) {
+	        console.log('success in logout');
+	        _this2.setState({ modalIsOpen: false });
+	        window.location.href = '/#/LogIn';
+	      }).catch(function (err) {
+	        console.log('axios err', err);
+	      });
 	      // axios call to log out
 	      // promise to
 	      // clear user
