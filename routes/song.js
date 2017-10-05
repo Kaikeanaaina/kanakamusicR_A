@@ -30,6 +30,7 @@ const exists = (req) => {
 }
 
 router.get('/', function (req, res) {
+  console.log(1111111, '/')
   Song.findAll({
     order: 'title'
   })
@@ -42,6 +43,7 @@ router.get('/', function (req, res) {
 })
 
 router.get('/ByAlbumId/:id', function (req, res) {
+  console.log('aaaaaaaaaaaa')
   Song.findAll({
     where: {
       AlbumId: encodeURI(req.params.id)
@@ -56,6 +58,7 @@ router.get('/ByAlbumId/:id', function (req, res) {
 })
 
 router.get('/ByArtistId/:id', function (req, res) {
+  console.log('bbbbbbbbbbb')
   Song.findAll({
     where: {
       ArtistId: encodeURI(req.params.id)
@@ -70,6 +73,7 @@ router.get('/ByArtistId/:id', function (req, res) {
 })
 
 router.get('/consumers/', function (req, res) {
+  console.log('ccccccccccccccc')
   Song.findAll({
     order: 'title',
     where: {
@@ -87,6 +91,7 @@ router.get('/consumers/', function (req, res) {
 })
 
 router.get('/consumers/ByAlbumId/:id', function (req, res) {
+  console.log('dddddddddd')
   Song.findAll({
     where: {
       AlbumId: encodeURI(req.params.id),
@@ -104,6 +109,7 @@ router.get('/consumers/ByAlbumId/:id', function (req, res) {
 })
 
 router.get('/consumers/ByArtistId/:id', function (req, res) {
+  console.log('eeeeeeeeeeeeee')
   Song.findAll({
     where: {
       ArtistId: encodeURI(req.params.id),
@@ -121,7 +127,9 @@ router.get('/consumers/ByArtistId/:id', function (req, res) {
 })
 
 router.get('/consumers/:id', function (req, res) {
+  console.log(111111111111, 'consumner id')
   if (exists) {
+    console.log(2222222222)
     Song.findOne({
       where: {
         id: req.params.id,
@@ -131,7 +139,22 @@ router.get('/consumers/:id', function (req, res) {
       }
     })
     .then(function (song) {
-      return res.json(song)
+      console.log(3333333, song.totalViews)
+      Song.update(
+        {
+          totalViews: song.totalViews++
+        }, {
+          where: {
+            id: req.params.id
+          }
+        })
+      .then(function (song) {
+        console.log(4444444444444, song.totalViews)
+        return res.json(song)
+      })
+      .catch(function (err) {
+        return res.json({ error: err})
+      })
     })
     .catch(function (err) {
       return res.json({ error: err})
@@ -142,6 +165,7 @@ router.get('/consumers/:id', function (req, res) {
 })
 
 router.get('/:id', function (req, res) {
+  console.log('111111111 id')
   if (exists) {
     Song.findOne({
       where: {
