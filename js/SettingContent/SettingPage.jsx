@@ -1,6 +1,7 @@
 const React = require('react')
 const { Link } = require('react-router')
 const Modal = require('react-modal')
+const axios = require('axios')
 
 const customStyles = {
   content: {
@@ -25,21 +26,26 @@ class SettingPage extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this)
   }
   openModal () {
-    console.log('open modal to log out')
-    // clicking link opens modal to confirm logging out
     this.setState({
       modalIsOpen: true
     })
   }
   closeModal () {
-    console.log('closing modal to log out')
-    // close modal to cancel action
     this.setState({
       modalIsOpen: false
     })
   }
   logOutSubmit () {
     console.log('logging out button')
+    axios.get(`/users/logout`)
+    .then((res) => {
+      console.log('success in logout')
+      this.setState({modalIsOpen: false})
+      window.location.href = '/#/LogIn'
+    })
+    .catch((err) => {
+      console.log('axios err', err)
+    })
     // axios call to log out
     // promise to
     // clear user

@@ -22,6 +22,7 @@ class LogIn extends React.Component {
     this.submitSignUp = this.submitSignUp.bind(this)
     this.showSubmitButton = this.showSubmitButton.bind(this)
     this.logIn = this.logIn.bind(this)
+    this.hitTheRoute = this.hitTheRoute.bind(this)
   }
   componentWillUnmount () {
     this.refs.email.value = null
@@ -92,28 +93,42 @@ class LogIn extends React.Component {
     })
   }
   logIn () {
+    console.log('111111111 log in fired')
     let user = {
       email: this.refs.email.value,
       password: this.refs.password.value
     }
 
+    console.log('22222222222 created user', user)
+
     axios.post(`/users/login`, user)
     .then((res) => {
-      if (res.data.error) {
+      console.log('8888888888 got a response', res)
+      if (res.data.message) {
+        console.log('9a9a9a9a9a9a got an errorMessage')
         this.setState({
-          errorMessage: res.data.error
+          errorMessage: res.data.message
         })
       } else if (res.data.user) {
-        console.log('user', res.data.user)
+        console.log('9b9b9b9b9b9b9 got a user back', res.data.user)
         window.location.href = '/#/Home'
       } else {
+        console.log('9c9c9c9c9c9c9c9c got nothing back', res.data)
         this.setState({
           errorMessage: ''
         })
       }
     })
     .catch((error) => {
+      console.log('88f8f8f8f8f8f8f8 got an error')
       console.log('axios error', error)
+    })
+  }
+  hitTheRoute () {
+    console.log('route hit')
+    axios.get(`https://kanakamusicstaging.herokuapp.com/songs/consumers/1`)
+    .then((res) => {
+      console.log('finish', res.data)
     })
   }
   render () {
@@ -139,6 +154,7 @@ class LogIn extends React.Component {
       <div>
         {theErrorMessageBlock}
         {signUpOrLogInSection}
+        <button onClick={this.hitTheRoute} > hit the route</button>
       </div>
 
     )
