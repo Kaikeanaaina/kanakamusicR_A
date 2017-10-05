@@ -13,6 +13,99 @@ const bcrypt = require('bcrypt')
 router.use(bodyParser.json({ extended: false }))
 router.use(cookieParser());
 
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
+const session = require('express-session');
+const CONFIG = require('../config/config.js');
+
+app.use(session(CONFIG.SESSION));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.use(new LocalStrategy(
+  function(email, password, done) {
+    console.log('44444444444')
+    User.findOne({
+      where: {
+        email: email
+      }
+    })
+    .then(function(user){
+      console.log('55555555555 user', user)
+
+      bcrypt.compare(password, user.password, function(err, res){
+        console.log('666666666 compared password and hash')
+        if(err) {
+          console.log('EEERRRROOOOOOORRRRR', err)
+          return done (err)
+        }
+        if (!user) {
+          console.log('NNNOOOOOO UUUUSSSSEEEEERRRRR')
+          return done (null, false, {message: 'Incorrect Username'})
+        }
+        if (!res) {
+          console.log('IINNVVAAALLLIIIDDDD PPPAAAAASSSWWWOOORRRDDD')
+          return done (null, false, {message: 'Incorrect Password'})
+        }
+        console.log('77777777 user')
+        return done(null, user)
+      })
+    })
+  }
+));
+
+router.post('/login', function(req, res){console.log('3333333333')}, passport.authenticate('local', {
+  successRedirect: '/Home',
+  failureRedirect: '/LogIn',
+  failureFlash: true
+  }), function(req, res) {
+  res.redirect('/Home')
+})
+
+router.get('/logout', function(req,res){
+  req.logout();
+  return res.json({success: true})
+});
+
+// //authenticate middleware ('local') called in above function upon login
+// passport.use(new LocalStrategy({
+//   passReqToCallback: true
+//   },
+//   function(req, name, password, done) {
+//     console.log('44444444444 hit the local Strategy')
+//     User.findOne({
+//       where: {
+//         email : name
+//       }
+//     })
+//     .then(function(user){
+//       console.log('555555555 searched for a user')
+//       bcrypt.compare(password, user.password, function(err, res){
+//         console.log('666666666 compared password and hash')
+//         if(err) {
+//           return done (err)
+//         }
+//         if (!user) {
+//           return done (null, false, {message: 'Incorrect Username'})
+//         }
+//         if (!res) {
+//           return done (null, false, {message: 'Incorrect Password'})
+//         }
+//         return done(null, user)
+//       })
+//     })
+// }));
+
+
+
 function hash(req) {
   return new Promise (function(resolve, reject) {
     bcrypt.genSalt(12, function(err, salt) {
