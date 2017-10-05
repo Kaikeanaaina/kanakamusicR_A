@@ -22,6 +22,32 @@ const app = express()
 const db = require('./models')
 const User = db.User
 
+
+// ****************************************
+// ****************************************
+
+const passport = require('passport')
+const session = require('express-session')
+const LocalStrategy = require('passport-local').Strategy
+const bcrypt = require('bcrypt')
+const flash = require('connect-flash')
+
+app.use(session({secret: 'keyboard cat'}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash());
+
+passport.serializeUser( function ( user, done ) {
+  return done( null, user );
+});
+
+passport.deserializeUser( function ( user, done ) {
+  return done( null, user );
+});
+
+// ****************************************
+// ****************************************
+
 app.use('/public', express.static('./public'))
 
 app.all('/*', function (req, res, next) {
