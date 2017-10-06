@@ -35478,7 +35478,7 @@
 	    key: 'hitTheRoute',
 	    value: function hitTheRoute() {
 	      console.log('route hit');
-	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/1').then(function (res) {
+	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/' + 1).then(function (res) {
 	        console.log('finish', res.data);
 	      });
 	    }
