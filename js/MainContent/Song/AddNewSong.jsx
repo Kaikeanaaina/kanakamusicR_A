@@ -517,7 +517,7 @@ class AddNewSong extends React.Component {
     this.setState({
       successModalIsOpen: false
     })
-    window.location.href = '/#/'
+    window.location.href = '/#/Home'
   }
   artistChange (event) {
     event.preventDefault()
