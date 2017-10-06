@@ -130,27 +130,27 @@ router.get('/consumers/:id', function (req, res) {
   console.log(111111111111, 'consumner id')
   if (exists) {
     console.log(2222222222)
-    Song.findOne({
-      where: {
-        id: req.params.id,
-        visibilityBySong: true,
-        visibilityByAlbum: true,
-        visibilityByArtist: true
-      }
-    })
+    Song.update(
+      {
+        totalViews: song.totalViews++
+      }, {
+        where: {
+          id: req.params.id
+        }
+      })
     .then(function (song) {
-      console.log(3333333, song, req.params.id)
-      Song.update(
-        {
-          totalViews: song.totalViews++
-        }, {
-          where: {
-            id: req.params.id
-          }
-        })
+      console.log(333333333, song, req.params.id)
+      Song.findOne({
+        where: {
+          id: req.params.id,
+          visibilityBySong: true,
+          visibilityByAlbum: true,
+          visibilityByArtist: true
+        }
+      })
       .then(function (song) {
-        console.log(4444444444444, song, req.params.id)
-        return res.json(song)
+        console.log(444444444444, song, req.params.id)
+        res.json(song)
       })
       .catch(function (err) {
         return res.json({ error: err})
