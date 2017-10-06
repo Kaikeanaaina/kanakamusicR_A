@@ -35351,7 +35351,8 @@
 	    _this.state = {
 	      showingSignUpForm: false,
 	      showingSubmitSignUpButton: false,
-	      errorMessage: ''
+	      errorMessage: '',
+	      totalViews: 0
 	    };
 	    _this.showSignUpForm = _this.showSignUpForm.bind(_this);
 	    _this.showLogInForm = _this.showLogInForm.bind(_this);
@@ -35477,9 +35478,14 @@
 	  }, {
 	    key: 'hitTheRoute',
 	    value: function hitTheRoute() {
+	      var _this4 = this;
+
 	      console.log('route hit');
-	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/' + 1).then(function (res) {
-	        console.log('finish', res.data);
+	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/' + 1, { totalViews: this.state.totalViews }).then(function (res) {
+	        _this4.setState({
+	          totalViews: res.data.totalViews
+	        });
+	        console.log('finish', res.data, _this4.state.totalViews);
 	      });
 	    }
 	  }, {
