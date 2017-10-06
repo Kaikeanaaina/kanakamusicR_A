@@ -15,7 +15,8 @@ class LogIn extends React.Component {
     this.state = {
       showingSignUpForm: false,
       showingSubmitSignUpButton: false,
-      errorMessage: ''
+      errorMessage: '',
+      totalViews: 0
     }
     this.showSignUpForm = this.showSignUpForm.bind(this)
     this.showLogInForm = this.showLogInForm.bind(this)
@@ -126,9 +127,12 @@ class LogIn extends React.Component {
   }
   hitTheRoute () {
     console.log('route hit')
-    axios.get(`https://kanakamusicstaging.herokuapp.com/songs/consumers/${1}`)
+    axios.get(`https://kanakamusicstaging.herokuapp.com/songs/consumers/${1}`, {totalViews: this.state.totalViews})
     .then((res) => {
-      console.log('finish', res.data)
+      this.setState({
+        totalViews: res.data.totalViews
+      })
+      console.log('finish', res.data, this.state.totalViews)
     })
   }
   render () {
