@@ -128,6 +128,7 @@ router.get('/consumers/ByArtistId/:id', function (req, res) {
 
 router.get('/consumers/:id', function (req, res) {
   console.log(111111111111, 'consumner id')
+  console.log(111111111111, typeof req.body.totalViews)
   if (exists) {
     console.log(2222222222)
     Song.update(
