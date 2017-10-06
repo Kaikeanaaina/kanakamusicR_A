@@ -132,7 +132,7 @@ router.get('/consumers/:id', function (req, res) {
     console.log(2222222222)
     Song.update(
       {
-        totalViews: this.totalViews++
+        totalViews: req.body.totalViews++
       }, {
         where: {
           id: req.params.id
