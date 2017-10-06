@@ -37,7 +37,7 @@ class Artist extends React.Component {
       showSongList: false
     }
   }
-  componentDidMount () {
+  componentWillMount () {
     axios.get(`/artists/${this.props.params.id}`)
     .then((res) => {
       this.setState({

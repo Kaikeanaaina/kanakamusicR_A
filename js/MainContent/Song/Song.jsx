@@ -36,7 +36,7 @@ class Song extends React.Component {
       RecordLabel: {}
     }
   }
-  componentDidMount () {
+  componentWillMount () {
     axios.get(`/songs/${this.props.params.id}`)
     .then((res) => {
       this.setState({
