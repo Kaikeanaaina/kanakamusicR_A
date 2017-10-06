@@ -28941,7 +28941,7 @@
 	      this.setState({
 	        successModalIsOpen: false
 	      });
-	      window.location.href = '/#/';
+	      window.location.href = '/#/Home';
 	    }
 	  }, {
 	    key: 'artistChange',
@@ -34579,7 +34579,7 @@
 	      this.setState({
 	        successModalIsOpen: false
 	      });
-	      window.location.href = '/#/';
+	      window.location.href = '/#/Home';
 	    }
 	  }, {
 	    key: 'onSubmit',
@@ -34780,7 +34780,7 @@
 	      this.setState({
 	        successModalIsOpen: false
 	      });
-	      window.location.href = '/#/';
+	      window.location.href = '/#/Home';
 	    }
 	  }, {
 	    key: 'componentDidMount',
@@ -34996,7 +34996,7 @@
 	      this.setState({
 	        successModalIsOpen: false
 	      });
-	      window.location.href = '/#/';
+	      window.location.href = '/#/Home';
 	    }
 	  }, {
 	    key: 'onSubmit',
@@ -35351,8 +35351,7 @@
 	    _this.state = {
 	      showingSignUpForm: false,
 	      showingSubmitSignUpButton: false,
-	      errorMessage: '',
-	      totalViews: 0
+	      errorMessage: ''
 	    };
 	    _this.showSignUpForm = _this.showSignUpForm.bind(_this);
 	    _this.showLogInForm = _this.showLogInForm.bind(_this);
@@ -35478,19 +35477,7 @@
 	  }, {
 	    key: 'hitTheRoute',
 	    value: function hitTheRoute() {
-	      var _this4 = this;
-
-	      console.log('hi', this.state.totalViews);
-
-	      var user = {
-	        totalViews: this.state.totalViews
-	      };
-	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/' + 1, user).then(function (res) {
-	        console.log('finish');
-	        _this4.setState({
-	          totalViews: _this4.state.totalViews + 1
-	        });
-	      });
+	      console.log(this);
 	    }
 	  }, {
 	    key: 'render',
@@ -43565,12 +43552,13 @@
 	      Album: [],
 	      RecordLabel: {}
 	    };
+	    _this.hitTheRoute = _this.hitTheRoute.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(Song, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      var _this2 = this;
 
 	      axios.get('/songs/' + this.props.params.id).then(function (res) {
@@ -43605,6 +43593,11 @@
 	      });
 	    }
 	  }, {
+	    key: 'hitTheRoute',
+	    value: function hitTheRoute() {
+	      console.log(this);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return React.createElement(
@@ -43618,6 +43611,11 @@
 	            null,
 	            this.state.song.title
 	          )
+	        ),
+	        React.createElement(
+	          'button',
+	          { onClick: this.hitTheRoute },
+	          'hit the route'
 	        ),
 	        React.createElement(
 	          'div',
@@ -44044,8 +44042,8 @@
 	  }
 
 	  _createClass(Artist, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      var _this2 = this;
 
 	      axios.get('/artists/' + this.props.params.id).then(function (res) {
@@ -44241,8 +44239,8 @@
 	  }
 
 	  _createClass(Album, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      var _this2 = this;
 
 	      axios.get('/albums/' + this.props.params.id).then(function (res) {
@@ -44387,8 +44385,8 @@
 	  }
 
 	  _createClass(Artist, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      var _this2 = this;
 
 	      axios.get('/recordLabels/' + this.props.params.id).then(function (res) {

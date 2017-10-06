@@ -127,31 +127,24 @@ router.get('/consumers/ByArtistId/:id', function (req, res) {
 })
 
 router.get('/consumers/:id', function (req, res) {
-  console.log(111111111111, 'consumner id', req.body)
-  console.log(111111111111, typeof req.body.totalViews)
   if (exists) {
-    console.log(2222222222)
-    Song.update(
-      {
-        totalViews: req.body.totalViews++
+    Song.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function(song){
+      Song.update({
+        totalViews: song.totalViews + 1,
+        monthlyViews: song.monthlyViews + 1,
+        weeklyViews: song.weeklyViews + 1
       }, {
         where: {
           id: req.params.id
         }
       })
-    .then(function (song) {
-      console.log(333333333, song, req.params.id)
-      Song.findOne({
-        where: {
-          id: req.params.id,
-          visibilityBySong: true,
-          visibilityByAlbum: true,
-          visibilityByArtist: true
-        }
-      })
-      .then(function (song) {
-        console.log(444444444444, song, req.params.id)
-        res.json(song)
+      .then(function (data) {
+        return res.json(song)
       })
       .catch(function (err) {
         return res.json({ error: err})
@@ -160,8 +153,6 @@ router.get('/consumers/:id', function (req, res) {
     .catch(function (err) {
       return res.json({ error: err})
     })
-  } else {
-    res.json({success: false})
   }
 })
 
