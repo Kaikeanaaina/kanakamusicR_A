@@ -35478,18 +35478,7 @@
 	  }, {
 	    key: 'hitTheRoute',
 	    value: function hitTheRoute() {
-	      var _this4 = this;
-
-	      var user = {
-	        totalViews: this.state.totalViews
-	      };
-	      console.log('route hit');
-	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/' + 1, user).then(function (res) {
-	        _this4.setState({
-	          totalViews: res.data.totalViews
-	        });
-	        console.log('finish', res.data, _this4.state.totalViews);
-	      });
+	      console.log('hi');
 	    }
 	  }, {
 	    key: 'render',

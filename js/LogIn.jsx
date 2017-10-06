@@ -126,17 +126,7 @@ class LogIn extends React.Component {
     })
   }
   hitTheRoute () {
-    let user = {
-      totalViews: this.state.totalViews
-    }
-    console.log('route hit')
-    axios.get(`https://kanakamusicstaging.herokuapp.com/songs/consumers/${1}`, user)
-    .then((res) => {
-      this.setState({
-        totalViews: res.data.totalViews
-      })
-      console.log('finish', res.data, this.state.totalViews)
-    })
+    console.log('hi')
   }
   render () {
     let signUpOrLogInSection = null
