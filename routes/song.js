@@ -139,7 +139,7 @@ router.get('/consumers/:id', function (req, res) {
       }
     })
     .then(function (song) {
-      console.log(3333333, song.totalViews)
+      console.log(3333333, song, req.params.id)
       Song.update(
         {
           totalViews: song.totalViews++
@@ -149,7 +149,7 @@ router.get('/consumers/:id', function (req, res) {
           }
         })
       .then(function (song) {
-        console.log(4444444444444, song.totalViews)
+        console.log(4444444444444, song, req.params.id)
         return res.json(song)
       })
       .catch(function (err) {
