@@ -14,9 +14,9 @@ router.use(bodyParser.json({ extended: false }))
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const session = require('express-session');
-const CONFIG = require('../config/config.js');
+//const CONFIG = require('../config/config.js');
 
-app.use(session(CONFIG.SESSION));
+app.use(session({secret: 'Keyboard cat'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
