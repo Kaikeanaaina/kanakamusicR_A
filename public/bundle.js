@@ -35480,8 +35480,11 @@
 	    value: function hitTheRoute() {
 	      var _this4 = this;
 
+	      var user = {
+	        totalViews: this.state.totalViews
+	      };
 	      console.log('route hit');
-	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/' + 1, { totalViews: this.state.totalViews }).then(function (res) {
+	      axios.get('https://kanakamusicstaging.herokuapp.com/songs/consumers/' + 1, user).then(function (res) {
 	        _this4.setState({
 	          totalViews: res.data.totalViews
 	        });
