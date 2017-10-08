@@ -22,7 +22,6 @@ class LogIn extends React.Component {
     this.submitSignUp = this.submitSignUp.bind(this)
     this.showSubmitButton = this.showSubmitButton.bind(this)
     this.logIn = this.logIn.bind(this)
-    this.hitTheRoute = this.hitTheRoute.bind(this)
   }
   componentWillUnmount () {
     this.refs.email.value = null
@@ -99,17 +98,22 @@ class LogIn extends React.Component {
       password: this.refs.password.value
     }
 
+    if (!this.refs.email.value) {
+      return this.setState({errorMessage: 'input email'})
+    }
+
     console.log('22222222222 created user', user)
 
     axios.post(`/users/login`, user)
     .then((res) => {
       console.log('8888888888 got a response', res)
+      console.log(this.session)
       if (res.data.message) {
         console.log('9a9a9a9a9a9a got an errorMessage')
         this.setState({
           errorMessage: res.data.message
         })
-      } else if (res.data.user) {
+      } else if (res.data) {
         console.log('9b9b9b9b9b9b9 got a user back', res.data.user)
         window.location.href = '/#/Home'
       } else {
@@ -123,9 +127,6 @@ class LogIn extends React.Component {
       console.log('88f8f8f8f8f8f8f8 got an error')
       console.log('axios error', error)
     })
-  }
-  hitTheRoute () {
-    console.log(this)
   }
   render () {
     let signUpOrLogInSection = null
@@ -150,7 +151,6 @@ class LogIn extends React.Component {
       <div>
         {theErrorMessageBlock}
         {signUpOrLogInSection}
-        <button onClick={this.hitTheRoute} > hit the route</button>
       </div>
 
     )
