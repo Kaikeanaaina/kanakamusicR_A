@@ -29,7 +29,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new LocalStrategy(
-  function(email, password, done) {
+  (email, password, done) => {
     console.log('44444444444')
     User.findOne({
       where: {
@@ -60,13 +60,46 @@ passport.use(new LocalStrategy(
   }
 ));
 
-router.post('/login', function(req, res){console.log('3333333333')}, passport.authenticate('local', {
-  successRedirect: '/Home',
-  failureRedirect: '/LogIn',
-  failureFlash: true
-  }), function(req, res) {
-  res.redirect('/Home')
-})
+// router.post('/login', function(req, res){console.log('3333333333')}, passport.authenticate('local', {
+//   successRedirect: '/Home',
+//   failureRedirect: '/LogIn',
+//   failureFlash: true
+//   }), function(req, res) {
+//   res.redirect('/Home')
+// })
+
+// router.post('/login',((req,res) => {console.log('33333333')}), (req,res) => {
+//   passport.authenticate('local', (err, user) => {
+//     console.log('pasiodfjaos;difjaposdifjpoa')
+//   })
+// })
+
+router.post('/login', (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then((data) =>{
+    passport.authenticate('local', (err, user) => {
+      if (err) {
+        return res.json(err)
+      }
+
+      if (!data) {
+        return res.json({message: 'invalid email'})
+      }
+      bcrypt.compare(req.body.password, data.dataValues.password, function(err, comparedHash){
+        if(err) {
+          return res.json ({message: err})
+        }
+        if (!comparedHash) {
+          return res.json ({message: 'Incorrect Password'})
+        }
+        return res.json (data)
+      })
+    })(req, res);
+  })
+});
 
 router.get('/logout', function(req,res){
   req.logout();
