@@ -35,8 +35,9 @@ class Song extends React.Component {
       Album: [],
       RecordLabel: {}
     }
+    this.hitTheRoute = this.hitTheRoute.bind(this)
   }
-  componentDidMount () {
+  componentWillMount () {
     axios.get(`/songs/${this.props.params.id}`)
     .then((res) => {
       this.setState({
@@ -76,12 +77,16 @@ class Song extends React.Component {
       console.error('axios error', error)
     })
   }
+  hitTheRoute () {
+    console.log(this)
+  }
   render () {
     return (
       <div>
         <div>
           <h1>{this.state.song.title}</h1>
         </div>
+        <button onClick={this.hitTheRoute} >hit the route</button>
         <div>
           <button>
             <Link to={`/song/edit/${this.state.song.id}`}> Edit Song </Link>

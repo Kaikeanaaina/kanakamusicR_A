@@ -38,7 +38,7 @@ class Album extends React.Component {
       showSongList: false
     }
   }
-  componentDidMount () {
+  componentWillMount () {
     axios.get(`/albums/${this.props.params.id}`)
     .then((res) => {
       this.setState({

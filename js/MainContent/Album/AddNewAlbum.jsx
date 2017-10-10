@@ -85,7 +85,7 @@ class AddNewAlbum extends React.Component {
     this.setState({
       successModalIsOpen: false
     })
-    window.location.href = '/#/'
+    window.location.href = '/#/Home'
   }
   componentDidMount () {
     axios.get(`/recordLabels`)

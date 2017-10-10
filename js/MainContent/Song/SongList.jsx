@@ -32,6 +32,9 @@ class SongList extends React.Component {
       songs2DivArray2: []
     }
   }
+  componentWillMount () {
+    console.log(this)
+  }
   componentDidMount () {
     if (this.props.ArtistId) {
       axios.get(`/songs/ByArtistId/${this.props.ArtistId}`)

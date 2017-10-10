@@ -11,7 +11,7 @@ class Artist extends React.Component {
       RecordLabel: {}
     }
   }
-  componentDidMount () {
+  componentWillMount () {
     axios.get(`/recordLabels/${this.props.params.id}`)
     .then((res) => {
       this.setState({
