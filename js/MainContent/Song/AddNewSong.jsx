@@ -105,31 +105,31 @@ class AddNewSong extends React.Component {
   }
   componentDidMount () {
     axios.get(`/artists`)
-    .then((res) => {
-      this.setState({
-        artists: res.data,
-        modalIsOpen: false,
-        successModalIsOpen: false
+      .then((res) => {
+        this.setState({
+          artists: res.data,
+          modalIsOpen: false,
+          successModalIsOpen: false
+        })
       })
-    })
-    .catch((error) => {
-      console.log('axios error', error)
-    })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
   }
   onSubmit (e) {
     e.preventDefault()
 
     axios.post(`/songs`, this.state.object)
-    .then((res) => {
-    // should catch error here
-      this.setState({
-        modalIsOpen: false,
-        successModalIsOpen: true
+      .then((res) => {
+        // should catch error here
+        this.setState({
+          modalIsOpen: false,
+          successModalIsOpen: true
+        })
       })
-    })
-    .catch((error) => {
-      console.log('axios error', error)
-    })
+      .catch((error) => {
+        console.log('axios error', error)
+      })
   }
   openModal () {
     let splitTitle = this.refs.title.value.split('')
@@ -529,24 +529,24 @@ class AddNewSong extends React.Component {
       return
     } else {
       axios.get(`/artists/${event.target.value}`)
-      .then((res) => {
-        this.setState({
-          visibilityByArtist: res.data.visibilityByArtist
+        .then((res) => {
+          this.setState({
+            visibilityByArtist: res.data.visibilityByArtist
+          })
         })
-      })
-      .catch((error) => {
-        console.log('axios error', error)
-      })
+        .catch((error) => {
+          console.log('axios error', error)
+        })
       // populate the albums depending on the artist
       axios.get(`/albums/ByArtistId/${event.target.value}`)
-      .then((res) => {
-        this.setState({
-          albums: res.data
+        .then((res) => {
+          this.setState({
+            albums: res.data
+          })
         })
-      })
-      .catch((error) => {
-        console.log('axios error', error)
-      })
+        .catch((error) => {
+          console.log('axios error', error)
+        })
     }
   }
   albumChange (event) {
@@ -557,14 +557,14 @@ class AddNewSong extends React.Component {
       return
     } else {
       axios.get(`/albums/${event.target.value}`)
-      .then((res) => {
-        this.setState({
-          visibilityByAlbum: res.data.visibilityByAlbum
+        .then((res) => {
+          this.setState({
+            visibilityByAlbum: res.data.visibilityByAlbum
+          })
         })
-      })
-      .catch((error) => {
-        console.log('axios error', error)
-      })
+        .catch((error) => {
+          console.log('axios error', error)
+        })
     }
   }
   handleLyric1 (e) {
