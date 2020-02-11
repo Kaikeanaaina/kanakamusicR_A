@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const db = require('./../models')
 const User = db.User
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 router.use(bodyParser.json({ extended: false }))
 
