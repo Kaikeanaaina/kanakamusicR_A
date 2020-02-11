@@ -28,7 +28,7 @@ const User = db.User
 const passport = require('passport')
 const session = require('express-session')
 const LocalStrategy = require('passport-local').Strategy
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const flash = require('connect-flash')
 
 app.use(session({secret: 'keyboard cat'}))
