@@ -10,7 +10,7 @@ open terminal
 two terminal windows need to operate
 
 1st terminal - when in the root of the project, run in the cli
-"npm watch"
+"npm run watch"
 
 2nd terminal - when in the root of the project, run in the cli
 "nodemon server.js"
