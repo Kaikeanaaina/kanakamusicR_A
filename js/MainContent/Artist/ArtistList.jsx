@@ -232,7 +232,6 @@ class ArtistList extends React.Component {
 }
 
 ArtistList.propTypes = {
-  artists: React.PropTypes.arrayOf(React.PropTypes.object),
   type: React.PropTypes.string
 }
 

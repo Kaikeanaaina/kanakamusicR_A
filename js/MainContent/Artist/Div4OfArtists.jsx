@@ -94,9 +94,7 @@ const Div4OfArtists = (props) => (
 const { object } = React.PropTypes
 
 Div4OfArtists.propTypes = {
-  style: object,
-  state: object,
-  props: object
+  state: object
 }
 
 module.exports = Div4OfArtists

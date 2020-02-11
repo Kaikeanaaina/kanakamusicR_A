@@ -265,7 +265,6 @@ class AlbumList extends React.Component {
 }
 
 AlbumList.propTypes = {
-  albums: React.PropTypes.arrayOf(React.PropTypes.object),
   ArtistId: React.PropTypes.number,
   RecordLabelId: React.PropTypes.number
 }

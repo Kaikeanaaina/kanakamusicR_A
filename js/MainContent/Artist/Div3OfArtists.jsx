@@ -82,7 +82,6 @@ const Div3OfArtists = (props) => (
 const { object } = React.PropTypes
 
 Div3OfArtists.propTypes = {
-  style: object,
   state: object
 }
 

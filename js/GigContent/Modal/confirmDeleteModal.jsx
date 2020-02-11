@@ -46,7 +46,6 @@ class deleteConfirmModal extends React.Component {
 deleteConfirmModal.propTypes = {
   modalIsOpen: React.PropTypes.bool,
   closeModal: React.PropTypes.func,
-  object: React.PropTypes.object,
   delete: React.PropTypes.func,
   contentLabel: React.PropTypes.string.isRequired
 }

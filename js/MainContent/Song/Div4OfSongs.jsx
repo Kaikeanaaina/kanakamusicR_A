@@ -86,7 +86,6 @@ const Div4OfSongs = (props) => (
 const { object } = React.PropTypes
 
 Div4OfSongs.propTypes = {
-  style: object,
   state: object
 }
 

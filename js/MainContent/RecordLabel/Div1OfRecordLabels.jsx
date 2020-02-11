@@ -47,7 +47,6 @@ const Div1OfRecordLabels = (props) => (
 const { object } = React.PropTypes
 
 Div1OfRecordLabels.propTypes = {
-  style: object,
   state: object
 }
 

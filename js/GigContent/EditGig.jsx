@@ -395,8 +395,7 @@ class EditGig extends React.Component {
 }
 
 EditGig.propTypes = {
-  params: React.PropTypes.object,
-  gig: React.PropTypes.object
+  params: React.PropTypes.object
 }
 
 module.exports = EditGig

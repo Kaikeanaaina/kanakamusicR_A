@@ -437,7 +437,6 @@ class SongList extends React.Component {
 }
 
 SongList.propTypes = {
-  songs: React.PropTypes.arrayOf(React.PropTypes.object),
   ArtistId: React.PropTypes.number,
   AlbumId: React.PropTypes.number
 }

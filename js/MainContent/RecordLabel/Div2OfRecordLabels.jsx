@@ -56,7 +56,6 @@ const Div2OfRecordlabels = (props) => (
 const { object } = React.PropTypes
 
 Div2OfRecordlabels.propTypes = {
-  style: object,
   state: object
 }
 

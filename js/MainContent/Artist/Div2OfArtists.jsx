@@ -67,12 +67,10 @@ const Div2OfArtists = (props) => (
   </div>
 )
 
-const { object, string } = React.PropTypes
+const { object } = React.PropTypes
 
 Div2OfArtists.propTypes = {
-  style: object,
-  state: object,
-  type: string
+  state: object
 }
 
 module.exports = Div2OfArtists

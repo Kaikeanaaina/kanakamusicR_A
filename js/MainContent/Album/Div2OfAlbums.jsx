@@ -62,7 +62,6 @@ const Div2OfAlbums = (props) => (
 const { object } = React.PropTypes
 
 Div2OfAlbums.propTypes = {
-  style: object,
   state: object
 }
 

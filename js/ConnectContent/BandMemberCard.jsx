@@ -18,12 +18,10 @@ const BandMemberCard = (props) => (
   </div>
 )
 
-const { object, func } = React.PropTypes
+const { object } = React.PropTypes
 
 BandMemberCard.propTypes = {
-  bandMember: object,
-  openEditModal: func,
-  openDeleteModal: func
+  bandMember: object
 }
 
 module.exports = BandMemberCard
