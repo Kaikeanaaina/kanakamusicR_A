@@ -8,3 +8,4 @@ _site/
 npm-debug.log
 config/
 .env
+logfile
