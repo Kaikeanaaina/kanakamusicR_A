@@ -9,7 +9,7 @@ module.exports = {
     publicPath: '/public/'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json']
   },
   stats: {
     colors: true,
@@ -17,15 +17,11 @@ module.exports = {
     chunks: true
   },
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'eslint-loader'
-      }
-    ],
-    loaders: [
-      {
-        test: /\.jsx?$/,
+        enforce: 'pre',
+        //loader: 'eslint-loader',
         loader: 'babel-loader',
         include: path.join(__dirname, '/js')
       },
